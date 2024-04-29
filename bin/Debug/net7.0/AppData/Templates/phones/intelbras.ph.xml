@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>145775</version>
+    <time>2019-07-11 16:00:00</time>
+    <name>Intelbras TIP1XX</name>
+    <url>https://www.3cx.com/sip-phones/intelbras-tip/</url>
+	<templatetype>thirdparty</templatetype>
+    <models>
+      <model ua="TIP120">Intelbras TIP120</model>
+      <model ua="TIP125">Intelbras TIP125</model>
+    </models>
+    <description>Intelbras SIP Phone</description>
+	<parsers>
+      <parser>BLF</parser>
+    </parsers>
+    <rebootParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </rebootParams>
+    <resyncParams>
+      <event-name>check-sync;reboot=false</event-name>
+    </resyncParams>
+    <firmwareParams>
+      <event-name>check-sync;reboot=false</event-name>
+    </firmwareParams>
+    <rps>1</rps>
+    <hotdesking>1</hotdesking>
+    <AllowedNetworkConfig>
+      <option value="LOCALLAN">1</option>
+      <option value="REMOTESTUN">1</option>
+      <option value="SBC">1</option>
+    </AllowedNetworkConfig>
+    <interfaceLink>https://admin:%%PHONE_WEB_PASSWORD%%@%%PHONE_IP%%</interfaceLink>
+    <AllowWebPasswordChange>1</AllowWebPasswordChange>
+    <AllowSSLProvisioning>1</AllowSSLProvisioning>
+    <xfertype enabled="true" bxfer_Value="2" attxfer_Value="1" />
+    <dst variableName="dstEnableDisable" enable="1" disable="0"></dst>
+    <languages>
+      <!--The first entry is the selected entry in management console-->
+      <option value="Portuguese">
+        <item name="langwebUI">pt_BR</item>
+        <item name="langlcdUI">pt_BR</item>
+      </option>
+      <option value="Spanish">
+        <item name="langwebUI">es</item>
+        <item name="langlcdUI">es</item>
+      </option>
+      <option value="English">
+        <item name="langwebUI">en</item>
+        <item name="langlcdUI">en</item>
+      </option>      
+    </languages>
+    <ringtones>
+      <!--The first entry is the selected entry in management console-->
+      <option value="Ring 1">
+        <item name="defringtone">1</item>
+      </option>
+      <option value="Ring 2">
+        <item name="defringtone">2</item>
+      </option>
+      <option value="Ring 3">
+        <item name="defringtone">3</item>
+      </option>
+      <option value="Ring 4">
+        <item name="defringtone">4</item>
+      </option>
+      <option value="Ring 5">
+        <item name="defringtone">5</item>
+      </option>
+      <option value="Ring 6">
+        <item name="defringtone">6</item>
+      </option>
+      <option value="Ring 7">
+        <item name="defringtone">7</item>
+      </option>
+      <option value="Ring 8">
+        <item name="defringtone">8</item>
+      </option>
+    </ringtones>
+  <queueringtones default="Ring 3" maxcount="6">
+      <option value="Ring Default">
+        <item name="queueringtone">1</item>
+      </option>
+      <option value="Ring 1">
+        <item name="queueringtone">2</item>
+      </option>
+      <option value="Ring 2">
+        <item name="queueringtone">3</item>
+      </option>
+      <option value="Ring 3">
+        <item name="queueringtone">4</item>
+      </option>
+      <option value="Ring 4">
+        <item name="queueringtone">5</item>
+      </option>
+      <option value="Ring 5">
+        <item name="queueringtone">6</item>
+      </option>
+      <option value="Ring 6">
+        <item name="queueringtone">7</item>
+      </option>
+    <option value="Ring 7">
+        <item name="queueringtone">8</item>
+      </option>
+    </queueringtones>    
+    <dateformat>
+      <option value="DD/MMM/AA (15/Jan/18)">
+        <item name="datestyle">DD/MMM/AA</item>
+      </option>
+      <option value="DD/MM/AA (15/01/18)">
+        <item name="datestyle">DD/MM/AA</item>
+      </option>
+    </dateformat>
+    <timeformat>
+      <option value="24-hour clock">
+        <item name="timestyle">HH:MM:ss</item>
+      </option>
+      <option value="12-hour clock (AM/PM)">
+        <item name="timestyle">hh:MM:ss TT</item>
+      </option>
+    </timeformat>
+    <backlight>
+      <option value="1 second">
+        <item name="blktime">1</item>
+      </option>
+      <option value="3 seconds">
+        <item name="blktime">2</item>
+      </option>
+      <option value="5 seconds">
+        <item name="blktime">3</item>
+      </option>
+      <option value="10 seconds">
+        <item name="blktime">4</item>
+      </option>
+      <option value="15 seconds">
+        <item name="blktime">5</item>
+      </option>
+      <option value="30 seconds">
+        <item name="blktime">6</item>
+      </option>      
+      <option value="60 seconds">
+        <item name="blktime">7</item>
+      </option>
+      <option value="Always On">
+        <item name="blktime">8</item>
+      </option>
+    </backlight>
+    <vlan>
+      <vlanwanport type="bool" readonly="false" default="false" param="vlanwanenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </vlanwanport>
+      <vlanwanid type="int" readonly="false" default="1" minvalue="1" maxvalue="4094" param="vlanwanportid" />
+      <vlanwanpriority type="int" readonly="false" default="0" minvalue="0" maxvalue="7" param="vlanwanportpriority" />
+    </vlan>
+    <lldp>
+        <lldpvalue type="bool" readonly="false" default="true" param="lldpenabled">
+          <item value="false">0</item>
+          <item value="true">1</item>
+        </lldpvalue>
+      </lldp>    
+  <!--<srtp>
+      <option value="Disabled">
+        <item name="srtpvalue">0</item>
+      </option>
+      <option value="Optionally enabled (not enforced)">
+        <item name="srtpvalue">1</item>
+      </option>
+    <option value="Enabled compulsory (forced)">
+        <item name="srtpvalue">2</item>
+      </option>
+    </srtp>-->
+    <timezoneParams param="time_timezone_intelbras">
+      <!--The first entry is the selected entry in management console-->
+      <option value="-720" displaytext="GMT-12:00 Eniwetok, Kwajalein" id="0" zone="-12:00">
+        <item name="TimeZoneName">Eniwetok, Kwajalein</item>
+      </option>
+      <option value="-660" displaytext="GMT-11:00 Midway Island, Samoa" id="120" zone="-11:00">
+        <item name="TimeZoneName">Samoa</item>
+      </option>
+      <option value="-600" displaytext="GMT-10:00 Hawaii" id="1" zone="-10:00">
+        <item name="TimeZoneName">Hawaii</item>
+      </option>
+      <option value="-540" displaytext="GMT-09:00 Alaska" id="3" zone="-9:00">
+        <item name="TimeZoneName">Alaska</item>
+      </option>
+      <option value="-480" displaytext="GMT-8:00 Mexico(Tijuana,Mexicali)" id="5" zone="-8:00">
+        <item name="TimeZoneName">Mexico(Tijuana,Mexicali)</item>
+      </option>
+      <option value="-420" displaytext="GMT-7:00 Arizona" id="7" zone="-7:00">
+        <item name="TimeZoneName">Arizona</item>
+      </option>
+      <option value="-421" displaytext="GMT-7:00 United States-Mountain Time" id="9" zone="-7:00">
+        <item name="TimeZoneName">United States-Mountain Time</item>
+      </option>
+      <option value="-362" displaytext="GMT-6:00 Canada-Manitoba(Winnipeg)" id="11" zone="-6:00">
+        <item name="TimeZoneName">Canada-Manitoba(Winnipeg)</item>
+      </option>
+      <option value="-361" displaytext="GMT-6:00 Mexico(Mexico City,Acapulco)" id="13" zone="-6:00">
+        <item name="TimeZoneName">Mexico(Mexico City,Acapulco)</item>
+      </option>
+      <option value="-360" displaytext="GMT-6:00 United States-Central Time" id="14" zone="-6:00">
+        <item name="TimeZoneName">United States-Central Time</item>
+      </option>
+      <option value="-301" displaytext="GMT-5:00 Eastern Time" id="16" zone="-5:00">
+        <item name="TimeZoneName">Canada(Montreal,Ottawa,Quebec)</item>
+      </option>
+      <option value="-302" displaytext="GMT-5:00 Indiana(East)" id="17" zone="-5:00">
+        <item name="TimeZoneName">Cuba(Havana)</item>
+      </option>
+    <option value="-300" displaytext="GMT-5:00 Colombia(Bogota), Peru(Lima), Panama(Panama City), Puerto Rico(San Juan)" id="125" zone="-5:00">
+        <item name="TimeZoneName">Peru</item>
+      </option>
+      <option value="-240" displaytext="Atlantic Time (Canada)" id="23" zone="-4:00">
+        <item name="TimeZoneName">Atlantic Time</item>
+      </option>
+      <option value="-241" displaytext="GMT-4 Caracas, La Paz" id="24" zone="-4:00">
+        <item name="TimeZoneName">Caracas</item>
+      </option>
+      <option value="-180" displaytext="GMT-3 Denmark-Greenland(Nuuk)" id="26" zone="-3:00">
+        <item name="TimeZoneName">Denmark-Greenland(Nuuk)</item>
+      </option>
+      <option value="-182" displaytext="GMT-3 Argentina(Buenos Aires)" id="27" zone="-3:00">
+        <item name="TimeZoneName">Argentina(Buenos Aires)</item>
+      </option>
+      <option value="-181" displaytext="GMT-3 Brazil" id="29" zone="-3:00">
+        <item name="TimeZoneName">Brazil(DST)</item>
+      </option>
+      <option value="-120" displaytext="GMT-2 Brazil(no DST)" id="30" zone="-2:00">
+        <item name="TimeZoneName">Brazil(no DST)</item>
+      </option>
+      <option value="-120" displaytext="GMT-2 Mid-Atlantic" id="30" zone="-2:00">
+        <item name="TimeZoneName">Mid-Atlantic</item>
+      </option>      
+      <option value="-60" displaytext="GMT-1 Portugal(Azores)" id="31" zone="-1:00">
+        <item name="TimeZoneName">Portugal(Azores)</item>
+      </option>
+      <option value="0" displaytext="GMT" zone="0:00">
+        <item name="TimeZoneName">GMT</item>
+      </option>
+      <option value="0" displaytext="Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London" zone="0:00">
+        <item name="TimeZoneName">Greenwich</item>
+      </option>
+      <option value="60" displaytext="GMT+1 Amsterdam, Copenhagen, Madrid, Paris, Vilnius" id="37" zone="1:00">
+        <item name="TimeZoneName">Amsterdam</item>
+      </option>
+      <option value="61" displaytext="GMT+1 Belgrade, Sarajevo, Skopje, Sofija, Zagreb" id="38" zone="1:00">
+        <item name="TimeZoneName">Belgrade</item>
+      </option>
+      <option value="62" displaytext="GMT+1 Bratislava, Budapest, Ljubljana, Prague, Warsaw" id="39" zone="1:00">
+        <item name="TimeZoneName">Bratislava</item>
+      </option>
+      <option value="63" displaytext="GMT+1 Brussels, Berlin, Bern, Rome, Stockholm, Vienna" id="40" zone="1:00">
+        <item name="TimeZoneName">Brussels</item>
+      </option>
+      <option value="120" displaytext="GMT+2 Athens, Istanbul, Minsk" id="67" zone="2:00">
+        <item name="TimeZoneName">Athens</item>
+      </option>
+      <option value="121" displaytext="GMT+2 Bucharest" id="68" zone="2:00">
+        <item name="TimeZoneName">Bucharest</item>
+      </option>
+      <option value="122" displaytext="GMT+2 Cairo" id="69" zone="2:00">
+        <item name="TimeZoneName">Cairo</item>
+      </option>
+      <option value="123" displaytext="GMT+2 Harare, Pretoria" id="70" zone="2:00">
+        <item name="TimeZoneName">Harare</item>
+      </option>
+      <option value="124" displaytext="GMT+2 Helsinki, Riga, Tallinn" id="71" zone="2:00">
+        <item name="TimeZoneName">Helsinki</item>
+      </option>
+      <option value="125" displaytext="GMT+2 Israel" id="72" zone="2:00">
+        <item name="TimeZoneName">Israel</item>
+      </option>
+      <option value="180" displaytext="GMT+3 Baghdad, Kuwait, Riyadh" id="81" zone="3:00">
+        <item name="TimeZoneName">East Africa Time</item>
+      </option>
+      <option value="181" displaytext="GMT+3 Moscow, St.Petersburg, Volgograd" id="82" zone="3:00">
+        <item name="TimeZoneName">Iraq(Baghdad)</item>
+      </option>
+      <option value="182" displaytext="GMT+3 Nairobi" id="83" zone="3:00">
+        <item name="TimeZoneName">Russia(Moscow)</item>
+      </option>
+      <option value="210" displaytext="GMT+3:30 Iran(Teheran)" id="84" zone="3:30">
+        <item name="TimeZoneName">Iran(Teheran)</item>
+      </option>
+      <option value="240" displaytext="GMT+4 Abu Dhabi, Muscat" id="85" zone="4:00">
+        <item name="TimeZoneName">Abu Dhabi</item>
+      </option>
+      <option value="241" displaytext="GMT+4 Baku, Tbilisi" id="86" zone="4:00">
+        <item name="TimeZoneName">Azerbaijan(Baku)</item>
+      </option>
+      <option value="270" displaytext="GMT+4 Kabul" id="87" zone="4:00">
+        <item name="TimeZoneName">Kabul</item>
+      </option>
+      <option value="300" displaytext="GMT+5 Ekaterinburg" id="92" zone="5:00">
+        <item name="TimeZoneName">Kazakstan(Aqtobe)</item>
+      </option>
+      <option value="301" displaytext="GMT+5 Islamabad, Karachi, Tashkent" id="93" zone="5:00">
+        <item name="TimeZoneName">Islamabad</item>
+      </option>
+      <option value="330" displaytext="GMT+5:30 Bombay, Calcutta, Madras, New Delhi" id="96" zone="5:30">
+        <item name="TimeZoneName">India(Calcutta)</item>
+      </option>
+      <option value="360" displaytext="GMT+6 Kazakstan(Astana,Almaty)" id="98" zone="6:00">
+        <item name="TimeZoneName">Kazakstan(Astana,Almaty)</item>
+      </option>
+      <option value="361" displaytext="GMT+6 Colombo" id="99" zone="6:00">
+        <item name="TimeZoneName">Colombo</item>
+      </option>
+      <option value="420" displaytext="GMT+7 Bangkok, Hanoi, Jakarta" id="101" zone="7:00">
+        <item name="TimeZoneName">Thailand(Bangkok)</item>
+      </option>
+      <option value="480" displaytext="GMT+8 Beijin, Chongqing, Hong Kong, Urumqi" id="104" zone="8:00">
+        <item name="TimeZoneName">Beijin</item>
+      </option>
+      <option value="481" displaytext="GMT+8 Perth" id="104" zone="8:00">
+        <item name="TimeZoneName">Perth</item>
+      </option>
+      <option value="482" displaytext="GMT+8 Sinapore" id="104" zone="8:00">
+        <item name="TimeZoneName">Sinapore</item>
+      </option>
+      <option value="483" displaytext="GMT+8 Taipei" id="104" zone="8:00">
+        <item name="TimeZoneName">Taipei</item>
+      </option>                  
+      <option value="540" displaytext="GMT+8 Osaka, Sappora, Tokyo" id="106" zone="9:00">
+        <item name="TimeZoneName">Osaka(Japan)</item>
+      </option>
+      <option value="541" displaytext="GMT+8 Seoul" id="105" zone="9:00">
+        <item name="TimeZoneName">Seoul</item>
+      </option>
+      <option value="542" displaytext="GMT+9 Yakutsk" id="107" zone="9:00">
+        <item name="TimeZoneName">Yakutsk</item>
+      </option>
+      <option value="570" displaytext="GMT+9:30 Australia(Adelaide)" id="108" zone="9:30">
+        <item name="TimeZoneName">Australia(Adelaide)</item>
+      </option>
+      <option value="571" displaytext="GMT+9:30 Australia(Darwin)" id="109" zone="9:30">
+        <item name="TimeZoneName">Australia(Darwin)</item>
+      </option>
+      <option value="601" displaytext="GMT+10 Australia(Sydney,Melbourne,Canberra)" id="110" zone="10:00">
+        <item name="TimeZoneName">Australia(Sydney,Melbourne,Canberra)</item>
+      </option>
+      <option value="600" displaytext="GMT+10 Australia(Brisbane)" id="111" zone="10:00">
+        <item name="TimeZoneName">Australia(Brisbane)</item>
+      </option>
+      <option value="603" displaytext="GMT+10 Australia(Hobart)" id="112" zone="10:00">
+        <item name="TimeZoneName">Australia(Hobart)</item>
+      </option>
+      <option value="604" displaytext="GMT+10 Russia(Vladivostok)" id="113" zone="10:00">
+        <item name="TimeZoneName">Russia(Vladivostok)</item>
+      </option>
+      <option value="602" displaytext="GMT+10:00 Guam, Port Moresby" id="114" zone="10:30">
+        <item name="TimeZoneName">Guam</item>
+      </option>
+      <option value="660" displaytext="GMT+11 New Caledonia(Noumea)" id="115" zone="11:00">
+        <item name="TimeZoneName">New Caledonia(Noumea)</item>
+      </option>
+      <option value="720" displaytext="GMT+12 New Zealand(Wellington,Auckland)" id="116" zone="12:00">
+        <item name="TimeZoneName">New Zealand(Wellington,Auckland)</item>
+      </option>
+      <option value="721" displaytext="GMT+12 Fiji, Kamchatka, Marshall Is." id="118" zone="12:00">
+        <item name="TimeZoneName">New Zealand(Chatham Islands)</item>
+      </option>
+    </timezoneParams>
+    <Codecspriorities>
+      <Codecspriority variableName="codec1" PayloadTypeName="payload1" priority="1">
+        <!--The first entry is the selected entry in management console. codec1 will be replaced by value, payload1 will be replaced by payload-->
+        <option value="0" payload="PCMU">PCMU</option>
+        <option value="8" payload="PCMA">PCMA</option>
+        <option value="18" payload="G729">G729</option>
+        <option value="9" payload="G722">G722</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec2" PayloadTypeName="payload2" priority="2">
+        <!--The first entry is the selected entry in management console-->
+        <option value="8" payload="PCMA">PCMA</option>
+        <option value="0" payload="PCMU">PCMU</option>
+        <option value="18" payload="G729">G729</option>
+        <option value="9" payload="G722">G722</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec3" PayloadTypeName="payload3" priority="3">
+        <!--The first entry is the selected entry in management console-->
+        <option value="9" payload="G722">G722</option>
+        <option value="0" payload="PCMU">PCMU</option>
+        <option value="8" payload="PCMA">PCMA</option>
+        <option value="18" payload="G729">G729</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec4" PayloadTypeName="payload4" priority="4">
+        <!--The first entry is the selected entry in management console-->
+        <option value="18" payload="G729">G729</option>
+        <option value="0" payload="PCMU">PCMU</option>
+        <option value="8" payload="PCMA">PCMA</option>
+        <option value="9" payload="G722">G722</option>
+      </Codecspriority>
+    </Codecspriorities>
+  </header>
+  <multicastringgroup maxgroupcount="1" blankvalue="">
+    <multicastrg type="bool" readonly="false" default="false" param="multicastenabled">
+      <item value="false">0</item>
+      <item value="true">1</item>
+    </multicastrg>
+  </multicastringgroup>
+  <data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">Intelbras Specific</field>
+      <deviceconfig filename="%%mac_address%%.xml"><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+
+<autoprovisioning>
+
+{IF network=LOCALLAN}    
+  <tab_voip_account>
+    <account value="0">
+      <PhoneNumber>%%extension_number%%</PhoneNumber>
+      <CallerIDName>%%extension_first_name%% %%extension_last_name%%</CallerIDName> 
+      <AuthUserName>%%extension_auth_id%%</AuthUserName>
+      <AuthPassword>%%extension_auth_pw%%</AuthPassword>
+      <ServerAddress>%%pbx_ip%%</ServerAddress>
+      <ServerPort>%%param::sipport%%</ServerPort>
+      <SendRegister>1</SendRegister>
+      <RegisterTimer>90</RegisterTimer>
+      <EnableOutboundProxy>0</EnableOutboundProxy>
+      <TypeNAT>0</TypeNAT>
+    </account>
+  </tab_voip_account>
+{ENDIF} 
+{IF network=REMOTESTUN}    
+  <tab_voip_account>
+    <account value="0">
+      <PhoneNumber>%%extension_number%%</PhoneNumber>
+      <CallerIDName>%%extension_first_name%% %%extension_last_name%%</CallerIDName> 
+      <AuthUserName>%%extension_auth_id%%</AuthUserName>
+      <AuthPassword>%%extension_auth_pw%%</AuthPassword>
+      <ServerAddress>%%pbx_ip%%</ServerAddress>
+      <ServerPort>%%param::sipport%%</ServerPort>
+      <LocalPort>%%phonesipport%%</LocalPort>
+      <SendRegister>1</SendRegister>
+      <RegisterTimer>90</RegisterTimer>
+      <EnableOutboundProxy>0</EnableOutboundProxy>
+      <OutboundProxyAddr></OutboundProxyAddr>
+      <OutboundProxyPort></OutboundProxyPort>
+      <TypeNAT>2</TypeNAT>
+      <StunServerIP>%%pbx_ip%%</StunServerIP>
+      <StunServerPort>%%param::sipport%%</StunServerPort>
+    </account>
+  </tab_voip_account>
+{ENDIF} 
+{IF network=SBC}    
+  <tab_voip_account>
+    <account value="0">
+      <PhoneNumber>%%extension_number%%</PhoneNumber>
+      <CallerIDName>%%extension_first_name%% %%extension_last_name%%</CallerIDName> 
+      <AuthUserName>%%extension_auth_id%%</AuthUserName>
+      <AuthPassword>%%extension_auth_pw%%</AuthPassword>
+      <ServerAddress>%%param::PBXPUBLICIP%%</ServerAddress>
+      <ServerPort>%%param::sipport%%</ServerPort>
+      <SendRegister>1</SendRegister>
+      <RegisterTimer>90</RegisterTimer>
+      <EnableOutboundProxy>1</EnableOutboundProxy>
+      <OutboundProxyAddr>%%local_sbc_ip%%</OutboundProxyAddr>
+      <OutboundProxyPort>%%local_sbc_port%%</OutboundProxyPort>
+      <TypeNAT>0</TypeNAT>
+    </account>
+  </tab_voip_account>
+{ENDIF} 
+
+  <tab_tel_account>
+    <account value="0">
+      <AccountActive>1</AccountActive>
+      <RingType>%%defringtone%%</RingType>
+      <EnableMWI>1</EnableMWI>       
+      <TypeDTMF>1</TypeDTMF>  
+      <PayloadDTMF>101</PayloadDTMF>  
+      <DTMFinfoType>1</DTMFinfoType>  
+      <FlashEvents>2</FlashEvents>
+      <EnableCSTA>1</EnableCSTA>      
+    </account>
+  </tab_tel_account>
+
+  <tab_service_code>
+    <account value="0">
+      <VoiceMail>%%vm_number%%</VoiceMail> 
+    </account>   
+  </tab_service_code>
+  
+  <tab_codecs>
+    <account value="0">
+      <codec type="%%codec1%%" priority="1"  ptime="20"/>
+      <codec type="%%codec2%%" priority="2"  ptime="20"/>
+      <codec type="%%codec3%%" priority="3"  ptime="20"/>
+      <codec type="%%codec4%%" priority="4" ptime="20"/>
+      <codec type="2"  priority="-1" ptime="20"/>   
+    </account>
+  </tab_codecs> 
+
+{IF network=LOCALLAN}  
+  <tab_media>
+    <account value="0">
+      <MinPortRTP>6600</MinPortRTP>
+      <MaxPortRTP>8000</MaxPortRTP>
+    </account>
+  </tab_media>
+{ENDIF}  
+{IF network=REMOTESTUN}  
+  <tab_media>
+    <account value="0">
+      <MinPortRTP>%%rtp_port_min%%</MinPortRTP>
+      <MaxPortRTP>%%rtp_port_max%%</MaxPortRTP>
+    </account>
+  </tab_media>
+{ENDIF}  
+{IF network=SBC}  
+  <tab_media>
+    <account value="0">
+      <MinPortRTP>6000</MinPortRTP>
+      <MaxPortRTP>8000</MaxPortRTP>
+    </account>
+  </tab_media>
+{ENDIF}  
+
+  <tab_dial_plan>
+    <account value="0">
+      <EnableDialPlan>1</EnableDialPlan>  
+      <DialPlan>x.T</DialPlan>  
+    </account>
+  </tab_dial_plan>    
+  <tab_suplementary_service>
+    <account value="0">
+      <AllowCallWaiting>1</AllowCallWaiting>  
+      <AnonymousCallReject>0</AnonymousCallReject>
+    </account>
+  </tab_suplementary_service>
+
+  <tab_net_syslog>
+    <SYSLOGLevel>0</SYSLOGLevel>
+  </tab_net_syslog>
+
+  <tab_system_time>
+    <SYSTimeEnableNTP>1</SYSTimeEnableNTP>
+    <SYSTimeNTPFirstAddress>%%param::time_ntp_server%%</SYSTimeNTPFirstAddress>
+    <SYSTimeDayligthSaving>0</SYSTimeDayligthSaving>
+    <SYSTimeTimeZone>%%param::time_timezone_intelbras%%</SYSTimeTimeZone>
+    <SYSTimeFormat>%%timestyle%%</SYSTimeFormat>
+    <SYSTimeDateFormat>%%datestyle%%</SYSTimeDateFormat>
+  </tab_system_time>  
+
+  <tab_system_phone>
+    <SYSPhoneLanguage>%%langwebUI%%</SYSPhoneLanguage>
+  </tab_system_phone>
+
+  <tab_soft_currentconfig>
+    <CurBacklightTime>%%blktime%%</CurBacklightTime>
+  </tab_soft_currentconfig>  
+
+  <tab_security_account>
+    <security user="admin">%%DESKPHONE_PASSWORD%%</security>
+  </tab_security_account> 
+
+  <tab_net_vlan>
+    <VLANActivate>%%vlanwanenabled%%</VLANActivate>
+    <VLANID>%%vlanwanportid%%</VLANID>
+    <VLANPriorityIEEE802_1q>%%vlanwanportpriority%%</VLANPriorityIEEE802_1q>
+    <VLANAutoEnable>0</VLANAutoEnable>
+  </tab_net_vlan> 
+
+  <tab_lldp>
+    <EnableLLDP>%%lldpenabled%%</EnableLLDP>
+  </tab_lldp>
+
+  <tab_multicast_ip_list>
+    <id value="1">
+      <Label>%%multicastrgname1%%</Label>
+      <ListeningAddress>%%multicastrgipport1%%</ListeningAddress>
+    </id>
+    <id value="2">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+    <id value="3">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+    <id value="4">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+    <id value="5">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+    <id value="6">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+    <id value="7">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+    <id value="8">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+    <id value="9">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+    <id value="10">
+      <Label></Label>
+      <ListeningAddress></ListeningAddress>
+    </id>
+  </tab_multicast_ip_list>  
+
+  <tab_alert_info>
+
+    <id value="1">
+      <RingName>ivr</RingName>
+      <DistintiveRing>7</DistintiveRing>
+    </id>
+    <id value="2">
+      <RingName>external</RingName>
+      <DistintiveRing>2</DistintiveRing>
+    </id>
+
+{IF sysparam.CUSTOMIZE_QUEUE_RINGTONES=1}
+{IF queuecrt1}
+    <id value="3">
+      <RingName>%%queueid%%</RingName>
+      <DistintiveRing>%%queueringtonevalue%%</DistintiveRing>
+    </id>
+{ELSE}
+    <id value="3">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+{ENDIF}
+{IF queuecrt2}
+    <id value="4">
+      <RingName>%%queueid%%</RingName>
+      <DistintiveRing>%%queueringtonevalue%%</DistintiveRing>
+    </id>
+{ELSE}
+    <id value="4">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+{ENDIF}
+{IF queuecrt3}
+    <id value="5">
+      <RingName>%%queueid%%</RingName>
+      <DistintiveRing>%%queueringtonevalue%%</DistintiveRing>
+    </id>
+{ELSE}
+    <id value="5">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+{ENDIF}
+{IF queuecrt4}
+    <id value="6">
+      <RingName>%%queueid%%</RingName>
+      <DistintiveRing>%%queueringtonevalue%%</DistintiveRing>
+    </id>
+{ELSE}
+    <id value="6">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+{ENDIF}
+{IF queuecrt5}
+    <id value="7">
+      <RingName>%%queueid%%</RingName>
+      <DistintiveRing>%%queueringtonevalue%%</DistintiveRing>
+    </id>
+{ELSE}
+    <id value="7">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+{ENDIF}
+{IF queuecrt6}
+    <id value="8">
+      <RingName>%%queueid%%</RingName>
+      <DistintiveRing>%%queueringtonevalue%%</DistintiveRing>
+    </id>
+{ELSE}
+    <id value="8">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+{ENDIF}
+{ELSE}
+    <id value="3">
+      <RingName>queue</RingName>
+      <DistintiveRing>%%queueringtone%%</DistintiveRing>
+    </id>
+    <id value="4">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+    <id value="5">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+    <id value="6">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+    <id value="7">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+    <id value="8">
+      <RingName></RingName>
+      <DistintiveRing>1</DistintiveRing>
+    </id>
+{ENDIF}
+  </tab_alert_info>
+
+  <tab_central>
+    <account value="0">
+      <Type>8</Type>
+    </account>
+  </tab_central>    
+
+  <tab_update_provisioning>
+    <UPDProvisioningPassword></UPDProvisioningPassword>
+    <UPDProvisioningEnable>1</UPDProvisioningEnable>
+
+    {IF network=LOCALLAN}
+    {IF rpslocal}
+	<UPDProvisioningProtocol>1</UPDProvisioningProtocol>
+    <UPDProvisioningServerURL>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%</UPDProvisioningServerURL>
+    <UPDProvisioningPath>%%PROVLINKLOCAL.PATH%%/</UPDProvisioningPath>
+	{ELSE}
+	<UPDProvisioningProtocol>0</UPDProvisioningProtocol>
+    <UPDProvisioningServerURL>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%</UPDProvisioningServerURL>
+    <UPDProvisioningPath>%%PROVLINKLOCAL.PATH%%/</UPDProvisioningPath>
+	{ENDIF}
+    {ELSE}
+    <UPDProvisioningProtocol>1</UPDProvisioningProtocol>
+    <UPDProvisioningServerURL>%%PROVLINK.HOST%%:%%PROVLINK.PORT%%</UPDProvisioningServerURL>
+    <UPDProvisioningPath>%%PROVLINK.PATH%%/</UPDProvisioningPath>
+    {ENDIF}
+    
+    <UPDProvisioningPNPEnable>0</UPDProvisioningPNPEnable>
+    <UPDProvisioningWeekly>0</UPDProvisioningWeekly>
+    <UPDProvisioningDaysOfWeek>127</UPDProvisioningDaysOfWeek>
+    <UPDProvisioningDHCPEnable>0</UPDProvisioningDHCPEnable>
+    <UPDProvisioningAuthType>0</UPDProvisioningAuthType>
+    <UPDProvisioningWhenTurnOn>1</UPDProvisioningWhenTurnOn>
+    <UPDProvisioningRepeatedly>0</UPDProvisioningRepeatedly>
+    <UPDProvisioningUsername></UPDProvisioningUsername>
+  </tab_update_provisioning>
+
+  <firmware_update>
+    {IF network=LOCALLAN}
+    <serverUrl>%%PROVLINKLOCAL%%/firmware/intelbras/%%firmware%%</serverUrl>
+    {ELSE}
+    <serverUrl>%%PROVLINK%%/firmware/intelbras/%%firmware%%</serverUrl>
+    {ENDIF}
+  </firmware_update>
+
+</autoprovisioning>
+
+]]></deviceconfig>
+    </device>
+  </data>
+</doc>

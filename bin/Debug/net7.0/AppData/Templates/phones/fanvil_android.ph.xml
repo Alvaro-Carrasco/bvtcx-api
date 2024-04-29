@@ -1,0 +1,2742 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>145775</version>
+    <time>2021-10-20 16:00:00</time>
+    <name>Fanvil Android Phones</name>
+    <url>https://www.3cx.com/sip-phones/manually-provision-fanvil/</url>
+	<templatetype>deleted</templatetype>
+    <models>
+      <model ua="C400">Fanvil C400</model>
+      <model ua="C600">Fanvil C600</model>
+    </models>
+    <description>Fanvil Android Phones</description>
+    <parsers>
+      <parser>BLF</parser>
+    </parsers>
+    <rebootParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </rebootParams>
+    <resyncParams>
+      <event-name>check-sync;reboot=false</event-name>
+    </resyncParams>
+    <firmwareParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </firmwareParams>
+    <rps>1</rps>
+	<hotdesking>1</hotdesking>
+    <AllowedNetworkConfig>
+      <option value="LOCALLAN">1</option>
+      <option value="REMOTESTUN">1</option>
+      <option value="SBC">1</option>
+    </AllowedNetworkConfig>
+    <interfaceLink>http://admin:%%PHONE_WEB_PASSWORD%%@%%PHONE_IP%%</interfaceLink>
+    <AllowWebPasswordChange>1</AllowWebPasswordChange>
+    <AllowSSLProvisioning>1</AllowSSLProvisioning>
+    <xfertype enabled="true" bxfer_Value="1" attxfer_Value="2" bxfer_DkType="bb" attxfer_DkType="ba" />
+    <dst variableName="dstEnableDisable" enable="1" disable="0"></dst>
+    <languages>
+      <!--The first entry is the selected entry in management console.-->
+      <option value="English">
+        <item name="langwebUI">1</item>
+      </option>
+      <option value="Chinese">
+        <item name="langwebUI">2</item>
+      </option>
+      <option value="Tra-Chinese">
+        <item name="langwebUI">4</item>
+      </option>
+    </languages>
+	<queueringtones default="Ring 6" maxcount="8">
+      <option value="Ring 1">
+        <item name="queueringtone">Aquila</item>
+      </option>
+      <option value="Ring 2">
+        <item name="queueringtone">Backroad</item>
+      </option>
+      <option value="Ring 3">
+        <item name="queueringtone">Argo Navis</item>
+      </option>
+      <option value="Ring 4">
+        <item name="queueringtone">Rigel</item>
+      </option>
+      <option value="Ring 5">
+        <item name="queueringtone">Safari</item>
+      </option>
+      <option value="Ring 6">
+        <item name="queueringtone">Beat Plucker</item>
+      </option>
+      <option value="Ring 7">
+        <item name="queueringtone">Carina</item>
+      </option>
+      <option value="Ring 8">
+        <item name="queueringtone">Nassau</item>
+      </option>
+     <option value="Ring 9">
+        <item name="queueringtone">Growl</item>
+      </option>
+    </queueringtones>
+    <dateformat>
+      <option value="YYYY/MM/DD (2017/01/15)">
+        <item name="datestyle">0</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="YYYY-MM-DD (2017-01-15)">
+        <item name="datestyle">0</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="YYYY.MM.DD (2017.01.15)">
+        <item name="datestyle">0</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="YYYY MM DD (2017 01 15)">
+        <item name="datestyle">0</item>
+        <item name="datesep">3</item>
+      </option>
+      <option value="DD/MM/YYYY (15/01/2017)">
+        <item name="datestyle">1</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="DD-MM-YYYY (15-01-2017)">
+        <item name="datestyle">1</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="DD.MM.YYYY (15.01.2017)">
+        <item name="datestyle">1</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="DD MM YYYY (15 01 2017)">
+        <item name="datestyle">1</item>
+        <item name="datesep">3</item>
+      </option>
+      <option value="MM/DD/YYYY (01/15/2017)">
+        <item name="datestyle">2</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="MM-DD-YYYY (01-15-2017)">
+        <item name="datestyle">2</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="MM.DD.YYYY (01.15.2017)">
+        <item name="datestyle">2</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="MM DD YYYY (01 15 2017)">
+        <item name="datestyle">2</item>
+        <item name="datesep">3</item>
+      </option>
+    </dateformat>
+    <timeformat>
+      <option value="24-hour clock">
+        <item name="timestyle">24</item>
+      </option>
+      <option value="12-hour clock (AM/PM)">
+        <item name="timestyle">12</item>
+      </option>
+    </timeformat>
+    <vlan>
+      <vlanwanport type="bool" readonly="false" default="false" param="vlanwanenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </vlanwanport>
+      <vlanwanid type="int" readonly="false" default="256" minvalue="1" maxvalue="4094" param="vlanwanportid" />
+      <vlanwanpriority type="int" readonly="false" default="0" minvalue="0" maxvalue="7" param="vlanwanportpriority" />
+      <vlanpcport type="bool" readonly="false" default="false" param="vlanpcenabled">
+        <item value="false">1</item>
+        <item value="true">2</item>
+      </vlanpcport>
+      <vlanpcid type="int" readonly="false" default="254" minvalue="1" maxvalue="4094" param="vlanpcportid" />
+      <vlanpcpriority type="int" readonly="false" default="0" minvalue="0" maxvalue="7" param="vlanpcportpriority" />
+    </vlan>
+	<lldp>
+      <lldpvalue type="bool" readonly="false" default="false" param="lldpenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </lldpvalue>
+    </lldp>
+	<!--<srtp>
+      <option value="Disabled">
+        <item name="srtpvalue">0</item>
+      </option>
+      <option value="Enabled compulsory (forced)">
+        <item name="srtpvalue">1</item>
+      </option>
+    </srtp>-->
+    <timezoneParams param="time_timezone_fanvil">
+      <option value="America/New_York" displaytext="GMT-5:00 US Eastern Time, New York" id="0" zone="-5:00">
+        <item name="TimeZoneName">AST_-05</item>
+      </option>
+      <option value="Pacific/Midway" displaytext="GMT-11:00 Samoa" id="120" zone="-11:00">
+        <item name="TimeZoneName">UCT_-11</item>
+      </option>
+      <option value="Pacific/Honolulu" displaytext="GMT-10:00 United States-Hawaii-Aleutian" id="1" zone="-10:00">
+        <item name="TimeZoneName">UCT_-10</item>
+      </option>
+      <option value="America/Anchorage" displaytext="GMT-9:00 United States-Alaska Time" id="3" zone="-9:00">
+        <item name="TimeZoneName">NAS_-09</item>
+      </option>
+      <option value="America/Tijuana" displaytext="GMT-8:00 Mexico(Tijuana,Mexicali)" id="5" zone="-8:00">
+        <item name="TimeZoneName">PST_-08</item>
+      </option>
+      <option value="America/Denver" displaytext="GMT-7:00 Mountain Time(US,Canada)" id="9" zone="-7:00">
+        <item name="TimeZoneName">MST_-07</item>
+      </option>
+      <option value="America/Phoenix" displaytext="GMT-7:00 Mountain Time-MST no DST" id="10" zone="-7:00">
+        <item name="TimeZoneName">MST_-07</item>
+      </option>
+      <option value="America/Chihuahua" displaytext="GMT-7:00 Mexico(Mazatlan,Chihuahua)" id="8" zone="-7:00">
+        <item name="TimeZoneName">MST_-07</item>
+      </option>
+      <option value="America/Regina" displaytext="GMT-6:00 Saskarchewan" id="11" zone="-6:00">
+        <item name="TimeZoneName">UCT_-06</item>
+      </option>
+      <option value="America/Chicago" displaytext="GMT-6:00 United States-Central Time" id="14" zone="-6:00">
+        <item name="TimeZoneName">UCT_-06</item>
+      </option>
+      <option value="America/Mexico_City" displaytext="GMT-6:00 Mexico(Mexico City,Acapulco)" id="13" zone="-6:00">
+        <item name="TimeZoneName">UCT_-06</item>
+      </option>
+	  <option value="America/Costa_Rica" displaytext="GMT-6:00 Central America (No DST)" id="124" zone="-6:00">
+        <item name="TimeZoneName">UCT_-06</item>
+      </option>
+      <option value="America/Bogota" displaytext="GMT-5:00 Canada(Montreal,Ottawa,Quebec)" id="16" zone="-5:00">
+        <item name="TimeZoneName">UCT_-05</item>
+      </option>
+      <option value="America/Bogota" displaytext="GMT-5:00 Bogota, Lima, Quito" id="125" zone="-5:00">
+        <item name="TimeZoneName">UCT_-05</item>
+      </option>
+      <option value="America/Barbados" displaytext="GMT-4 Venezuela(Caracas), La Paz, Barbados" id="18" zone="-4:00">
+        <item name="TimeZoneName">UCT_-04</item>
+      </option>
+      <option value="America/Manaus" displaytext="GMT-4 Chile(Santiago)" id="20" zone="-4:00">
+        <item name="TimeZoneName">AST_-04</item>
+      </option>
+      <option value="America/Santiago" displaytext="GMT-4 Chile(Santiago)" id="20" zone="-4:00">
+        <item name="TimeZoneName">EBS_-03</item>
+      </option>
+      <option value="America/Halifax" displaytext="GMT-4 Canada(Halifax,Saint John)" id="19" zone="-4:00">
+        <item name="TimeZoneName">EBS_-04</item>
+      </option>
+      <option value="America/Sao_Paulo" displaytext="GMT-3 Brazil with DST" id="28" zone="-3:00">
+        <item name="TimeZoneName">EBS_-03</item>
+      </option>
+      <option value="America/Argentina/Buenos_Aires" displaytext="GMT-3 Buenos Aires, Georgetown" id="27" zone="-3:00">
+        <item name="TimeZoneName">NOR_-03</item>
+      </option>
+      <option value="America/Sao_Paulo" displaytext="GMT-3 Greenland" id="26" zone="-3:00">
+        <item name="TimeZoneName">EBS_-03</item>
+      </option>
+      <option value="Atlantic/South_Georgia" displaytext="GMT-2 Mid-Atlantic" id="123" zone="-2:00">
+        <item name="TimeZoneName">UCT_000</item>
+      </option>
+      <option value="Atlantic/Cape_Verde" displaytext="GMT-1 Cape Verde Is." zone="-1:00">
+        <item name="TimeZoneName">MET_001</item>
+      </option>
+      <option value="Atlantic/Azores" displaytext="GMT-1 Portugal(Azores)" id="31" zone="-1:00">
+        <item name="TimeZoneName">MET_001</item>
+      </option>
+      <option value="Europe/London" displaytext="GMT, London" id="36" zone="0:00">
+        <item name="TimeZoneName">MET_001</item>
+      </option>
+      <option value="Europe/London" displaytext="GMT Dublin" id="33" zone="0:00">
+        <item name="TimeZoneName">MET_001</item>
+      </option>
+      <option value="Europe/London" displaytext="GMT Porto" id="34" zone="0:00">
+        <item name="TimeZoneName">MET_001</item>
+      </option>
+      <option value="Europe/London" displaytext="GMT Faroe Islands" id="32" zone="0:00">
+        <item name="TimeZoneName">MET_001</item>
+      </option>
+      <option value="Africa/Casablanca" displaytext="0 Casablanca, Monrovia" zone="0:00">
+        <item name="TimeZoneName">MET_001</item>
+      </option>
+      <option value="Europe/Amsterdam" displaytext="GMT+1 Amsterdam, Stockholm" id="51" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Amsterdam" displaytext="GMT+1 Vienna" id="38" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Amsterdam" displaytext="GMT+1 Berlin" id="46" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Amsterdam" displaytext="GMT+1 Rome" id="48" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Belgrade" displaytext="GMT+1 Prague" id="43" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Belgrade" displaytext="GMT+1 Budapest, Belgrade" id="47" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Brussels" displaytext="GMT+1 Brussels" id="39" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Brussels" displaytext="GMT+1 Copenhagen" id="44" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Brussels" displaytext="GMT+1 Madrid" id="39" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Brussels" displaytext="GMT+1 Paris" id="45" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Sarajevo" displaytext="GMT+1 Sarajevo, Sopje" id="50" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Europe/Sarajevo" displaytext="GMT+1 Warsaw, Zagreb" id="42" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Africa/Brazzaville" displaytext="GMT+1 West Central Africa" id="61" zone="1:00">
+        <item name="TimeZoneName">EET_002</item>
+      </option>
+      <option value="Africa/Harare" displaytext="GMT+2 Harare, Pretoria" id="65" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Africa/Harare" displaytext="GMT+2 Helsinki" id="68" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Europe/Athens" displaytext="GMT+2 Romania(Bucharest)" id="77" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Europe/Athens" displaytext="GMT+2 Kyiv, Minsk" id="80" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Africa/Cairo" displaytext="GMT+2 Gaza Cairo" id="69" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Africa/Cairo" displaytext="GMT+2 Riga" id="73" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Africa/Cairo" displaytext="GMT+2 Sofia, Tallinn, Vilnius" id="67" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Europe/Athens" displaytext="GMT+2 Athens" id="70" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Europe/Athens" displaytext="GMT+2 Beirut" id="74" zone="2:00">
+        <item name="TimeZoneName">IST_003</item>
+      </option>
+      <option value="Asia/Jerusalem" displaytext="GMT+2 Israel(Tel Aviv)" id="71" zone="2:00">
+        <item name="TimeZoneName">UCT_004:30</item>
+      </option>
+	  <option value="Africa/Nairobi" displaytext="GMT+3 Istanbul, Nairobi" id="79" zone="3:00">
+        <item name="TimeZoneName">UCT_005:45</item>
+      </option>
+      <option value="Asia/Baghdad" displaytext="GMT+3 Iraq(Baghdad)" id="82" zone="3:00">
+        <item name="TimeZoneName">UCT_005</item>
+      </option>
+      <option value="Asia/Kuwait" displaytext="GMT+3 Kuwait, Riyadh" id="81" zone="3:00">
+        <item name="TimeZoneName">UCT_005:30</item>
+      </option>
+      <option value="Europe/Moscow" displaytext="GMT+3 Russia(Moscow)" id="83" zone="3:00">
+        <item name="TimeZoneName">UCT_006</item>
+      </option>
+      <option value="Asia/Tehran" displaytext="GMT+3:30 Iran(Teheran)" id="84" zone="3:30">
+        <item name="TimeZoneName">UCT_007</item>
+      </option>
+      <option value="Asia/Yerevan" displaytext="GMT+4 Abu Dhabi, Muscat" id="90" zone="4:00">
+        <item name="TimeZoneName">UCT_006</item>
+      </option>
+      <option value="Asia/Yerevan" displaytext="GMT+4 Yerevan, Tbilisi, Baku" id="85" zone="4:00">
+        <item name="TimeZoneName">UCT_006</item>
+      </option>
+      <option value="Asia/Kabul" displaytext="GMT+4:30 Kabul" id="91" zone="4:30">
+        <item name="TimeZoneName">CST_008</item>
+      </option>
+      <option value="Asia/Karachi" displaytext="GMT+5 Islamabad, Tashkent" id="94" zone="5:00">
+        <item name="TimeZoneName">CST_008</item>
+      </option>
+      <option value="Asia/Karachi" displaytext="GMT+5 Russia(Chelyabinsk, Ekaterinburg)" id="95" zone="5:00">
+        <item name="TimeZoneName">CST_008</item>
+      </option>
+      <option value="Asia/Karachi" displaytext="GMT+5 Karachi, Bishkek" id="93" zone="5:00">
+        <item name="TimeZoneName">CST_008</item>
+      </option>
+      <option value="Asia/Calcutta" displaytext="GMT+5:30 India(Calcutta)" id="96" zone="5:30">
+        <item name="TimeZoneName">CST_008</item>
+      </option>
+      <option value="Asia/Katmandu" displaytext="GMT+5:45 Katmandu" id="97" zone="5:45">
+        <item name="TimeZoneName">JST_009</item>
+      </option>
+      <option value="Asia/Yekaterinburg" displaytext="GMT+6 Astana, Dhaka" id="98" zone="6:00">
+        <item name="TimeZoneName">JST_009</item>
+      </option>
+      <option value="Asia/Almaty" displaytext="GMT+6 Almaty" id="98" zone="6:00">
+        <item name="TimeZoneName">KST_009:30</item>
+      </option>
+      <option value="Asia/Almaty" displaytext="GMT+6 Novosibirsk" id="99" zone="6:00">
+        <item name="TimeZoneName">KST_009:30</item>
+      </option>
+      <option value="Australia/Brisbane" displaytext="GMT+7 Thailand(Bangkok)" id="102" zone="7:00">
+        <item name="TimeZoneName">UCT_010</item>
+      </option>
+      <option value="Asia/Krasnoyarsk" displaytext="GMT+7 Russia(Krasnoyarsk)" id="101" zone="7:00">
+        <item name="TimeZoneName">UCT_010</item>
+      </option>
+      <option value="Asia/Shanghai" displaytext="GMT+8 China(Beijing)" id="103" zone="8:00">
+        <item name="TimeZoneName">UCT_010</item>
+      </option>
+      <option value="Asia/Hong_Kong" displaytext="GMT+8 Singapore(Singapore)" id="104" zone="8:00">
+        <item name="TimeZoneName">UCT_010</item>
+      </option>
+      <option value="Australia/Perth" displaytext="GMT+8 Australia(Perth)" id="105" zone="8:00">
+        <item name="TimeZoneName">UCT_011</item>
+      </option>
+      <option value="Asia/Taipei" displaytext="GMT+8 Taipei" zone="8:00">
+        <item name="TimeZoneName">UCT_012</item>
+      </option>
+      <option value="Asia/Irkutsk" displaytext="GMT+8 Irkutsk, Ulaan Bataar" zone="8:00">
+        <item name="TimeZoneName">UCT_012</item>
+      </option>
+      <option value="Asia/Seoul" displaytext="GMT+9 Korea(Seoul)" id="106" zone="9:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Asia/Tokyo" displaytext="GMT+9 Japan(Tokyo)" id="107" zone="9:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Asia/Yakutsk" displaytext="GMT+9 Yakutsk" zone="9:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Australia/Adelaide" displaytext="GMT+9:30 Adelaide" id="108" zone="9:30">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Australia/Darwin" displaytext="GMT+9:30 Australia(Darwin)" id="109" zone="9:30">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Australia/Brisbane" displaytext="GMT+10 Australia(Brisbane)" id="111" zone="10:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Australia/Hobart" displaytext="GMT+10 Australia(Hobart)" id="112" zone="10:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Australia/Sydney" displaytext="GMT+10 Australia(Sydney,Melbourne,Canberra)" id="110" zone="10:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Asia/Vladivostok" displaytext="GMT+10 Russia(Vladivostok)" id="113" zone="10:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Asia/Vladivostok" displaytext="GMT+10 Guam, Port Moresby" zone="10:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Asia/Magadan" displaytext="GMT+11 Magadan, Solomon Is., New Caledonia" id="115" zone="11:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Pacific/Majuro" displaytext="GMT+12 Fiji, Kamchatka, Marshal Is." id="117" zone="12:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Pacific/Auckland" displaytext="GMT+12 New Zealand(Wellington,Auckland)" id="116" zone="12:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+      <option value="Pacific/Auckland" displaytext="GMT+13 Tonga" id="119" zone="13:00">
+        <item name="TimeZoneName">UCT_013</item>
+      </option>
+    </timezoneParams>
+    <Codecspriorities>
+      <Codecspriority variableName="codec1" priority="1">
+        <!--The first entry is the selected entry in management console-->
+        <option value="PCMU/8000">G.711U</option>
+        <option value="PCMA/8000">G.711A</option>
+        <option value="G722/8000">G.722</option>
+        <option value="G729/8000">G.729AB</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec2" priority="2">
+        <!--The first entry is the selected entry in management console-->
+        <option value="PCMA/8000">G.711A</option>
+        <option value="PCMU/8000">G.711U</option>
+        <option value="G722/8000">G.722</option>
+        <option value="G729/8000">G.729AB</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec3" priority="3">
+        <!--The first entry is the selected entry in management console-->
+        <option value="G722/8000">G.722</option>
+        <option value="PCMA/8000">G.711A</option>
+        <option value="PCMU/8000">G.711U</option>
+        <option value="G729/8000">G.729AB</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec4" priority="4">
+        <!--The first entry is the selected entry in management console-->
+        <option value="G729/8000">G.729AB</option>
+        <option value="PCMA/8000">G.711A</option>
+        <option value="PCMU/8000">G.711U</option>
+        <option value="G722/8000">G.722</option>
+      </Codecspriority>
+    </Codecspriorities>
+  </header>
+  <multicastringgroup maxgroupcount="1" blankvalue="">
+		<multicastrg type="bool" readonly="false" default="false" param="multicastenabled">
+			<item value="false">0</item>
+			<item value="true">1</item>
+		</multicastrg>
+	</multicastringgroup>
+  <blftype>
+    <extension>
+      <Line>0</Line>
+      <Type>1</Type>
+      <Value>%%blfno%%@1/%%XFERmethod_DkType%%%%param::pickup%%%%blfno%%</Value>
+	  <label>%%blffirstname%% %%blflastname%%</label>
+    </extension>
+    <linekey>
+      <Line>0</Line>
+      <Type>2</Type>
+      <Value>SIP1</Value>
+	  <label>%%extension_number%% | %%extension_first_name%% %%extension_last_name%%</label>
+    </linekey>
+    <speeddial>
+      <Line>0</Line>
+      <Type>1</Type>
+      <Value>%%blfno%%@1/%%blfno%%</Value>
+	  <label>%%blffirstname%% %%blflastname%%</label>
+    </speeddial>
+    <customspeeddial>
+      <Line>0</Line>
+      <Type>1</Type>
+      <Value>%%blfno%%@1/%%blfno%%</Value>
+	  <label>%%blffirstname%% %%blflastname%%</label>
+    </customspeeddial>
+    <queuelogin>
+      <Line>0</Line>
+      <Type>1</Type>
+      <Value>%%blfno%%@1/%%blfno%%</Value>
+	  <label>%%blffirstname%% %%blflastname%%</label>
+    </queuelogin>
+    <profilestatus>
+      <Line>0</Line>
+      <Type>1</Type>
+      <Value>%%blfno%%@1/%%blfno%%</Value>
+	  <label>%%blffirstname%% %%blflastname%%</label>
+    </profilestatus>
+    <parkextension>
+      <Line>1</Line>
+      <Type>1</Type>
+      <Value>%%blfno%%@1/c%%blfno%%</Value>
+	  <label>%%blffirstname%% %%blflastname%%</label>
+    </parkextension>
+  </blftype>
+  <data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">Fanvil Android</field>
+      <deviceconfig filename="%%mac_address%%.cfg"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<VOIP_CONFIG_FILE>
+<version>2.0002</version>
+<GLOBAL_CONFIG_MODULE>
+{IF network=REMOTESTUN}
+<RTP_Initial_Port>%%rtp_port_min%%</RTP_Initial_Port>
+{ELSE}
+<RTP_Initial_Port>10000</RTP_Initial_Port>
+{ENDIF}
+</GLOBAL_CONFIG_MODULE>
+<TELE_CONFIG_MODULE>
+<Port_Config>
+<Port_Config_Entry>
+<ID>P1</ID>
+<DND_Code>1</DND_Code>
+<Busy_Code>2</Busy_Code>
+<Reject_Code>2</Reject_Code>
+</Port_Config_Entry>
+</Port_Config>
+</TELE_CONFIG_MODULE>
+<DSP_CONFIG_MODULE>
+<Video_DisplayMosaic>0</Video_DisplayMosaic>
+<Port_Config>
+<Port_Config_Entry>
+<ID>P1</ID>
+<Voice_Codec1>%%codec1%%</Voice_Codec1>
+<Voice_Codec2>%%codec2%%</Voice_Codec2>
+<Voice_Codec3>%%codec3%%</Voice_Codec3>
+<Voice_Codec4>%%codec4%%</Voice_Codec4>
+<Voice_Codec5>G723/8000</Voice_Codec5>
+<Voice_Codec6>iLBC/8000</Voice_Codec6>
+<Voice_Codec7>AMR/8000</Voice_Codec7>
+</Port_Config_Entry>
+</Port_Config>
+</DSP_CONFIG_MODULE>
+<SIP_CONFIG_MODULE>
+<CSTA_Enable>1</CSTA_Enable>
+{IF network=REMOTESTUN}
+<SIP__Port>%%phonesipport%%</SIP__Port>
+{ELSE}
+<SIP__Port>5060</SIP__Port>
+{ENDIF}
+{IF network=REMOTESTUN}
+<STUN_Server>%%pbx_ip%%</STUN_Server>
+<STUN_Port>%%param::sipport%%</STUN_Port>
+<STUN_Refresh_Time>30</STUN_Refresh_Time>
+<SIP_Wait_Stun_Time>800</SIP_Wait_Stun_Time>
+{ELSE}
+<STUN_Server></STUN_Server>
+<STUN_Port></STUN_Port>
+<STUN_Refresh_Time></STUN_Refresh_Time>
+<SIP_Wait_Stun_Time></SIP_Wait_Stun_Time>
+{ENDIF}
+<Strict_UA_Match>1</Strict_UA_Match>
+<SIP_Line_List>
+<SIP_Line_List_Entry>
+<ID>SIP1</ID>
+<Phone_Number>%%extension_number%%</Phone_Number>
+<Display_Name>%%extension_first_name%% %%extension_last_name%%</Display_Name>
+{IF network=SBC}
+<Register_Addr>%%param::pbxpublicip%%</Register_Addr>
+<Register_Port>%%param::sipport%%</Register_Port>
+<Local_Domain>%%param::pbxpublicip%%:%%param::sipport%%</Local_Domain>
+{ELSE}
+<Register_Addr>%%pbx_ip%%</Register_Addr>
+<Register_Port>%%param::sipport%%</Register_Port>
+<Local_Domain>%%pbx_ip%%:%%param::sipport%%</Local_Domain>
+{ENDIF}
+<Register_User>%%extension_auth_id%%</Register_User>
+<Register_Pswd>%%extension_auth_pw%%</Register_Pswd>
+<Register_TTL>120</Register_TTL>
+<Enable_Reg>1</Enable_Reg>
+{IF network=SBC}
+<Proxy_Addr>%%local_sbc_ip%%</Proxy_Addr>
+<Proxy_Port>%%local_sbc_port%%</Proxy_Port>
+{ELSE}
+<Proxy_Addr></Proxy_Addr>
+<Proxy_Port></Proxy_Port>
+{ENDIF}
+<Proxy_User></Proxy_User>
+<Proxy_Pswd></Proxy_Pswd>
+<BakProxy_Addr></BakProxy_Addr>
+<BakProxy_Port>5060</BakProxy_Port>
+<Media_Crypto></Media_Crypto>
+<FWD_Timer>60</FWD_Timer>
+<Ring_Type>0</Ring_Type>
+<NAT_UDPUpdate>1</NAT_UDPUpdate>
+<UDPUpdate_TTL>15</UDPUpdate_TTL>
+<Server_Type>31</Server_Type>
+{IF network=REMOTESTUN}
+<NAT_Type>1</NAT_Type>
+{ELSE}
+<NAT_Type>0</NAT_Type>
+{ENDIF}
+<Enable_Rport>1</Enable_Rport>
+<Subscribe>1</Subscribe>
+<Sub_Expire>900</Sub_Expire>
+<Strict_Proxy>1</Strict_Proxy>
+{IF network=SBC}
+<Direct_Contact>0</Direct_Contact>
+{ELSE}
+<Direct_Contact>1</Direct_Contact>
+{ENDIF}
+{IF network=REMOTESTUN}
+<Signal_Port>%%phonesipport%%</Signal_Port>
+{ELSE}
+<Signal_Port>5060</Signal_Port>
+{ENDIF}
+<TLS_Version>2</TLS_Version>
+<NoAnswerTime>60</NoAnswerTime>
+<VideoCodecMap>H.264</VideoCodecMap>
+<Feature_Sync>1</Feature_Sync>
+<Enable_XferBac>0</Enable_XferBac>
+<Ena_MAC_Header>1</Ena_MAC_Header>
+<Ena_REG_MAC>1</Ena_REG_MAC>
+<BLF_dialog_mat>0</BLF_dialog_mat>
+<Req_With_Port>0</Req_With_Port>
+</SIP_Line_List_Entry>
+</SIP_Line_List>
+</SIP_CONFIG_MODULE>
+<MCAST_CFG_MODULE>
+<Priority>9</Priority>
+<Enable_Priority>0</Enable_Priority>
+<Mcast_Addr>
+<Mcast_Addr_Entry>
+<ID>MCAST1</ID>
+<Port>%%multicastrgport1%%</Port>
+<Name>%%multicastrgname1%%</Name>
+<Host>%%multicastrgip1%%</Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST2</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST3</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST4</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST5</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST6</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST7</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST8</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST9</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST10</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+</Mcast_Addr>
+</MCAST_CFG_MODULE>
+<MMI_CONFIG_MODULE>
+<Telnet_Port>23</Telnet_Port>
+<Web_Port>80</Web_Port>
+<Web_Server_Type>0</Web_Server_Type>
+<Web_Authentication>1</Web_Authentication>
+<Https_Web_Port>443</Https_Web_Port>
+<Remote_Control>1</Remote_Control>
+<Enable_MMI_Filter>0</Enable_MMI_Filter>
+<MMI_Account>
+<MMI_Account_Entry>
+<ID>Account1</ID>
+<Name>admin</Name>
+<Password>%%DESKPHONE_PASSWORD%%</Password>
+<Level>10</Level>
+</MMI_Account_Entry>
+</MMI_Account>
+</MMI_CONFIG_MODULE>
+<QOS_CONFIG_MODULE>
+<Enable_VLAN>%%vlanwanenabled%%</Enable_VLAN>
+<VLAN_ID>%%vlanwanportid%%</VLAN_ID>
+<Signalling_Priority>%%vlanwanportpriority%%</Signalling_Priority>
+<Voice_Priority>%%vlanwanportpriority%%</Voice_Priority>
+<Video_Priority>%%vlanwanportpriority%%</Video_Priority>
+<Enable_PVID>%%vlanpcenabled%%</Enable_PVID>
+<PVID_Value>%%vlanpcportid%%</PVID_Value>
+<LLDP_Transmit>%%lldpenabled%%</LLDP_Transmit>
+<LLDP_Learn_Policy>%%lldpenabled%%</LLDP_Learn_Policy>
+</QOS_CONFIG_MODULE>
+<AUTOUPDATE_CONFIG_MODULE>
+<Auto_Mmiset_Url></Auto_Mmiset_Url>
+{IF network=LOCALLAN}
+<Auto_Pbook_Url>%%PROVLINKLOCAL%%/fanvil_phonebook.xml</Auto_Pbook_Url>
+<Auto_Image_Url>%%PROVLINKLOCAL%%/firmware/fanvil/%%firmware%%</Auto_Image_Url>
+{ELSE}
+<Auto_Pbook_Url>%%PROVLINK%%/fanvil_phonebook.xml</Auto_Pbook_Url>
+<Auto_Image_Url>%%PROVLINK%%/firmware/fanvil/%%firmware%%</Auto_Image_Url>
+{ENDIF}
+<FDPS_Enable>0</FDPS_Enable>
+<Config_File_Name>%%mac_address%%.cfg</Config_File_Name>
+{IF network=LOCALLAN}
+<Download_Server_IP>%%PROVLINKLOCAL%%</Download_Server_IP>
+<Download_Protocol>4</Download_Protocol>
+{ELSE}
+<Download_Server_IP>%%PROVLINK%%</Download_Server_IP>
+<Download_Protocol>5</Download_Protocol>
+{ENDIF}
+<Download_Mode>2</Download_Mode>
+<Download_Interval>24</Download_Interval>
+<DHCP_Option>0</DHCP_Option>
+<PNP_Enable>0</PNP_Enable>
+<PNP_IP></PNP_IP>
+<PNP_Port></PNP_Port>
+<Download_CommonConf>0</Download_CommonConf>
+<Trust_Certification>1</Trust_Certification>
+<Save_Provision_Info>1</Save_Provision_Info>
+</AUTOUPDATE_CONFIG_MODULE>
+<TR069_CONFIG_MODULE>
+<Periodix_Interval>0</Periodix_Interval>
+</TR069_CONFIG_MODULE>
+<PHONE_CONFIG_MODULE>
+<Function_Key>
+<Function_Key_Entry>
+<ID>Fkey1</ID>
+{IF blf1}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey2</ID>
+{IF blf2}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey3</ID>
+{IF blf3}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey4</ID>
+{IF blf4}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey5</ID>
+{IF blf5}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey6</ID>
+{IF blf6}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey7</ID>
+{IF blf7}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey8</ID>
+{IF blf8}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey9</ID>
+{IF blf9}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey10</ID>
+{IF blf10}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey11</ID>
+{IF blf11}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey12</ID>
+{IF blf12}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey13</ID>
+{IF blf13}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey14</ID>
+{IF blf14}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey15</ID>
+{IF blf15}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey16</ID>
+{IF blf16}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey17</ID>
+{IF blf17}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey18</ID>
+{IF blf18}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey19</ID>
+{IF blf19}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey20</ID>
+{IF blf20}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey21</ID>
+{IF blf21}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey22</ID>
+{IF blf22}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey23</ID>
+{IF blf23}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey24</ID>
+{IF blf24}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey25</ID>
+{IF blf25}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey26</ID>
+{IF blf26}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey27</ID>
+{IF blf27}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey28</ID>
+{IF blf28}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey29</ID>
+{IF blf29}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey30</ID>
+{IF blf30}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey31</ID>
+{IF blf31}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey32</ID>
+{IF blf32}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey33</ID>
+{IF blf33}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey34</ID>
+{IF blf34}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey35</ID>
+{IF blf35}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey36</ID>
+{IF blf36}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey37</ID>
+{IF blf37}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey38</ID>
+{IF blf38}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey39</ID>
+{IF blf39}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey40</ID>
+{IF blf40}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey41</ID>
+{IF blf41}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey42</ID>
+{IF blf42}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey43</ID>
+{IF blf43}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey44</ID>
+{IF blf44}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey45</ID>
+{IF blf45}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey46</ID>
+{IF blf46}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey47</ID>
+{IF blf47}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey48</ID>
+{IF blf48}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey49</ID>
+{IF blf49}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey50</ID>
+{IF blf50}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey51</ID>
+{IF blf51}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey52</ID>
+{IF blf52}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey53</ID>
+{IF blf53}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey54</ID>
+{IF blf54}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey55</ID>
+{IF blf55}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey56</ID>
+{IF blf56}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey57</ID>
+{IF blf57}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey58</ID>
+{IF blf58}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey59</ID>
+{IF blf59}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey60</ID>
+{IF blf60}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey61</ID>
+{IF blf61}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey62</ID>
+{IF blf62}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey63</ID>
+{IF blf63}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey64</ID>
+{IF blf64}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey65</ID>
+{IF blf65}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey66</ID>
+{IF blf66}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey67</ID>
+{IF blf67}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey68</ID>
+{IF blf68}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey69</ID>
+{IF blf69}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey70</ID>
+{IF blf70}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey71</ID>
+{IF blf71}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey72</ID>
+{IF blf72}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey73</ID>
+{IF blf73}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey74</ID>
+{IF blf74}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey75</ID>
+{IF blf75}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey76</ID>
+{IF blf76}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey77</ID>
+{IF blf77}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey78</ID>
+{IF blf78}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey79</ID>
+{IF blf79}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey80</ID>
+{IF blf80}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey81</ID>
+{IF blf81}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey82</ID>
+{IF blf82}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey83</ID>
+{IF blf83}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey84</ID>
+{IF blf84}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey85</ID>
+{IF blf85}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey86</ID>
+{IF blf86}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey87</ID>
+{IF blf87}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey88</ID>
+{IF blf88}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey89</ID>
+{IF blf89}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey90</ID>
+{IF blf90}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey91</ID>
+{IF blf91}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey92</ID>
+{IF blf92}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey93</ID>
+{IF blf93}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey94</ID>
+{IF blf94}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey95</ID>
+{IF blf95}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey96</ID>
+{IF blf96}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey97</ID>
+{IF blf97}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey98</ID>
+{IF blf98}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey99</ID>
+{IF blf99}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey100</ID>
+{IF blf100}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey101</ID>
+{IF blf101}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey102</ID>
+{IF blf102}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey103</ID>
+{IF blf103}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey104</ID>
+{IF blf104}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey105</ID>
+{IF blf105}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey106</ID>
+{IF blf106}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey107</ID>
+{IF blf107}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey108</ID>
+{IF blf108}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey109</ID>
+{IF blf109}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey110</ID>
+{IF blf110}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey111</ID>
+{IF blf111}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey112</ID>
+{IF blf112}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey113</ID>
+{IF blf113}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey114</ID>
+{IF blf114}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey115</ID>
+{IF blf115}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey116</ID>
+{IF blf116}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey117</ID>
+{IF blf117}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey118</ID>
+{IF blf118}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey119</ID>
+{IF blf119}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey120</ID>
+{IF blf120}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey121</ID>
+{IF blf121}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey122</ID>
+{IF blf122}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey123</ID>
+{IF blf123}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey124</ID>
+{IF blf124}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey125</ID>
+{IF blf125}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey126</ID>
+{IF blf126}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey127</ID>
+{IF blf127}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey128</ID>
+{IF blf128}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey129</ID>
+{IF blf129}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey130</ID>
+{IF blf130}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey131</ID>
+{IF blf131}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey132</ID>
+{IF blf132}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey133</ID>
+{IF blf133}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey134</ID>
+{IF blf134}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey135</ID>
+{IF blf135}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey136</ID>
+{IF blf136}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey137</ID>
+{IF blf137}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey138</ID>
+{IF blf138}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey139</ID>
+{IF blf139}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey140</ID>
+{IF blf140}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey141</ID>
+{IF blf141}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey142</ID>
+{IF blf142}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey143</ID>
+{IF blf143}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey144</ID>
+{IF blf144}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey145</ID>
+{IF blf145}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey146</ID>
+{IF blf146}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey147</ID>
+{IF blf147}
+<Type>%%Type%%</Type>
+<Value>%%Value%%</Value>
+<Title>%%label%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+</Function_Key>
+</PHONE_CONFIG_MODULE>
+<EUI_CONFIG_MODULE>
+<Net_Config>
+<Use_Vendor_Class_ID>0</Use_Vendor_Class_ID>
+{IF ua=C600}
+<Vendor_Class_ID>C600</Vendor_Class_ID>
+{ENDIF}
+{IF ua=C400}
+<Vendor_Class_ID>C400</Vendor_Class_ID>
+{ENDIF}
+<Enable_NTP>1</Enable_NTP>
+<NTP_Server>%%param::time_ntp_server%%</NTP_Server>
+<Time_Zone>%%param::time_timezone_fanvil%%</Time_Zone>
+<Time_Format>%%timestyle%%</Time_Format>
+<Date_Format>%%datestyle%%</Date_Format>
+<Date_Seperator>%%datesep%%</Date_Seperator>
+<Default_Language>%%langwebUI%%</Default_Language>
+</Net_Config>
+<Tele_Config>
+<BTransfer_by_Pound>1</BTransfer_by_Pound>
+<Onhook_to_BXfer>1</Onhook_to_BXfer>
+<Onhook_to_AXfer>0</Onhook_to_AXfer>
+<Conf_Onhook_to_Xfer>0</Conf_Onhook_to_Xfer>
+<Memory_Key_to_BXfer>%%XFERmethod_Value%%</Memory_Key_to_BXfer>
+</Tele_Config>
+<Port_Config>
+<Port_Config_Entry>
+<ID>P1</ID>
+<DND_Mode>3</DND_Mode>
+<CallSemiXfer>0</CallSemiXfer>
+<Call_Complete>0</Call_Complete>
+<Use_Auto_Redial>0</Use_Auto_Redial>
+</Port_Config_Entry>
+</Port_Config>
+<Display_Config>
+<Enable_MWI_LED>0</Enable_MWI_LED>
+<Enable_MissCall_LED>0</Enable_MissCall_LED>
+</Display_Config>
+<SIP_Line_List>
+<SIP_Line_List_Entry>
+<ID>SIP1</ID>
+<UaCSTA_Num>%%extension_number%%</UaCSTA_Num>
+<MWI_Num>%%vm_number%%</MWI_Num>
+</SIP_Line_List_Entry>
+</SIP_Line_List>
+<Alert_Info_Ring>
+<Alert_Info_Ring_Entry>
+<ID>Alert1</ID>
+<Text>ivr</Text>
+<Ring_Name>Big Easy</Ring_Name>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert2</ID>
+<Text>external</Text>
+<Ring_Name>Andromeda</Ring_Name>
+</Alert_Info_Ring_Entry>
+{IF sysparam.CUSTOMIZE_QUEUE_RINGTONES=1}
+{IF queuecrt1}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text>%%queueid%%</Text>
+<Ring_Name>%%queueringtonevalue%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt2}
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text>%%queueid%%</Text>
+<Ring_Name>%%queueringtonevalue%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt3}
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text>%%queueid%%</Text>
+<Ring_Name>%%queueringtonevalue%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt4}
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text>%%queueid%%</Text>
+<Ring_Name>%%queueringtonevalue%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt5}
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text>%%queueid%%</Text>
+<Ring_Name>%%queueringtonevalue%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt6}
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text>%%queueid%%</Text>
+<Ring_Name>%%queueringtonevalue%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt7}
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text>%%queueid%%</Text>
+<Ring_Name>%%queueringtonevalue%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt8}
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text>%%queueid%%</Text>
+<Ring_Name>%%queueringtonevalue%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text>queue</Text>
+<Ring_Name>%%queueringtone%%</Ring_Name>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text></Text>
+<Ring_Name></Ring_Name>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+</Alert_Info_Ring>
+</EUI_CONFIG_MODULE>
+</VOIP_CONFIG_FILE>
+]]></deviceconfig>
+    </device>
+  </data>
+</doc>

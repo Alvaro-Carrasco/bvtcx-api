@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Country="US" Name="Zendesk" SupportsEmojis="true" Version="26">
+  <Number Prefix="AsIs" MaxLength="[MaxLength]" />
+  <Connection MaxConcurrentRequests="16" />
+  <Parameters>
+    <Parameter Parent="General Configuration" Name="Email" Type="String" Title="Email:" />
+    <Parameter Parent="General Configuration" Name="Password" Type="Password" Title="Password:" />
+    <Parameter Parent="General Configuration" Name="Domain" Type="String" Title="Domain part:" />
+    <Parameter Parent="General Configuration" Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+    <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False"/>
+    <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Subject:" Default="3CX PhoneSystem Call" />
+    <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+    <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+    <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False"/>
+    <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Subject:" Default="3CX PhoneSystem Chat Session" />
+  </Parameters>
+  <Authentication Type="Basic">
+    <Value>[Email]:[Password]</Value>
+  </Authentication>
+  <Scenarios>
+    <Scenario>
+      <Request Url="https://[Domain].zendesk.com/api/v2/users/search.json?query=role:end-user%20phone:*[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+      </Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">users.active</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id">users.id</Variable>
+        <Variable Name="CompanyId">users.organization_id</Variable>
+        <Variable Name="Name">users.name</Variable>
+        <Variable Name="Phone">users.phone</Variable>
+        <Variable Name="UserEmail">users.email</Variable>
+        <Variable Name="Url">users.url</Variable>
+      </Variables>
+      <Outputs Next="GetCompanyName" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupByEmail_Contacts">
+      <Request Url="https://[Domain].zendesk.com/api/v2/users/search.json?query=role:end-user%20email:[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+      </Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">users.active</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id">users.id</Variable>
+        <Variable Name="CompanyId">users.organization_id</Variable>
+        <Variable Name="Name">users.name</Variable>
+        <Variable Name="Phone">users.phone</Variable>
+        <Variable Name="UserEmail">users.email</Variable>
+        <Variable Name="Url">users.url</Variable>
+      </Variables>
+      <Outputs Next="GetCompanyName" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="SearchContacts">
+      <Request Url="https://[Domain].zendesk.com/api/v2/users/search.json?per_page=[MaxCount]&amp;query=role:end-user%20[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]"
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+      </Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">users.active</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id">users.id</Variable>
+        <Variable Name="CompanyId">users.organization_id</Variable>
+        <Variable Name="Name">users.name</Variable>
+        <Variable Name="Phone">users.phone</Variable>
+        <Variable Name="UserEmail">users.email</Variable>
+        <Variable Name="Url">users.url</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="https://[Domain].zendesk.com/agent/users/[Id]" />
+        <Output Type="Email" Value="[UserEmail]" />
+        <Output Type="FirstName" Value="[Name]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="EntityId" Value="[Id]" />
+        <Output Type="EntityType" Value="Contact" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetAllContacts">
+      <Request Url="https://[Domain].zendesk.com/api/v2/users.json?role=end-user&amp;page=[Page+1]&amp;per_page=[PageSize]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+      </Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">users.active</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id">users.id</Variable>
+        <Variable Name="CompanyId">users.organization_id</Variable>
+        <Variable Name="Name">users.name</Variable>
+        <Variable Name="Phone">users.phone</Variable>
+        <Variable Name="UserEmail">users.email</Variable>
+        <Variable Name="Url">users.url</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="https://[Domain].zendesk.com/agent/users/[Id]" />
+        <Output Type="Email" Value="[UserEmail]" />
+        <Output Type="FirstName" Value="[Name]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="EntityId" Value="[Id]" />
+        <Output Type="EntityType" Value="Contact" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetCompanyName">
+      <Request SkipIf="[CompanyId]==&quot;&quot;" Url="https://[Domain].zendesk.com/api/v2/organizations/[CompanyId].json" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+      </Request>
+      <Rules>
+        <Rule Type="Any">organization.name</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyName">organization.name</Variable>
+      </Variables>
+      <Outputs AllowEmpty="true">
+        <Output Type="ContactUrl" Value="https://[Domain].zendesk.com/agent/users/[Id]" />
+        <Output Type="Email" Value="[UserEmail]" />
+        <Output Type="FirstName" Value="[Name]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="EntityId" Value="[Id]" />
+        <Output Type="EntityType" Value="Contact" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="ReportCall">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://[Domain].zendesk.com/api/v2/users/search.json?query=-role:end-user%20email:[AgentEmail]" 
+      				 RequestType="Get" ResponseType="Json" >
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+       </Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">users.active</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AssigneeId" Path="users.id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateTicket" />
+    </Scenario>
+    <Scenario Id="CreateTicket">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://[Domain].zendesk.com/api/v2/tickets.json" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+        <PostValues>
+          <Object Key="ticket">
+            <Value Passes="0" Key="requester_id" Type="String">[EntityId]</Value>
+            <Value Passes="0" Key="assignee_id" Type="String" If="[AssigneeId]!=&quot;&quot;">[AssigneeId]</Value>
+            <Value Passes="0" Key="created_at" Type="String">[[CallStartTimeLocal].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+            <Value Passes="0" Key="priority" Type="String">normal</Value>
+            <Value Passes="0" Key="status" Type="String">open</Value>
+            <Value Passes="2" Key="subject" Type="String">[[Subject]]</Value>
+            <Value Passes="2" If="[CallType]==Inbound" Key="description" Type="String">[[InboundCallText]]</Value>
+            <Value Passes="2" If="[CallType]==Missed" Key="description" Type="String">[[MissedCallText]]</Value>
+            <Value Passes="2" If="[CallType]==Outbound" Key="description" Type="String">[[OutboundCallText]]</Value>
+            <Value Passes="2" If="[CallType]==Notanswered" Key="description" Type="String">[[NotAnsweredOutboundCallText]]</Value>
+            <Array Key="tags">
+              <Value Passes="0" Type="String">[CallType]</Value>
+              <Value Passes="0" Type="String">Call</Value>
+              <Value Passes="0" Type="String">[Agent]</Value>
+            </Array>
+          </Object>
+        </PostValues>
+      </Request>
+      <Variables />
+      <Outputs AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="ReportChat">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://[Domain].zendesk.com/api/v2/users/search.json?query=-role:end-user%20email:[AgentEmail]" 
+      				 RequestType="Get" ResponseType="Json" >
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+       </Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">users.active</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AssigneeId" Path="users.id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateChatTicket" />
+    </Scenario>
+    <Scenario Id="CreateChatTicket">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://[Domain].zendesk.com/api/v2/tickets.json" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+        <PostValues>
+          <Object Key="ticket">
+            <Value Passes="0" Key="requester_id" Type="String">[EntityId]</Value>
+            <Value Passes="0" Key="assignee_id" Type="String" If="[AssigneeId]!=&quot;&quot;">[AssigneeId]</Value>
+            <Value Passes="0" Key="created_at" Type="String">[[ChatStartTimeLocal].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+            <Value Passes="0" Key="priority" Type="String">normal</Value>
+            <Value Passes="0" Key="status" Type="String">open</Value>
+            <Value Passes="2" Key="subject" Type="String">[[ChatSubject]]</Value>
+            <Value Key="description" Type="String">[[ChatMessages].Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+            <Array Key="tags">
+              <Value Passes="0" Type="String">Chat</Value>
+              <Value Passes="0" Type="String">[Agent]</Value>
+            </Array>
+          </Object>
+        </PostValues>
+      </Request>
+      <Variables />
+      <Outputs AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="CreateContactRecord">
+      <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" Url="https://[Domain].zendesk.com/api/v2/users.json" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+        <PostValues>
+          <Object Key="user">
+                <Value Passes="2" Key="name">[[CreateContactName]]</Value>
+                <Value Passes="1" Key="phone">[Number]</Value>
+                <Value Passes="1" Key="role">end-user</Value>
+          </Object>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">user.active</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="user.id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="https://[Domain].zendesk.com/agent/users/[Id]" />
+        <Output Type="FirstName" Passes="2" Value="[[CreateContactName]]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="EntityId" Value="[Id]" />
+        <Output Type="EntityType" Value="Contact" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateContactRecordFromClient">
+      <Request SkipIf="[CreateContactEnabled]!=True" Url="https://[Domain].zendesk.com/api/v2/users.json" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+        <PostValues>
+          <Object Key="user">
+                <Value Passes="2" Key="name">[FirstName] [LastName]</Value>
+                <Value Passes="1" Key="email" If="[Email]!=&quot;&quot;">[Email]</Value>
+                <Value Passes="1" Key="phone" If="[Number]!=&quot;&quot;">[Number]</Value>
+                <Value Passes="1" Key="role">end-user</Value>
+          </Object>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">user.active</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="user.id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="https://[Domain].zendesk.com/agent/users/[Id]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="EntityId" Value="[Id]" />
+        <Output Type="EntityType" Value="Contact" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+      <Request Url="https://[Domain].zendesk.com/api/v2/users/search.json?query=role:end-user%20phone:*[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" >
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+			</Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">users.active</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupID">
+      <Request Url="https://[Domain].zendesk.com/api/v2/users/[EntityID].json" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" >
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+			</Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">user.active</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+      <Request Url="https://[Domain].zendesk.com/api/v2/users/search.json?query=[Query]" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" >
+        <Headers>
+            <Value Key="X-Zendesk-Marketplace-Name">3CX</Value>
+            <Value Key="X-Zendesk-Marketplace-Organization-Id">4088</Value>
+            <Value Key="X-Zendesk-Marketplace-App-Id">351098</Value>
+        </Headers>
+			</Request>
+      <Rules>
+        <Rule Type="Equals" Ethalon="True">users.active</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+  </Scenarios>
+</Crm>

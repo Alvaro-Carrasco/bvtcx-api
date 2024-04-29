@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+<header>
+    <type>gateway-template</type>
+    <version>145775</version>
+    <time>2022-11-29 17:30:00</time>
+    <name>VoipVoice</name>
+	<url>https://www.3cx.it/doc/manuale/trunk-sip/</url>
+    <image>voipvoice.png</image>
+    <description>IT</description>
+    <templatetype>supported</templatetype>
+</header>
+<data>
+  <device>
+     <type>provider</type>
+     <manufacturer>VoipVoice</manufacturer>
+     <model>provider</model>
+
+     <!-- Friendly Name -->
+     <field name="Name">VoipVoice</field>
+
+     <!-- Hostnames and Port Numbers -->
+     <field name="RegistrarHost" status="readonly">user.voipvoice.it</field>
+     <field name="RegistrarPort" status="readonly">5060</field> 
+     <field name="ProxyHost" status="readonly"></field>
+     <field name="ProxyPort" status="readonly">5060</field>
+     <field name="StunServerHost" status="readonly"></field>
+     <field name="StunServerPort" status="readonly"></field>
+
+     <!-- Registration Settings -->
+     <field name="RequireAuthFor" status="readonly">4</field> 
+     <field name="IpInContactReg" status="readonly">1</field>
+     <field name="IpInContactRegValue" status="readonly"></field>
+     <field name="TimeBetweenRegistration" status="readonly">120</field>
+
+     <!-- Provider Capabilities -->
+     <field name="IsSupportReinvite" status="readonly">0</field>
+     <field name="IsSupportReplaces" status="readonly">0</field>
+	 <field name="DisableVideo" status="readonly">1</field>	 
+
+     <!-- Location of Destination Number -->
+     <field name="DestNumberIn_TO" status="readonly">1</field>  
+     <field name="DestNumberIn_REQLINEURI" status="readonly">1</field> 
+     <field name="DestNumberIn_RPID_CALLED" status="readonly">0</field>
+
+     <!-- Other Options -->
+     <field name="IPRestriction">ANY</field>			<!-- Restricts IPv4 or IPv6. Values: ANY, IPV4, IPV6 -->
+     <field name="TransportRestriction">UDP</field>		<!-- Restricts the Transport Protocol. Values: ANY, UDP, TCP, TLS -->
+     <field name="SecondaryRegistrar"></field>			<!-- Possible values: FQDN:Port or IP:Port -->
+     <field name="IsBindToMS" status="readonly">1</field> 
+     <field name="UseIPInContactSrc" status="readonly">0</field>
+     <field name="useipincontactsrcvalue" status="readonly"></field>
+     <field name="CallerIDIn" status="readonly">1</field> 
+     <field name="CalledNumberIn" status="readonly">2</field>
+
+     <codecs>
+      <codec rfcname="PCMA"/>
+      <codec rfcname="PCMU"/>
+      <codec rfcname="G729"/>
+     </codecs>
+
+      <!--Source Identification - Use Default PBX Internal Source Identification-->
+      <!--<field status="readonly" name="MatchStrategy">1</field>-->
+      <!--<field status="readonly" name="Source" parameter="" custom=""></field>-->
+
+      <!-- Gateway / Provider Inbound Parameters -->
+      <field status="readonly" name="ParameterIn" custom="" parameter="ToUserPart">$CalledNum</field>
+      <field status="readonly" name="ParameterIn" custom="" parameter="FromUserPart">$CallerName</field>
+      <field status="readonly" name="ParameterIn" custom="" parameter="FromUserPart">$CallerNum</field>
+
+      <!-- Gateway / Provider Outbound Parameters -->
+      <field status="readonly" name="ParameterOut" custom="" parameter="RequestLineURIUser">$CalledNum</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="RequestLineURIHost">$GWHostPort</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ContactUser">$AuthID</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ContactHost">$ContactURI</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ToDisplayName">$CalledName</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ToUserPart">$CalledNum</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ToHostPart">$GWHostPort</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="FromDisplayName">$OutboundCallerId</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="FromUserPart">$AuthID</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="FromHostPart">$GWHostPort</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="P-PreferredIdentityDisplayName">$OutboundCallerID</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="P-PreferredIdentityUserPart">$OutboundCallerID</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="P-PreferredIdentityHostPart">$GWHostPort</field>
+  </device>
+</data> 
+</doc>

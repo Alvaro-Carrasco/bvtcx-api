@@ -1,0 +1,1239 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Country="US" Name="Bitrix" SupportsEmojis="false" ListPageSize="50" Version="29">
+  <Number Prefix="AsIs" MaxLength="[MaxLength]" />
+  <Connection MaxConcurrentRequests="16" />
+  <Parameters>
+    <Parameter Parent="General Configuration" Name="WebHookUrl" Type="String" Title="Web Hook URL:" Default="https://example.bitrix24.com/rest/1/48zc6xffihng4ehe" />
+    <Parameter Parent="General Configuration" Name="Domain" Type="String" Title="Domain:" Default="https://example.bitrix24.com" />
+    <Parameter Parent="General Configuration" Name="LookupOrder" Type="List" ListValues="Contacts/Leads/Companies,Contacts/Companies/Leads,Leads/Companies/Contacts,Leads/Contacts/Companies,Companies/Contacts/Leads,Companies/Leads/Contacts" Title="Contact Lookup Order:" Default="Contacts/Leads/Companies" />
+    <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False" />
+    <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Subject:" Default="3CX PhoneSystem Call" />
+    <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+    <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+    <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False" />
+    <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Subject:" Default="3CX PhoneSystem Chat Session" />
+    <Parameter Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+    <Parameter Parent="CreateContactEnabled" Name="CreateLeadOrContact" Type="List" ListValues="Lead,Contact" Title="Create Lead or Contact:" Default="Contact" />
+  </Parameters>
+  <Authentication Type="No" />
+  <Scenarios>
+    <Scenario EntityId="Companies" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="[WebHookUrl]/crm.company.list.json?filter{{PHONE}}=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+        <Headers />
+      </Request>
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyId">result.ID</Variable>
+        <Variable Name="CompanyName">result.TITLE</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="OtherPhone" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/company/show/[CompanyId]/" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[OtherPhone]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="EntityId" Value="[CompanyId]" />
+        <Output Type="EntityType" Value="4" />
+      </Outputs>
+    </Scenario>
+    <Scenario EntityId="Leads" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="[WebHookUrl]/crm.lead.list.json?filter{{PHONE}}=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+        <Headers />
+      </Request>
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="LeadId">result.ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="CompanyName">result.COMPANY_TITLE</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any" Ethalon="">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />        
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/lead/show/[LeadId]/" />
+        <Output Type="EntityId" Value="[LeadId]" />
+        <Output Type="EntityType" Value="1" />
+      </Outputs>
+    </Scenario>
+    <Scenario EntityId="Contacts" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="[WebHookUrl]/crm.contact.list.json?filter{{PHONE}}=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+        <Headers />
+      </Request>
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId">result.ID</Variable>
+        <Variable Name="CompanyId">result.COMPANY_ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any" Ethalon="">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs Next="GetCompanyName" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="GetCompanyName">
+      <Request Url="[WebHookUrl]/crm.company.list.json?filter{{ID}}=[CompanyId]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyName">result.TITLE</Variable>
+      </Variables>
+      <Outputs AllowEmpty="true">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/contact/show/[ContactId]/" />
+        <Output Type="EntityId" Value="[ContactId]" />
+        <Output Type="EntityType" Value="3" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Companies" EntityId="Companies" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="[WebHookUrl]/crm.company.list.json?filter{{EMAIL}}=[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyId">result.ID</Variable>
+        <Variable Name="CompanyName">result.TITLE</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="OtherPhone" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/company/show/[CompanyId]/" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[OtherPhone]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="EntityId" Value="[CompanyId]" />
+        <Output Type="EntityType" Value="4" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Leads" EntityId="Leads" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="[WebHookUrl]/crm.lead.list.json?filter{{EMAIL}}=[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="LeadId">result.ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="CompanyName">result.COMPANY_TITLE</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/lead/show/[LeadId]/" />
+        <Output Type="EntityId" Value="[LeadId]" />
+        <Output Type="EntityType" Value="1" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Contacts" EntityId="Contacts" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="[WebHookUrl]/crm.contact.list.json?filter{{EMAIL}}=[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId">result.ID</Variable>
+        <Variable Name="CompanyId">result.COMPANY_ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs Next="GetCompanyName" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="SearchContacts_Phone">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?filter{{PHONE}}=[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId">result.ID</Variable>
+        <Variable Name="CompanyId">result.COMPANY_ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any" Ethalon="">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/contact/show/[ContactId]/" />
+        <Output Type="EntityId" Value="[ContactId]" />
+        <Output Type="EntityType" Value="3" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_Email">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?filter{{EMAIL}}=[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId">result.ID</Variable>
+        <Variable Name="CompanyId">result.COMPANY_ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any" Ethalon="">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/contact/show/[ContactId]/" />
+        <Output Type="EntityId" Value="[ContactId]" />
+        <Output Type="EntityType" Value="3" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_FirstName">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?filter{{%NAME}}=[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId">result.ID</Variable>
+        <Variable Name="CompanyId">result.COMPANY_ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any" Ethalon="">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/contact/show/[ContactId]/" />
+        <Output Type="EntityId" Value="[ContactId]" />
+        <Output Type="EntityType" Value="3" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_LastName">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?filter{{%LAST_NAME}}=[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId">result.ID</Variable>
+        <Variable Name="CompanyId">result.COMPANY_ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any" Ethalon="">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/contact/show/[ContactId]/" />
+        <Output Type="EntityId" Value="[ContactId]" />
+        <Output Type="EntityType" Value="3" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_CompanyName">
+      <Request Url="[WebHookUrl]/crm.company.list.json?filter{{%TITLE}}=[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyId">result.ID</Variable>
+        <Variable Name="CompanyName">result.TITLE</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false" Next="GetContactById" />
+    </Scenario>
+    <Scenario Id="GetContactById">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?filter{{COMPANY_ID}}=[CompanyId]&amp;select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId">result.ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any" Ethalon="">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/contact/show/[ContactId]/" />
+        <Output Type="EntityId" Value="[ContactId]" />
+        <Output Type="EntityType" Value="3" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetAllContacts">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?select{{}}=*&amp;select{{}}=PHONE&amp;select{{}}=EMAIL&amp;start=[[Page]*[PageSize]]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId">result.ID</Variable>
+        <Variable Name="FirstName">result.NAME</Variable>
+        <Variable Name="LastName">result.LAST_NAME</Variable>
+        <Variable Name="PhoneBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneBusiness2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="WORK">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneMobile2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="MOBILE">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxBusiness" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="FaxHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="FAX">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneHome2" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="HOME">result.PHONE.VALUE_TYPE</Rule>
+            <Rule Type="Equals" Ethalon="[Number]">result.PHONE.VALUE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Pager" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="PAGER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="PhoneOther" Path="result.PHONE.VALUE">
+          <Filter>
+            <Rule Type="Equals" Ethalon="OTHER">result.PHONE.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+        <Variable Name="Email" Path="result.EMAIL.VALUE">
+          <Filter>
+            <Rule Type="Any" Ethalon="">result.EMAIL.VALUE_TYPE</Rule>
+          </Filter>
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneMobile2" Value="[PhoneMobile2]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="FaxHome" Value="[FaxHome]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneHome2" Value="[PhoneHome2]" />
+        <Output Type="Pager" Value="[Pager]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="ContactUrl" Value="[Domain]/crm/contact/show/[ContactId]/" />
+        <Output Type="EntityId" Value="[ContactId]" />
+        <Output Type="EntityType" Value="3" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="ReportCall">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[WebHookUrl]/user.get.json?filter{{EMAIL}}=[AgentEmail]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ResponsibleId" Path="result.ID" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateCallActivity">
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateCallActivity">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[WebHookUrl]/crm.activity.add"  
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+        <Headers />
+        <PostValues>
+          <Object Key="fields">
+            <Value Passes="0" Key="TYPE_ID" Type="Integer">2</Value>
+            <Value Passes="1" Key="OWNER_ID" Type="String">[EntityId]</Value>
+            <Value Passes="1" Key="OWNER_TYPE_ID" Type="String">[EntityType]</Value>
+            <Value Passes="0" Key="RESPONSIBLE_ID" Type="String" If="[ResponsibleId]!=&quot;&quot;">[ResponsibleId]</Value>
+            <Value Passes="0" Key="START_TIME" Type="String">[[CallStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+            <Value Passes="0" Key="PRIORITY" Type="Integer">2</Value>
+            <Value Passes="0" Key="COMPLETED" Type="String">Y</Value>
+            <Value Passes="2" Key="SUBJECT" Type="String">[[Subject]]</Value>
+            <Value Passes="0" Key="DIRECTION" Type="String">[IIf([CallType]==Inbound||[CallType]==Missed,1,2)]</Value>
+            <Value Passes="2" If="[CallType]==Inbound" Key="DESCRIPTION" Type="String">[[InboundCallText]]</Value>
+            <Value Passes="2" If="[CallType]==Missed" Key="DESCRIPTION" Type="String">[[MissedCallText]]</Value>
+            <Value Passes="2" If="[CallType]==Outbound" Key="DESCRIPTION" Type="String">[[OutboundCallText]]</Value>
+            <Value Passes="2" If="[CallType]==Notanswered" Key="DESCRIPTION" Type="String">[[NotAnsweredOutboundCallText]]</Value>
+            <Array Key="COMMUNICATIONS">
+              <Object>
+                <Value Passes="1" Key="VALUE" Type="String">[Number]</Value>
+              </Object>
+            </Array>
+          </Object>
+        </PostValues>
+      </Request>
+      <Variables />
+      <Outputs AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="ReportChat">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[WebHookUrl]/user.get.json?filter{{EMAIL}}=[AgentEmail]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">result.ID</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ResponsibleId" Path="result.ID" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateChatActivity">
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateChatActivity">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;"
+      				 Url="[WebHookUrl]/crm.activity.add"  
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+        <Headers />
+        <PostValues>
+          <Object Key="fields">
+            <Value Passes="0" Key="TYPE_ID" Type="Integer">1</Value>
+            <Value Passes="1" Key="OWNER_ID" Type="String">[EntityId]</Value>
+            <Value Passes="1" Key="OWNER_TYPE_ID" Type="String">[EntityType]</Value>
+            <Value Passes="0" Key="RESPONSIBLE_ID" Type="String" If="[ResponsibleId]!=&quot;&quot;">[ResponsibleId]</Value>
+            <Value Passes="0" Key="START_TIME" Type="String">[[ChatStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+            <Value Passes="0" Key="PRIORITY" Type="Integer">2</Value>
+            <Value Passes="0" Key="COMPLETED" Type="String">Y</Value>
+            <Value Passes="2" Key="SUBJECT" Type="String">[[ChatSubject]]</Value>
+            <Value Passes="0" Key="DIRECTION" Type="String">1</Value>
+            <Value Passes="1" Key="DESCRIPTION" Type="String">[[ChatMessages].Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+            <Array Key="COMMUNICATIONS">
+              <Object>
+                <Value Passes="1" Key="VALUE" Type="String">[IIf([Email]!=&quot;&quot;,[Email],[Number])]</Value>
+              </Object>
+            </Array>
+          </Object>
+        </PostValues>
+      </Request>
+      <Variables />
+      <Outputs AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="CreateContactRecord">
+      <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" Url="[WebHookUrl]/crm.[IIf([CreateLeadOrContact]==Lead,lead,contact)].add" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+          <Object Key="fields">
+            <Value Passes="2" Key="NAME">[[CreateContactFirstName]]</Value>
+            <Value Passes="2" Key="LAST_NAME">[[CreateContactLastName]]</Value>
+            <Value Passes="2" Key="TITLE" If="[CreateLeadOrContact]==Lead">[[CreateContactFirstName]] [[CreateContactLastName]]</Value>
+              <Array Key="PHONE">
+                <Object>
+                  <Value Passes="1" Key="VALUE_TYPE" Type="String">WORK</Value>
+                  <Value Passes="1" Key="VALUE" Type="String">[Number]</Value>
+                </Object>
+            </Array>
+          </Object> 
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">result</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="result" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Domain]/crm/[IIf([CreateLeadOrContact]==Lead,lead,contact)]/show/[Id]/" />
+        <Output Type="FirstName" Passes="2" Value="[[CreateContactFirstName]]" />
+        <Output Type="LastName" Passes="2" Value="[[CreateContactLastName]]" />
+        <Output Type="PhoneBusiness" Value="[Number]" />
+        <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,1,3)]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateContactRecordFromClient">
+      <Request SkipIf="[CreateContactEnabled]!=True" Url="[WebHookUrl]/crm.[IIf([CreateLeadOrContact]==Lead,lead,contact)].add" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+          <Object Key="fields">
+            <Value Key="NAME">[FirstName]</Value>
+            <Value Key="LAST_NAME">[LastName]</Value>
+            <Value Key="TITLE" If="[CreateLeadOrContact]==Lead">[FirstName] [LastName]</Value>
+            <Array Key="PHONE" If="[Number]!=&quot;&quot;">
+              <Object>
+                <Value Passes="1" Key="VALUE_TYPE" Type="String">MOBILE</Value>
+                <Value Passes="1" Key="VALUE" Type="String">[Number]</Value>
+              </Object>
+          	</Array>
+            <Array Key="EMAIL" If="[Email]!=&quot;&quot;">
+              <Object>
+                <Value Passes="1" Key="VALUE_TYPE" Type="String">EMAIL</Value>
+                <Value Passes="1" Key="VALUE" Type="String">[Email]</Value>
+              </Object>
+          	</Array>
+          </Object> 
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">result</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="result" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Domain]/crm/[IIf([CreateLeadOrContact]==Lead,lead,contact)]/show/[Id]/" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,1,3)]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?filter{{PHONE}}=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupID">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?filter{{ID}}=[EntityID]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+      <Request Url="[WebHookUrl]/crm.contact.list.json?filter[Query]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupNumber">
+      <Request Url="[WebHookUrl]/crm.lead.list.json?filter{{PHONE}}=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupID">
+      <Request Url="[WebHookUrl]/crm.lead.list.json?filter{{ID}}=[EntityID]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupFreeQuery">
+      <Request Url="[WebHookUrl]/crm.lead.list.json?filter[Query]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupNumber">
+      <Request Url="[WebHookUrl]/crm.company.list.json?filter{{PHONE}}=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupID">
+      <Request Url="[WebHookUrl]/crm.company.list.json?filter{{ID}}=[EntityID]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupFreeQuery">
+      <Request Url="[WebHookUrl]/crm.company.list.json?filter[Query]&amp;select{{}}=*" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.ID</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+  </Scenarios>
+</Crm>

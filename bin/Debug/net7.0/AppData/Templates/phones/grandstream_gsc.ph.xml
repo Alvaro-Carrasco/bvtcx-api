@@ -1,0 +1,2077 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>145775</version>
+    <time>2022-01-12 16:00:00</time>
+    <name>GrandStream GSC3505_GSC3510</name>
+    <url>https://www.3cx.com/sip-phones/grandstream-speaker-intercom/</url>
+	<templatetype>thirdparty</templatetype>
+    <models>
+	  <model ua="GSC3510">GrandStream GSC-3510</model>
+	  <model ua="GSC3505">GrandStream GSC-3505</model>
+    </models>
+    <description>GrandStream Intercom and Paging Device</description>
+    <rebootParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </rebootParams>
+    <resyncParams>
+      <event-name>check-sync;reboot=false</event-name>
+    </resyncParams>
+    <firmwareParams>
+      <event-name>check-sync;reboot=false</event-name>
+    </firmwareParams>
+	<rps>1</rps>
+	<hotdesking>0</hotdesking>
+    <AllowedNetworkConfig>
+      <option value="LOCALLAN">1</option>
+      <option value="REMOTESTUN">1</option>
+	  <option value="SBC">1</option>
+    </AllowedNetworkConfig>
+	<interfaceLink>http://admin:%%PHONE_WEB_PASSWORD%%@%%PHONE_IP%%/direct-login/</interfaceLink>
+	<AllowWebPasswordChange>1</AllowWebPasswordChange>
+	<AllowSSLProvisioning>1</AllowSSLProvisioning>
+    <xfertype enabled="false" bxfer_Value="0" attxfer_Value="1" />
+	<ringtones>
+      <!--The first entry is the selected entry in management console-->
+      <option value="System Ring Tone">
+        <item name="defringtone">content://settings/system/ringtone</item>
+      </option>
+      <option value="Andromeda">
+        <item name="defringtone">/system/media/audio/ringtones/ANDROMEDA.ogg</item>
+      </option>
+      <option value="Aquila">
+        <item name="defringtone">/system/media/audio/ringtones/Aquila.ogg</item>
+      </option>
+      <option value="Atria">
+        <item name="defringtone">/system/media/audio/ringtones/Atria.ogg</item>
+      </option>
+      <option value="Backroad">
+        <item name="defringtone">/system/media/audio/ringtones/Backroad.ogg</item>
+      </option>
+    </ringtones>
+    <!--<powerled>
+      <option value="On">
+        <item name="mwiled">0</item>
+      </option>
+      <option value="Off">
+        <item name="mwiled">1</item>
+      </option>
+    </powerled>-->
+	<vlan>
+      <vlanwanport type="bool" readonly="false" default="false" param="vlanwanenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </vlanwanport>
+	  <vlanwanid type="int" readonly="false" default="0" minvalue="0" maxvalue="4094" param="vlanwanportid" />
+      <vlanwanpriority type="int" readonly="false" default="0" minvalue="0" maxvalue="7" param="vlanwanportpriority" />
+      <vlanpcport type="bool" readonly="false" default="false" param="vlanpcenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </vlanpcport>
+      <vlanpcid type="int" readonly="false" default="0" minvalue="0" maxvalue="4094" param="vlanpcportid" />
+      <vlanpcpriority type="int" readonly="false" default="0" minvalue="0" maxvalue="7" param="vlanpcportpriority" />
+    </vlan>
+	<lldp>
+	  <lldpvalue type="bool" readonly="false" default="true" param="lldpenabled">
+		<item value="false">0</item>
+		<item value="true">1</item>
+	  </lldpvalue>
+	</lldp>
+	<!--<srtp>
+      <option value="Disabled">
+        <item name="srtpvalue">0</item>
+      </option>
+      <option value="Optionally enabled (not enforced)">
+        <item name="srtpvalue">1</item>
+      </option>
+	  <option value="Enabled compulsory (forced)">
+        <item name="srtpvalue">2</item>
+      </option>
+    </srtp>-->
+    <timezoneParams param="time_timezone_grandstreamexec">
+      <option value="TAB+11" id="120" zone="-11:00">GMT-11:00 (Midway Island)</option>
+      <option value="HAW10" id="1" zone="-10:00">GMT-10:00 (US Hawaiian Time)</option>
+      <option value="AKST9AKDT" id="3" zone="-9:00">GMT-9:00 (US Alaska Time)</option>
+      <option value="PST8PDT" id="6" zone="-8:00">GMT-8:00 (US Pacific Time, Los Angeles)</option>
+      <option value="PST8PDT,M4.1.0,M10.5.0" zone="-8:00">GMT-8:00 (Tijuana)</option>
+      <option value="MST7MDT" id="9" zone="-7:00">GMT-7:00 (US Mountain Time, Chihuahua, Denver)</option>
+      <option value="MST7" id="10" zone="-7:00">GMT-7:00 (Arizona)</option>
+      <option value="CST6CDT" id="14" zone="-6:00">GMT-6:00 (US Central Time, Chicago)</option>
+      <option value="CST+6" id="11" zone="-6:00">GMT-06:00 (Central America)</option>
+      <option value="CST6CDT,M4.1.0,M10.5.0" id="13" zone="-6:00">GMT-06:00 (Mexico City)</option>
+	  <option value="CST6CDT,M3.2.0,M11.1.0" id="15" zone="-6:00">GMT-06:00 (Mexico City)</option>
+	  <option value="EST5EDT" id="16" zone="-5:00">GMT-5:00 (Eastern Time)</option>
+	  <option value="EST5" id="125" zone="-5:00">GMT-5:00 (Eastern Time without daylight saving)</option>
+	  <option value="COT5" id="17" zone="-5:00">GMT-5:00 (Bogota)</option>	  
+      <option value="TZf+4:30" id="18" zone="-4:00">GMT-04:00 (Venezuela) </option>
+      <option value="AST4" id="19" zone="-4:00">GMT-4:00 (Atlantic Time (Barbados)</option>
+	  <option value="AST4ADT" id="19" zone="-4:00">GMT-4:00 (Atlantic Time (Canada))</option>
+      <option value="AMT4" id="23" zone="-4:00">GMT-4:00 (Manaus)</option>
+      <option value="NST+3:30NDT+2:30,M3.2.0/00:01:00,M11.1.0/00:01:00" id="25" zone="-3:30">GMT-3:30 (Newfoundland)</option>
+      <option value="UTC+3" id="27" zone="-3:00">GMT-3:00 (Buenos Aires, Argentina)</option>
+	  <option value="TZK+3" id="26" zone="-3:00">GMT-03:00 (Greenland)</option>
+      <option value="UYT3UYST,M10.1.0,M3.2.0" id="29" zone="-3:00">GMT-03:00 (Montevideo)</option>
+	  <option value="UTC-3" id="28" zone="-3:00">GMT-3:00 (Brazil, Sao Paulo)</option>
+      <option value="TZL+2" id="30" zone="-2:00">GMT-02:00 (Mid-Atlantic)</option>
+      <option value="TZM+1" id="31" zone="-1:00">GMT-01:00 (Azores, Cape Verdi Is.)</option>
+	  <option value="CVT1" id="33" zone="-1:00">GMT-01:00 (Cape Verdi Is.)</option>
+      <option value="TZN+0" id="32" zone="0:00">GMTT+0:00 (GMT, Casablanca)</option>
+      <option value="GMT+0BST-1,M3.5.0/01:00:00,M10.5.0/02:00:00" id="36" zone="0:00">GMT (London, Great Britain)</option>
+      <option value="CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" id="51" zone="1:00">GMT+01:00 (Amsterdam)</option>
+      <option value="CET-1CEST,M3.5.0,M10.5.0/3" id="45" zone="1:00">GMT+01:00 (Belgrade)</option>
+	  <option value="TZO-1" id="38" zone="1:00">GMT+01:00 (Brussels)</option>
+	  <option value="CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00" id="56" zone="1:00">GMT+01:00 (Madrid)</option>
+	  <option value="CET-1CEST,M3.5.0,M10.5.0/3" id="54" zone="1:00">GMT+01:00 (Sarajevo)</option>
+	  <option value="WAT-1" id="48" zone="1:00">GMT+01:00 (W. Africa Time)</option>
+	  <option value="WAT-1WAST,M9.1.0,M4.1.0" id="64" zone="2:00">GMT+02:00 (Windhoek)</option>
+	  <option value="EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00" id="70" zone="2:00">GMT+02:00 (Helsinki, Athens, Tallinn, Eastern European Time)</option>
+	  <option value="EET-2EEST,M3.5.0/0,M10.5.0/0" id="71" zone="2:00">GMT+02:00 (Beirut, Lebanon)</option>
+	  <option value="TZP-2" id="66" zone="2:00">GMT+02:00 (Cairo, Jerusalem)</option>
+      <option value="CAT-2" id="68" zone="2:00">GMT+02:00 (Harare)</option>
+	  <option value="TZQ-3" id="79" zone="3:00">GMT+03:00 (Istanbul, Kuwait, Nairobi)</option>
+	  <option value="EET-2EEST,M3.5.0,M10.5.0/3" id="80" zone="3:00">GMT+03:00 (Minsk)</option>
+	  <option value="AST-3" id="82" zone="3:00">GMT+03:00 (Baghdad)</option>
+	  <option value="MST-3MDT,M3.5.0/2,M10.5.0/3" id="83" zone="3:00">GMT+03:00 (Moscow, Russia)</option>
+	  <option value="IRST-3:30IRDT-4:30,M3.4.4/24:00:00,M9.4.6/24:00:00" id="84" zone="3:30">GMT+03:30 (Tehran)</option>
+      <option value="GST-4" id="90" zone="4:00">GMT+04:00 (Dubai)</option>
+	  <option value="GET-4" id="87" zone="4:00">GMT+04:00 (Tbilisi)</option>
+	  <option value="AMT-4AMST,M3.5.0,M10.5.0/3" id="85" zone="4:00">GMT+04:00 (Yerevan)</option>
+	  <option value="TZR-4" id="86" zone="4:00">GMT+04:00 (Baku)</option>
+      <option value="TZS-5" id="94" zone="5:00">GMT+05:00 (Islamabad, Karachi)</option>
+	  <option value="ORAT-5" id="95" zone="5:00">GMT+05:00 (Ural'sk)</option>
+	  <option value="YEKT-5YEKST,M3.5.0,M10.5.0/3" id="95" zone="5:00">GMT+05:00 (Yekaterinburg)</option>
+      <option value="IST-5:30" id="96" zone="5:30">GMT+05:30 (Kolkata)</option>
+      <option value="TZU-5:45" zone="5:45">GMT+05:45 (Kathmandu)</option>
+      <option value="TZV-6" id="98" zone="6:00">GMT+06:00 (Astana)</option>
+      <option value="TZW-6:30" zone="6:30">GMT+06:30 (Yangon)</option>
+      <option value="TZX-7" id="102" zone="7:00">GMT+07:00 (Bankok, Krasnoyarsk)</option>
+      <option value="WIB-7" zone="7:00">GMT+07:00 (Jakarta)</option>
+      <option value="TZY-8" id="103" zone="8:00">GMT+08:00 (Beijing, Taipei, Hong Kong, Irkutsk)</option>
+	  <option value="MYT-8" id="104" zone="8:00">GMT+08:00 (Kuala Lumpur)</option>
+      <option value="WST-8" id="105" zone="8:00">GMT+08:00 (Perth)</option>
+      <option value="TZZ-9" id="107" zone="9:00">GMT+09:00 (Seoul, Yakutsk, Tokyo, Osaka)</option>
+      <option value="CST-9:30CDT-10:30,M10.5.0/02:00:00,M3.5.0/03:00:00" id="108" zone="9:30">GMT+09:30 (Adelaide)</option>
+      <option value="CST-9:30" id="47" zone="9:30">GMT+09:30 (Darwin)</option>
+	  <option value="EST-10" id="111" zone="10:00">GMT+10:00 (Brisbane)</option>
+	  <option value="VLAT-10VLAST,M3.5.0,M10.5.0/3" id="109" zone="10:00">GMT+10:00 (Vladivostok)</option>
+      <option value="TZb-10" id="109" zone="10:00">GMT+10:00 (Guam)</option>
+      <option value="EST-10EDT-11,M10.1.0/02:00:00,M4.1.0/03:00:00" id="110" zone="10:00">GMT+10:00 (Hobart, Sydney, Canberra)</option>
+	  <option value="TZc-11" id="115" zone="11:00">GMT+11:00 (Magadan, Noumea, New Caledonia)</option>
+	  <option value="MHT-12" id="114" zone="11:00">GMT+12:00 (Majuro, Marshall Islands)</option>
+      <option value="NZST-12NZDT-13,M10.1.0/02:00:00,M3.3.0/03:00:00" id="116" zone="12:00">GMT+12:00 (Auckland)</option>
+      <option value="TZd-12" zone="12:00">GMT+12:00 (Fiji)</option>
+      <option value="TZe-13" id="119" zone="13:00">GMT+13:00 (Tonga)</option>
+    </timezoneParams>
+    <Codecspriorities>
+      <Codecspriority variableName="codec1" priority="1">
+        <!--The first entry is the selected entry in management console-->
+        <option value="0">PCMU</option>
+        <option value="8">PCMA</option>
+        <option value="18">G729A/B</option>
+        <option value="9">G722 (WideBand)</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec2" priority="2">
+        <!--The first entry is the selected entry in management console-->
+        <option value="8">PCMA</option>
+        <option value="0">PCMU</option>
+        <option value="18">G729A/B</option>
+        <option value="9">G722 (WideBand)</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec3" priority="3">
+        <!--The first entry is the selected entry in management console-->
+        <option value="9">G722 (WideBand)</option>
+        <option value="0">PCMU</option>
+        <option value="8">PCMA</option>
+        <option value="18">G729A/B</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec4" priority="4">
+        <!--The first entry is the selected entry in management console-->
+        <option value="18">G729A/B</option>
+        <option value="9">G722 (WideBand)</option>
+        <option value="0">PCMU</option>
+        <option value="8">PCMA</option>
+      </Codecspriority>
+    </Codecspriorities>
+  </header>
+  <multicastringgroup maxgroupcount="1" blankvalue="">
+		<multicastrg type="bool" readonly="false" default="false" param="multicastenabled">
+			<item value="false">0</item>
+			<item value="true">1</item>
+		</multicastrg>
+    </multicastringgroup>
+<data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">GrandStream GSC3505_GSC3510</field>
+      <deviceconfig filename="cfg%%mac_address%%.xml"><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<gs_provision version="1">
+  <config version="1">
+		
+    <!--################################################################## -->
+    <!--# Account 1 / General Settings                                  ## -->
+    <!--################################################################## -->
+    
+    <!-- Account Active. 0 - No, 1 - Yes. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P271>1</P271>
+
+    <!-- Account Name -->
+    <!-- String -->
+    <P270>%%extension_number%% | %%extension_first_name%% %%extension_last_name%%</P270>
+
+    {IF network=LOCALLAN}
+    <!-- SIP Server Local configuration - Local internal IP Address of the server -->
+    <P47>%%pbx_ip%%:%%param::sipport%%</P47>
+    <!-- Outbound Proxy - The "P48" field contains the ip address and SIP port of the SIP Outbound Proxy - in this case 3CXPS. The "pbx_ip" and "param::sipport" variables will be replaced by the IP Address and SIP Port of 3CXPS. -->
+    <P48></P48>
+    <!-- Local SIP port (default 5060) -->
+    <P40>5060</P40>
+    <!-- NAT Traversal. 0 - no, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN -->
+    <P52>0</P52>
+    {ENDIF}
+
+    {IF network=REMOTESTUN}
+    <!-- SIP Server configuration for remote using stun mode - External IP Address -->
+    <P47>%%pbx_ip%%:%%param::sipport%%</P47>
+    <!-- Outbound Proxy - The "P48" field contains the ip address and SIP port of the SIP Outbound Proxy - in this case 3CXPS. The "pbx_ip" and "param::sipport" variables will be replaced by the IP Address and SIP Port of 3CXPS. -->
+    <P48></P48>
+    <!-- Local SIP port (default 5060) -->
+    <P40>%%phonesipport%%</P40>
+    <!-- NAT Traversal. 0 - no, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN -->
+    <P52>1</P52>
+    {ENDIF}
+
+    {IF network=SBC}
+    <!-- SIP Server configuration for SBC Profile -->
+    <P47>%%param::PBXPUBLICIP%%:%%param::sipport%%</P47>
+    <!-- Outbound Proxy - The "P48" field contains the ip address and SIP port of the SIP Outbound Proxy - in this case 3CXPS. The "pbx_ip" and "param::sipport" variables will be replaced by the IP Address and SIP Port of 3CXPS. -->
+    <P48>%%local_sbc_ip%%:%%local_sbc_port%%</P48>
+    <!-- Local SIP port (default 5060) -->
+    <!--P40 = 5060 -->
+    <!-- NAT Traversal. 0 - no, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN -->
+    <P52>0</P52>
+    {ENDIF}
+
+    <!-- Secondary Outbound Proxy -->
+    <!-- String -->
+    <!-- P2333 =  -->
+
+    <!--  SIP User ID -->
+    <!--  String -->
+    <P35>%%extension_number%%</P35>
+
+    <!--  Authenticate ID -->
+    <!--  String -->
+    <P36>%%extension_auth_id%%</P36>
+
+    <!--  Authenticate Password -->
+    <!--  String -->
+    <P34>%%extension_auth_pw%%</P34>
+	
+	<!--  TEL URI. 0 - Disabled, 1 - User=Phone, 2 - Enabled. Default is 0 -->
+    <!--  Number: 0, 1, 2 -->
+    <!--  Mandatory -->
+    <P63>0</P63>
+	
+    <!--################################################################## -->
+    <!--# Account 1 / General Settings / Network Settings               ## -->
+    <!--################################################################## -->    
+    
+    <!--  DNS Mode. 0 - A Record, 1 - SRV, 2 - NAPTR/SRV, 3 - Use Configured IP. Default is 0 -->
+    <!--  Number: 0, 1, 2, 3 -->
+    <!--  Mandatory -->
+    <!-- P103 = 0 -->
+
+    <!--  DNS SRV Fail-over Mode. 0 - Default, 1 - Saved one until DNS TTL, 2 - Saved one until no response. Default is 0 -->
+    <!--  Number: 0, 1, 2 -->
+    <!--  Mandatory -->
+    <!-- P26040 = 0 -->
+	
+	<!--  Register Before DNS SRV Fail-over. 0 - No, 1 - Yes. Default Value is 0. -->
+    <!--  Number: 0, 1 -->
+    <!--  Mandatory -->
+    <!-- P29095 = 1 -->
+
+    <!--  Proxy-Require (A SIP extension to enable firewall penetration). Max length is 64 characters -->
+    <!--  String -->
+    <!-- P197 = -->
+
+    <!--################################################################## -->
+    <!--# Account 1 / SIP Settings                                      ## -->
+    <!--################################################################## -->   
+    
+    <!-- SIP Registration. 0 - No, 1 - Yes. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P31>1</P31>
+
+    <!-- Unregister Before New Registration. 0 - No, 1 - All, 2 - Instance. Default is 2 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P81>2</P81>
+
+    <!-- Register Expiration (in minutes. default 1 hour, max 45 days) -->
+    <P32>2</P32>
+	
+	<!-- Subscription Expiration (in minutes. default 1 hour, max 45 days) -->
+    <P26051>15</P26051>
+
+    <!-- Reregister Before Expiration (in seconds). Default is 0 second -->
+    <!-- Number: 0 - 64800 -->
+    <!-- Mandatory -->
+    <P2330>0</P2330>
+	
+	<!-- Registration Retry Wait Time(s). Default is 20 -->
+    <!-- Number: 1 - 3600 -->
+    <!-- Mandatory -->
+    <P138>20</P138>
+	
+	 <!-- Add Auth Header On RE-REGISTER -->
+    <!-- 0 - No, 1 - Yes. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2359>1</P2359>
+
+    <!-- Enable SIP OPTIONS Keep Alive. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0,1 -->
+    <!-- Mandatory -->
+    <P2397>0</P2397>
+
+    <!-- SIP OPTIONS Keep Alive Interval. Default is 30 -->
+    <!-- Number -->
+    <!-- Mandatory -->
+    <P2398>30</P2398>
+
+    <!-- OPTIONS Keep Alive Max Lost. Default is 3 -->
+    <!-- Number -->
+    <!-- Mandatory -->
+    <P2399>3</P2399>
+
+	<!-- Use Privacy Header -->
+    <!-- 0 - Default, 1 - No, 2 - Yes. Default is 0 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P2338>0</P2338>
+
+    <!-- Add MAC in User-Agent -->
+    <!-- 0 - No, 1 - Yes except REGISTER, 2 - Yes to all SIP. Default is 0 -->
+    <!-- Number: 0, 1, 2 -->
+    <P26061>2</P26061>
+
+    <!-- Use P-Preferred-Identity Header -->
+    <!-- 0 - Default, 1 - No, 2 - Yes. Default is 0 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P2339>0</P2339>
+
+    <!-- SIP Transport. 0 - UDP, 1 - TCP, 2 - TLS/TCP. Default is 0 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <!--P130 = 0 -->
+
+    <!-- SIP URI Scheme when using TLS. 0 - sip, 1 - sips. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2329>1</P2329>
+
+    <!-- Use Actual Ephemeral Port in Contact with TCP/TLS. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2331>1</P2331>	
+	
+    <!-- Support SIP Instance ID. 0 - No, 1 - Yes. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P288>1</P288>	
+
+    <!-- SIP T1 Timeout. RFC 3261 T1 value (RTT estimate) -->
+    <!-- 50 - 0.5 sec, 100 - 1 sec, 200 - 2 sec. Default is 50 -->
+    <!-- Number: 50, 100, 200 -->
+    <!-- Mandatory	 -->
+    <P209>50</P209>
+
+    <!-- SIP T2 Interval. RFC 3261 T2 value. The maximum retransmit interval for non-INVITE requests and INVITE responses -->
+    <!-- 200 - 2 sec, 400 - 4 sec, 800 - 8 sec. Default is 400 -->
+    <!-- Number: 200, 400, 800 -->
+    <!-- Mandatory -->
+    <P250>400</P250>
+
+    {IF network=LOCALLAN}
+
+    <!-- Outbound Proxy Mode. 0 - in route, 1 - not in route, 2 - always send to -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P2305>0</P2305>
+
+    {ELSE}
+
+    <!-- Outbound Proxy Mode. 0 - in route, 1 - not in route, 2 - always send to -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P2305>2</P2305>
+
+    {ENDIF}
+
+	<!-- Enable 100rel. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P272>0</P272>
+	
+    <!--################################################################## -->
+    <!--# Account 1 / SIP Settings / Session Timer                      ## -->
+    <!--################################################################## -->	
+    
+    <!-- Enable Session Timer. 0 - No, 1 - Yes. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2395>1</P2395>
+
+    <!-- Session Expiration (in seconds). Default is 180 -->
+    <!-- Number: 90 - 64800 -->
+    <!-- Mandatory -->
+    <P260>180</P260>
+
+    <!-- Min-SE(s). Default is 90. This value must be lower than or equal to P260 -->
+    <!-- Number: 90 - 64800 -->
+    <!-- Mandatory -->
+    <P261>90</P261>
+	
+	<!-- UAC Specify Refresher. 0 - omit, 1 - UAC, 2 - UAS. Default is 0 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P266>1</P266>
+
+    <!-- UAS Specify Refresher. 1 - UAC, 2 - UAS. Default is 1 -->
+    <!-- Number: 1, 2 -->
+    <!-- Mandatory -->
+    <P267>1</P267>
+
+    <!-- Caller Request Timer (Request for timer when calling). 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P262>1</P262>
+
+    <!-- Callee Request Timer (Request for timer when called. i.e. if remote party supports timer but did not request for one) -->
+    <!-- 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P263>1</P263>
+
+    <!-- Force Timer (Still use timer when remote party does not support timer). 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P264>0</P264>
+
+    <!-- Force INVITE (Always refresh with INVITE instead of UPDATE even when remote party supports UPDATE). -->
+    <!-- 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P265>0</P265>
+
+    <!--################################################################## -->
+    <!--# Account 1 / Audio Settings                                    ## -->
+    <!--################################################################## --> 
+    
+    <!-- Preferred Vocoder -->
+    <!-- 0 - PCMU, 2 - G.726-32, 8 - PCMA, 9 - G.722, 18 - G.729A/B, 4 - G.723.1, 98 - iLBC, 123 - OPUS -->
+    <!-- choice 1. Default is 0 -->
+    <!-- Number: 0, 2, 4, 8, 9, 18, 98, 123 -->
+    <!-- Mandatory -->
+    <P57>%%codec1%%</P57>
+
+    <!-- choice 2. Default is 8 -->
+    <!-- Number: 0, 2, 4, 8, 9, 18, 98, 123  -->
+    <!-- Mandatory -->
+    <P58>%%codec2%%</P58>
+
+    <!-- choice 3. Default is 4 -->
+    <!-- Number: 0, 2, 4, 8, 9, 18, 98, 123  -->
+    <!-- Mandatory -->
+    <P59>%%codec3%%</P59>
+
+    <!-- choice 4. Default is 18 -->
+    <!-- Number: 0, 2, 4, 8, 9, 18, 98, 123 -->
+    <!-- Mandatory -->
+    <P60>%%codec4%%</P60>
+
+    <!-- choice 5. Default is 9 -->
+    <!-- Number: 0, 2, 4, 8, 9, 18, 98, 123  -->
+    <!-- Mandatory -->
+    <P61>%%codec1%%</P61>
+
+    <!-- choice 6. Default is 98 -->
+    <!-- Number: 0, 2, 4, 8, 9, 18, 98, 123  -->
+    <!-- Mandatory -->
+    <P62>%%codec1%%</P62>
+
+    <!-- choice 7. Default is 2 -->
+    <!-- Number: 0, 2, 4, 8, 9, 18, 98, 123  -->
+    <!-- Mandatory -->
+    <P46>%%codec1%%</P46>
+
+    <!-- choice 8. Default is 123 -->
+    <!-- Number: 0, 2, 4, 8, 9, 18, 98, 123  -->
+    <!-- Mandatory -->
+    <P98>%%codec1%%</P98>
+
+    <!-- Codec Negotiation Priority. 0 - Caller, 1 - Callee. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P29061>1</P29061>
+	
+    <!-- Use First Matching Vocoder in 200OK SDP. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2348>0</P2348>
+
+    <!-- iLBC Frame Size. 0 - 20ms, 1 - 30ms. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P97>1</P97>
+	
+	<!-- G726-32 ITU Payload. 0 - 2, 1 - Dynamic. Default value is 0. -->
+	<!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+	<P2369>0</P2369>
+
+	<!-- G726-32 Dynamic PT. Default value is 126. -->
+	<!-- Number 1 - 126 -->
+	<!-- Mandatory -->
+	<P2365>126</P2365>
+
+    <!-- OPUS Payload Type. Default is 123 -->
+    <!-- Number: 96 - 127 -->
+    <!-- Mandatory -->
+    <P2385>123</P2385>	
+	
+    <!-- DTMF: In-audio. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2301>0</P2301>
+
+    <!-- DTMF: Via RTP (RFC2833). 0 - No, 1 - Yes. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2302>1</P2302>
+
+    <!-- DTMF: Via SIP INFO. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2303>0</P2303>
+	
+    <!-- DTMF Payload Type. Default is 101 -->
+    <!-- Number: 96 - 127 -->
+    <!-- Mandatory -->
+    <P79>101</P79>	
+
+    <!-- Jitter Buffer Type. 0 - Fixed, 1 - Adaptive. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P133>1</P133>
+
+	<!-- Enable Audio RED with FEC. 0 - No, 1 - Yes. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!-- Mandatory -->
+	<P26073>0</P26073>
+
+	<!-- Audio FEC Payload Type. Default value is 121 -->
+	<!-- Number: 96 - 126 -->
+	<!-- Mandatory -->
+	<P26074>121</P26074>
+
+	<!-- Audio RED Payload Type. Default value is 124 -->
+	<!-- Number: 96 - 126 -->
+	<!-- Mandatory -->
+	<P26075>124</P26075>
+
+    <!-- Silence Suppression. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P50>0</P50>
+
+    <!-- Voice Frames per TX (up to 10/20/32/64 frames for G711/G726/G723/other codecs respectively). Default is 2 -->
+    <!-- Number: 1 - 64 -->
+    <!-- Mandatory -->
+    <P37>2</P37>
+
+    <!--################################################################## -->
+    <!--# Account 1 / Audio Settings / RTP Settings                     ## -->
+    <!--################################################################## -->
+
+    <!-- SRTP Mode. 0 - Disabled, 1 - Enabled but not forced, 2 - Enabled and forced, 3 - Optional. Default is 0 -->
+    <!-- Number: 0, 1, 2, 3 -->
+    <!-- Mandatory -->
+    <P183>0</P183>
+
+    <!-- SRTP Key Length. 0 - AES 128 and 256 bit, 1 - AES 128 bit, 2 - AES 256 bit. Default is 0 -->
+    <!-- Default is 0 -->
+    <!-- Number: 0,1 -->
+    <!-- Mandatory -->
+    <P2383>0</P2383>
+
+    <!-- Enable SRTP Key Life Time. -->
+    <!-- 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2363>0</P2363>
+	
+	<!-- RTCP Destination. Default is empty. -->
+	<!-- Strings -->
+	<!-- Mandatory -->
+	<P2390></P2390>
+
+    <!-- Symmetric RTP. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P291>0</P291>
+	
+	<!-- RTP IP Filter. 0 - Disable, 1 - IP Only, 2 - IP and Port. Default value is 0. -->
+	<!-- Number: 0, 1, 2 -->
+	<!-- Mandatory -->
+	<P26026>0</P26026>	
+ 
+    <!--################################################################## -->
+    <!--# Account 1 / Call Settings                                     ## -->
+    <!--################################################################## -->
+ 
+	<!-- Play warning tone for Auto Answer Intercom. 0 - No, 1 - Yes. Default value is 1 -->
+	<!-- Number: 0, 1 -->
+	<!-- Mandatory -->
+	<P26072>1</P26072>
+
+    <!-- Send Anonymous (caller ID will be blocked if set to Yes). 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P65>0</P65>
+
+    <!-- Anonymous Call Rejection. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P129>0</P129>
+	
+    <!-- Call Log. 0 - Log All Calls, 1 - Log Incoming/Outgoing only (missed calls NOT recorded), 2 - Disable Call Log. Default is 0 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P182>0</P182>
+	
+	<!-- Mute on Answer Intercom Call. 0 - No, 1 - Yes. Default value is 0. -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P26071>0</P26071>
+
+    <!-- Ring Timeout (in seconds). Default is 60 -->
+    <!-- Number: 30 - 3600 -->
+    <!-- Mandatory -->
+    <P1328>60</P1328>
+
+    <!-- Refer-To Use Target Contact. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P135>0</P135>
+	
+    <!-- Dial Plan Prefix -->
+    <!-- String  -->
+    <P66></P66>
+	
+	<!-- Disable DialPlan. 0 - No Selection, 1 - Dial Page, 2 - Contact, 4 - Incoming Call History, 8 -  Outgoing Call History, 16 - MPK & Click2Dial.  -->
+	<!-- If need to check multiple selections, add the specific values for each selections together. Default value is 0 --> 
+	<!-- Number: 0-31 -->
+	<P2382>0</P2382>
+
+    <!-- Dial Plan. Default value is { x+ | \+x+ | *x+ | *xx*x+ } -->
+    <!-- String -->
+    <!-- Mandatory -->
+    <P290>{ [*#x]+ | \S\Px | \S\Pxx | \S\Pxxx }</P290>
+	
+	<!-- Account Ring Tone -->
+    <!-- See ring tone options and value in the Ring Tone Value Table below -->
+    <!-- Mandatory -->
+    <P104>%%defringtone%%</P104>
+	
+	<!-- Ignore Alert-Info Header. 0 - No, 1 - Yes. Default value is 0. -->
+    <!-- Number: 0, 1 -->
+	<!-- Mandatory -->
+    <P26018>0</P26018>
+
+    <!-- Matching Incoming Caller ID. Matching Rule 1 -->
+    <!-- String -->
+    <P1488>external</P1488>
+
+    <!-- Matching Rule 1 Distinctive Ringtone -->
+    <!-- See ring tone options and value in the Ring Tone Value Table below -->
+    <!-- Mandatory -->
+    <P1489>/system/media/audio/ringtones/Aquila.ogg</P1489>
+	
+	<!-- Matching Incoming Caller ID. Matching Rule 2 -->
+    <!-- String -->
+    <P1490>ivr</P1490>
+
+    <!-- Matching Rule 2 Distinctive Ringtone -->
+    <!-- See ring tone options and value in the Ring Tone Value Table below -->
+    <!-- Mandatory -->
+    <P1491>content://system/media/audio/ringtones/bellcore-dr2.ogg</P1491>
+
+	<!-- Matching Incoming Caller ID. Matching Rule 3 -->
+    <!-- String -->
+    <!-- <P1492></P1492> -->
+
+    <!-- Matching Rule 3 Distinctive Ringtone -->
+    <!-- See ring tone options and value in the Ring Tone Value Table below -->
+    <!-- Mandatory -->
+    <P1493>/system/media/audio/ringtones/Atria.ogg</P1493>
+	
+	<!-- ############Ring Tone Value Table###############  -->
+	<!-- # Use System Ring tone                      content://settings/system/ringtone  -->
+	<!-- # Andromeda					/system/media/audio/ringtones/ANDROMEDA.ogg -->
+	<!-- # Aquila					/system/media/audio/ringtones/Aquila.ogg -->
+	<!-- # Argo Navis					/system/media/audio/ringtones/ArgoNavis.ogg -->
+	<!-- # Atria					/system/media/audio/ringtones/Atria.ogg -->
+	<!-- # Backroad					/system/media/audio/ringtones/Backroad.ogg -->
+	<!-- # Beat Plucker					/system/media/audio/ringtones/BeatPlucker.ogg -->
+	<!-- # Bell Phone					/system/media/audio/ringtones/Ring_Classic_02.ogg -->
+	<!-- # Bentley Dubs					/system/media/audio/ringtones/BentleyDubs.ogg -->
+	<!-- # Big Easy					/system/media/audio/ringtones/Big_Easy.ogg -->
+	<!-- # Bird Loop					/system/media/audio/ringtones/BirdLoop.ogg -->
+	<!-- # Bollywood					/system/media/audio/ringtones/Bollywood.ogg -->
+	<!-- # Boötes					/system/media/audio/ringtones/BOOTES.ogg -->
+	<!-- # Bus' a Move					/system/media/audio/ringtones/BussaMove.ogg -->
+	<!-- # Cairo					/system/media/audio/ringtones/Cairo.ogg -->
+	<!-- # Calypso Steel					/system/media/audio/ringtones/Calypso_Steel.ogg -->
+	<!-- # Canis Major					/system/media/audio/ringtones/CANISMAJOR.ogg -->
+	<!-- # Caribbean Ice					/system/media/audio/ringtones/CaribbeanIce.ogg -->
+	<!-- # Carina					/system/media/audio/ringtones/Carina.ogg -->
+	<!-- # Cassiopeia					/system/media/audio/ringtones/CASSIOPEIA.ogg -->
+	<!-- # Centaurus					/system/media/audio/ringtones/Centaurus.ogg -->
+	<!-- # Champagne Edition					/system/media/audio/ringtones/Champagne_Edition.ogg -->
+	<!-- # Chimey Phone					/system/media/audio/ringtones/Ring_Synth_02.ogg -->
+	<!-- # Club Cubano					/system/media/audio/ringtones/Club_Cubano.ogg -->
+	<!-- # Crayon Rock					/system/media/audio/ringtones/CrayonRock.ogg -->
+	<!-- # Crazy Dream					/system/media/audio/ringtones/CrazyDream.ogg -->
+	<!-- # Curve Ball Blend					/system/media/audio/ringtones/CurveBall.ogg -->
+	<!-- # Cygnus					/system/media/audio/ringtones/Cygnus.ogg -->
+	<!-- # Dancin' Fool					/system/media/audio/ringtones/DancinFool.ogg -->
+	<!-- # Digital Phone					/system/media/audio/ringtones/Ring_Digital_02.ogg -->
+	<!-- # Ding					/system/media/audio/ringtones/Ding.ogg -->
+	<!-- # DingDong					/system/media/audio/ringtones/DingDong.wav -->
+	<!-- # Don' Mess Wiv It					/system/media/audio/ringtones/DonMessWivIt.ogg -->
+	<!-- # Draco					/system/media/audio/ringtones/Draco.ogg -->
+	<!-- # Dream Theme					/system/media/audio/ringtones/DreamTheme.ogg -->
+	<!-- # Eastern Sky					/system/media/audio/ringtones/Eastern_Sky.ogg -->
+	<!-- # Enter the Nexus					/system/media/audio/ringtones/Enter_the_Nexus.ogg -->
+	<!-- # Eridani					/system/media/audio/ringtones/Eridani.ogg -->
+	<!-- # Ether Shake					/system/media/audio/ringtones/EtherShake.ogg -->
+	<!-- # Flutey Phone					/system/media/audio/ringtones/Ring_Synth_04.ogg -->
+	<!-- # Free Flight					/system/media/audio/ringtones/FreeFlight.ogg -->
+	<!-- # Friendly Ghost					/system/media/audio/ringtones/FriendlyGhost.ogg -->
+	<!-- # Funk Y'all					/system/media/audio/ringtones/Funk_Yall.ogg -->
+	<!-- # Game Over Guitar					/system/media/audio/ringtones/GameOverGuitar.ogg -->
+	<!-- # Gimme Mo' Town					/system/media/audio/ringtones/Gimme_Mo_Town.ogg -->
+	<!-- # Girtab					/system/media/audio/ringtones/Girtab.ogg -->
+	<!-- # Glacial Groove					/system/media/audio/ringtones/Glacial_Groove.ogg -->
+	<!-- # Growl					/system/media/audio/ringtones/Growl.ogg -->
+	<!-- # Halfway Home					/system/media/audio/ringtones/HalfwayHome.ogg -->
+	<!-- # Hydra					/system/media/audio/ringtones/Hydra.ogg -->
+	<!-- # Insert Coin					/system/media/audio/ringtones/InsertCoin.ogg -->
+	<!-- # Kuma					/system/media/audio/ringtones/Kuma.ogg -->
+	<!-- # Loopy Lounge					/system/media/audio/ringtones/LoopyLounge.ogg -->
+	<!-- # Love Flute					/system/media/audio/ringtones/LoveFlute.ogg -->
+	<!-- # Lyra					/system/media/audio/ringtones/Lyra.ogg -->
+	<!-- # Machina					/system/media/audio/ringtones/Machina.ogg -->
+	<!-- # Medieval Jaunt					/system/media/audio/ringtones/MidEvilJaunt.ogg -->
+	<!-- # Mildly Alarming					/system/media/audio/ringtones/MildlyAlarming.ogg -->
+	<!-- # Nairobi					/system/media/audio/ringtones/Nairobi.ogg -->
+	<!-- # Nassau					/system/media/audio/ringtones/Nassau.ogg -->
+	<!-- # New Player					/system/media/audio/ringtones/NewPlayer.ogg -->
+	<!-- # No Limits					/system/media/audio/ringtones/No_Limits.ogg -->
+	<!-- # Noisey One					/system/media/audio/ringtones/Noises1.ogg -->
+	<!-- # Organ Dub					/system/media/audio/ringtones/OrganDub.ogg -->
+	<!-- # Orion					/system/media/audio/ringtones/Orion.ogg -->
+	<!-- # Paradise Island					/system/media/audio/ringtones/Paradise_Island.ogg -->
+	<!-- # Pegasus					/system/media/audio/ringtones/Pegasus.ogg -->
+	<!-- # Perseus					/system/media/audio/ringtones/PERSEUS.ogg -->
+	<!-- # Playa					/system/media/audio/ringtones/Playa.ogg -->
+	<!-- # Pyxis					/system/media/audio/ringtones/Pyxis.ogg -->
+	<!-- # Rasalas					/system/media/audio/ringtones/Rasalas.ogg -->
+	<!-- # Revelation					/system/media/audio/ringtones/Revelation.ogg -->
+	<!-- # Rigel					/system/media/audio/ringtones/Rigel.ogg -->
+	<!-- # Road Trip					/system/media/audio/ringtones/Road_Trip.ogg -->
+	<!-- # Romancing The Tone					/system/media/audio/ringtones/RomancingTheTone.ogg -->
+	<!-- # Safari					/system/media/audio/ringtones/Safari.ogg -->
+	<!-- # Savannah					/system/media/audio/ringtones/Savannah.ogg -->
+	<!-- # Scarabaeus					/system/media/audio/ringtones/Scarabaeus.ogg -->
+	<!-- # Sceptrum					/system/media/audio/ringtones/Sceptrum.ogg -->
+	<!-- # Seville					/system/media/audio/ringtones/Seville.ogg -->
+	<!-- # She's All That					/system/media/audio/ringtones/Shes_All_That.ogg -->
+	<!-- # Silky Way					/system/media/audio/ringtones/SilkyWay.ogg -->
+	<!-- # Sitar Versus Sitar					/system/media/audio/ringtones/SitarVsSitar.ogg -->
+	<!-- # Solarium					/system/media/audio/ringtones/Solarium.ogg -->
+	<!-- # Springy Jalopy					/system/media/audio/ringtones/SpringyJalopy.ogg -->
+	<!-- # Steppin' Out					/system/media/audio/ringtones/Steppin_Out.ogg -->
+	<!-- # Terminated					/system/media/audio/ringtones/Terminated.ogg -->
+	<!-- # Terrible Twos					/system/media/audio/ringtones/Noises2.ogg -->
+	<!-- # Testudo					/system/media/audio/ringtones/Testudo.ogg -->
+	<!-- # Themos					/system/media/audio/ringtones/Themos.ogg -->
+	<!-- # Third Eye					/system/media/audio/ringtones/Third_Eye.ogg -->
+	<!-- # Thriller Three					/system/media/audio/ringtones/Noises3.ogg -->
+	<!-- # Thunderfoot					/system/media/audio/ringtones/Thunderfoot.ogg -->
+	<!-- # Twirl Away					/system/media/audio/ringtones/TwirlAway.ogg -->
+	<!-- # Ursa Minor					/system/media/audio/ringtones/URSAMINOR.ogg -->
+	<!-- # UrsaMinor					/system/media/audio/ringtones/UrsaMinor.ogg -->
+	<!-- # Very Alarmed					/system/media/audio/ringtones/VeryAlarmed.ogg -->
+	<!-- # Vespa					/system/media/audio/ringtones/Vespa.ogg -->
+	<!-- # World					/system/media/audio/ringtones/World.ogg -->
+	<!-- # Zeta					/system/media/audio/ringtones/Zeta.ogg -->
+	<!-- # bellcore-dr1					/system/media/audio/ringtones/bellcore-dr1.ogg -->
+	<!-- # bellcore-dr2					/system/media/audio/ringtones/bellcore-dr2.ogg -->
+	<!-- # bellcore-dr3					/system/media/audio/ringtones/bellcore-dr3.ogg -->
+	<!-- # bellcore-dr4					/system/media/audio/ringtones/bellcore-dr4.ogg -->
+	<!-- # bellcore-dr5					/system/media/audio/ringtones/bellcore-dr5.ogg -->
+	<!-- # speaker					/system/media/audio/ringtones/speaker.wav -->
+
+    <!--################################################################## -->
+    <!--# Account 1 / Advanced Settings                                 ## -->
+    <!--################################################################## -->    
+    
+    <!-- Check Domain Certificates. When set to Yes/Enabled, domain certificate will be checked as defined in RFC5922 -->
+    <!-- 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2311>0</P2311>
+
+    <!-- Validate Certification Chain. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2367>0</P2367>
+
+    <!-- Validate Incoming Messages. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2306>0</P2306>
+	
+	<!-- Allow Unsolicited REFER. 0 - Disabled, 1 - Enabled, 2 - Enabled/Force Auth. Default value is 0. -->
+	<!-- Number: 0, 1, 2 -->
+	<P26023>0</P26023>
+
+    <!-- Only Accept SIP Requests from Known Servers. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2347>0</P2347>
+	
+    <!-- Check SIP User ID for incoming INVITE. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P258>0</P258>
+
+	<!-- Allow SIP Reset. 0 - No, 1 - Yes. Default value is 0. -->
+	<!-- Number: 0, 1 -->
+	<P26015>0</P26015>
+
+    <!-- Authenticate Incoming INVITE. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P2346>0</P2346>	
+
+	<!-- SIP Realm Used for Challenge INVITE & NOTIFY. -->
+	<!-- String -->
+	<P26021></P26021>
+
+	<!-- Enable Local MOH -->
+	<!-- Number: 0, 1 -->
+	<P2357>0</P2357>
+
+	<!-- Virtual Account Group. -1 - Default,  0 - Virtual Account Group 1, 1 - Virtual Account Group 2, 2 - Virtual Account Group 3 -->
+	<!-- 3 - Virtual Account Group 4, 4 - Virtual Account Group 5, 5 - Virtual Account Group 6, 6 - Virtual Account Group 7, 7 - Virtual Account Group 8 -->
+	<!-- 8 - Virtual Account Group 9, 9 - Virtual Account Group 10, 10 - Virtual Account Group 11, 11 - Virtual Account Group 12, 12 - Virtual Account Group 13 -->
+	<!-- 13 - Virtual Account Group 14, 14 - Virtual Account Group 15, 15 - Virtual Account Group 16. Default value is -1. -->
+	<!-- Number: -1 - 15 -->
+	<P2391>-1</P2391> 
+ 
+    <!-- Special Feature. -->
+    <!-- 100 - Standard, 102 - Broadsoft, 113 - China Mobile, 114 - ZTE IMS, 115 - Mobotix -->
+	<!-- 16 - ZTE NGN, 117 - Huawei IMS, 123 - NEC, 125 - WorldStone, 129 - Telefonica Spain -->
+    <!-- Default is 100 -->
+    <!-- Number: 100, 102, 113, 114, 115, 116, 117, 123, 125, 129 -->
+    <!-- Mandatory -->
+    <P198>100</P198>
+
+	<!-- Allow Sync Phonebook via SIP Notify. 0 - No, 1 - Yes. Default is 1. -->
+	<!-- Number: 0, 1 -->
+	<!-- <P26099>1</P26099> -->	
+    
+    <!--############################################################################# -->
+    <!--#  Calls / Contacts / More / Download Contacts                             ## -->
+    <!--############################################################################# -->
+
+	<!-- Clear The Old List/Clear Old History Mode. 0 - No, 1 - Clear all, 2 - Keep Local Contacts. Default value is 0 -->
+	<!-- Number: 0, 1, 2 -->
+	<P1435>1</P1435>
+
+	<!-- Replace Duplicate Items/Replace Duplicate Entries Mode. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<P1436>1</P1436>
+
+    {IF network=LOCALLAN}
+    {IF rpslocal}
+	<!-- Download Mode. # 0 - OFF, 1 - Enabled use TFTP, 2 - Enabled use HTTP, 3 - Enabled use HTTPS. Default is 0 -->
+    <!-- Number: 0, 1, 2, 3 -->
+    <!-- Mandatory -->
+    <P330>3</P330>
+
+    <!-- Phonebook XML Server Path -->
+    <!-- This is a string of up to 128 characters that should contain a path to the XML file.   -->
+    <!-- It MUST be in the host/path format. For example: "directory.grandstream.com/engineering" -->
+    <P331>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%</P331>
+	{ELSE}
+	<!-- Download Mode. # 0 - OFF, 1 - Enabled use TFTP, 2 - Enabled use HTTP, 3 - Enabled use HTTPS. Default is 0 -->
+    <!-- Number: 0, 1, 2, 3 -->
+    <!-- Mandatory -->
+    <P330>2</P330>
+
+    <!-- Phonebook XML Server Path -->
+    <!-- This is a string of up to 128 characters that should contain a path to the XML file.   -->
+    <!-- It MUST be in the host/path format. For example: "directory.grandstream.com/engineering" -->
+    <P331>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%</P331>
+	{ENDIF}
+
+    {ELSE}
+    <!-- Download Mode. # 0 - OFF, 1 - Enabled use TFTP, 2 - Enabled use HTTP, 3 - Enabled use HTTPS. Default is 0 -->
+    <!-- Number: 0, 1, 2, 3 -->
+    <!-- Mandatory -->
+    <P330>3</P330>
+
+    <!-- Phonebook XML Server Path -->
+    <!-- This is a string of up to 128 characters that should contain a path to the XML file.   -->
+    <!-- It MUST be in the host/path format. For example: "directory.grandstream.com/engineering" -->
+    <P331>%%PROVLINK.HOST%%:%%PROVLINK.PORT%%%%PROVLINK.PATH%%</P331>
+    {ENDIF}
+	
+	<!-- File Encoding. GBK - GBK, UTF-8 - UTF-8, UTF-16 - UTF-16, UTF-32 - UTF-32, Big5 - Big5, Big5-HKSCS - Big5-HKSCS, Shift-JIS - Shift-JIS -->
+	<!-- ISO 2022-JP - ISO 2022-JP, KOI8-R - KOI8-R, ISO8859-1 - ISO8859-1, ISO8859-15 - ISO8859-15, Windows-1251 - Windows-1251, EUC-KR - EUC-KR -->
+	<!-- Default Value is UTF-8 -->
+	<!-- String : GBK, UTF-8, UTF-16, UTF-32, Big5, Big5-HKSCS,  Shift-JIS, ISO 2022-JP, KOI8-R, ISO8859-1, ISO8859-15, Windows-1251, EUC-KR  -->
+	<P1681>UTF-8</P1681>	
+
+    <!-- HTTP/HTTPS User Name -->
+    <!-- String -->
+    <P6713></P6713>
+
+    <!-- HTTP/HTTPS Password -->
+    <!-- String -->
+    <P6714></P6714>
+
+    <!-- Phonebook Download Interval (in minutes) -->
+    <!-- Valid value range is 5-720. Default is 0 for disabled -->
+    <!-- Number: 0, 120, 240, 360, 480, 720 -->
+    <P332>120</P332>
+
+	<!--####################################################################### -->
+	<!--##  Contacts / Blacklist/Whitelist Settings                          ## -->
+	<!--####################################################################### -->
+	
+	<!-- Whitelist. -->
+	<!-- Format is numbers, name. Example: 123, John Doe -->
+	<P22313></P22313>
+	
+	<!-- Blacklist. -->
+	<!-- Format is numbers, name. Example: 123, John Doe -->
+	<P28127></P28127>
+	
+	<!-- Non-whitelist calls. 0 - Block,  1 - Set Password, 2 - Auto answer, 3 - Ringing. Default value is 0. -->
+	<!-- Number: 0, 1, 2, 3 -->
+	<P22209>2</P22209>	
+	
+	<!--####################################################################### -->
+	<!--##  Phone Settings / General Settings                                ## -->
+	<!--####################################################################### -->
+
+    {IF network=REMOTESTUN}
+    <!-- Local RTP port. Default is 5004 -->
+    <!-- Number: 1024 - 65535. Must be even number -->
+    <!-- Mandatory -->
+    <P39>%%rtp_port_min%%</P39>
+    <!-- STUN server -->
+    <!-- String -->
+    <P76>%%pbx_ip%%:%%param::sipport%%</P76>
+    {ENDIF}
+
+    {IF network=SBC}
+    <!-- Local RTP port (1024-65535, default 5004) -->
+    <P39>5004</P39>
+    <!-- STUN server -->
+    <!--P76 =  -->
+    {ENDIF}
+
+    {IF network=LOCALLAN}
+    <!-- Local RTP port (1024-65535, default 5004) -->
+    <P39>5004</P39>
+    <!-- STUN server -->
+    <!--P76 =  -->
+    {ENDIF}
+	
+	{IF network=REMOTESTUN}
+    <!-- # Local RTP port range. Default is 200 -->
+    <!-- # Number: 48 - 10000 -->
+    <!-- # Mandatory -->
+    <P29610>24</P29610>
+    {ELSE}
+    <!-- # Local RTP port range. Default is 200 -->
+    <!-- # Number: 48 - 10000 -->
+    <!-- # Mandatory -->
+    <P29610>200</P29610>
+    {ENDIF}
+
+	<!-- Use Random Port. 0 - No, 1 - Yes. Default value is 1 -->
+	<!-- Number: 0, 1 -->
+	<P78>0</P78>
+
+	<!-- Keep-alive Interval (s). Default value is 20 seconds -->
+	<!-- Number: 10 - 160 -->
+	<P84>20</P84>
+
+	<!-- TURN Server Username -->
+	<P22042></P22042> 
+
+	<!-- TURN Server Password -->
+	<P22043></P22043> 
+
+	<!-- Use NAT IP. This will enable our SIP client to use this IP in the SIP message. -->
+	<!-- Example 64.3.153.50 -->
+	<P101></P101>
+
+	<!--####################################################################### -->
+	<!--##  Phone Settings / Call Settings                                   ## -->
+	<!--####################################################################### -->
+	
+    <!-- Enable Call-Waiting. 0 - Yes, 1 - No. Default value is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P91>0</P91>
+
+    <!-- Enable Call-Waiting Tone. 0 - Yes, 1 - No. Default value is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P186>0</P186>
+
+	<!-- Automatic answer ringing time (s). Default value is 5 seconds. -->
+    <!-- Number: 0 - 10 -->
+    <!-- Mandatory -->
+    <P8486>0</P8486>
+
+	<!-- Busy Tone Ring Time (s). Default value is 30 seconds. -->
+    <!-- Number: 0 - 30 -->
+    <!-- Mandatory -->
+    <P8347>30</P8347>	
+
+	<!-- Auto Mute on Entry. 0 - Disable, 1 - Auto Mute on Incoming Call, 2 - Auto Mute on Outgoing Call -->
+	<!-- 3 - Auto Mute on Incoming & Outgoing Call. Default value is 0 -->
+	<!-- Number: 0, 1, 2, 3 -->
+	<P29607>0</P29607>
+
+	<!-- Virtual Account Group Avaya Mode. 0 - No, 1 - Yes. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<P22018>0</P22018>
+
+	<!-- Filter Characters -->
+	<!-- String -->
+	<P22012>[()- ]</P22012>
+
+    <!-- Escape '#' as %23 in SIP URI. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P1406>0</P1406>
+
+    <!-- Record Mode. 0 - Locally, 1 - on PortaOne, 2 - on UCM. Default value is 0. -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P6760>0</P6760>
+
+	<!-- Environment. 0 - Small and medium size room & used on desk,  1 - Large room & used on empty area. Default value is 1. -->
+	<!-- Number: 0, 1 -->
+	<P22093>1</P22093>
+
+	<!--####################################################################### -->
+	<!--##  Phone Settings / Ring Tone                                       ## -->
+	<!--####################################################################### -->
+	
+	<!-- Auto Config CPT by Region. 0 - No, 1 - Yes. Default value is 1 -->
+	<!-- Number : 0, 1 -->
+	<P22041>0</P22041>
+
+	<!-- Dial Tone -->
+	<P4000>f1=350@-13,f2=440@-13,c=0/0;</P4000>
+
+	<!-- Second Dial Tone -->
+	<P2909></P2909> 
+
+	<!-- Ring Back Tone -->
+	<P4001>f1=440@-19,f2=480@-19,c=2000/4000;</P4001>
+
+	<!-- Busy Tone -->
+	<P4002>f1=480@-24,f2=620@-24,c=500/500;</P4002>
+
+	<!-- Reorder Tone -->
+	<P4003>f1=480@-24,f2=620@-24,c=250/250;</P4003>
+
+	<!-- Confirmation Tone -->
+	<P4004>f1=350@-11,f2=440@-11,c=100/100-100/100-100/100;</P4004>
+
+	<!-- Call-Waiting Tone -->
+	<P4005>f1=440@-13,c=300/10000-300/10000-0/0;</P4005>
+
+    <!-- Call-Waiting Tone Gain. 0 - Low, 1 - Medium, 2 - High. Default is 0 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P1555>0</P1555>
+
+	<!-- Default Ring Cadence -->
+	<P4040>c=2000/4000;</P4040>
+
+	<!--####################################################################### -->
+	<!--##  Phone Settings / Multicast Paging                    	         ## -->
+	<!--####################################################################### -->
+
+    <!-- Paging Barge. 0 - Disable, 1 - priority 1, 2 - priority 2, 3 - priority 3,  -->
+    <!-- 4 - priority 4, 5 - priority 5, 6 - priority 6, 7 - priority 7, 8 - priority 8, -->
+    <!-- 9 - priority 9, 10 - priority 10. Default is 0. -->
+    <!-- Number: 0 - 10 -->
+    <!-- Mandatory -->
+    <P1566>0</P1566>
+
+    <!-- Paging Priority Active. 0 - Disabled, 1 - Enabled -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P1567>0</P1567>
+
+    <!-- Multicast Paging Codec. 18 - G.729A/B, 0 - PCMU, 8 - PCMA, 2 - G.726-32, 9 - G.722, 98 - iLBC, 4- G.723.1 -->
+    <!-- Number: 18, 0, 8, 2, 9, 98, 4. Default is 0. -->
+    <!-- Mandatory -->
+    <P1568>0</P1568>
+	
+	<!-- ####################################################################### -->
+	<!-- ##  Phone Settings / Multicast Listening                   	      ## -->
+	<!-- ####################################################################### -->
+
+    <!-- Priority 1 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1569>%%multicastrgipport1%%</P1569>
+
+    <!-- Label 1 -->
+    <!-- String -->
+    <P1570>%%multicastrgname1%%</P1570>
+
+    <!-- Priority 2 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1571></P1571>
+
+    <!-- Label 2 -->
+    <!-- String -->
+    <P1572></P1572>
+
+    <!-- Priority 3 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1573></P1573>
+
+    <!-- Label 3 -->
+    <!-- String -->
+    <P1574></P1574>
+
+    <!-- Priority 4 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1575></P1575>
+
+    <!-- Label 4 -->
+    <!-- String -->
+    <P1576></P1576>
+
+    <!-- Priority 5 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1577></P1577>
+
+    <!-- Label 5 -->
+    <!-- String -->
+    <P1578></P1578>
+
+    <!-- Priority 6 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1579></P1579>
+
+    <!-- Label 6 -->
+    <!-- String -->
+    <P1580></P1580>
+
+    <!-- Priority 7 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1581></P1581>
+
+    <!-- Label 7 -->
+    <!-- String -->
+    <P1582></P1582>
+
+    <!-- Priority 8 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1583></P1583>
+
+    <!-- Label 8 -->
+    <!-- String -->
+    <P1584></P1584>
+
+    <!-- Priority 9 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1585></P1585>
+
+    <!-- Label 9 -->
+    <!-- String -->
+    <P1586></P1586>
+
+    <!-- Priority 10 -->
+    <!-- Listening Address -->
+    <!-- String -->
+    <P1587></P1587>
+
+    <!-- Label 10 -->
+    <!-- String -->
+    <P1588></P1588>
+					
+    <!--################################################################## -->
+    <!--# Network Settings / Ethernet                                   ## -->
+    <!--################################################################## -->
+	
+    <!-- Internet Protocol. 0 - Both, prefer IPv4, 1 - Both, prefer IPv6, 2 - IPv4 Only, 3 - IPv6 Only Default is 0 -->
+    <!-- Number: 0, 1, 2, 3 -->
+    <!-- Mandatory -->
+    <!-- P1415 = 0 -->
+
+	<!-- Different Networks for Data and VoIP Calls. 0 - No, 1 - Yes. Default value is 0. -->
+	<!-- Number: 0,1 -->
+	<!-- <P22104>0</P22104> -->
+
+    <!--################################################################## -->
+    <!--# Network Settings / IPv4 Network Configuration of Data         ## -->
+    <!--################################################################## -->
+	
+    <!-- IP Address Mode. 0 - DHCP, 1 - Static IP, 2 - PPPoE. Default is 0 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <!-- P8 = 0 -->	
+	
+    <!-- Enable DHCP VLAN. 0 - Disable, 1 - Enable. Default is 0. -->
+    <!-- Number: 0,1 -->
+    <!-- Mandatory -->
+    <P8300>%%vlanwanenabled%%</P8300>
+	
+    <!-- Host name, DHCP option 12. Max length allowed is 64 characters -->
+    <!-- String -->
+    <!--P146 = -->
+
+    <!-- Vendor Class ID, DHCP option 60. Max length allowed is 64 characters -->
+    <!-- String -->
+    <!-- For GSC3510, Default value is Grandstream GSC3510. -->
+    <!-- P148 = Grandstream GSC3510 -->
+
+    <!-- For GSC3505, Default value is Grandstream GSC3505. -->
+    <!-- P148 = Grandstream GSC3505 -->
+	
+    <!-- Layer 2 QoS. 802.1Q/VLAN Tag (VLAN classification for RTP). Default is 0 -->
+    <!-- Number: 0 - 4094 -->
+    <!-- Mandatory -->
+    <P51>%%vlanwanportid%%</P51>
+
+    <!-- Layer 2 QoS. 802.1p priority value (0 - 7). Default is 0 -->
+    <!-- Number: 0 - 7 -->
+    <!-- Mandatory -->
+    <P87>%%vlanwanportpriority%%</P87>	
+	
+    <!-- Static IP Address. Ignore if DHCP or PPPoE is used -->
+    <!-- Number: 0 - 255 -->
+    <!-- P9 = 192 -->
+    <!-- P10 = 168 -->
+    <!-- P11 = 0 -->
+    <!-- P12 = 160 -->
+
+    <!-- Static subnet mask. Ignore if DHCP or PPPoE is used -->
+    <!-- Number: 0 - 255 -->
+    <!-- P13 = 255 -->
+    <!-- P14 = 255 -->
+    <!-- P15 = 0 -->
+    <!-- P16 = 0 -->
+
+    <!-- Static Default Gateway. Ignore if DHCP or PPPoE is used -->
+    <!-- Number: 0 - 255 -->
+    <!-- P17 = 0 -->
+    <!-- P18 = 0 -->
+    <!--P19 = 0 -->
+    <!-- P20 = 0 -->
+
+    <!-- Static IP. DNS Server 1. Ignore if DHCP or PPPoE is used -->
+    <!-- Number: 0 - 255 -->
+    <!--P21 = 0 -->
+    <!--P22 = 0 -->
+    <!--P23 = 0 -->
+    <!--P24 = 0 -->
+
+    <!-- Static IP. DNS Server 2. Ignore if DHCP or PPPoE is used -->
+    <!-- Number: 0 - 255 -->
+    <!--P25 = 0 -->
+    <!--P26 = 0 -->
+    <!--P27 = 0 -->
+    <!--P28 = 0 -->
+
+    <!-- PPPoE Account ID -->
+    <!-- String -->
+    <!--P82 = -->
+
+    <!-- PPPoE Password -->
+    <!-- String -->
+    <!-- Cannot contain ` or " -->
+    <!--P83 = -->
+
+    <!--################################################################## -->
+    <!--# Network Settings / IPv6 Network Configuration of Data         ## -->
+    <!--################################################################## -->
+
+    <!-- IPv6 Address type. 0 - Auto Configured, 1 - Statically Configured. Default is 0. -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <!-- P1419 = 0 -->
+
+    <!-- Static IPv6 Address. -->
+    <!-- P1420 = -->
+
+    <!-- IPv6 Prefix Length. Default value is 64. -->
+    <!-- P1421 = 64 -->
+
+    <!-- IPv6 DNS Server 1.-->
+    <!-- String: a-z, A-Z, 0-9, ".", ":", "[", "]" -->
+    <!-- P1424 = -->
+
+    <!-- IPv6 DNS Server 2. -->
+    <!-- String: a-z, A-Z, 0-9, ".", ":", "[", "]" -->
+    <!-- P1425 = -->
+
+    <!--  IPv6 Preferred DNS Server. -->
+    <!-- String: a-z, A-Z, 0-9, ".", ":", "[", "]" -->
+    <!-- P1423 = -->
+
+    <!--############################################################################# -->
+    <!--# Network / 802.1X Mode                                                      ## -->
+    <!--############################################################################# -->
+
+    <!-- 802.1X Mode. 0 - Disable, 1 - EAP-MD5. 2 - EAP-TLS, 3 - EAP-PEAPv0/MSCHAPv2. Default is 0 -->
+    <!-- Number: 0, 1, 2, 3 -->
+    <!-- Mandatory -->
+    <!--P7901 = 0 -->
+
+    <!-- 802.1X Identity. Max length allowed is 64 characters -->
+    <!-- String -->
+    <!--P7902 =  -->
+
+    <!-- 802.1 Secret & Password. Max length allowed is 64 characters -->
+    <!-- String -->
+    <!--P7903 = -->
+
+    <!--############################################################################# -->
+    <!--# Network / Bluetooth 	                                                   ## -->
+    <!--############################################################################# -->
+	
+	<!-- Enabling Bluetooth. 0 - No, 1 - Yes. Default value is 0. -->
+    <!-- Number: 0, 1 -->
+    <!--<P2910>0</P2910> -->
+	
+	<!-- Bluetooth  visibility. 0 - Disable, 1 - Enable. Default value is 0. -->
+    <!-- Number: 0, 1 -->
+    <!--<P22330>0</P22330> -->
+	
+	<!-- Bluetooth visibility timeout. 0 - Never, 2 - 2mins, 5 - 5mins, 60 - 1hr. Default value is 2. -->
+    <!-- Number: 0, 2, 5, 60 -->
+    <!--<P22331>5</P22331> -->
+	
+    <!-- Bluetooth Pair Pin Code -->
+    <!-- Number -->
+    <!--<P22291></P22291> -->
+
+    <!--############################################################################# -->
+    <!--# Network / WiFi Settings                                                  ## -->
+    <!--############################################################################# -->
+
+	<!-- Wi-Fi Function. 0- Disable, 1- Enable -->
+	<!--P7800 = 0 -->
+
+	<!-- ESSID -->
+	<!--P7812 = -->
+
+	<!-- Security Mode for Hidden SSID. 0 - None, 1 - WEP, 2 - WPA WPA2 PSK, 3 - 802.1X EAP. Default value is 0. -->
+	<!-- Number: 0, 1, 2, 3 -->
+	<!--P7814 = 0 -->
+
+	<!-- Password -->
+	<!--P7830 =  -->
+
+	<!-- Layer 2 QoS 802.1p Priority Value (Wi-Fi). The default value is 0 -->
+	<!--P22048 = 0 -->
+
+	<!-- Country Code -->
+	<!--P7831 = -->
+
+    <!--############################################################################# -->
+    <!--# Network / OpenVPN Settings                                               ## -->
+    <!--############################################################################# -->
+	
+    <!-- OpenVPN Enable.  0 - No, 1 - Yes. Default is 1 -->
+    <!--Number: 0, 1  -->
+    <!--Mandatory -->
+    <!--P7050 = 0 -->
+
+	<!-- Enable OpenVPN Comp-Izo. 0 - No, 1 - Yes. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!--P8508 = 0 -->
+
+    <!-- OpenVPN Server Address -->
+    <!-- String -->
+    <!--P7051 = -->
+
+    <!-- OpenVPN Port. Default is 1194 -->
+    <!-- Number -->
+    <!-- Mandatory -->
+    <!--P7052 = 1194 -->
+
+    <!-- OpenVPN Transport.  0 - UDP, 1 - TCP. Default is 0 -->
+    <!--Number: 0, 1  -->
+    <!--Mandatory -->
+    <!--P2912 = 0 -->
+
+    <!-- OpenVPN CA -->
+    <!-- String -->
+    <!--P9902 =  -->
+
+    <!-- OpenVPN Certificate -->
+    <!-- String -->
+    <!--P9903 =  -->
+
+    <!-- OpenVPN Client Key -->
+    <!-- String -->
+    <!--P9904 =  -->
+
+    <!-- OpenVPN Cipher Method. 0 - Blowfish, 1 - AES-128, 2 - AES-256, 3 - Triple-DES. Default is 0 -->
+    <!-- Number: 0, 1, 2, 3  -->
+    <!-- Mandatory -->
+    <!--P8396 = 0 -->
+
+    <!-- OpenVPN Username -->
+    <!-- String -->
+    <!--P8394 = -->
+
+    <!-- OpenVPN Password -->
+    <!-- String -->
+    <!--P8395 = -->
+	
+	<!--####################################################################### -->
+	<!--##  Network Settings - Advanced Network Settings                     ## -->
+	<!--#######################################################################	-->
+
+	<!-- Alternate DNS Server -->
+	<!--P92 = 0 -->
+	<!--P93 = 0 -->
+	<!--P94 = 0 -->
+	<!--P95 = 0 -->
+
+	<!-- Second Alternate DNS Server -->
+	<!--P5026 =  -->
+	<!--P5027 =  -->
+	<!--P5028 =  -->
+	<!--P5029 =  -->
+	
+    <!-- Enable LLDP.  0 - Disabled, 1 - Enabled. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P1684>%%lldpenabled%%</P1684>	
+
+    <!-- LLDP TX Interval. Default is 30  -->
+    <!-- Number: 1 - 3600 -->
+    <!-- Mandatory -->
+    <!--P22122 = 30 -->
+	
+    <!-- Enable CDP.   0 - Disabled, 1 - Enabled. Default is 1 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <!--P22119 = 1 -->
+	
+	<!-- Layer 3 QoS for SIP. Default value is 48 -->
+	<!--P1558 = 26 -->
+
+	<!-- Layer 3 QoS for Audio. Default value is 48 -->
+	<!--P1559 = 46 -->
+
+	<!-- HTTP/HTTPS User-Agent -->
+	<!--P1541 =  -->
+
+	<!-- SIP User-Agent -->
+	<!--P26027 = Grandstream GSC3510 $version -->
+
+	<!-- HTTP/HTTPS Proxy Hostname -->
+	<!-- String -->
+	<!--P1552 = -->
+
+	<!-- HTTP/HTTPS Proxy Port -->
+	<!-- String -->
+	<!--P1552 = -->
+
+	<!-- Bypass Proxy For -->
+	<!-- String -->
+	<!--P22011 = -->
+	
+    <!--############################################################################# -->
+    <!--#  System Settings / Time Settings                                         ## -->
+    <!--############################################################################# -->
+    <!-- Assign NTP Server Address -->
+    <!-- String -->
+    <P30>%%param::time_ntp_server%%</P30>
+
+    <!-- Allow DHCP Option 42 to override NTP server. 0 - No, 1 - Yes. Default is 1 -->
+    <!-- When set to Yes(1), it will override the configured NTP server -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P144>1</P144>
+	
+    <!-- Allow DHCP Option 2 to override Time Zone setting. 0 - No, 1 - Yes. Default is 1 -->
+    <!-- When set to Yes(1), it will override the configured Time Zone setting if available  -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P143>1</P143>	
+
+    <!-- Time Zone -->
+    <!-- P value                                                        Web GUI Option  -->
+	<!-- TAZ+12      													GMT-12:00 (International Date Line West)       -->
+	<!-- TAB+11      													GMT-11:00 (Midway Island, Samoa)       -->
+	<!-- HAW10      													GMT-10:00 (US Hawaiian Time)       -->
+	<!-- AKST9AKDT      												GMT-09:00 (US Alaska Time)      -->
+	<!-- PST8PDT      													GMT-08:00 (US Pacific Time, Los Angeles)    -->
+	<!-- PST8PDT,M3.2.0,M11.1.0      									GMT-08:00 (Baja California)   -->
+	<!-- MST7MDT      													GMT-07:00 (US Mountain Time, Denver)     -->
+	<!-- MST7      														GMT-07:00 (Mountain Time (Arizona, no DST))   -->
+	<!-- MST7MDT,M4.1.0,M10.5.0      									GMT-07:00 (Chihuahua, La Paz, Mazatlan)  -->
+	<!-- CST6CDT      													GMT-06:00 (Central Time)    -->
+	<!-- CST+6      													GMT-06:00 (Central America)    -->
+	<!-- CST6CDT,M4.1.0,M10.5.0      									GMT-06:00 (Guadalajara, Mexico City, Monterrey)    -->
+	<!-- EST5EDT      													GMT-05:00 (Eastern Time)     -->
+	<!-- EST5      														GMT-05:00 (Eastern Time without daylight saving)  -->
+	<!-- TZf+4:30      													GMT-04:30 (Caracas)     -->
+	<!-- AST4ADT      													GMT-04:00 (Atlantic Time)   -->
+	<!-- AST4ADT,M3.2.0,M11.1.0      									GMT-04:00 (Atlantic Time (New Brunswick))   -->
+	<!-- NST+3:30NDT+2:30,M3.2.0/02:00:00,M11.1.0/02:00:00              GMT-03:30 (Newfoundland Time)  -->
+	<!-- TZK+3      													GMT-03:00 (Greenland)   -->
+	<!-- UTC-3															GMT-03:00 (Brazil, Sao Paulo)     -->
+	<!-- UTC+3      													GMT-02:00 (Argentina)     -->
+	<!-- TZL+2      													GMT-02:00 (Mid-Atlantic)    -->
+	<!-- TZM+1TZN+0,M3.5.0/24:00:00,M10.5.0/1:00:00      				GMT (Azores)     -->
+	<!-- TZN+0     													 	GMT (Edinburgh, Casablanca, Monrovia)  -->
+	<!-- GMT+0BST-1,M3.5.0/01:00:00,M10.5.0/02:00:00      				GMT (London, Great Britain)    -->
+	<!-- WET-0WEST-1,M3.5.0/01:00:00,M10.5.0/02:00:00      				GMT (Lisbon, Portugal)  -->
+	<!-- GMT+0IST-1,M3.5.0/01:00:00,M10.5.0/02:00:00      				GMT (Dublin, Ireland)    -->
+	<!-- CET-1CEST-2,M3.5.0/02:00:00,M10.5.0/03:00:00      				GMT+01:00 (Paris, Vienna, Warsaw, Roma, Madrid, Prague, Berlin, Budapest, Amsterdam, Belgium)   -->
+	<!-- TZP-2                                                          GMT+02:00 (Cairo, Bucharest)    -->
+	<!-- EET-2EEST-3,M3.5.0/03:00:00,M10.5.0/04:00:00      				GMT+02:00 (Helsinki, Athens, Tallinn)   -->
+	<!-- EET-2EEST,M3.5.0/3,M10.5.0/4      								GMT+02:00 (Kyiv, Ukraine)     -->
+	<!-- EET-2EEST-3,M3.4.5/02:00:00,M10.5.0/02:00:00      				GMT+02:00 (Israel)     -->
+	<!-- TZQ-3                                                          GMT+03:00 (Kuwait, Baghdad, Istanbul, Nairobi)    -->
+	<!-- MSK-3      													GMT+03:00 (Moscow, Russia)    -->
+	<!-- IRST-3:30IRDT-4:30,M3.4.4/24:00:00,M9.4.6/24:00:00      		GMT+03:00 (Tehran)   -->
+	<!-- TZR-4      													GMT+04:00 (Abu Dhabi, Baku)     -->
+	<!-- TZS-5      													GMT+05:00 (Islamabad, Ekaterinburg, Karachi, Tashkent)   -->
+	<!-- TZT-5:30      													GMT+05:30 (Chennai, New Delhi, Mumbai)     -->
+	<!-- TZU-5:45      													GMT+05:45 (Kathmandu)     -->
+	<!-- TZV-6      													GMT+06:00 (Almaty, Astana, Dhaka, Novosibirsk)    -->
+	<!-- TZW-6:30      													GMT+06:30 (Rangoon)      -->
+	<!-- TZX-7      													GMT+07:00 (Bankok, Hanoi, Krasnoyarsk)   -->
+	<!-- WIB-7      													GMT+07:00 (Jakarta)       -->
+	<!-- TZY-8      													GMT+08:00 (Beijing, Taipei, Kuala Lumpur, Irkutsk)   -->
+	<!-- SGT-8      													GMT+08:00 (Singapore)      -->
+	<!-- ULAT-8      													GMT+08:00 (Ulaanbaatar, Mongolia)      -->
+	<!-- WST-8      													GMT+08:00 (Perth)       -->
+	<!-- TZZ-9      													GMT+09:00 (Japan, Korea, Yakutsk)     -->
+	<!-- CST-9:30CDT-10:30,M10.1.0/02:00:00,M4.1.0/03:00:00      		GMT+09:30 (Adelaide) -->
+	<!-- CST-9:30      													GMT+09:30 (Darwin)       -->
+	<!-- TZb-10      													GMT+10:00 (Guam)       -->
+	<!-- EST-10EDT-11,M10.1.0/02:00:00,M4.1.0/03:00:00      			GMT+10:00 (Hobart)   -->
+	<!-- EST-10EDT-11,M10.1.0/02:00:00,M4.1.0/03:00:00      			GMT+10:00 (Sydney, Melbourne, Canberra)    -->
+	<!-- EST-10      													GMT+10:00 (Brisbane)      -->
+	<!-- TZc-11     													GMT+11:00 (Magadan, Solomon Is., New Caledonia)       -->
+	<!-- NZST-12NZDT-13,M9.5.0/02:00:00,M4.1.0/03:00:00      			GMT+12:00 (Auckland, Wellington)    -->
+	<!-- FJT-12FJST-13,M11.1.0/02:00:00,M1.2.0/03:00:00      			GMT+12:00 (Fiji)    -->
+	<!-- TZe-13      													GMT+13:00 (Nuku'alofa)      -->
+    
+    <!-- String -->
+    <!-- Mandatory -->
+    <P64>%%param::time_timezone_grandstreamexec%%</P64>
+
+    <!--############################################################################# -->
+    <!--#  System Settings / Security Settings / Web/SSH Access                    ## -->
+    <!--############################################################################# -->	
+	
+	<!-- Enable SSH. 0 - Yes, 1 - No. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!--P276 = 1 -->
+	
+	<!-- Allow Web Page Access. 0 - Yes, 1 - No. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!--P29605 = 1 -->
+
+	<!-- SSH Port. Default value is 22 -->
+	<!-- Number -->
+	<!--P27006 = 22 -->
+
+	<!-- Acccess Method. 0 - HTTP, 1 - HTTPS. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!--P900 = 0 -->
+
+	<!-- Port. Default value is 80 -->
+	<!-- Number -->
+	<!--P901 = 80 -->
+	
+    <!--############################################################################# -->
+    <!--#  System Settings / Security Settings / User Info Management              ## -->
+    <!--############################################################################# -->
+
+    <!-- Admin password for web interface -->
+    <!-- String  -->
+    <P2>%%DESKPHONE_PASSWORD%%</P2>
+	
+	<!-- End User Password -->
+    <!-- String -->
+    <!-- P196 = -->
+
+    <!--############################################################################# -->
+    <!--#  System Settings / Security Settings / TLS                               ## -->
+    <!--############################################################################# -->
+
+	<!--# Minimum TLS Version. 10 - 1.0, 11 - 1.1, 12 - 1.2. Default value is 1 -->
+	<!--# Number: 10, 11, 12 -->
+	<!--P22293: 11 -->
+
+	<!--# Maximum TLS Version. 10 - 1.0, 11 - 1.1, 12 - 1.2, 99 - No Limit. Default value is 3 -->
+	<!--# Number: 10, 11, 12 ,99 -->
+	<!--P22294: 99 -->
+
+    <!-- SIP TLS Certificate -->
+    <!-- String: a-z, A-Z, 0-9 -->
+    <!--P280 = -->
+
+    <!-- SIP TLS Private Key -->
+    <!-- String: a-z, A-Z, 0-9 -->
+    <!--P279 = -->
+
+    <!-- SIP TLS Private Key Password -->
+    <!-- String: a-z, A-Z, 0-9 -->
+    <!--P281 = s1pphone -->
+
+    <!--############################################################################# -->
+    <!--#  System Settings / Preferences / LCD&LED Management                      ## -->
+    <!--############################################################################# -->
+
+	<!-- Enable Missed Call Indicator. 0 - Yes, 1 - No. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<P1691>0</P1691>
+
+	<!-- Enable Contact Full Indicator. 0 - Yes, 1 - No. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<P1694>0</P1694>
+	
+	<!--############################################################################# -->
+    <!--#  System Settings / Preferences / LCD&LED Management                      ## -->
+    <!--############################################################################# -->
+
+	<!-- Call Volume. Default Value is 8 -->
+	<!-- Number: 0 - 8 -->
+	<P22317>8</P22317>
+
+	<!-- Ringtone Volume. Default Value is 8 -->
+	<!-- Number: 0 - 15 -->
+	<P8352>8</P8352>
+	
+	<!-- Media Volume. Default Value is 12 -->
+	<!-- Number: 0 - 15 -->
+	<P43025>12</P43025>
+
+    <!--############################################################################# -->
+    <!--#  System Settings / TR-069 											   ## -->
+    <!--############################################################################# -->
+	
+	<!-- Enable TR-069. 0 - No, 1 - Yes. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!-- P1409 = 0 -->
+	
+    <!-- ACS URL -->
+    <!-- String -->
+    <!-- P4503 = -->
+
+    <!-- TR-069 Username -->
+    <!-- String -->
+    <!--P4504 = -->
+
+    <!-- TR-069 Password -->
+    <!-- String -->
+    <!--P4505 = -->
+
+    <!-- Periodic Inform Enable. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <!--P4506 = 0 -->
+
+    <!-- Periodic Inform Interval. Default is 86400. -->
+    <!-- Number -->
+    <!--P4507 = 86400 -->
+
+    <!-- Connection Request Username	 -->
+    <!-- String: a-z, A-Z, 0-9 -->
+    <!--P4511 = -->
+
+    <!-- Connection Request Password	 -->
+    <!-- String: a-z, A-Z, 0-9 -->
+    <!--P4512 = -->
+
+    <!-- Connection Request Port. Default is 7547. -->
+    <!-- Number -->
+    <!--P4518 = 7547 -->
+
+    <!-- CPE SSL Certificate -->
+    <!-- String: a-z, A-Z, 0-9 -->
+    <!--P8220 = -->
+
+    <!-- CPE SSL Private Key -->
+    <!-- String: a-z, A-Z, 0-9 -->
+    <!--P8221 = -->
+
+    <!--############################################################################# -->
+    <!--#  System Settings / Sensor Settings									   ## -->
+    <!--############################################################################# -->
+
+	<!-- Sensor type. 0 - Normally Close, 1 - Normally Open. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!--P22210 = 0 -->
+	 
+	<!-- Trigger type. 0 - Level Triggered, 1 - Edge Triggered. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!--P22211 = 0 -->
+
+	<!-- Cycle Time.  - All Days, - Period of Time -->
+	<!-- Schedule 1 - 7 -->
+	<!-- Number -->
+	<!--P22215 = -->
+	<!--P22216 = -->
+	<!--P22217 = -->
+	<!--P22218 = -->
+	<!--P22219 = -->
+	<!--P22220 = -->
+	<!--P22221 = -->
+
+	<!-- Play audio. 0 - Disable, 1 - Enable. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!--P22212 = 0 -->
+
+	<!-- Make call/Dial out extension. 0 - Disable, 1 - Enable. Default value is 1 -->
+	<!-- Number: 0, 1 -->
+	<!--P22213 = 0 -->
+
+	<!-- Recording. 0 - Disable, 1 - Enable. Default value is 0 -->
+	<!-- Nubmer: 0, 1 -->
+	<!--P22214 = 0 -->
+
+    <!--############################################################################# -->
+    <!--#  Maintenance / Upgrade / Firmware 									   ## -->
+    <!--############################################################################# -->
+
+	<!-- Complete Upgrade. 0 - No, 1 - Yes. Default is 0. -->
+	<!--P-upgradeall = 0 -->
+
+    {IF network=LOCALLAN}
+    {IF rpslocal}
+	<!-- Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 1 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P212>2</P212>
+    <!-- Firmware -->
+    <!-- Firmware Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 2 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P6767>2</P6767>
+    <!-- Firmware Server Path -->
+    <P192>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%/firmware/grandstream</P192>
+    <!-- Config Server Path -->
+    <P237>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%</P237>
+	{ELSE}
+	<!-- Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 1 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P212>1</P212>
+    <!-- Firmware -->
+    <!-- Firmware Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 2 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P6767>1</P6767>
+    <!-- Firmware Server Path -->
+    <P192>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%/firmware/grandstream</P192>
+    <!-- Config Server Path -->
+    <P237>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%</P237>
+	{ENDIF}
+
+    {ELSE}
+
+    <!-- Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 1 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P212>2</P212>
+    <!-- Firmware -->
+    <!-- Firmware Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 2 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P6767>2</P6767>
+    <!-- Firmware Server Path -->
+    <P192>%%PROVLINK.HOST%%:%%PROVLINK.PORT%%%%PROVLINK.PATH%%/firmware/grandstream</P192>
+    <!-- Config Server Path -->
+    <P237>%%PROVLINK.HOST%%:%%PROVLINK.PORT%%%%PROVLINK.PATH%%</P237>
+    {ENDIF}
+
+    <!-- Firmware HTTP/HTTPS User Name -->
+    <!-- String -->
+    <!--P6768 =  -->
+
+    <!-- Firmware HTTP/HTTPS Password -->
+    <!-- String -->
+    <!--P6769 =  -->
+	
+    <!-- Firmware File Prefix -->
+    <!-- String -->
+    <!--P232 = -->
+
+    <!-- Firmware File Postfix -->
+    <!-- String -->
+    <!--P233 = -->
+
+	<!--####################################################################### -->
+	<!--##  Maintenance / Upgrade / Config File                              ## -->
+	<!--####################################################################### -->
+
+    <!-- Config HTTP/HTTPS User Name -->
+    <!-- String -->
+    <!--P1360 = -->
+
+    <!-- Config HTTP/HTTPS Password -->
+    <!-- String -->
+    <!--P1361 = -->
+
+    <!-- Always send HTTP Basic Authentication Information. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P20713>0</P20713>
+	
+    <!-- Config File Prefix -->
+    <!-- String -->
+    <!--P234 = -->
+
+    <!-- Config File Postfix -->
+    <!-- String -->
+    <!--P235 = -->	
+
+    <!-- Authenticate Conf File. 0 - No, 1 - Yes. Default is No -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <!--P240 = 0 -->	
+	
+	<!-- XML Config File Password -->
+    <!-- String -->
+    <!--P1359 =  -->
+
+	<!--####################################################################### -->
+	<!--##  Maintenance / Upgrade / Provision                                ## -->
+	<!--####################################################################### -->
+
+    <!-- Automatic Upgrade.  -->
+    <!-- 0 - No,  -->
+    <!-- 1 - Yes, check for upgrade based on minute(s) setting, -->
+    <!-- 2 - Yes, check for upgrade based on Hour of Day setting, -->
+    <!-- 3 - Yes, check for upgrade based on Day of Week setting, -->
+    <!-- Default is No -->
+    <!-- Number: 0, 1, 2, 3 -->
+    <!-- Mandatory -->
+    <P194>0</P194>
+	
+	<!-- Check for new firmware every () minutes. Default is 7 days. -->
+    <!-- Number: 60-86400 -->
+    <!-- Mandatory -->
+    <P193>10080</P193>
+
+	<!-- Enable Randomized Automatic Upgrade. 0 - No, 1 - Yes. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<P8458>0</P8458>
+
+    <!-- Hour of the Day End(None, 0-23). Default is 0 -->
+    <!-- Number: 0 - 23, None -->
+    <P8459>-1</P8459>
+
+    <!-- Hour of the Day Start(0-23). Default is 1 -->
+    <!-- Number: 0 - 23 -->
+    <P285>2</P285>
+	
+    <!-- Day of the Week (0-6). Default is 1 -->
+    <!-- Number: 0-6 -->
+    <P286>1</P286>	
+
+    <!-- Firmware Upgrade and Provisioning -->
+    <!-- 0 - Always Check For New Firmware -->
+    <!-- 1 - Check New Firmware only when F/W pre/suffix changes -->
+    <!-- 2 - Always Skip the Firmware Check -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P238>0</P238>
+
+    <!-- Allow DHCP Option 43 and Option 66 to override server. 0 - No, 1 - Yes. Default is 1 -->
+    <!-- When set to Yes(1), it will override the configured provision path and method -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P145>0</P145>
+	
+    <!-- Allow DHCP Option 120 to Override SIP Server -->
+    <!-- 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P1411>0</P1411>	
+	
+	<!-- Allow DHCP Option 242 (Avaya IP Phones). 0 - No, 1 - Yes. Default value is 1 -->
+	<!-- Number: 0, 1 -->
+	<!-- P22053 = 1 -->
+
+	<!-- Download and Process All Available Config Files. 0 - No, 1 - Yes. Default value is 0 -->
+	<!-- Number: 0, 1 -->
+	<!-- P8467 = 0 -->
+
+    <!-- 3CX Auto Provision. 0 - No, 1 - Yes. Default is Yes -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <P1414>1</P1414>
+
+	<!--####################################################################### -->
+	<!--##  Maintenance / Upgrade / Advanced Settings                        ## -->
+	<!--####################################################################### -->
+
+    <!-- Disable SIP NOTIFY Authentication. 0 - No, 1 - Yes. Default is 0 -->
+    <!-- Number: 0,1 -->
+    <!-- Mandatory -->
+    <P4428>1</P4428>
+
+	<!-- Validate Certification Chain -->
+	<!-- 0 - No, 1 - Yes. Default value is 0 -->
+	<!--P22030 = 0 -->
+	
+	<!-- Allow AutoConfig Service Access. 0 - No, 1 - Yes. -->
+	<!-- 0 - No, 1 - Yes. Default value is 0 -->
+	<!--P7070 = 0 -->
+
+	<!-- mDNS Override Server. 0 - Disable, 1 - Use Type A, 2 - Use Type SRV. Default value is 1. -->
+	<!-- Number: 0, 1 -->
+	<!-- P1407 = 1 -->
+
+    <!--############################################################################# -->
+    <!--#  Maintenance / System Diagnosis / Syslog 								   ## -->
+    <!--############################################################################# -->
+    <!-- Syslog Protocol. 0 - UDP, 1 - SSL/TLS. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <!--P8402 = 0 -->
+
+    <!-- Syslog Server (name of the server, max length is 64 characters) -->
+    <!-- String -->
+    <!--P207 = -->
+
+    <!-- Syslog Level. 0 - NONE, 1 - DEBUG, 2 - INFO, 3 - WARNING, 4 - ERROR. Default is 0 -->
+    <!-- Number: 0, 1 , 2, 3, 4 -->
+    <!-- Mandatory -->
+    <!--P208 = 0 -->
+
+    <!-- Send SIP Log. 0 - Do not send SIP log in Syslog, 1 - Send SIP log in Syslog if configured and set to DEBUG level. Default is 0 -->
+    <!-- Number: 0, 1 -->
+    <!-- Mandatory -->
+    <!--P1387 = 0 -->
+
+    <!-- Syslog Keyword Filtering -->
+    <!-- String -->
+    <!--P22129 =  -->
+	
+	<!-- ############################################################################## -->
+	<!-- ##  Applications                                                            ## -->
+	<!-- ############################################################################## -->
+	<!-- ####################################################################### -->
+	<!-- ##  Applications - Music                                             ## -->
+	<!-- ####################################################################### -->
+	
+	<!-- # Audio File Address. -->
+	<!-- # String -->
+	<!-- # Format:  rtsp//IPADDRESS/MUSICFILE.MUSICEXTENSION -->
+	<!-- # Example: rtsp://192.168.160.124/SummerVibe-WalkOffTheEarth.ts or rtsp://192.168.160.124/LadyAntebellumNeedYouNow.mp3 -->
+	<!-- P953 =  -->
+
+	<!-- # Play Mode. 0 - Manual, 1 - Auto. Default value is 0. -->
+	<!-- # Number: 0, 1 -->
+	<!-- P22328: 0 -->
+
+	<!-- # Schedule 1. -->
+	<!-- # String -->
+	<!-- # Format: FREQ=WEEKLY;byday=(MO,TU,WE,TH,FR,SA,SU);ByPeriod=(0000-2359);Action={voice=(RTSP file) -->
+	<!-- # Example: FREQ=WEEKLY;byday=TU,TH,SA;ByPeriod=0730-0735,1245-1300;Action={voice=rtsp://192.168.160.124/LadyAntebellumNeedYouNow.mp3 -->
+	<!-- P22336 -->
+
+	<!-- # Schedule 2. -->
+	<!-- # String -->
+	<!-- # Format: FREQ=WEEKLY;byday=(MO,TU,WE,TH,FR,SA,SU);ByPeriod=(0000-2359);Action={voice=(RTSP file) -->
+	<!-- # Example: FREQ=WEEKLY;byday=TU,TH,SA;ByPeriod=0730-0735,1245-1300;Action={voice=rtsp://192.168.160.124/LadyAntebellumNeedYouNow.mp3 -->
+	<!-- P22337 -->
+
+	<!-- # Schedule 3. -->
+	<!-- # String -->
+	<!-- # Format: FREQ=WEEKLY;byday=(MO,TU,WE,TH,FR,SA,SU);ByPeriod=(0000-2359);Action={voice=(RTSP file) -->
+	<!-- # Example: FREQ=WEEKLY;byday=TU,TH,SA;ByPeriod=0730-0735,1245-1300;Action={voice=rtsp://192.168.160.124/LadyAntebellumNeedYouNow.mp3 -->
+	<!-- P22338 -->
+
+	<!-- # Schedule 4. -->
+	<!-- # String -->
+	<!-- # Format: FREQ=WEEKLY;byday=(MO,TU,WE,TH,FR,SA,SU);ByPeriod=(0000-2359);Action={voice=(RTSP file) -->
+	<!-- # Example: FREQ=WEEKLY;byday=TU,TH,SA;ByPeriod=0730-0735,1245-1300;Action={voice=rtsp://192.168.160.124/LadyAntebellumNeedYouNow.mp3 -->
+	<!-- P22339 -->
+
+	<!-- # Schedule 5. -->
+	<!-- # String -->
+	<!-- # Format: FREQ=WEEKLY;byday=(MO,TU,WE,TH,FR,SA,SU);ByPeriod=(0000-2359);Action={voice=(RTSP file) -->
+	<!-- # Example: FREQ=WEEKLY;byday=TU,TH,SA;ByPeriod=0730-0735,1245-1300;Action={voice=rtsp://192.168.160.124/LadyAntebellumNeedYouNow.mp3 -->
+	<!-- P22340 -->
+
+	<!-- # Schedule 6. -->
+	<!-- # String -->
+	<!-- # Format: FREQ=WEEKLY;byday=(MO,TU,WE,TH,FR,SA,SU);ByPeriod=(0000-2359);Action={voice=(RTSP file) -->
+	<!-- # Example: FREQ=WEEKLY;byday=TU,TH,SA;ByPeriod=0730-0735,1245-1300;Action={voice=rtsp://192.168.160.124/LadyAntebellumNeedYouNow.mp3 -->
+	<!-- P22341 -->
+
+	<!-- # Schedule 7. -->
+	<!-- # String -->
+	<!-- # Format: FREQ=WEEKLY;byday=(MO,TU,WE,TH,FR,SA,SU);ByPeriod=(0000-2359);Action={voice=(RTSP file) -->
+	<!-- # Example: FREQ=WEEKLY;byday=TU,TH,SA;ByPeriod=0730-0735,1245-1300;Action={voice=rtsp://192.168.160.124/LadyAntebellumNeedYouNow.mp3 -->
+	<!-- P22342 -->
+
+  </config>
+</gs_provision>
+
+
+]]>
+	</deviceconfig>
+	</device>
+</data>
+</doc>

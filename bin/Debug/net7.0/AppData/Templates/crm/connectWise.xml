@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Crm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Country="US" Name="connectWise" SupportsEmojis="true" Version="31">
+    <Number Prefix="AsIs" MaxLength="[MaxLength]" />
+    <Connection MaxConcurrentRequests="16" />
+    <Parameters>
+        <Parameter Parent="General Configuration" Name="CompanyName" Type="String" Title="Company Name:" />
+        <Parameter Parent="General Configuration" Name="PublicKey" Type="String" Title="Public Key:" />
+        <Parameter Parent="General Configuration" Name="PrivateKey" Type="String" Title="Private Key:" />
+        <Parameter Parent="General Configuration" Name="Domain" Type="String" Title="Domain:" />
+        <Parameter Parent="General Configuration" Name="LookupOrder" Type="List" ListValues="Contacts/Companies,Companies/Contacts" Title="Contact Lookup Order:" Default="Contacts/Companies" />
+        <Parameter Parent="General Configuration" Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+        <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False" />
+        <Parameter Parent="ReportCallEnabled" Name="CreateActivityOrNote" Type="List" ListValues="Activity,Note" Title="Create Activity or Note:" Default="Activity" />
+        <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Subject:" Default="3CX PhoneSystem Call" />
+        <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+        <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+        <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+        <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+        <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False" />
+        <Parameter Parent="ReportChatEnabled" Name="ChatCreateActivityOrNote" Type="List" ListValues="Activity,Note" Title="Create Activity or Note:" Default="Activity" />
+        <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Subject:" Default="3CX PhoneSystem Chat Session" />
+    </Parameters>
+    <Authentication Type="Basic">
+        <Value>[CompanyName]+[PublicKey]:[PrivateKey]</Value>
+    </Authentication>
+    <Scenarios>
+        <Scenario EntityId="Contacts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetContactByNumber" AllowEmpty="false" />
+        </Scenario>
+        <Scenario EntityId="Companies" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetCompanyByNumber" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="GetContactByNumber">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts?conditions=inactiveFlag=false&amp;childconditions=(communicationItems/communicationType='Phone' OR communicationItems/communicationType='Fax') AND communicationItems/value like '%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">id</Variable>
+                <Variable Name="CompanyId">company.id</Variable>
+                <Variable Name="FirstName">firstName</Variable>
+                <Variable Name="LastName">lastName</Variable>
+                <Variable Name="CompanyName">company.name</Variable>
+                <Variable Name="Email" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="DirectPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Direct">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="CellPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Cell">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="MobilePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Mobile">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="Pager" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Pager">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="HomePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxBusiness" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxHome" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax/Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="https://[Domain]/[Version]ConnectWise.aspx?routeTo=ContactFV%26recid=[Id]" />
+                <Output Type="FirstName" Value="[FirstName]" />
+                <Output Type="LastName" Value="[LastName]" />
+                <Output Type="CompanyName" Value="[CompanyName]" />
+                <Output Type="Email" Value="[Email]" />
+                <Output Type="PhoneBusiness" Value="[DirectPhone]" />
+                <Output Type="PhoneMobile" Value="[IIf([MobilePhone]==&quot;&quot;,[CellPhone],[MobilePhone])]" />
+                <Output Type="Pager" Value="[Pager]" />
+                <Output Type="PhoneHome" Value="[HomePhone]" />
+                <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+                <Output Type="FaxHome" Value="[FaxHome]" />
+		            <Output Type="EntityType" Value="Contacts" />
+		            <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="GetCompanyByNumber">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/companies?conditions=phoneNumber like '%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]' OR faxNumber like '%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id" Path="id" />
+                <Variable Name="CompanyName" Path="name" />
+                <Variable Name="CompanyPhone" Path="phoneNumber" />
+                <Variable Name="CompanyFax" Path="faxNumber" />
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="https://[Domain]/[Version]ConnectWise.aspx?routeTo=CompanyFV%26recid=[Id]" />
+                <Output Type="CompanyName" Value="[CompanyName]" />
+                <Output Type="PhoneBusiness" Value="[CompanyPhone]" />
+                <Output Type="FaxBusiness" Value="[CompanyFax]" />
+		            <Output Type="EntityType" Value="Companies" />
+		            <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>      
+        <Scenario Id="LookupByEmail_Contacts" EntityId="Contacts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetContactByEmail" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="GetContactByEmail">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts?conditions=inactiveFlag=false&amp;childconditions=communicationItems/communicationType='Email' AND communicationItems/value='[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]'" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">id</Variable>
+                <Variable Name="CompanyId">company.id</Variable>
+                <Variable Name="FirstName">firstName</Variable>
+                <Variable Name="LastName">lastName</Variable>
+                <Variable Name="CompanyName">company.name</Variable>
+                <Variable Name="Email" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="DirectPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Direct">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="CellPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Cell">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="MobilePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Mobile">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="Pager" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Pager">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="HomePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxBusiness" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxHome" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax/Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="https://[Domain]/[Version]ConnectWise.aspx?routeTo=ContactFV%26recid=[Id]" />
+                <Output Type="FirstName" Value="[FirstName]" />
+                <Output Type="LastName" Value="[LastName]" />
+                <Output Type="CompanyName" Value="[CompanyName]" />
+                <Output Type="Email" Value="[Email]" />
+                <Output Type="PhoneBusiness" Value="[DirectPhone]" />
+                <Output Type="PhoneMobile" Value="[IIf([MobilePhone]==&quot;&quot;,[CellPhone],[MobilePhone])]" />
+                <Output Type="Pager" Value="[Pager]" />
+                <Output Type="PhoneHome" Value="[HomePhone]" />
+                <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+                <Output Type="FaxHome" Value="[FaxHome]" />
+		            <Output Type="EntityType" Value="Contacts" />
+		            <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario Id="SearchContacts_PhoneEmail">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetContactsForSearchPhoneEmail" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="SearchContacts_FirstLastCompanyName">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetContactsForSearchFirstLastCompanyName" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="GetContactsForSearchPhoneEmail">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts?conditions=inactiveFlag=false&amp;childconditions=((communicationItems/communicationType='Phone' OR communicationItems/communicationType='Fax') AND communicationItems/value LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25') OR (communicationItems/communicationType='Email' AND communicationItems/value LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25')&amp;page=1&amp;pageSize=[MaxCount]" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">id</Variable>
+                <Variable Name="CompanyId">company.id</Variable>
+                <Variable Name="FirstName">firstName</Variable>
+                <Variable Name="LastName">lastName</Variable>
+                <Variable Name="CompanyName">company.name</Variable>
+                <Variable Name="Email" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="DirectPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Direct">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="CellPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Cell">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="MobilePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Mobile">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="Pager" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Pager">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="HomePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxBusiness" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxHome" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax/Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="https://[Domain]/[Version]ConnectWise.aspx?routeTo=ContactFV%26recid=[Id]" />
+                <Output Type="FirstName" Value="[FirstName]" />
+                <Output Type="LastName" Value="[LastName]" />
+                <Output Type="CompanyName" Value="[CompanyName]" />
+                <Output Type="Email" Value="[Email]" />
+                <Output Type="PhoneBusiness" Value="[DirectPhone]" />
+                <Output Type="PhoneMobile" Value="[IIf([MobilePhone]==&quot;&quot;,[CellPhone],[MobilePhone])]" />
+                <Output Type="Pager" Value="[Pager]" />
+                <Output Type="PhoneHome" Value="[HomePhone]" />
+                <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+                <Output Type="FaxHome" Value="[FaxHome]" />
+		            <Output Type="EntityType" Value="Contacts" />
+		            <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="GetContactsForSearchFirstLastCompanyName">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts?conditions=inactiveFlag=false AND (firstName LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR lastName LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR company/name LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25')&amp;page=1&amp;pageSize=[MaxCount]" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">id</Variable>
+                <Variable Name="CompanyId">company.id</Variable>
+                <Variable Name="FirstName">firstName</Variable>
+                <Variable Name="LastName">lastName</Variable>
+                <Variable Name="CompanyName">company.name</Variable>
+                <Variable Name="Email" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="DirectPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Direct">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="CellPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Cell">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="MobilePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Mobile">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="Pager" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Pager">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="HomePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxBusiness" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxHome" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax/Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="https://[Domain]/[Version]ConnectWise.aspx?routeTo=ContactFV%26recid=[Id]" />
+                <Output Type="FirstName" Value="[FirstName]" />
+                <Output Type="LastName" Value="[LastName]" />
+                <Output Type="CompanyName" Value="[CompanyName]" />
+                <Output Type="Email" Value="[Email]" />
+                <Output Type="PhoneBusiness" Value="[DirectPhone]" />
+                <Output Type="PhoneMobile" Value="[IIf([MobilePhone]==&quot;&quot;,[CellPhone],[MobilePhone])]" />
+                <Output Type="Pager" Value="[Pager]" />
+                <Output Type="PhoneHome" Value="[HomePhone]" />
+                <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+                <Output Type="FaxHome" Value="[FaxHome]" />
+		            <Output Type="EntityType" Value="Contacts" />
+		            <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="GetAllContacts">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetAllContacts2" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="GetAllContacts2">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts?conditions=inactiveFlag=false&amp;page=[Page+1]&amp;pageSize=[PageSize]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">id</Variable>
+                <Variable Name="CompanyId">company.id</Variable>
+                <Variable Name="FirstName">firstName</Variable>
+                <Variable Name="LastName">lastName</Variable>
+                <Variable Name="CompanyName">company.name</Variable>
+                <Variable Name="Email" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Email">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="DirectPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Direct">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="CellPhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Cell">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="MobilePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Mobile">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="Pager" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Pager">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="HomePhone" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Phone">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxBusiness" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+                <Variable Name="FaxHome" Path="communicationItems.value">
+                    <Filter>
+                        <Rule Type="Equals" Ethalon="Fax/Home">communicationItems.type.name</Rule>
+                        <Rule Type="Equals" Ethalon="Fax">communicationItems.communicationType</Rule>
+                    </Filter>
+                </Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="https://[Domain]/[Version]ConnectWise.aspx?routeTo=ContactFV%26recid=[Id]" />
+                <Output Type="FirstName" Value="[FirstName]" />
+                <Output Type="LastName" Value="[LastName]" />
+                <Output Type="CompanyName" Value="[CompanyName]" />
+                <Output Type="Email" Value="[Email]" />
+                <Output Type="PhoneBusiness" Value="[DirectPhone]" />
+                <Output Type="PhoneMobile" Value="[IIf([MobilePhone]==&quot;&quot;,[CellPhone],[MobilePhone])]" />
+                <Output Type="Pager" Value="[Pager]" />
+                <Output Type="PhoneHome" Value="[HomePhone]" />
+                <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+                <Output Type="FaxHome" Value="[FaxHome]" />
+		            <Output Type="EntityType" Value="Contacts" />
+		            <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="ReportCall">
+            <Request SkipIf="[IIf([ReportCallEnabled]!=True||[EntityId]==&quot;&quot;,True,[IIf([AgentEmail]==&quot;&quot;,True,False)])]" 
+            				 Url="https://[Domain]/login/companyinfo/[CompanyName]" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetUserIdForCall" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="GetUserIdForCall">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/system/members?conditions=officeEmail='[AgentEmail]' OR mobileEmail='[AgentEmail]' OR homeEmail='[AgentEmail]' OR primaryEmail='[AgentEmail]'" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any" Ethalon="">id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="AssignedUserId" Path="id" />
+            </Variables>
+            <Outputs Next="CreateCallActivity" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="CreateCallActivity">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/[IIf([CreateActivityOrNote]==Activity,sales/activities,[concat(company/,[IIf([EntityType]==&quot;Companies&quot;,[concat(companies/,[EntityId],/notes)],[concat(contacts/,[EntityId],/notes)])])])]" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+                <PostValues>
+                    <Value Passes="2" SkipIf="[CreateActivityOrNote]!=Activity" Key="name" Type="String">[[Subject]]</Value>
+                    <Value Passes="0" SkipIf="[CreateActivityOrNote]!=Activity" Key="phoneNumber" Type="String">[Number]</Value>
+                    <Value Passes="0" SkipIf="[CreateActivityOrNote]!=Activity" Key="dateStart" Type="String">[[CallStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                    <Value Passes="0" SkipIf="[CreateActivityOrNote]!=Activity" Key="dateEnd" Type="String">[IIf([[[DurationTimespan].get_TotalSeconds()].CompareTo(60)]==-1,[IIF([[[CallStartTimeUTC].get_Second()].CompareTo(30)]==-1,[IIF([[[CallEndTimeUTC].get_Second()].CompareTo(30)]==1,[[CallEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")],[[CallEndTimeUTC].AddMinutes(1).ToString("yyyy-MM-ddTHH:mm:ssZ")])],[[CallEndTimeUTC].AddMinutes(1).ToString("yyyy-MM-ddTHH:mm:ssZ")])],[[CallEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")])]</Value> 
+                    <Value Passes="2" SkipIf="[CreateActivityOrNote]!=Activity" If="[CallType]==Inbound" Key="notes" Type="String">[[InboundCallText]]</Value>
+                    <Value Passes="2" SkipIf="[CreateActivityOrNote]!=Activity" If="[CallType]==Missed" Key="notes" Type="String">[[MissedCallText]]</Value>
+                    <Value Passes="2" SkipIf="[CreateActivityOrNote]!=Activity" If="[CallType]==Outbound" Key="notes" Type="String">[[OutboundCallText]]</Value>
+                    <Value Passes="2" SkipIf="[CreateActivityOrNote]!=Activity" If="[CallType]==Notanswered" Key="notes" Type="String">[[NotAnsweredOutboundCallText]]</Value>
+                    <Object SkipIf="[CreateActivityOrNote]!=Activity" Key="assignTo">
+                        <Value Passes="1" Key="id" Type="String">[AssignedUserId]</Value>
+                    </Object>
+                    <Object SkipIf="[CreateActivityOrNote]!=Activity" Key="type">
+                        <Value Passes="0" Key="id" Type="String">1</Value>
+                    </Object>
+                    <Object SkipIf="[CreateActivityOrNote]!=Activity||[EntityType]==Companies" Key="contact">
+                        <Value Passes="0" Key="id" Type="String">[EntityId]</Value>
+                    </Object>
+                    <Object SkipIf="[CreateActivityOrNote]!=Activity||[EntityType]==Contacts" Key="company">
+                        <Value Passes="0" Key="id" Type="String">[EntityId]</Value>
+                    </Object>
+                    <Object SkipIf="[CreateActivityOrNote]!=Activity" Key="status">
+                        <Value Passes="0" Key="id" Type="String">5</Value>
+                    </Object>
+                    <Value Passes="2" Key="text" SkipIf="[CreateActivityOrNote]!=Note" Type="String">Subject: [[Subject]] 
+Phone Number: [Number]
+StartTime UTC: [[CallStartTimeUTC]]
+EndTime UTC: [[CallEndTimeUTC]]
+Direction: [IIf([CallType]==Inbound||[CallType]==Missed,Inbound,Outbound)]
+Description: [IIf([CallType]==Inbound,[[InboundCallText]],[IIf([CallType]==Missed,[[MissedCallText]],[IIf([CallType]==Outbound,[[OutboundCallText]],[NotAnsweredOutboundCallText])])])]</Value>
+                    <Object Key="type" SkipIf="[CreateActivityOrNote]!=Note">
+                        <Value Passes="0" Key="id" Type="Integer">2</Value>
+                    </Object>
+                </PostValues>
+            </Request>
+            <Variables />
+            <Outputs AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="ReportChat">
+            <Request SkipIf="[IIf([ReportChatEnabled]!=True||[EntityId]==&quot;&quot;,True,[IIf([AgentEmail]==&quot;&quot;,True,False)])]" 
+            				 Url="https://[Domain]/login/companyinfo/[CompanyName]" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetUserIdForChat" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="GetUserIdForChat">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/system/members?conditions=officeEmail='[AgentEmail]' OR mobileEmail='[AgentEmail]' OR homeEmail='[AgentEmail]' OR primaryEmail='[AgentEmail]'" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any" Ethalon="">id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="AssignedUserId" Path="id" />
+            </Variables>
+            <Outputs Next="CreateChatActivity" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="CreateChatActivity">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/[IIf([ChatCreateActivityOrNote]==Activity,sales/activities,[concat(company/,[IIf([EntityType]==&quot;Companies&quot;,[concat(companies/,[EntityId],/notes)],[concat(contacts/,[EntityId],/notes)])])])]" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+                <PostValues>
+                    <Value Passes="2" SkipIf="[ChatCreateActivityOrNote]!=Activity" Key="name" Type="String">[[ChatSubject]]</Value>
+                    <Value Passes="0" SkipIf="[ChatCreateActivityOrNote]!=Activity" If="[Number]!=&quot;&quot;" Key="phoneNumber" Type="String">[Number]</Value>
+                    <Value Passes="0" SkipIf="[ChatCreateActivityOrNote]!=Activity" If="[Email]!=&quot;&quot;" Key="email" Type="String">[Email]</Value>
+                    <Value Passes="0" SkipIf="[ChatCreateActivityOrNote]!=Activity" Key="dateStart" Type="String">[[ChatStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                    <Value Passes="0" SkipIf="[ChatCreateActivityOrNote]!=Activity" Key="dateEnd" Type="String">[IIf([[[DurationTimespan].get_TotalSeconds()].CompareTo(60)]==-1,[IIF([[[ChatStartTimeUTC].get_Second()].CompareTo(30)]==-1,[IIF([[[ChatEndTimeUTC].get_Second()].CompareTo(30)]==1,[[ChatEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")],[[ChatEndTimeUTC].AddMinutes(1).ToString("yyyy-MM-ddTHH:mm:ssZ")])],[[ChatEndTimeUTC].AddMinutes(1).ToString("yyyy-MM-ddTHH:mm:ssZ")])],[[ChatEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")])]</Value> 
+                    <Value Passes="1" SkipIf="[ChatCreateActivityOrNote]!=Activity" Key="notes" Type="String">[[ChatMessages].Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+                    <Object SkipIf="[ChatCreateActivityOrNote]!=Activity"  Key="assignTo">
+                        <Value Passes="1" Key="id" Type="String">[AssignedUserId]</Value>
+                    </Object>
+                    <Object SkipIf="[ChatCreateActivityOrNote]!=Activity" Key="type">
+                        <Value Passes="0" Key="id" Type="String">8</Value>
+                    </Object>
+                    <Object SkipIf="[ChatCreateActivityOrNote]!=Activity||[EntityType]==Companies" Key="contact">
+                        <Value Passes="0" Key="id" Type="String">[EntityId]</Value>
+                    </Object>
+                    <Object SkipIf="[ChatCreateActivityOrNote]!=Activity||[EntityType]==Contacts" Key="company">
+                        <Value Passes="0" Key="id" Type="String">[EntityId]</Value>
+                    </Object>
+                    <Object SkipIf="[ChatCreateActivityOrNote]!=Activity" Key="status">
+                        <Value Passes="0" Key="id" Type="String">5</Value>
+                    </Object>
+                    <Value Passes="2" Key="text" SkipIf="[ChatCreateActivityOrNote]!=Note" Type="String">Subject: [[ChatSubject]] 
+StartTime UTC: [ChatStartTimeUTC]
+EndTime UTC: [ChatEndTimeUTC]
+Description: [[ChatMessages].Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+                    <Object Key="type" SkipIf="[ChatCreateActivityOrNote]!=Note">
+                        <Value Passes="0" Key="id" Type="Integer">2</Value>
+                    </Object>
+                </PostValues>
+            </Request>
+            <Variables />
+            <Outputs AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="CreateContactRecord">
+            <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="CreateContact" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="CreateContact">
+          <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+            <Headers>
+                <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+            </Headers>
+            <PostValues>
+                <Value Passes="2" Key="firstName">[[CreateContactFirstName]]</Value>
+                <Value Passes="2" Key="lastName">[[CreateContactLastName]]</Value>
+                <Array Key="communicationItems">
+                    <Object>
+                        <Value Passes="1" Key="value" Type="String">[Number]</Value>
+                        <Value Passes="1" Key="defaultFlag" Type="String">true</Value>
+                        <Value Passes="1" Key="communicationType" Type="String">Phone</Value>
+                        <Object Key="type">
+                            <Value Passes="1" Key="name" Type="String">Direct</Value>
+                        </Object>
+                    </Object>
+                </Array>
+            </PostValues>
+          </Request>
+          <Rules>
+            <Rule Type="Any">id</Rule>
+          </Rules>
+          <Variables>
+            <Variable Name="Id" Path="id" />
+          </Variables>
+          <Outputs AllowEmpty="false">
+            <Output Type="ContactUrl" Value="https://[Domain]/[Version]ConnectWise.aspx?routeTo=ContactFV%26recid=[Id]" />
+            <Output Type="FirstName" Passes="2" Value="[[CreateContactFirstName]]" />
+            <Output Type="LastName" Passes="2" Value="[[CreateContactLastName]]" />
+            <Output Type="PhoneBusiness" Value="[Number]" />
+            <Output Type="EntityType" Value="Contacts" />
+            <Output Type="EntityId" Value="[Id]" />
+          </Outputs>
+        </Scenario>
+        <Scenario Id="CreateContactRecordFromClient">
+            <Request SkipIf="[CreateContactEnabled]!=True" Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="CreateContactFromClient" AllowEmpty="false" />
+        </Scenario>
+        <Scenario Id="CreateContactFromClient">
+          <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+            <Headers>
+                <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+            </Headers>
+            <PostValues>
+                <Value Key="firstName">[FirstName]</Value>
+                <Value Key="lastName">[LastName]</Value>
+                <Array Key="communicationItems">
+                    <Object If="[Number]!=&quot;&quot;">
+                        <Value Passes="1" Key="value" Type="String">[Number]</Value>
+                        <Value Passes="1" Key="communicationType" Type="String">Phone</Value>
+                        <Object Key="type">
+                            <Value Passes="1" Key="name" Type="String">Cell</Value>
+                        </Object>
+                    </Object>
+                    <Object If="[Email]!=&quot;&quot;">
+                        <Value Passes="1" Key="value" Type="String">[Email]</Value>
+                        <Value Passes="1" Key="communicationType" Type="String">Email</Value>
+                        <Object Key="type">
+                            <Value Passes="1" Key="name" Type="String">Email</Value>
+                        </Object>
+                    </Object>
+                </Array>
+            </PostValues>
+          </Request>
+          <Rules>
+            <Rule Type="Any">id</Rule>
+          </Rules>
+          <Variables>
+            <Variable Name="Id" Path="id" />
+          </Variables>
+          <Outputs AllowEmpty="false">
+            <Output Type="ContactUrl" Value="https://[Domain]/[Version]ConnectWise.aspx?routeTo=ContactFV%26recid=[Id]" />
+            <Output Type="FirstName" Value="[FirstName]" />
+            <Output Type="LastName" Value="[LastName]" />
+            <Output Type="Email" Value="[Email]" />
+            <Output Type="PhoneMobile" Value="[Number]" />
+            <Output Type="EntityType" Value="Contacts" />
+            <Output Type="EntityId" Value="[Id]" />
+          </Outputs>
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetContactByNumberCFD" AllowEmpty="false" />
+        </Scenario>
+		    <Scenario Id="GetContactByNumberCFD">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts?conditions=inactiveFlag=false&amp;childconditions=(communicationItems/communicationType='Phone' OR communicationItems/communicationType='Fax') AND communicationItems/value like '%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+        <Scenario Id="LookupFromCFD_Contacts_LookupID">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetContactByID" AllowEmpty="false" />
+        </Scenario>
+		    <Scenario Id="GetContactByID">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts?conditions=inactiveFlag=false AND id=[EntityID]" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+        <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetContactByQuery" AllowEmpty="false" />
+        </Scenario>
+		    <Scenario Id="GetContactByQuery">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/contacts?conditions=[Query]" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+        <Scenario Id="LookupFromCFD_Accounts_LookupNumber">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetCompanyByNumberCFD" AllowEmpty="false" />
+        </Scenario>
+		    <Scenario Id="GetCompanyByNumberCFD">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/companies?conditions=phoneNumber like '%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]' OR faxNumber like '%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+        <Scenario Id="LookupFromCFD_Accounts_LookupID">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetCompanyByID" AllowEmpty="false" />
+        </Scenario>
+		    <Scenario Id="GetCompanyByID">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/companies?conditions=(id=[EntityID])" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+        <Scenario Id="LookupFromCFD_Accounts_LookupFreeQuery">
+            <Request Url="https://[Domain]/login/companyinfo/[CompanyName]" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">Codebase</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Version">Codebase</Variable>
+                <Variable Name="IsCloud">IsCloud</Variable>
+            </Variables>
+            <Outputs Next="GetCompanyByQuery" AllowEmpty="false" />
+        </Scenario>
+		    <Scenario Id="GetCompanyByQuery">
+            <Request Url="https://[IIf([IsCloud]==True,&quot;api-&quot;,&quot;&quot;)][Domain]/[Version]apis/3.0/company/companies?conditions=[Query]" 
+            				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="clientId">f66de42b-efaf-4ed6-a542-c1211c03d3ab</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">id</Rule>
+            </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+    </Scenarios>
+</Crm>

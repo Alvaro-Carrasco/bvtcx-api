@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+<header>
+    <type>gateway-template</type>
+    <version>145775</version>
+    <time>2023-01-26 17:30:00</time>
+    <name>Bandwidth</name>
+    <url>https://www.3cx.com/docs/sip-trunk/bandwidth-usa/</url>
+    <image>default-icon.png</image>
+    <logo>default-logo.png</logo>
+    <description>US</description>
+	<tags>e164,registrar,SecondaryRegistrar</tags>
+    <templatetype>dedicated</templatetype>
+</header>
+<data>
+  <sms>
+    <variable name="MESSAGING_AUTH_USER">
+      <title>KEY</title>
+      <option name="API key" required="true" maxlength="100" type="textbox"></option>
+    </variable>
+    <variable name="MESSAGING_AUTH_PASSWORD">
+      <title>PASSWORD</title>
+      <option name="API password" secure="true" required="true" maxlength="100" type="password"></option>
+    </variable>
+    <variable name="MESSAGING_APP_ID">
+      <title>APPID</title>
+      <option name="App id" required="true" maxlength="100" type="textbox"></option>
+    </variable>
+    <variable name="MESSAGING_ACCOUNT_ID">
+      <title>ACCOUNTID</title>
+      <option name="Account id" required="true" maxlength="100" type="textbox"></option>
+    </variable>
+    <field name="MessagingUrl" status="readonly">https://messaging.bandwidth.com/api/v2/users/{MESSAGING_ACCOUNT_ID}/messages</field>
+    <field name="ProviderName" status="readonly">Bandwidth</field>
+    <field name="OptionalProvider" status="readonly">1</field>
+    <field name="ProviderType" status="readonly">bandwidth</field>
+    <field name="OutboundRouting" status="readonly">1</field>
+    <field name="HasWebhook" status="readonly">1</field>
+  </sms>
+  <device>
+    <type>provider</type>
+    <manufacturer></manufacturer>
+    <model>provider</model>
+
+    <!-- Friendly Name -->
+    <field name="Name">Bandwidth</field>
+
+    <!-- Hostnames and Port Numbers -->
+    <field name="RegistrarHost">[Check 3CX Bandwidth Documentation]</field>			<!-- Registrar & Proxy IP / FQDN  -->
+    <field name="RegistrarPort" status="readonly">5060</field> 						<!-- Registrar & Proxy Port Number -->
+    <field name="ProxyHost" status="readonly"></field>								<!-- Proxy IP / FQDN -->
+    <field name="ProxyPort" status="readonly">5060</field>							<!-- Proxy Port Number -->
+    <field name="StunServerHost" status="readonly"></field>							<!-- StunServer IP / FQDN -->
+    <field name="StunServerPort" status="readonly"></field>							<!-- StunServer Port Number -->
+
+    <!-- Registration Settings -->
+    <field name="LineAuthenticationPassword" status="readonly"></field>				<!-- Registration Expiry -->
+    <field name="RequireAuthFor" status="readonly">1</field>						<!-- No=1; In=2; Out=3; Both=4 -->
+    <field name="IpInContactReg" status="readonly">1</field>						<!-- Ext=1; Int=2; Both=3; Specified=4 -->
+    <field name="IpInContactRegValue" status="readonly"></field>					<!-- List of PBX IPs -->
+    <field name="TimeBetweenRegistration" status="readonly">120</field>				<!-- Entry to enable 3 way authentication-->
+    <field name="3wayauthenticationid" status="readonly"></field>
+
+    <!-- Provider Capabilities -->
+    <field name="IsSupportReinvite" status="readonly">0</field>						<!-- Yes=1; No=0 -->
+    <field name="IsSupportReplaces" status="readonly">0</field>   					<!-- Yes=1; No=0 -->
+    <field name="DisableVideo">1</field>											<!-- Yes=1; No=0 -->
+
+    <!-- Location of Destination Number -->
+    <field name="DestNumberIn_TO" status="readonly">1</field>  						<!-- Yes=1; No=0 -->
+    <field name="DestNumberIn_REQLINEURI" status="readonly">1</field> 				<!-- Yes=1; No=0 -->
+    <field name="DestNumberIn_RPID_CALLED" status="readonly">0</field>				<!-- Yes=1; No=0 -->
+
+    <!-- Other Options -->
+    <field name="IPRestriction">IPV4</field>										<!-- Restricts IPv4 or IPv6. Values: ANY, IPV4, IPV6 -->
+    <field name="TransportRestriction">UDP</field>									<!-- Restricts the Transport Protocol. Values: ANY, UDP, TCP, TLS -->
+    <field name="SecondaryRegistrar">[Check 3CX Bandwidth Documentation]</field>	<!-- Possible values: FQDN:Port or IP:Port -->
+    <field name="IsBindToMS" status="readonly">1</field> 							<!-- Bound=1; NotBound=0 -->
+    <field name="UseIPInContactSrc" status="readonly">0</field>						<!-- UseIP=1; DoNotUseIP=0 -->
+    <field name="useipincontactsrcvalue" status="readonly"></field>			
+    <field name="CallerIDIn" status="readonly">1</field> 							<!-- Fm=1; To=2; ReqURI=3; Con=4; RemPtyClg=6 -->
+    <field name="CalledNumberIn" status="readonly">2</field>						<!-- Fm=1; To=2; ReqURI=3; Con=4; RemPtyCld=5 -->
+
+    <codecs>
+    <codec rfcname="pcmu"/>
+    <codec rfcname="G729"/>
+    </codecs>
+
+      <!--Source Identification - Use Default PBX Internal Source Identification-->
+      <!--<field status="readonly" name="MatchStrategy">0</field>-->
+      <!--<field status="readonly" name="Source" parameter="" custom=""></field>-->
+
+      <!-- Gateway / Provider Inbound Parameters -->
+      <field status="readonly" name="ParameterIn" custom="" parameter="RequestLineURIUser">$CalledNum</field>
+      <field status="readonly" name="ParameterIn" custom="" parameter="FromDisplayName">$CallerName</field>
+      <field status="readonly" name="ParameterIn" custom="" parameter="FromUserPart">$CallerNum</field>
+
+      <!-- Gateway / Provider Outbound Parameters -->
+      <field status="readonly" name="ParameterOut" custom="" parameter="RequestLineURIUser">$CalledNum</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="RequestLineURIHost">$GWHostPort</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ContactUser">$CustomField</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ContactHost">$ContactURI</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ToDisplayName">$CalledName</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ToUserPart">$CalledNum</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="ToHostPart">$GWHostPort</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="FromDisplayName">$CustomField</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="FromUserPart">$OriginatorCallerId</field>
+      <field status="readonly" name="ParameterOut" custom="" parameter="FromHostPart">$GWHostPort</field>
+  </device>
+</data>
+</doc>

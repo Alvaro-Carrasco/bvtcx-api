@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>145775</version>
+    <time>2021-05-17 12:00:00</time>
+    <name>CyberData</name>
+    <url>https://www.3cx.com/support/configuring-cyberdata-devices/</url>
+	<templatetype>thirdparty</templatetype>
+    <models>
+      <model ua="CyberData Call Button">CyberData SIP Call Button (s/n 0492xxxxx)</model>  
+      <model ua="CyberData Indoor Intercom">CyberData Indoor Intercom (s/n: 2112xxxxx)</model>
+      <model ua="CyberData Outdoor Keypad Intercom">CyberData Outdoor Keypad Intercom (s/n: 2142xxxxx)</model>
+      <model ua="CyberData Office Ringer">CyberData Office Ringer (s/n: 2162xxxxx)</model>
+      <model ua="CyberData SIP Paging Adapter">CyberData Paging Adapter (s/n: 2332xxxxx)</model>
+      <model ua="CyberData Paging Server">CyberData Paging Server (s/n: 1462xxxxx)</model>
+      <model ua="CyberData Outdoor Intercom">CyberData Outdoor Intercom (s/n: 1862xxxxx)</model>
+      <model ua="CyberData Emergency Intercom">CyberData Emergency Intercom (s/n: 2092xxxxx)</model>
+	  <model ua="CyberData RGB Strobe">CyberData RGB Strobe (s/n: 3762xxxxx)</model>
+	  <model ua="CyberData Video Intercom">CyberData Video Intercom</model>
+	  <model ua="CyberData Video Keypad Intercom">CyberData Video Keypad Intercom</model>
+	  <model ua="CyberData RFID Intercom">CyberData RFID Intercom</model>
+	  <model ua="CyberData RFID Video Intercom">CyberData RFID Video Intercom</model>
+    </models>
+    <description>CyberData</description>
+    <parsers>
+      <parser>BLF</parser>
+    </parsers>
+    <rebootParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </rebootParams>
+    <resyncParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </resyncParams>
+    <firmwareParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </firmwareParams>
+	<interfaceLink>https://admin:%%PHONE_WEB_PASSWORD%%@%%PHONE_IP%%</interfaceLink>
+    <AllowedNetworkConfig>
+      <option value="LOCALLAN">1</option>
+    </AllowedNetworkConfig>
+	<AllowWebPasswordChange>1</AllowWebPasswordChange>
+    <dst variableName="dstEnableDisable" enable="1" disable="0"></dst>
+    <languages>
+      <!--The first entry is the selected entry in management console-->
+      <option value="English">
+        <item name="langwebUI">English</item>
+      </option>
+    </languages>
+    <timezoneParams param="time_timezone_cyberdata">
+      <!--The first entry is the selected entry in management console-->
+      <option value="America/New_York" displaytext="GMT-5:00 United States-Eastern Time" id="0" zone="-5:00">
+        <item name="TimeZoneName">US_EASTERN_TIME</item>
+      </option>
+      <option value="Pacific/Honolulu" displaytext="GMT-10:00 United States-Hawaii-Aleutian" id="1" zone="-10:00">
+        <item name="TimeZoneName">US_HAWAII</item>
+      </option>
+      <option value="America/Anchorage" displaytext="GMT-9:00 United States-Alaska Time" id="3" zone="-9:00">
+        <item name="TimeZoneName">US_ALASKA</item>
+      </option>
+      <option value="America/Vancouver" displaytext="GMT-8:00 Canada(Vancouver,Whitehorse)" id="4" zone="-8:00">
+        <item name="TimeZoneName">CANADA_PACIFIC_TIME</item>
+      </option>
+      <option value="America/Tijuana" displaytext="GMT-8:00 Mexico(Tijuana,Mexicali)" id="5" zone="-8:00">
+        <item name="TimeZoneName">MEXICO_PACIFIC_TIME</item>
+      </option>
+      <option value="America/Los_Angeles" displaytext="GMT-8:00 United States-Pacific Time" id="6" zone="-8:00">
+        <item name="TimeZoneName">US_PACIFIC_TIME</item>
+      </option>
+      <option value="America/Edmonton" displaytext="GMT-7:00 Canada(Edmonton,Calgary)" id="7" zone="-7:00">
+        <item name="TimeZoneName">CANADA_MOUNTAIN_TIME</item>
+      </option>
+      <option value="America/Mazatlan" displaytext="GMT-7:00 Mexico(Mazatlan,Chihuahua)" id="8" zone="-7:00">
+        <item name="TimeZoneName">MEXICO_MOUNTAIN_TIME</item>
+      </option>
+      <option value="America/Denver" displaytext="GMT-7:00 United States-Mountain Time" id="9" zone="-7:00">
+        <item name="TimeZoneName">US_MOUNTAIN_TIME</item>
+      </option>
+      <option value="America/Phoenix" displaytext="GMT-7:00 United States-Arizona" id="10" zone="-7:00">
+        <item name="TimeZoneName">US_ARIZONA</item>
+      </option>
+      <option value="America/Winnipeg" displaytext="GMT-6:00 Canada-Manitoba(Winnipeg)" id="11" zone="-6:00">
+        <item name="TimeZoneName">CANADA_CENTRAL_TIME</item>
+      </option>
+      <option value="America/Chicago" displaytext="GMT-6:00 United States-Central Time" id="14" zone="-6:00">
+        <item name="TimeZoneName">US_CENTRAL_TIME</item>
+      </option>
+      <option value="America/Indiana/Indianapolis" displaytext="GMT-5:00 United States-Indiana" id="15" zone="-5:00">
+        <item name="TimeZoneName">US_INDIANA</item>
+      </option>
+      <option value="America/Toronto" displaytext="GMT-5:00 Canada(Montreal,Ottawa,Quebec)" id="16" zone="-5:00">
+        <item name="TimeZoneName">CANADA_EASTERN_TIME</item>
+      </option>
+	  <option value="America/Bogota" displaytext="Colombia (Bogota)" id="125" zone="-5:00">
+        <item name="TimeZoneName">COLOMBIA_TIME</item>
+      </option>
+      <option value="America/New_York" displaytext="GMT-5:00 United States-Eastern Time" id="17" zone="-5:00">
+        <item name="TimeZoneName">US_EASTERN_TIME</item>
+      </option>
+      <option value="America/Caracas" displaytext="GMT-4:00 Venezuela(Caracas)" id="18" zone="-4:00">
+        <item name="TimeZoneName">VENEZUELA_TIME</item>
+      </option>
+      <option value="America/Halifax" displaytext="GMT-4 Canada(Halifax,Saint John)" id="19" zone="-4:00">
+        <item name="TimeZoneName">CANADA_ALTANTIC_TIME</item>
+      </option>
+      <option value="America/St_Johns" displaytext="GMT-3:30 Canada-New Foundland(St.Johns)" id="25" zone="-3:30">
+        <item name="TimeZoneName">CANADA_NEWFOUNDLAND</item>
+      </option>
+      <option value="America/Argentina/Buenos_Aires" displaytext="GMT-3 Argentina(Buenos Aires)" id="27" zone="-3:00">
+        <item name="TimeZoneName">ARGENTINA_TIME</item>
+      </option>
+      <option value="America/Santiago" displaytext="GMT-3 Chile(Santiago)" id="28" zone="-3:00">
+        <item name="TimeZoneName">CHILE_TIME</item>
+      </option>
+      <option value="Etc/GMT" displaytext="GMT" zone="0:00">
+        <item name="TimeZoneName">GREENWICH_MEAN_TIME</item>
+      </option>
+      <option value="Europe/Paris" displaytext="GMT+1 Central European Time" id="37" zone="1:00">
+        <item name="TimeZoneName">CENTRAL_EUROPEAN_TIME</item>
+      </option>
+      <option value="Europe/Sofia" displaytext="GMT+2 Eastern European Time" id="67" zone="2:00">
+        <item name="TimeZoneName">EASTERN_EUROPEAN_TIME</item>
+      </option>
+      <option value="Africa/Nairobi" displaytext="GMT+3 Eastern African Time" id="81" zone="3:00">
+        <item name="TimeZoneName">EAST_AFRICAN_TIME</item>
+      </option>
+      <option value="Asia/Tehran" displaytext="GMT+3:30 Iran(Teheran)" id="84" zone="3:30">
+        <item name="TimeZoneName">IRAN_TIME</item>
+      </option>
+      <option value="Asia/Yerevan" displaytext="GMT+4 Armenia,Georgia,Azerbaijan" id="85" zone="4:00">
+        <item name="TimeZoneName">AZERBAIJAN_TIME</item>
+      </option>
+      <option value="Asia/Ashgabat" displaytext="GMT+5 Pakistan(Islamabad)" id="94" zone="5:00">
+        <item name="TimeZoneName">PAKISTAN_TIME</item>
+      </option>
+      <option value="Asia/Calcutta" displaytext="GMT+5:30 India(Calcutta)" id="96" zone="5:30">
+        <item name="TimeZoneName">INDIA_TIME</item>
+      </option>
+      <option value="Asia/Almaty" displaytext="GMT+6 Kazakstan(Astana,Almaty)" id="98" zone="6:00">
+        <item name="TimeZoneName">EASTERN_KAZAKHSTAN_TIME</item>
+      </option>
+      <option value="Asia/Bangkok" displaytext="GMT+7 Thailand(Bangkok)" id="102" zone="7:00">
+        <item name="TimeZoneName">THAILAND_TIME</item>
+      </option>
+      <option value="Asia/Shanghai" displaytext="GMT+8 China(Beijing)" id="103" zone="8:00">
+        <item name="TimeZoneName">CHINA_TIME</item>
+      </option>
+      <option value="Asia/Tokyo" displaytext="GMT+9 Japan(Tokyo)" id="107" zone="9:00">
+        <item name="TimeZoneName">JAPAN_TIME</item>
+      </option>
+      <option value="Australia/Adelaide" displaytext="GMT+9:30 Australia(Adelaide)" id="108" zone="9:30">
+        <item name="TimeZoneName">AUSTRALIAN_CENTRAL_STANDARD_TIME</item>
+      </option>
+      <option value="Australia/Sydney" displaytext="GMT+10 Australia(Sydney,Melbourne,Canberra)" id="110" zone="10:00">
+        <item name="TimeZoneName">AUSTRALIAN_EASTERN_STANDARD_TIME</item>
+      </option>
+      <option value="Pacific/Auckland" displaytext="GMT+12 New Zealand(Wellington,Auckland)" id="116" zone="12:00">
+        <item name="TimeZoneName">NEWZEALAND_TIME</item>
+      </option>
+    </timezoneParams>
+  </header>
+  <data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">CyberData</field>
+      <deviceconfig filename="%%mac_address%%.xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?> 
+<specific>
+    <!--
+    Autoprovisioned values will be written on boot.
+
+    To use autoprovisioning, create a copy of this file with the desired
+    settings and name this file with the mac address of the device to
+    configure (for example: 0020f7350058.xml).  Put this file into
+    your hosted directory and manually set the hosting server address.
+
+    Alternately you can set your dhcp server to provide the autoprovisioning
+    server address in OPTION 43, 72, 150, or 66.
+
+    On boot the device will download its autoprovisioning file and configure
+    itself with those settings.
+
+    Though every setting that can be changed via autoprovisioning is shown
+    below, it isn't necessary to set every value.
+
+    See the documentation for other ways you can organize your autoprovisioning
+    files.
+    -->
+
+    <MiscSettings>
+	{IF ua=CyberData SIP Call Button}
+	<device_name>SIP Call Button</device_name>
+	{ENDIF}
+	{IF ua=CyberData Indoor Intercom}
+	<device_name>Indoor Intercom</device_name>
+	{ENDIF}
+	{IF ua=CyberData Outdoor Keypad Intercom}
+	<device_name>Outdoor Keypad Intercom</device_name>
+	{ENDIF}
+	{IF ua=CyberData Office Ringer}
+	<device_name>Office Ringer</device_name>
+	{ENDIF}
+	{IF ua=CyberData Strobe}
+	<device_name>SIP Strobe</device_name>
+	{ENDIF}
+	{IF ua=CyberData SIP Paging Adapter}
+	<device_name>SIP Paging Adapter</device_name>
+	{ENDIF}
+	{IF ua=CyberData Paging Server}
+	<device_name>Paging Server</device_name>
+	{ENDIF}
+	{IF ua=CyberData Outdoor Intercom}
+	<device_name>Outdoor Intercom</device_name>
+	{ENDIF}
+	{IF ua=CyberData Indoor Keypad Intercom}
+	<device_name>Indoor Keypad Intercom</device_name>
+	{ENDIF}
+	{IF ua=CyberData Emergency Intercom}
+	<device_name>Emergency Intercom</device_name>
+	{ENDIF}
+	{IF ua=CyberData Paging Amplifier}
+	<device_name>Paging Amplifier</device_name>
+	{ENDIF}
+	{IF ua=CyberData Round Speaker}
+	<device_name>SIP Speaker</device_name>
+	{ENDIF}
+	{IF ua=CyberData Square Speaker}
+	<device_name>SIP Speaker</device_name>
+	{ENDIF}
+	{IF ua=CyberData Zone Controller}
+	<device_name>Zone Controller</device_name>
+	{ENDIF}
+	{IF ua=CyberData RGB Strobe}
+	<device_name>RGB Strobe</device_name>
+	{ENDIF}
+	{IF ua=CyberData Video Intercom}
+	<device_name>Video Intercom</device_name>
+	{ENDIF}
+	{IF ua=CyberData Video Keypad Intercom}
+	<device_name>Video Keypad Intercom</device_name>
+	{ENDIF}
+	{IF ua=CyberData RFID Intercom}
+	<device_name>RFID Intercom</device_name>
+	{ENDIF}
+	{IF ua=CyberData RFID Video Intercom}
+	<device_name>RFID Video Intercom</device_name>
+	{ENDIF}
+
+<!--    <autoprov>common.xml</autoprov>-->
+<!--    <autoprov>sip_reg[macaddress].xml</autoprov>-->
+<!--    <autoprov>audio[macaddress]</autoprov>-->
+<!--    <autoprov>device[macaddress].xml</autoprov>-->
+    </MiscSettings>
+
+    <AutoprovSettings>
+        <autoprov_enabled>1</autoprov_enabled>
+        <autoprov_server>%%PROVLINKLOCAL%%</autoprov_server>
+        <autoprov_filename>%%mac_address%%.xml</autoprov_filename>
+        <autoprov_username></autoprov_username>
+        <autoprov_password></autoprov_password>
+        <autoprov_use_tftp>0</autoprov_use_tftp>
+        <autoprov_timeout>0</autoprov_timeout>
+        <autoprov_at_time></autoprov_at_time>
+        <autoprov_when_idle>0</autoprov_when_idle>
+    </AutoprovSettings>
+
+    <NetworkSettings>
+        <use_dhcp>1</use_dhcp>
+<!--	<use_dhcp>0</use_dhcp>   -->
+        <ip_addr>10.10.10.10</ip_addr>
+        <subnet_mask>255.0.0.0</subnet_mask>
+        <gw_addr>10.0.0.1</gw_addr>
+        <dns1_addr>10.0.0.1</dns1_addr>
+        <dns2_addr>10.0.0.1</dns2_addr>
+        <dhcp_timeout>60</dhcp_timeout>
+        <vlan_id>0</vlan_id>
+        <vlan_priority>0</vlan_priority>
+    </NetworkSettings>
+
+
+    <SIPSettings>
+        <sip_enable>1</sip_enable>
+        <local_sip_port>5060</local_sip_port>
+        <sip_proxy></sip_proxy>
+        <sip_proxy_port>0</sip_proxy_port>
+        <sip_register>1</sip_register>
+        <keepalive>10000</keepalive>
+        <disable_rport_discovery>No</disable_rport_discovery>
+    </SIPSettings>
+	
+	<DialoutSettings>
+		<index0>
+				
+		{IF blf1}
+		<extension>%%blf1%%</extension>
+		<extensionid>%%extension_number%%</extensionid>
+		{ELSE}
+		<extension></extension>
+		<extensionid></extensionid>
+		{ENDIF}
+
+		</index0>
+	</DialoutSettings>
+	
+
+<!--    SIPServerSettings -->
+<!--    index0 is the primary sip server -->
+<!--    index1 is the backup sip server 1 -->
+<!--    index2 is the backup sip server 2 -->
+<!--    index3 is the nightringer -->
+	
+	
+	<SIPServerSettings>
+		<index0>
+			<server>%%pbx_ip%%</server>
+			<port>%%param::sipport%%</port>
+			<userid>%%extension_number%%</userid>
+			<authid>%%extension_auth_id%%</authid>
+			<password>%%extension_auth_pw%%</password>
+			<registration_timeout>120</registration_timeout>
+		</index0>
+	</SIPServerSettings>
+	
+	<ClockSettings>
+		<ntp_enabled>1</ntp_enabled>
+		<ntp_server>%%param::time_ntp_server%%</ntp_server>
+		<timezone>%%param::time_timezone_cyberdata%%</timezone>
+	</ClockSettings>
+	
+	<DeviceSettings>
+		<admin_name>admin</admin_name>
+		<admin_password>%%DESKPHONE_PASSWORD%%</admin_password>
+    </DeviceSettings>
+	
+	{IF ua=CyberData Outdoor Keypad Intercom}
+	<ButtonSettings>
+	
+	    
+    <!-- ButtonSettings-->
+
+    <!-- keypad_mode is a number between 0-4 where: -->
+    <!--    0 = Telephone -->
+    <!--    1 = Speed Dial -->
+    <!--    2 = unused -->
+    <!--    3 = Security -->
+    <!--    4 = Cell Phone -->
+    
+        <PlayButtonTone>Yes</PlayButtonTone>
+		<!-- <keypad_mode>0</keypad_mode> -->
+		<!-- <keypad_mode>1</keypad_mode> -->
+		
+		<keypad_mode>3</keypad_mode>
+		
+		<!-- <keypad_mode>4</keypad_mode> -->
+    </ButtonSettings>
+	{ENDIF}
+
+	{IF ua=CyberData Indoor Keypad Intercom}
+	<ButtonSettings>
+	    
+    <!-- ButtonSettings-->
+
+    <!-- keypad_mode is a number between 0-4 where: -->
+    <!--    0 = Telephone -->
+    <!--    1 = Speed Dial -->
+    <!--    2 = unused -->
+    <!--    3 = Security -->
+    <!--    4 = Cell Phone -->
+    
+        <PlayButtonTone>Yes</PlayButtonTone>
+		<!-- <keypad_mode>0</keypad_mode> -->
+		<!-- <keypad_mode>1</keypad_mode> -->
+		
+		<keypad_mode>3</keypad_mode>
+		
+		<!-- <keypad_mode>4</keypad_mode> -->
+    </ButtonSettings>
+	{ENDIF}
+	
+	{IF ua=CyberData Video Keypad Intercom}
+	<ButtonSettings>
+	
+	    
+    <!-- ButtonSettings-->
+
+    <!-- keypad_mode is a number between 0-4 where: -->
+    <!--    0 = Telephone -->
+    <!--    1 = Speed Dial -->
+    <!--    2 = unused -->
+    <!--    3 = Security -->
+    <!--    4 = Cell Phone -->
+    
+        <PlayButtonTone>Yes</PlayButtonTone>
+		<!-- <keypad_mode>0</keypad_mode> -->
+		<!-- <keypad_mode>1</keypad_mode> -->
+		
+		<keypad_mode>3</keypad_mode>
+		
+		<!-- <keypad_mode>4</keypad_mode> -->
+    </ButtonSettings>
+	{ENDIF}
+
+</specific>
+]]></deviceconfig>
+    </device>
+  </data>
+</doc>

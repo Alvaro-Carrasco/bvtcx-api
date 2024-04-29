@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>145775</version>
+    <time>2022-11-07 11:00:00</time>
+    <name>Generic IP Phones</name>
+    <url>https://specific.url</url>
+    <models>
+      <model ua="Generic">Generic IP Phone</model>
+    </models>
+    <templatetype>deleted</templatetype>
+    <AllowedNetworkConfig>
+      <option value="LOCALLAN">1</option>
+      <option value="SBC">1</option>
+    </AllowedNetworkConfig>
+    <interfaceLink>http://%%PHONE_IP%%</interfaceLink>
+  </header>
+  <data>
+    <device>
+      <type>phone</type>
+    </device>
+  </data>
+</doc>

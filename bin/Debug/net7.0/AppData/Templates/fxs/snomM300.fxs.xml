@@ -1,0 +1,908 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+	<header>
+		<type>fxs-template</type>
+		<version>145775</version>
+		<time>2022-02-10 11:00:00</time>
+		<name>Snom DECT M300</name>
+		<url>https://www.3cx.com/sip-phones/snom-m300-m700-dect/</url>
+		<image>snom.png</image>
+		<templatetype>supported</templatetype>
+		<models>
+			<model ua="snomM300" regex="^snomM300/(?'fwver'.*)\s+\(MAC=(?'mac'.*);\s+SER.*\)$">Snom DECT M300</model>
+		</models>
+		<description>Snom DECT M300</description>
+		<rebootParams>
+			<event-name>reboot</event-name>
+		</rebootParams>
+		<resyncParams>
+			<event-name>check-sync;reboot=false</event-name>
+		</resyncParams>
+		<firmwareParams>
+			<event-name>check-sync;reboot=true</event-name>
+		</firmwareParams>
+		<AllowedNetworkConfig>
+			<option value="LOCALLAN">1</option>
+			<option value="SBC">1</option>
+			<option value="REMOTESTUN">1</option>
+		</AllowedNetworkConfig>
+		<enable_extension enable="on" disable="off"/>
+		<AllowWebPasswordChange>1</AllowWebPasswordChange>
+		<AllowSSLProvisioning>1</AllowSSLProvisioning>
+		<interfaceLink>http://%%PHONE_IP%%</interfaceLink>
+		<languages>
+			<option value="English">
+				<item name = "langauge">English</item>
+			</option>
+			<option value="Dansk">
+				<item name = "langauge">Dansk</item>
+			</option>
+			<option value="Italiano">
+				<item name = "langauge">Italiano</item>
+			</option>
+			<option value="Türkce">
+				<item name = "langauge">Türkce</item>
+			</option>
+			<option value="Deutsch">
+				<item name = "langauge">Deutsch</item>
+			</option>
+			<option value="Dutch">
+				<item name = "langauge">Dutch</item>
+			</option>
+			<option value="Português">
+				<item name = "langauge">Português</item>
+			</option>
+			<option value="Slovenian">
+				<item name = "langauge">Slovenian</item>
+			</option>
+			<option value="Francais">
+				<item name = "langauge">Francais</item>
+			</option>
+			<option value="Español">
+				<item name = "langauge">Español</item>
+			</option>
+			<option value="Russian">
+				<item name = "langauge">Russian</item>
+			</option>
+                <option value="Polski">
+				<item name = "langauge">Polski</item>
+			</option>
+		</languages>
+		<timezoneParams param="time_timezone_snom">
+			  <option value="USA-5" id="0" zone="-5:00">-5 United States - Eastern Time</option>
+			  <option value="USA-10" id="1" zone="-10:00">-10 United States - Hawaii-Aleutian</option>
+			  <option value="USA2-10" id="2" zone="-10:00">-10 United States - Alaska-Aleutian</option>
+			  <option value="USA-9" id="3" zone="-9:00">-9 United States - Alaska Time</option>
+			  <option value="CAN-8" id="4" zone="-8:00">-8 Canada (Vancouver, Whitehorse)</option>
+			  <option value="MEX-8" id="5" zone="-8:00">-8 Mexico (Tijuana, Mexicali)</option>
+			  <option value="USA-8" id="6" zone="-8:00">-8 United States - Pacific Time</option>
+			  <option value="CAN-7" id="7" zone="-7:00">-7 Canada (Edmonton, Calgary)</option>
+			  <option value="MEX-7" id="8" zone="-7:00">-7 Mexico (Mazatlan, Chihuahua)</option>
+			  <option value="USA-7" id="9" zone="-7:00">-7 United States - Mountain Time</option>
+			  <option value="USA2-7" id="10" zone="-7:00">-7 United States - MST no DST </option>
+			  <option value="CAN-6" id="11" zone="-6:00">-6 Canada - Manitoba (Winnipeg)</option>
+			  <option value="CHL-6" id="12" zone="-6:00">-6 Chile (Easter Islands)</option>
+			  <option value="MEX-6" id="13" zone="-6:00">-6 Mexico (Mexico City, Acapulco)</option>
+			  <option value="USA-6" id="14" zone="-6:00">-6 United States - Central Time</option>
+			  <option value="BHS-5" id="15" zone="-5:00">-5 Bahamas (Nassau)</option>
+			  <option value="CAN-5" id="16" zone="-5:00">-5 Canada (Montreal, Ottawa, Quebec)</option>
+			  <option value="COL-5" id="125" zone="-5:00">-5 Colombia (Bogota)</option>
+			  <option value="CUB-5" id="17" zone="-5:00">-5 Cuba (Havana)</option>
+			  <option value="VEN-4" id="18" zone="-4:00">-4 Venezuela (Caracas)</option>
+			  <option value="CAN-4" id="19" zone="-4:00">-4 Canada (Halifax, Saint John)</option>
+			  <option value="CHL-4" id="20" zone="-4:00">-4 Chile (Santiago)</option>
+			  <option value="PRY-4" id="21" zone="-4:00">-4 Paraguay (Asunc cedilion)</option>
+			  <option value="BMU-4" id="22" zone="-4:00">-4 United Kingdom - Bermuda (Bermuda)</option>
+			  <option value="FLK-4" id="23" zone="-4:00">-4 United Kingdom (Falkland Islands)</option>
+			  <option value="TTB-4" id="24" zone="-4:00">-4 Trinidad Tobago</option>
+			  <option value="CAN-3.5" id="25" zone="-3:30">-3.5 Canada - New Foundland (St. Johns)</option>
+			  <option value="GRL-3" id="26" zone="-3:00">-3 Denmark - Greenland (Nuuk)</option>
+			  <option value="ARG-3" id="27" zone="-3:00">-3 Argentina (Buenos Aires)</option>
+			  <option value="BRA2-3" id="28" zone="-3:00">-3 Brazil (no DST)</option>
+			  <option value="BRA1-3" id="29" zone="-3:00">-3 Brazil (DST)</option>
+			  <option value="BRA-2" id="30" zone="-2:00">-2 Brazil (no DST)</option>
+			  <option value="PRT-1" id="31" zone="-1:00">-1 Portugal (Azores)</option>
+			  <option value="FRO-0" id="32" zone="0:00">0 Denmark - Faroe Islands (Torshaven)</option>
+			  <option value="IRL-0" id="33" zone="0:00">0 Ireland (Dublin)</option>
+			  <option value="PRT-0" id="34" zone="0:00">0 Portugal (Lisboa, Porto, Funchal)</option>
+			  <option value="ESP-0" id="35" zone="0:00">0 Spain - Canary Islands (Las Palmas)</option>
+			  <option value="GBR-0" id="36" zone="0:00">0 United Kingdom (London)</option>
+			  <option value="ALB+1" id="37" zone="1:00"> 1 Albania (Tirane)</option>
+			  <option value="AUT+1" id="38" zone="1:00"> 1 Austria (Vienna)</option>
+			  <option value="BEL+1" id="39" zone="1:00"> 1 Belgium (Brussels)</option>
+			  <option value="CAI+1" id="40" zone="1:00"> 1 Caicos</option>
+			  <option value="CHA+1" id="41" zone="1:00"> 1 Chatam</option>
+			  <option value="HRV+1" id="42" zone="1:00"> 1 Croatia (Zagreb)</option>
+			  <option value="CZE+1" id="43" zone="1:00"> 1 Czech Republic (Prague)</option>
+			  <option value="DNK+1" id="44" zone="1:00"> 1 Denmark (Kopenhaven)</option>
+			  <option value="FRA+1" id="45" zone="1:00"> 1 France (Nice)</option>
+			  <option value="GER+1" id="46" zone="1:00"> 1 Germany (Berlin)</option>
+			  <option value="HUN+1" id="47" zone="1:00"> 1 Hungary (Budapest)</option>
+			  <option value="ITA+1" id="48" zone="1:00"> 1 Italy (Rome)</option>
+			  <option value="LUX+1" id="49" zone="1:00"> 1 Luxembourg (Luxembourg)</option>
+			  <option value="MAK+1" id="50" zone="1:00"> 1 Makedonia (Skopje)</option>
+			  <option value="NLD+1" id="51" zone="1:00"> 1 Netherlands (Amsterdam)</option>
+			  <option value="NAM+1" id="52" zone="1:00"> 1 Namibia (Windhoek)</option>
+			  <option value="NOR+1" id="53" zone="1:00"> 1 Norway (Oslo)</option>
+			  <option value="POL+1" id="54" zone="1:00"> 1 Poland (Warszawa)</option>
+			  <option value="SVK+1" id="55" zone="1:00"> 1 Slovak Republic (Bratislava)</option>
+			  <option value="ESP+1" id="56" zone="1:00"> 1 Spain (Madrid, Palma)</option>
+			  <option value="SWE+1" id="57" zone="1:00"> 1 Sweden (Stockholm)</option>
+			  <option value="CHE+1" id="58" zone="1:00"> 1 Swiss (Bern)</option>
+			  <option value="GIB+1" id="59" zone="1:00"> 1 United Kingdom (Gibraltar)</option>
+			  <option value="YUG+1" id="60" zone="1:00"> 1 Serbia (Beograd)</option>
+			  <option value="WAT+1" id="61" zone="1:00"> 1 West Africa Time</option>
+			  <option value="BGR+2" id="63" zone="2:00"> 2 Bulgaria (Sofia)</option>
+			  <option value="CYP+2" id="64" zone="2:00"> 2 Cyprus (Nicosia)</option>
+			  <option value="CAT+2" id="65" zone="2:00"> 2 Central Africa Time</option>
+			  <option value="EGY+2" id="66" zone="2:00"> 2 Egypt (Cairo)</option>
+			  <option value="EST+2" id="67" zone="2:00"> 2 Estonia (Tallinn)</option>
+			  <option value="FIN+2" id="68" zone="2:00"> 2 Finland (Helsinki)</option>
+			  <option value="GAZ+2" id="69" zone="2:00"> 2 Gaza Strip (Gaza)</option>
+			  <option value="GRC+2" id="70" zone="2:00"> 2 Greece (Athens)</option>
+			  <option value="ISR+2" id="71" zone="2:00"> 2 Israel (Tel Aviv)</option>
+			  <option value="JOR+2" id="72" zone="2:00"> 2 Jordan (Amman)</option>
+			  <option value="LVA+2" id="73" zone="2:00"> 2 Latvia (Riga)</option>
+			  <option value="LBN+2" id="74" zone="2:00"> 2 Lebanon (Beirut)</option>
+			  <option value="MDA+2" id="75" zone="2:00"> 2 Moldova (Kishinev)</option>
+			  <option value="RUS+2" id="76" zone="2:00"> 2 Russia (Kaliningrad)</option>
+			  <option value="ROU+2" id="77" zone="2:00"> 2 Romania (Bucharest)</option>
+			  <option value="SYR+2" id="78" zone="2:00"> 2 Syria (Damascus)</option>
+			  <option value="UKR+2" id="80" zone="2:00"> 2 Ukraine (Kyiv, Odessa)</option>
+			  <option value="EAT+3" id="81" zone="3:00"> 3 East Africa Time</option>
+			  <option value="TUR+3" id="79" zone="3:00"> 3 Turkey (Ankara)</option>
+			  <option value="IRQ+3" id="82" zone="3:00"> 3 Iraq (Baghdad)</option>
+			  <option value="RUS+3" id="83" zone="3:00"> 3 Russia (Moscow)</option>
+			  <option value="RUS+3" id="62" zone="3:00"> 3 Belarus (Minsk)</option>
+			  <option value="IRN+3.5" id="84" zone="3:30"> 3.5 Iran (Teheran)</option>
+			  <option value="ARM+4" id="85" zone="4:00"> 4 Armenia (Yerevan)</option>
+			  <option value="AZE+4" id="86" zone="4:00"> 4 Azerbaijan (Baku)</option>
+			  <option value="GEO+4" id="87" zone="4:00"> 4 Georgia (Tbilisi)</option>
+			  <option value="KAZ+4" id="88" zone="4:00"> 4 Kazakstan (Aqtau)</option>
+			  <option value="RUS+4" id="89" zone="4:00"> 4 Russia (Samara)</option>
+			  <option value="UAE+4" id="90" zone="4:00"> 4 United Arab Emirates (Dubai)</option>
+			  <option value="KAZ+5" id="92" zone="5:00"> 5 Kazakstan (Aqtobe)</option>
+			  <option value="KGZ+5" id="93" zone="5:00"> 5 Kyrgyzstan (Bishkek)</option>
+			  <option value="PAK+5" id="94" zone="5:00"> 5 Pakistan (Islamabad)</option>
+			  <option value="RUS+5" id="95" zone="5:00"> 5 Russia (Chelyabinsk)</option>
+			  <option value="IND+5.5" id="96" zone="5:30"> 5.5 India (Calcutta)</option>
+			  <option value="KAZ+6" id="98" zone="6:00"> 6 Kazakstan (Astana, Almaty)</option>
+			  <option value="RUS+6" id="99" zone="6:00"> 6 Russia (Novosibirsk, Omsk)</option>
+			  <option value="RUS+7" id="101" zone="7:00"> 7 Russia (Krasnoyarsk)</option>
+			  <option value="THA+7" id="102" zone="7:00"> 7 Thailand (Bangkok)</option>
+			  <option value="CHN+8" id="103" zone="8:00"> 8 China (Beijing)</option>
+			  <option value="SGP+8" id="104" zone="8:00"> 8 Singapore (Singapore)</option>
+			  <option value="AUS+8" id="105" zone="8:00"> 8 Australia (Perth)</option>
+			  <option value="KOR+9" id="106" zone="9:00"> 9 Korea (Seoul)</option>
+			  <option value="JPN+9" id="107" zone="9:00"> 9 Japan (Tokyo)</option>
+			  <option value="AUS+9.5" id="108" zone="9:30"> 9.5 Australia (Adelaide)</option>
+			  <option value="AUS2+9.5" id="109" zone="9:30"> 9.5 Australia (Darwin)</option>
+			  <option value="AUS+10" id="110" zone="10:00"> 10 Australia (Sydney, Melbourne, Canberra)</option>
+			  <option value="AUS2+10" id="111" zone="10:00"> 10 Australia (Brisbane)</option>
+			  <option value="AUS3+10" id="112" zone="10:00"> 10 Australia (Hobart)</option>
+			  <option value="RUS+10" id="113" zone="10:00"> 10 Russia (Vladivostok)</option>
+			  <option value="AUS+10.5" id="114" zone="10:30"> 10.5 Australia (Lord Howe Islands)</option>
+			  <option value="NCL+11" id="115" zone="11:00"> 11 New Caledonia (Noumea)</option>
+			  <option value="NZL+12" id="116" zone="12:00"> 12 New Zealand (Wellington, Auckland)</option>
+			  <option value="RUS+12" id="117" zone="12:00"> 12 Russia (Anadyr, Kamchatka)</option>
+			  <option value="NZL+12.75" id="118" zone="12:45"> 12.75 New Zealand (Chatham Islands)</option>
+			  <option value="TON+13" id="119" zone="13:00"> 13 Tonga (Nukualofa)</option>
+		</timezoneParams>
+		<Codecspriorities>
+		  <Codecspriority variableName="codec1" priority="1">
+			<option value="pcmu">G711u</option>
+			<option value="pcma">G711a</option>
+			<option value="g729">G729</option>
+			<option value="g722">G722</option>
+		  </Codecspriority>
+		  <Codecspriority variableName="codec2" priority="2">
+			<option value="pcma">G711a</option>
+			<option value="pcmu">G711u</option>
+			<option value="g729">G729</option>
+			<option value="g722">G722</option>
+		  </Codecspriority>
+		  <Codecspriority variableName="codec3" priority="3">
+			<option value="g722">G722</option>
+			<option value="pcmu">G711u</option>
+			<option value="pcma">G711a</option>
+			<option value="g729">G729</option>
+		  </Codecspriority>
+		  <Codecspriority variableName="codec4" priority="4">
+			<option value="g729">G729</option>
+			<option value="pcmu">G711u</option>
+			<option value="pcma">G711a</option>
+			<option value="g722">G722</option> 
+		  </Codecspriority>
+		</Codecspriorities>
+	</header>
+	
+	<data>
+		<device>
+			<field name="SimCallsPerPort" status="readonly">1</field>
+			<field name="TypeOfLines" status="readonly">DECT</field> <!--Type of PSTN Lines-->
+			<field name="NumberOfExtensions">20</field> <!--Number of FXS extensions-->
+
+		<variable name="%%toneset%%">
+			<title>Tone Set Selection</title>
+			<info>Select Country for Tone Sets</info>
+				<option name="Country">
+					  <value name="Germany">GER</value>
+					  <value name="United Kingdom">GBR</value>
+					  <value name="France">FRA</value>
+					  <value name="USA">USA</value>
+					  <value name="Australia">AUS</value>
+				</option>
+     	        <result name="GER">
+					<item name = "tone">GER</item>
+				</result>
+     	        <result name="GBR">
+					<item name = "tone">GBR</item>
+				</result>
+     	        <result name="FRA">
+					<item name = "tone">FRA</item>
+				</result>
+     	        <result name="USA">
+					<item name = "tone">USA</item>
+				</result>
+     	        <result name="AUS">
+					<item name = "tone">AUS</item>
+				</result>
+		 </variable>
+	  
+			<deviceconfig filename="cfg%%mac_address%%" AllowDownload="false">
+<![CDATA[<?xml version="1.0" encoding="utf-8" ?> 
+<settings>
+	<setting-files>
+	
+    <!--########################################################-->
+    <!--###        Phonebook & Firmware Settings             ###-->
+    <!--########################################################-->
+		
+	</setting-files>
+	<phone-settings e="2">
+
+<!--########################################################-->
+<!--###                Audio Settings                    ###-->
+<!--########################################################-->
+
+	<!--# Codec Order	  -->		<codec_priority_list idx="1">%%codec1%%,%%codec2%%,%%codec3%%,telephone-event</codec_priority_list>
+	<!--# Codec Size      -->		<codec_size idx="1">20</codec_size>
+	<!--# sRTP Setting URS-->		<user_srtp idx="1">off</user_srtp>
+	<!--# DTMF Method     -->		<user_dtmf_info idx="1">off</user_dtmf_info>
+	<!--# Full SDP Answer -->		<user_full_sdp_answer idx="1">on</user_full_sdp_answer>
+	
+<!--########################################################-->
+<!--###     Static 3CX Phone System Server Settings      ###-->
+<!--########################################################-->
+	
+	<!--# SIP Server Name --> 		<srv_sip_server_alias idx="1">3CX PBX</srv_sip_server_alias>
+	<!--# Show name on HS -->		<srv_sip_show_ext_name_in_hs idx="1">on</srv_sip_show_ext_name_in_hs>
+	<!--# Allow HS BT	  -->		<srv_sip_enable_blind_transfer idx="1">on</srv_sip_enable_blind_transfer>
+	<!--# Transport       -->		<srv_sip_transport idx="1">udp</srv_sip_transport>
+	<!--# sRTP Setting SRV-->		<srv_srtp_auth idx="1">off</srv_srtp_auth>
+	
+<!--########################################################-->
+<!--###    Location 3CX Phone System Server Settings     ###-->
+<!--########################################################-->
+	
+<!--######################### LAN  #########################-->
+{IF network=LOCALLAN}	
+	<!--# IP Adress of the 3CX PhoneSystem to register to (SIP) #-->
+    <user_host idx="1">%%pbx_ip%%:%%param::sipport%%</user_host>
+		
+	<!--# Local SIP Port for the phone (SIP) #-->
+	<sip_use_different_ports>off</sip_use_different_ports>
+    <network_id_port>5060</network_id_port>
+
+	<!--# Audio Default Port Range (SDP/RTP) #-->
+	<rtp_port_start>49152</rtp_port_start>
+	<rtp_port_end>65534</rtp_port_end>
+
+	<!--# STUN Server Default Sertting #-->
+	<stun_server idx="1"></stun_server>
+	<stun_binding_interval idx="1">90</stun_binding_interval>
+	<keepalive_interval idx="1">off</keepalive_interval>
+	<srv_sip_ua_data_server_nat_adaption idx="1">off</srv_sip_ua_data_server_nat_adaption>
+
+	<!--# SPM Default Sertting #-->
+	<user_outbound idx="1">%%pbx_ip%%:%%param::sipport%%</user_outbound>
+	
+	<!--# Provisioning Update Link #-->
+    <setting_server>%%PROVLINKLOCAL%%/cfg{mac}</setting_server>
+	
+	<!--# Registraion and Subscribtion timerouts/renewal #-->
+    <user_expiry idx="1">120</user_expiry>
+	
+	<!--# Rport and Received handing for invalid NAT configuration #-->
+	<enable_rport_rfc3581>on</enable_rport_rfc3581>	
+{ENDIF}
+
+<!--######################### STUN  #########################-->
+{IF network=REMOTESTUN}	
+	<!--# IP Adress of the 3CX PhoneSystem to register to (SIP) #-->
+	<!--# The "user_host" field contains the ip address and SIP port of the SIP Registrar and Proxy - in this case 3CXPS. The "pbx_ip" and "param::sipport" variables will be replaced by the IP Address and SIP Port of 3CXPS.-->
+    <user_host idx="1">%%pbx_ip%%:%%param::sipport%%</user_host>
+		
+	<!--# Local SIP Port for the phone (SIP) #-->
+	<!--# The "network_id_port" field specifies the phone's listening SIP Port. By default this field is left blank so the phone can select a port at random.-->
+	<sip_use_different_ports>off</sip_use_different_ports>
+    <network_id_port>%%phonesipport%%</network_id_port>
+
+	<!--# Audio Default Port Range (SDP/RTP) #-->
+	<rtp_port_start>%%rtp_port_min%%</rtp_port_start>
+	<rtp_port_end>%%rtp_port_max%%</rtp_port_end>
+
+	<!--# STUN Server Default Sertting #-->
+	<stun_server idx="1">%%pbx_ip%%:%%param::sipport%%</stun_server>
+	<stun_binding_interval idx="1">90</stun_binding_interval>
+	<keepalive_interval idx="1">on</keepalive_interval>
+	<srv_sip_ua_data_server_nat_adaption idx="1">on</srv_sip_ua_data_server_nat_adaption>
+
+	<!--# SPM Default Sertting #-->
+	<user_outbound idx="1">%%pbx_ip%%:%%param::sipport%%</user_outbound>
+	
+	<!--# Provisioning Update Link #-->
+    <setting_server>%%PROVLINK%%/cfg{mac}</setting_server>
+	
+	<!--# Registraion and Subscribtion timerouts/renewal #-->
+    <user_expiry idx="1">120</user_expiry>
+	
+	<!--# Rport and Received handing for invalid NAT configuration #-->
+	<enable_rport_rfc3581>on</enable_rport_rfc3581>	
+{ENDIF}
+	
+<!--######################### SBC  #########################-->
+{IF network=SBC}
+	<!--# IP Adress of the 3CX PhoneSystem to register to (SIP) #-->
+	<!--# The "user_host" field contains the ip address and SIP port of the SIP Registrar and Proxy - in this case 3CXPS. The "pbx_ip" and "param::sipport" variables will be replaced by the IP Address and SIP Port of 3CXPS.-->
+    <user_host idx="1">%%param::PBXPUBLICIP%%:%%param::sipport%%</user_host>
+		
+	<!--# Local SIP Port for the phone (SIP) #-->
+	<!--# The "network_id_port" field specifies the phone's listening SIP Port. By default this field is left blank so the phone can select a port at random.-->
+	<sip_use_different_ports>off</sip_use_different_ports>
+    <network_id_port>5060</network_id_port>
+
+	<!--# Audio Default Port Range (SDP/RTP) #-->
+	<rtp_port_start>49152</rtp_port_start>
+	<rtp_port_end>65534</rtp_port_end>
+
+	<!--# STUN Server Default Sertting #-->
+	<stun_server idx="1"></stun_server>
+	<stun_binding_interval idx="1">90</stun_binding_interval>
+	<keepalive_interval idx="1">off</keepalive_interval>
+	<srv_sip_ua_data_server_nat_adaption idx="1">off</srv_sip_ua_data_server_nat_adaption>
+
+	<!--# SPM Default Sertting #-->
+	<user_outbound idx="1">%%local_sbc_ip%%:%%local_sbc_port%%</user_outbound>
+	
+	<!--# Provisioning Update Link #-->
+    <setting_server>%%PROVLINK%%/cfg{mac}</setting_server>
+	
+	<!--# Registraion and Subscribtion timerouts/renewal #-->
+	<user_expiry idx="1">120</user_expiry>
+	
+	<!--# Rport and Received handing for invalid NAT configuration #-->
+	<enable_rport_rfc3581>on</enable_rport_rfc3581>		
+{ENDIF}
+
+<!--########################################################-->
+<!--###                Security Settings                  ###-->
+<!--########################################################-->
+	<http_user>admin</http_user>
+	<!--# Will not be set as multi home device #-->
+	<http_pass>%%DEVICE_PASSWORD%%</http_pass>
+
+<!--########################################################-->
+<!--###                PhoneBook Settings                ###-->
+<!--########################################################-->
+
+	<phonebook_server_location>0</phonebook_server_location>
+	<phonebook_reload_time>1800</phonebook_reload_time>
+	
+	{IF network=LOCALLAN}
+		<phonebook_location>%%PROVLINKLOCAL%%/</phonebook_location>
+		<phonebook_filename>snom_phonebook.xml</phonebook_filename>
+	{ELSE}
+		<phonebook_location>%%PROVLINK%%/</phonebook_location>
+		<phonebook_filename>snom_phonebook.xml</phonebook_filename>
+	{ENDIF}
+	
+<!--########################################################-->
+<!--###              Time and Tone Settings              ###-->
+<!--########################################################-->
+
+    <ntp_server>%%param::time_ntp_server%%</ntp_server>
+	<ntp_refresh_timer>3600</ntp_refresh_timer>
+	<!-- Tone Schema, valid options are: AUS,AUT,CHN,DNK,FRA,GER,GBR,IND,ITA,JPN,MEX,NLD,NOR,NZL,ESP,SWE,SWI,USA -->
+	<tone_scheme>%%toneset.tone%%</tone_scheme>
+	<timezone_by_country_region>off</timezone_by_country_region>
+	<timezone>%%timezone%%</timezone>
+	<language perm="">%%langauge%%</language>
+	<web_language perm="">%%langauge%%</web_language>
+
+<!--########################################################-->
+<!--###           Firmware Update                        ###-->
+<!--########################################################-->
+
+	<firmware-settings>
+		<firmware>http://dect.snom.com/</firmware>
+		<fp_fwu_sw_version>400</fp_fwu_sw_version>
+		<fp_fwu_branch_version>2</fp_fwu_branch_version>
+		<pp_fwu_sw_version type=M65>400</pp_fwu_sw_version>
+		<pp_fwu_branch_version type=M65>2</pp_fwu_branch_version>
+		<pp_fwu_sw_version type=M85>400</pp_fwu_sw_version>
+		<pp_fwu_branch_version type=M85>2</pp_fwu_branch_version>
+		<pp_fwu_sw_version type=M25>400</pp_fwu_sw_version>
+		<pp_fwu_branch_version type=M25>2</pp_fwu_branch_version>
+	</firmware-settings>
+
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 1 (idx="1")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 1 #########-->
+	<user_active idx="1">%%ext_01_enabled%%</user_active>
+	<user_name idx="1">%%ext_int_num_01%%</user_name>
+	<user_pname idx="1">%%ext_auth_id_01%%</user_pname>
+	<user_pass idx="1">%%ext_auth_pw_01%%</user_pass>
+	<user_mailbox idx="1">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="1">%%vm_number%%</user_mailnumber>
+	<user_realname idx="1">%%ext_last_name_01%%</user_realname>
+
+	<!--######### Handset 1 #########-->
+
+	<subscr_sip_hs_idx idx="1">1</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="1">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="1">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="1">1</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 1 #########-->
+	<call_waiting idx="1">on</call_waiting>
+	
+<!--########################################################-->
+<!--###       SIP Settings for Identity 2 (idx="2")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 2 #########-->
+	<user_active idx="2">%%ext_02_enabled%%</user_active>
+	<user_name idx="2">%%ext_int_num_02%%</user_name>
+	<user_pname idx="2">%%ext_auth_id_02%%</user_pname>
+	<user_pass idx="2">%%ext_auth_pw_02%%</user_pass>
+	<user_mailbox idx="2">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="2">%%vm_number%%</user_mailnumber>
+	<user_realname idx="2">%%ext_last_name_02%%</user_realname>
+
+	<!--######### Handset 2 #########-->
+
+	<subscr_sip_hs_idx idx="2">2</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="2">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="2">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="2">2</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 2 #########-->
+	<call_waiting idx="2">on</call_waiting>
+	
+<!--########################################################-->
+<!--###       SIP Settings for Identity 3 (idx="3")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 3 #########-->
+	<user_active idx="3">%%ext_03_enabled%%</user_active>
+	<user_name idx="3">%%ext_int_num_03%%</user_name>
+	<user_pname idx="3">%%ext_auth_id_03%%</user_pname>
+	<user_pass idx="3">%%ext_auth_pw_03%%</user_pass>
+	<user_mailbox idx="3">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="3">%%vm_number%%</user_mailnumber>
+	<user_realname idx="3">%%ext_last_name_03%%</user_realname>
+
+	<!--######### Handset 3 #########-->
+
+	<subscr_sip_hs_idx idx="3">3</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="3">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="3">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="3">4</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 3 #########-->
+	<call_waiting idx="3">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 4 (idx="4")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 4 #########-->
+	<user_active idx="4">%%ext_04_enabled%%</user_active>
+	<user_name idx="4">%%ext_int_num_04%%</user_name>
+	<user_pname idx="4">%%ext_auth_id_04%%</user_pname>
+	<user_pass idx="4">%%ext_auth_pw_04%%</user_pass>
+	<user_mailbox idx="4">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="4">%%vm_number%%</user_mailnumber>
+	<user_realname idx="4">%%ext_last_name_04%%</user_realname>
+
+	<!--######### Handset 4 #########-->
+
+	<subscr_sip_hs_idx idx="4">4</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="4">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="4">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="4">8</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 4 #########-->
+	<call_waiting idx="4">on</call_waiting>
+	
+<!--########################################################-->
+<!--###       SIP Settings for Identity 5 (idx="5")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 5 #########-->
+	<user_active idx="5">%%ext_05_enabled%%</user_active>
+	<user_name idx="5">%%ext_int_num_05%%</user_name>
+	<user_pname idx="5">%%ext_auth_id_05%%</user_pname>
+	<user_pass idx="5">%%ext_auth_pw_05%%</user_pass>
+	<user_mailbox idx="5">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="5">%%vm_number%%</user_mailnumber>
+	<user_realname idx="5">%%ext_last_name_05%%</user_realname>
+
+	<!--######### Handset 5 #########-->
+
+	<subscr_sip_hs_idx idx="5">5</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="5">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="5">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="5">16</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 5 #########-->
+	<call_waiting idx="5">on</call_waiting>
+	
+<!--########################################################-->
+<!--###       SIP Settings for Identity 6 (idx="6")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 6 #########-->
+	<user_active idx="6">%%ext_06_enabled%%</user_active>
+	<user_name idx="6">%%ext_int_num_06%%</user_name>
+	<user_pname idx="6">%%ext_auth_id_06%%</user_pname>
+	<user_pass idx="6">%%ext_auth_pw_06%%</user_pass>
+	<user_mailbox idx="6">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="6">%%vm_number%%</user_mailnumber>
+	<user_realname idx="6">%%ext_last_name_06%%</user_realname>
+
+	<!--######### Handset 6 #########-->
+
+	<subscr_sip_hs_idx idx="6">6</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="6">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="6">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="6">32</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 6 #########-->
+	<call_waiting idx="6">on</call_waiting>
+	
+<!--########################################################-->
+<!--###       SIP Settings for Identity 7 (idx="7")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 7 #########-->
+	<user_active idx="7">%%ext_07_enabled%%</user_active>
+	<user_name idx="7">%%ext_int_num_07%%</user_name>
+	<user_pname idx="7">%%ext_auth_id_07%%</user_pname>
+	<user_pass idx="7">%%ext_auth_pw_07%%</user_pass>
+	<user_mailbox idx="7">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="7">%%vm_number%%</user_mailnumber>
+	<user_realname idx="7">%%ext_last_name_07%%</user_realname>
+
+	<!--######### Handset 7 #########-->
+
+	<subscr_sip_hs_idx idx="7">7</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="7">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="7">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="7">64</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 7 #########-->
+	<call_waiting idx="7">on</call_waiting>
+	
+<!--########################################################-->
+<!--###       SIP Settings for Identity 8 (idx="8")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 8 #########-->
+	<user_active idx="8">%%ext_08_enabled%%</user_active>
+	<user_name idx="8">%%ext_int_num_08%%</user_name>
+	<user_pname idx="8">%%ext_auth_id_08%%</user_pname>
+	<user_pass idx="8">%%ext_auth_pw_08%%</user_pass>
+	<user_mailbox idx="8">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="8">%%vm_number%%</user_mailnumber>
+	<user_realname idx="8">%%ext_last_name_08%%</user_realname>
+
+	<!--######### Handset 8 #########-->
+
+	<subscr_sip_hs_idx idx="8">8</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="8">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="8">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="8">128</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 8 #########-->
+	<call_waiting idx="8">on</call_waiting>
+	
+<!--########################################################-->
+<!--###       SIP Settings for Identity 9 (idx="9")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 9 #########-->
+	<user_active idx="9">%%ext_09_enabled%%</user_active>
+	<user_name idx="9">%%ext_int_num_09%%</user_name>
+	<user_pname idx="9">%%ext_auth_id_09%%</user_pname>
+	<user_pass idx="9">%%ext_auth_pw_09%%</user_pass>
+	<user_mailbox idx="9">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="9">%%vm_number%%</user_mailnumber>
+	<user_realname idx="9">%%ext_last_name_09%%</user_realname>
+
+	<!--######### Handset 9 #########-->
+
+	<subscr_sip_hs_idx idx="9">9</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="9">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="9">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="9">256</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 9 #########-->
+	<call_waiting idx="9">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 10 (idx="10")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 10 #########-->
+	<user_active idx="10">%%ext_10_enabled%%</user_active>
+	<user_name idx="10">%%ext_int_num_10%%</user_name>
+	<user_pname idx="10">%%ext_auth_id_10%%</user_pname>
+	<user_pass idx="10">%%ext_auth_pw_10%%</user_pass>
+	<user_mailbox idx="10">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="10">%%vm_number%%</user_mailnumber>
+	<user_realname idx="10">%%ext_last_name_10%%</user_realname>
+
+	<!--######### Handset 10 #########-->
+
+	<subscr_sip_hs_idx idx="10">10</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="10">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="10">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="10">512</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 10 #########-->
+	<call_waiting idx="10">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 11 (idx="11")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 11 #########-->
+	<user_active idx="11">%%ext_11_enabled%%</user_active>
+	<user_name idx="11">%%ext_int_num_11%%</user_name>
+	<user_pname idx="11">%%ext_auth_id_11%%</user_pname>
+	<user_pass idx="11">%%ext_auth_pw_11%%</user_pass>
+	<user_mailbox idx="11">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="11">%%vm_number%%</user_mailnumber>
+	<user_realname idx="11">%%ext_last_name_11%%</user_realname>
+
+	<!--######### Handset 11 #########-->
+
+	<subscr_sip_hs_idx idx="11">11</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="11">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="11">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="11">1024</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 11 #########-->
+	<call_waiting idx="11">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 12 (idx="12")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 12 #########-->
+	<user_active idx="12">%%ext_12_enabled%%</user_active>
+	<user_name idx="12">%%ext_int_num_12%%</user_name>
+	<user_pname idx="12">%%ext_auth_id_12%%</user_pname>
+	<user_pass idx="12">%%ext_auth_pw_12%%</user_pass>
+	<user_mailbox idx="12">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="12">%%vm_number%%</user_mailnumber>
+	<user_realname idx="12">%%ext_last_name_12%%</user_realname>
+
+	<!--######### Handset 12 #########-->
+
+	<subscr_sip_hs_idx idx="12">12</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="12">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="12">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="12">2048</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 12 #########-->
+	<call_waiting idx="12">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 13 (idx="13")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 13 #########-->
+	<user_active idx="13">%%ext_13_enabled%%</user_active>
+	<user_name idx="13">%%ext_int_num_13%%</user_name>
+	<user_pname idx="13">%%ext_auth_id_13%%</user_pname>
+	<user_pass idx="13">%%ext_auth_pw_13%%</user_pass>
+	<user_mailbox idx="13">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="13">%%vm_number%%</user_mailnumber>
+	<user_realname idx="13">%%ext_last_name_13%%</user_realname>
+
+	<!--######### Handset 13 #########-->
+
+	<subscr_sip_hs_idx idx="13">13</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="13">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="13">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="13">4096</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 13 #########-->
+	<call_waiting idx="13">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 14 (idx="14")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 14 #########-->
+	<user_active idx="14">%%ext_14_enabled%%</user_active>
+	<user_name idx="14">%%ext_int_num_14%%</user_name>
+	<user_pname idx="14">%%ext_auth_id_14%%</user_pname>
+	<user_pass idx="14">%%ext_auth_pw_14%%</user_pass>
+	<user_mailbox idx="14">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="14">%%vm_number%%</user_mailnumber>
+	<user_realname idx="14">%%ext_last_name_14%%</user_realname>
+
+	<!--######### Handset 14 #########-->
+
+	<subscr_sip_hs_idx idx="14">14</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="14">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="14">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="14">8192</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 14 #########-->
+	<call_waiting idx="14">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 15 (idx="15")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 15 #########-->
+	<user_active idx="15">%%ext_15_enabled%%</user_active>
+	<user_name idx="15">%%ext_int_num_15%%</user_name>
+	<user_pname idx="15">%%ext_auth_id_15%%</user_pname>
+	<user_pass idx="15">%%ext_auth_pw_15%%</user_pass>
+	<user_mailbox idx="15">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="15">%%vm_number%%</user_mailnumber>
+	<user_realname idx="15">%%ext_last_name_15%%</user_realname>
+
+	<!--######### Handset 15 #########-->
+
+	<subscr_sip_hs_idx idx="15">15</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="15">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="15">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="15">16384</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 15 #########-->
+	<call_waiting idx="15">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 16 (idx="16")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 16 #########-->
+	<user_active idx="16">%%ext_16_enabled%%</user_active>
+	<user_name idx="16">%%ext_int_num_16%%</user_name>
+	<user_pname idx="16">%%ext_auth_id_16%%</user_pname>
+	<user_pass idx="16">%%ext_auth_pw_16%%</user_pass>
+	<user_mailbox idx="16">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="16">%%vm_number%%</user_mailnumber>
+	<user_realname idx="16">%%ext_last_name_16%%</user_realname>
+
+	<!--######### Handset 16 #########-->
+
+	<subscr_sip_hs_idx idx="16">16</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="16">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="16">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="16">32768</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 16 #########-->
+	<call_waiting idx="16">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 17 (idx="17")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 17 #########-->
+	<user_active idx="17">%%ext_17_enabled%%</user_active>
+	<user_name idx="17">%%ext_int_num_17%%</user_name>
+	<user_pname idx="17">%%ext_auth_id_17%%</user_pname>
+	<user_pass idx="17">%%ext_auth_pw_17%%</user_pass>
+	<user_mailbox idx="17">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="17">%%vm_number%%</user_mailnumber>
+	<user_realname idx="17">%%ext_last_name_17%%</user_realname>
+
+	<!--######### Handset 17 #########-->
+
+	<subscr_sip_hs_idx idx="17">17</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="17">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="17">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="17">65536</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 17 #########-->
+	<call_waiting idx="17">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 18 (idx="18")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 18 #########-->
+	<user_active idx="18">%%ext_18_enabled%%</user_active>
+	<user_name idx="18">%%ext_int_num_18%%</user_name>
+	<user_pname idx="18">%%ext_auth_id_18%%</user_pname>
+	<user_pass idx="18">%%ext_auth_pw_18%%</user_pass>
+	<user_mailbox idx="18">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="18">%%vm_number%%</user_mailnumber>
+	<user_realname idx="18">%%ext_last_name_18%%</user_realname>
+
+	<!--######### Handset 18 #########-->
+
+	<subscr_sip_hs_idx idx="18">18</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="18">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="18">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="18">131072</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 18 #########-->
+	<call_waiting idx="18">on</call_waiting>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 19 (idx="19")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 19 #########-->
+	<user_active idx="19">%%ext_19_enabled%%</user_active>
+	<user_name idx="19">%%ext_int_num_19%%</user_name>
+	<user_pname idx="19">%%ext_auth_id_19%%</user_pname>
+	<user_pass idx="19">%%ext_auth_pw_19%%</user_pass>
+	<user_mailbox idx="19">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="19">%%vm_number%%</user_mailnumber>
+	<user_realname idx="19">%%ext_last_name_19%%</user_realname>
+
+	<!--######### Handset 19 #########-->
+
+	<subscr_sip_hs_idx idx="19">19</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="19">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="19">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="19">262144</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 19 #########-->
+	<call_waiting idx="19">on</call_waiting>
+	
+<!--########################################################-->
+<!--###       SIP Settings for Identity 20 (idx="20")      ###-->
+<!--########################################################-->
+
+	<!--######### SIP Account 20 #########-->
+	<user_active idx="20">%%ext_20_enabled%%</user_active>
+	<user_name idx="20">%%ext_int_num_20%%</user_name>
+	<user_pname idx="20">%%ext_auth_id_20%%</user_pname>
+	<user_pass idx="20">%%ext_auth_pw_20%%</user_pass>
+	<user_mailbox idx="20">%%vm_number%%</user_mailbox>
+	<user_mailnumber idx="20">%%vm_number%%</user_mailnumber>
+	<user_realname idx="20">%%ext_last_name_20%%</user_realname>
+
+	<!--######### Handset 20 #########-->
+
+	<subscr_sip_hs_idx idx="20">20</subscr_sip_hs_idx>
+	<subscr_sip_ua_data_server_id idx="20">1</subscr_sip_ua_data_server_id>
+	<subscr_sip_line_name idx="20">Line1</subscr_sip_line_name>
+	<subscr_sip_ua_subscribed_hs idx="20">524288</subscr_sip_ua_subscribed_hs>
+
+	<!--######### Other 20 #########-->
+	<call_waiting idx="20">on</call_waiting>
+
+	
+  </phone-settings>
+</settings>
+
+]]>
+			</deviceconfig>
+		</device>
+	</data>   
+</doc>

@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>fxs-template</type>
+    <version>145775</version>
+    <time>2021-07-01 10:11:00</time>
+    <name>FarSouth ComX 24 port FXS Gateway</name>
+	<templatetype>deleted</templatetype>
+	<models>
+		<model>24 Port FXS gateway</model>
+	</models>
+	<rebootParams>
+    </rebootParams>
+	<resyncParams>
+	</resyncParams>	
+	<firmwareParams>
+	</firmwareParams>
+	<AllowedNetworkConfig>
+		<option value="LOCALLAN">1</option>
+	</AllowedNetworkConfig>
+	<AllowWebPasswordChange>0</AllowWebPasswordChange>
+	<languages>
+	<option value="English">
+	</option>
+	</languages>
+	<Codecspriorities>
+    </Codecspriorities>
+		
+ </header>
+	<data>
+		<device><!--Friendly Name-->
+			<gateway></gateway>
+			<field name="SimCallsPerPort" status="readonly">1</field>
+			<field name="TypeOfLines" status="readonly">FXS</field> <!--Type of PSTN Lines-->
+			<field name="NumberOfExtensions">24</field> <!--Number of FXS extensions-->
+            <deviceconfig filename="%%mac_address%%-ExtensionConfig.xml" AllowDownload="true">
+            <![CDATA[
+                  <fxs>
+            	<extension id="1">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_01%%</authName>
+            		<password>%%ext_auth_pw_01%%</password>
+            		<extNum>%%ext_int_num_01%%</extNum>
+            		<firstName>%%ext_first_name_01%%</firstName>
+            		<lastName>%%ext_last_name_01%%</lastName>
+            	</extension> 
+            	<extension id="2">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_02%%</authName>
+            		<password>%%ext_auth_pw_02%%</password>
+            		<extNum>%%ext_int_num_02%%</extNum>
+            		<firstName>%%ext_first_name_02%%</firstName>
+            		<lastName>%%ext_last_name_02%%</lastName>
+            	</extension> 
+            	<extension id="3">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_03%%</authName>
+            		<password>%%ext_auth_pw_03%%</password>
+            		<extNum>%%ext_int_num_03%%</extNum>
+            		<firstName>%%ext_first_name_03%%</firstName>
+            		<lastName>%%ext_last_name_03%%</lastName>
+            	</extension> 
+            	<extension id="4">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_04%%</authName>
+            		<password>%%ext_auth_pw_04%%</password>
+            		<extNum>%%ext_int_num_04%%</extNum>
+            		<firstName>%%ext_first_name_04%%</firstName>
+            		<lastName>%%ext_last_name_04%%</lastName>
+            	</extension>
+            	<extension id="5">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_05%%</authName>
+            		<password>%%ext_auth_pw_05%%</password>
+            		<extNum>%%ext_int_num_05%%</extNum>
+            		<firstName>%%ext_first_name_05%%</firstName>
+            		<lastName>%%ext_last_name_05%%</lastName>
+            	</extension> 
+            	<extension id="6">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_06%%</authName>
+            		<password>%%ext_auth_pw_06%%</password>
+            		<extNum>%%ext_int_num_06%%</extNum>
+            		<firstName>%%ext_first_name_06%%</firstName>
+            		<lastName>%%ext_last_name_06%%</lastName>
+            	</extension> 
+            	<extension id="7">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_07%%</authName>
+            		<password>%%ext_auth_pw_07%%</password>
+            		<extNum>%%ext_int_num_07%%</extNum>
+            		<firstName>%%ext_first_name_07%%</firstName>
+            		<lastName>%%ext_last_name_07%%</lastName>
+            	</extension> 
+            	<extension id="8">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_08%%</authName>
+            		<password>%%ext_auth_pw_08%%</password>
+            		<extNum>%%ext_int_num_08%%</extNum>
+            		<firstName>%%ext_first_name_08%%</firstName>
+            		<lastName>%%ext_last_name_08%%</lastName>
+            	</extension> 
+            	<extension id="9">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_09%%</authName>
+            		<password>%%ext_auth_pw_09%%</password>
+            		<extNum>%%ext_int_num_09%%</extNum>
+            		<firstName>%%ext_first_name_09%%</firstName>
+            		<lastName>%%ext_last_name_09%%</lastName>
+            	</extension> 
+            	<extension id="10">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_10%%</authName>
+            		<password>%%ext_auth_pw_10%%</password>
+            		<extNum>%%ext_int_num_10%%</extNum>
+            		<firstName>%%ext_first_name_10%%</firstName>
+            		<lastName>%%ext_last_name_10%%</lastName>
+            	</extension> 
+            	<extension id="11">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_11%%</authName>
+            		<password>%%ext_auth_pw_11%%</password>
+            		<extNum>%%ext_int_num_11%%</extNum>
+            		<firstName>%%ext_first_name_11%%</firstName>
+            		<lastName>%%ext_last_name_11%%</lastName>
+            	</extension> 
+            	<extension id="12">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_12%%</authName>
+            		<password>%%ext_auth_pw_12%%</password>
+            		<extNum>%%ext_int_num_12%%</extNum>
+            		<firstName>%%ext_first_name_12%%</firstName>
+            		<lastName>%%ext_last_name_12%%</lastName>
+            	</extension>
+            	<extension id="13">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_13%%</authName>
+            		<password>%%ext_auth_pw_13%%</password>
+            		<extNum>%%ext_int_num_13%%</extNum>
+            		<firstName>%%ext_first_name_13%%</firstName>
+            		<lastName>%%ext_last_name_13%%</lastName>
+            	</extension> 
+            	<extension id="14">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_14%%</authName>
+            		<password>%%ext_auth_pw_14%%</password>
+            		<extNum>%%ext_int_num_14%%</extNum>
+            		<firstName>%%ext_first_name_14%%</firstName>
+            		<lastName>%%ext_last_name_14%%</lastName>
+            	</extension> 
+            	<extension id="15">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_15%%</authName>
+            		<password>%%ext_auth_pw_15%%</password>
+            		<extNum>%%ext_int_num_15%%</extNum>
+            		<firstName>%%ext_first_name_15%%</firstName>
+            		<lastName>%%ext_last_name_15%%</lastName>
+            	</extension> 
+            	<extension id="16">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_16%%</authName>
+            		<password>%%ext_auth_pw_16%%</password>
+            		<extNum>%%ext_int_num_16%%</extNum>
+            		<firstName>%%ext_first_name_16%%</firstName>
+            		<lastName>%%ext_last_name_16%%</lastName>
+            	</extension> 
+            	<extension id="17">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_17%%</authName>
+            		<password>%%ext_auth_pw_17%%</password>
+            		<extNum>%%ext_int_num_17%%</extNum>
+            		<firstName>%%ext_first_name_17%%</firstName>
+            		<lastName>%%ext_last_name_17%%</lastName>
+            	</extension> 
+            	<extension id="18">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_18%%</authName>
+            		<password>%%ext_auth_pw_18%%</password>
+            		<extNum>%%ext_int_num_18%%</extNum>
+            		<firstName>%%ext_first_name_18%%</firstName>
+            		<lastName>%%ext_last_name_18%%</lastName>
+            	</extension> 
+            	<extension id="19">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_19%%</authName>
+            		<password>%%ext_auth_pw_19%%</password>
+            		<extNum>%%ext_int_num_19%%</extNum>
+            		<firstName>%%ext_first_name_19%%</firstName>
+            		<lastName>%%ext_last_name_19%%</lastName>
+            	</extension> 
+            	<extension id="20">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_20%%</authName>
+            		<password>%%ext_auth_pw_20%%</password>
+            		<extNum>%%ext_int_num_20%%</extNum>
+            		<firstName>%%ext_first_name_20%%</firstName>
+            		<lastName>%%ext_last_name_20%%</lastName>
+            	</extension> 
+            	<extension id="21">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_21%%</authName>
+            		<password>%%ext_auth_pw_21%%</password>
+            		<extNum>%%ext_int_num_21%%</extNum>
+            		<firstName>%%ext_first_name_21%%</firstName>
+            		<lastName>%%ext_last_name_21%%</lastName>
+            	</extension> 
+            	<extension id="22">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_22%%</authName>
+            		<password>%%ext_auth_pw_22%%</password>
+            		<extNum>%%ext_int_num_22%%</extNum>
+            		<firstName>%%ext_first_name_22%%</firstName>
+            		<lastName>%%ext_last_name_22%%</lastName>
+            	</extension> 
+            	<extension id="23">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_23%%</authName>
+            		<password>%%ext_auth_pw_23%%</password>
+            		<extNum>%%ext_int_num_23%%</extNum>
+            		<firstName>%%ext_first_name_23%%</firstName>
+            		<lastName>%%ext_last_name_23%%</lastName>
+            	</extension> 
+            	<extension id="24">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_24%%</authName>
+            		<password>%%ext_auth_pw_24%%</password>
+            		<extNum>%%ext_int_num_24%%</extNum>
+            		<firstName>%%ext_first_name_24%%</firstName>
+            		<lastName>%%ext_last_name_24%%</lastName>
+            	</extension> 
+                </fxs>
+            	
+            ]]>
+	 	   </deviceconfig>
+  		</device>
+	</data>
+</doc>

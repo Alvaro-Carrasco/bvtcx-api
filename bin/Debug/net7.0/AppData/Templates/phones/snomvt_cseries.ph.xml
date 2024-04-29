@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>145775</version>
+    <time>2022-02-02 16:10:00</time>
+    <name>Snom Conference Phone</name>
+    <url>https://www.3cx.com/sip-phones/snom-conference-phones/</url>
+    <templatetype>preferred</templatetype>
+    <models>
+      <model ua="snomC520">Snom C520</model>
+    </models>
+    <description>Snom VTech phones</description>
+    <parsers>
+      <parser>BLF</parser>
+    </parsers>
+    <rebootParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </rebootParams>
+    <resyncParams>
+      <event-name>check-sync;reboot=false</event-name>
+    </resyncParams>
+    <firmwareParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </firmwareParams>
+    <interfaceLink>http://admin:%%PHONE_WEB_PASSWORD%%@%%PHONE_IP%%</interfaceLink>
+    <rps>1</rps>
+	<hotdesking>0</hotdesking>
+    <AllowedNetworkConfig>
+      <option value="LOCALLAN">1</option>
+      <option value="REMOTESTUN">1</option>
+      <option value="SBC">1</option>
+    </AllowedNetworkConfig>
+    <AllowWebPasswordChange>1</AllowWebPasswordChange>
+    <AllowSSLProvisioning>1</AllowSSLProvisioning>
+    <languages>
+      <!--The first entry is the selected entry in management console-->
+      <option value="English">
+        <item name="langwebUI">en</item>
+      </option>
+      <option value="Deutsch">
+        <item name="langwebUI">de</item>
+        <item name="langring">GER</item>
+      </option>
+      <option value="Español">
+        <item name="langwebUI">es</item>
+        <item name="langring">ESP</item>
+      </option>
+      <option value="Francais">
+        <item name="langwebUI">fr</item>
+        <item name="langring">FRA</item>
+      </option>
+      <option value="Italiano">
+        <item name="langwebUI">it</item>
+        <item name="langring">ITA</item>
+      </option>
+      <option value="Nederlands">
+        <item name="langwebUI">nl</item>
+        <item name="langring">NLD</item>
+      </option>
+      <option value="Português">
+        <item name="langwebUI">pt</item>
+        <item name="langring">GBR</item>
+      </option>
+      <option value="Russian">
+        <item name="langwebUI">ru</item>
+        <item name="langring">GBR</item>
+      </option>
+      <option value="Turkce">
+        <item name="langwebUI">tr</item>
+        <item name="langring">GBR</item>
+      </option>
+    </languages>
+    <ringtones>
+      <!--The first entry is the selected entry in management console-->
+      <option value="Ring 1">
+        <item name="defringtone">1</item>
+      </option>
+      <option value="Ring 2">
+        <item name="defringtone">2</item>
+      </option>
+      <option value="Ring 3">
+        <item name="defringtone">3</item>
+      </option>
+      <option value="Ring 4">
+        <item name="defringtone">4</item>
+      </option>
+      <option value="Ring 5">
+        <item name="defringtone">5</item>
+      </option>
+      <option value="Ring 6">
+        <item name="defringtone">6</item>
+      </option>
+      <option value="Ring 7">
+        <item name="defringtone">7</item>
+      </option>
+      <option value="Ring 8">
+        <item name="defringtone">8</item>
+      </option>
+      <option value="Ring 9">
+        <item name="defringtone">9</item>
+      </option>
+      <option value="Ring 10">
+        <item name="defringtone">10</item>
+      </option>
+      <option value="Silent">
+        <item name="defringtone">Silent</item>
+      </option>
+    </ringtones>
+	<queueringtones default="Ring 3">
+      <option value="Ring 1">
+        <item name="queueringtone">1</item>
+      </option>
+      <option value="Ring 2">
+        <item name="queueringtone">2</item>
+      </option>
+      <option value="Ring 3">
+        <item name="queueringtone">3</item>
+      </option>
+      <option value="Ring 4">
+        <item name="queueringtone">4</item>
+      </option>
+      <option value="Ring 5">
+        <item name="queueringtone">5</item>
+      </option>
+      <option value="Ring 6">
+        <item name="queueringtone">6</item>
+      </option>
+      <option value="Ring 7">
+        <item name="queueringtone">7</item>
+      </option>
+      <option value="Ring 8">
+        <item name="queueringtone">8</item>
+      </option>
+      <option value="Ring 9">
+        <item name="queueringtone">9</item>
+      </option>
+      <option value="Ring 10">
+        <item name="queueringtone">10</item>
+      </option>
+    </queueringtones>
+    <queueringtonevalues default ="Ring 3">
+      <option value="Ring 1">
+        <item name="queueringtonevalue">1</item>
+      </option>
+      <option value="Ring 2">
+        <item name="queueringtonevalue">2</item>
+      </option>
+      <option value="Ring 3">
+        <item name="queueringtonevalue">3</item>
+      </option>
+  </queueringtonevalues>	
+    <dateformat>
+      <option value="European (DD/MM/YY)">
+        <item name="datestyle">DD/MM/YY</item>
+      </option>
+      <option value="US format (MM/DD/YY)">
+        <item name="datestyle">MM/DD/YY</item>
+      </option>
+    </dateformat>
+    <timeformat>
+      <option value="24-hour clock">
+        <item name="timestyle">1</item>
+      </option>
+      <option value="12-hour clock (AM/PM)">
+        <item name="timestyle">0</item>
+      </option>
+    </timeformat>
+    <powerled>
+      <option value="No MWI notifications">
+        <item name="mwiled">0</item>
+        <item name="missedled">0</item>
+      </option>
+      <option value="Only voice notification, not missed calls">
+        <item name="mwiled">1</item>
+        <item name="missedled">0</item>
+      </option>
+      <option value="MWI notification for voicemail and missed calls">
+        <item name="mwiled">1</item>
+        <item name="missedled">1</item>
+      </option>
+    </powerled>
+    <backlight>
+      <option value="Dim after 30 seconds">
+        <item name="backlight">high</item>
+		    <item name="blktime">30</item>
+        <item name="idle_backlight">off</item>
+      </option>
+      <option value="Dim after 10 seconds">
+        <item name="backlight">high</item>
+		    <item name="blktime">10</item>
+        <item name="idle_backlight">off</item>
+      </option>
+      <option value="Dim after 20 seconds">
+        <item name="backlight">high</item>
+		    <item name="blktime">20</item>
+        <item name="idle_backlight">off</item>
+      </option>
+      <option value="Dim after 40 seconds">
+        <item name="backlight">high</item>
+		    <item name="blktime">40</item>
+        <item name="idle_backlight">off</item>
+      </option>
+      <option value="Dim after 50 seconds">
+        <item name="backlight">high</item>
+		    <item name="blktime">50</item>
+        <item name="idle_backlight">off</item>
+      </option>
+      <option value="Dim after 60 seconds">
+        <item name="backlight">high</item>
+		    <item name="blktime">60</item>
+        <item name="idle_backlight">off</item>
+      </option>
+      <option value="Always On">
+        <item name="backlight">high</item>
+		    <item name="blktime">30</item>
+        <item name="idle_backlight">high</item>
+      </option>
+      <option value="Always Off">
+        <item name="backlight">off</item>
+		    <item name="blktime">30</item>
+        <item name="idle_backlight">off</item>
+      </option>
+    </backlight>
+    <vlan>
+      <vlanwanport type="bool" readonly="false" default="false" param="vlanwanenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </vlanwanport>
+      <vlanwanid type="int" readonly="false" default="" minvalue="1" maxvalue="4094" param="vlanwanportid" />
+      <vlanwanpriority type="int" readonly="false" default="" minvalue="0" maxvalue="7" param="vlanwanportpriority" />
+    </vlan>
+	<srtp>
+      <option value="Disabled">
+        <item name="srtpvalue">0</item>
+	<!--<item name="savpvalue">off</item>-->
+      </option>
+      <!--option value="Optionally enabled (not enforced)">
+        <item name="srtpvalue">on</item>
+	<item name="savpvalue">optional</item>
+      </option>-->
+      <option value="Enabled compulsory (forced)">
+        <item name="srtpvalue">1</item>
+	<!--<item name="savpvalue">mandatory</item>-->
+      </option>
+    </srtp>
+    <timezoneParams param="time_date.selected_timezone">
+	  <!--The first entry is the selected entry in management console-->
+  <option value="Pacific/Pago_Pago">-11 Samoa</option>
+  <option value="Pacific/Honolulu" id="1">-10 United States-Hawaii-Aleutian </option>
+	<option value="America/Adak" id="2">-10 United States-Alaska-Aleutian</option>
+  <option value="America/Anchorage" id="3">-9 United States-Alaska Time</option>
+  <option value="America/Vancouver" id="4">-8 Canada(Vancouver,Whitehorse)</option>
+	<option value="America/Tijuana" id="5">-8 Mexico(Tijuana,Mexicali)</option>
+	<option value="America/Los_Angeles" id="6">-8 United States-Pacific Time</option>
+	<option value="America/Edmonton" id="7">-7 Canada(Edmonton,Calgary)</option>
+	<option value="America/Chihuahua" id="8">-7 Mexico(Mazatlan,Chihuahua)</option>
+  <option value="America/Denver" id="9">-7 United States-Mountain Time</option>
+	<option value="America/Phoenix" id="10">-7 United States-MST no DST</option>
+	<option value="America/Winnipeg" id="11">-6 Canada-Manitoba(Winnipeg)</option>
+	<option value="Pacific/Easter " id="12">-6 Chile(Easter Islands)</option>
+	<option value="America/Mexico_City" id="13">-6 Mexico(Mexico City,Acapulco)</option>
+	<option value="America/Chicago" id="14">-6 United States-Central Time</option>
+	<option value="America/Nassau" id="15">-5 Bahamas(Nassau)</option>
+	<option value="America/Montreal" id="16">-5 Canada(Montreal,Ottawa,Quebec)</option>
+	<option value="America/Grand_Turk" id="">-5 Caicos</option>
+	<option value="America/Havana" id="17">-5 Cuba(Havana)</option>
+	<option value="America/New_York" id="0">-5 United States-Eastern Time</option>    
+	<option value="America/Caracas" id="18">-4:30 Venezuela(Caracas)</option>   
+	<option value="America/Halifax" id="19">-4 Canada(Halifax,Saint John)</option>
+	<option value="America/Santiago" id="20">-4 Chile(Santiago)</option>
+	<option value="America/Asuncion" id="21">-4 Paraguay(Asuncion)</option>
+	<option value="Atlantic/Bermuda" id="22">-4 United Kingdom-Bermuda(Bermuda)</option>
+	<option value="Atlantic/Stanley" id="23">-4 United Kingdom(Falkland Islands)</option>
+	<option value="America/Port_of_Spain" id="24">-4 Trinidad and Tobago</option>
+	<option value="America/St_Johns" id="25">-3:30 Canada-New Foundland(St.Johns)</option>  
+	<option value="America/Godthab" id="26">-3 Denmark-Greenland(Nuuk)</option>
+	<option value="America/Argentina/Buenos_Aires" id="27">-3 Argentina(Buenos Aires)</option>
+	<option value="America/Fortaleza" id="28">-3 Brazil(no DST)</option>
+	<option value="America/Sao_Paulo" id="29">-3 Brazil(DST)</option>
+	<option value="America/Noronha" id="30">-2 Brazil(no DST) </option>
+	<option value="Atlantic/Azores" id="31">-1 Portugal(Azores)</option>
+	<option value="America/Danmarkshavn" id="">0 Greenland</option>
+	<option value="Atlantic/Faroe" id="32">0 Denmark-Faroe Islands(Torshaven)</option>
+	<option value="Europe/Dublin" id="33">0 Ireland(Dublin)</option>
+	<option value="Europe/Lisbon" id="34">0 Portugal(Lisboa,Porto,Funchal) </option>
+	<option value="Atlantic/Canary" id="35">0 Spain-Canary Islands(Las Palmas)</option>
+	<option value="Europe/London" id="36">0 United Kingdom(London) </option>
+	<option value="Africa/Casablanca" id="">0 Morocco</option>
+  <option value="Europe/Tirane" id="37">+1 Albania(Tirane)</option>
+	<option value="Europe/Vienna" id="38">+1 Austria(Vienna)</option>
+	<option value="Europe/Brussels" id="39">+1 Belgium(Brussels)</option>
+	<option value="Europe/Zagreb" id="42">+1 Croatia(Zagreb)</option>
+	<option value="Europe/Prague" id="43">+1 Czech Republic(Prague)</option>
+	<option value="Europe/Copenhagen" id="44">+1 Denmark(Kopenhaven)</option>
+	<option value="Europe/Paris" id="45">+1 France(Nice)</option>
+	<option value="Europe/Berlin" id="46">+1 Germany(Berlin)</option>
+	<option value="Europe/Budapest" id="47">+1 Hungary(Budapest)</option>
+	<option value="Europe/Rome" id="48">+1 Italy(Rome)</option>
+	<option value="Europe/Luxembourg" id="49">+1 Luxembourg(Luxembourg)</option>
+	<option value="Europe/Skopje" id="50">+1 Makedonia(Skopje)</option>
+	<option value="Europe/Amsterdam" id="51">+1 Netherlands(Amsterdam)</option>
+	<option value="Africa/Windhoek" id="52">+1 Namibia(Windhoek)</option>
+  <option value="Europe/Tallinn" id="67">+2 Estonia(Tallinn)</option>
+	<option value="Europe/Helsinki" id="68">+2 Finland(Helsinki)</option>
+	<option value="Asia/Gaza" id="69">+2 Gaza Strip(Gaza)</option>
+	<option value="Europe/Athens" id="70">+2 Greece(Athens)</option>
+	<option value="Asia/Jerusalem" id="71">+2 Israel(Tel Aviv)</option>
+	<option value="Asia/Amman" id="72">+2 Jordan(Amman)</option>
+	<option value="Europe/Riga" id="73">+2 Latvia(Riga)</option>
+	<option value="Asia/Beirut" id="74">+2 Lebanon(Beirut)</option>
+	<option value="Europe/Chisinau" id="75">+2 Moldova(Kishinev)</option>
+	<option value="Europe/Kaliningrad" id="76">+2 Russia(Kaliningrad)</option>
+	<option value="Europe/Bucharest" id="77">+2 Romania(Bucharest)</option>
+	<option value="Asia/Damascus" id="78">+2 Syria(Damascus)</option>
+	<option value="Europe/Istanbul" id="79">+2 Turkey(Ankara)</option>
+	<option value="Europe/Kiev" id="80">+2 Ukraine(Kyiv,Odessa)</option>
+	<option value="Africa/Djibouti" id="81">+3 East Africa Time</option>
+	<option value="Asia/Baghdad" id="82">+3 Iraq(Baghdad)</option>
+	<option value="Europe/Moscow" id="83">+3 Russia(Moscow)</option>
+	<option value="Asia/Tehran" id="84">+3:30 Iran(Teheran)</option>
+  <option value="Asia/Yerevan" id="85">+4 Armenia(Yerevan)</option>
+	<option value="Asia/Baku" id="86">+4 Azerbaijan(Baku)</option>
+	<option value="Asia/Tbilisi" id="87">+4 Georgia(Tbilisi)</option>
+	<option value="Asia/Aqtau" id="88">+4 Kazakstan(Aqtau)</option>
+	<option value="Europe/Samara" id="89">+4 Russia(Samara)</option>
+  <option value="Asia/Aqtobe" id="92">+5 Kazakstan(Aqtobe)</option>
+	<option value="Asia/Bishkek" id="93">+5 Kyrgyzstan(Bishkek)</option>
+	<option value="Asia/Karachi" id="94">+5 Pakistan(Islamabad)</option>
+	<option value="Asia/Yekaterinburg" id="95">+5 Russia(Chelyabinsk)</option>
+  <option value="Asia/Kolkata" id="96">+5:30 India(Calcutta)</option>
+  <option value="Asia/Almaty" id="98">+6 Kazakstan(Astana,Almaty)</option>
+	<option value="Asia/Novosibirsk" id="99">+6 Russia(Novosibirsk,Omsk)</option>
+  <option value="Asia/Krasnoyarsk" id="101">+7 Russia(Krasnoyarsk)</option>
+	<option value="Asia/Bangkok" id="102">+7 Thailand(Bangkok)</option>
+  <option value="Asia/Shanghai" id="103">+8 China(Beijing)</option>
+	<option value="Asia/Singapore" id="104">+8 Singapore(Singapore)</option>
+	<option value="Australia/Perth" id="105">+8 Australia(Perth)</option>
+  <option value="Asia/Seoul" id="106">+9 Korea(Seoul)</option>
+	<option value="Asia/Tokyo" id="107">+9 Japan(Tokyo)</option>
+  <option value="Australia/Adelaide" id="108">+9:30 Australia(Adelaide)</option>
+	<option value="Australia/Darwin" id="109">+9:30 Australia(Darwin)</option>
+  <option value="Australia/Sydney" id="110">+10 Australia(Sydney,Melbourne,Canberra</option>
+	<option value="Australia/Brisbane" id="111">+10 Australia(Brisbane)</option>
+	<option value="Australia/Hobart" id="112">+10 Australia(Hobart)</option>
+	<option value="Asia/Vladivostok" id="113">+10 Russia(Vladivostok)</option>
+  <option value="Australia/Lord_Howe" id="114">+10:30 Australia(Lord Howe Islands)</option>
+	<option value="Pacific/Noumea" id="115">+11 New Caledonia(Noumea)</option>
+	<option value="Pacific/Auckland" id="116">+12 New Zeland(Wellington,Auckland)</option>
+	<option value="Pacific/Chatham" id="118">+12:45 New Zeland(Chatham Islands)</option>
+	<option value="Pacific/Tongatapu" id="119">+13 Tonga(Nukualofa)</option>
+  </timezoneParams>
+    <Codecspriorities>
+      <Codecspriority variableName="codec1" priority="1">
+        <!--The first entry is the selected entry in management console-->
+        <option value="g711a">G711a</option>
+        <option value="g711u">G711u</option>
+        <option value="g726">G726</option>
+        <option value="g722">G722</option>
+        <option value="g729">G729</option>
+        <option value="none">DISABLED</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec2" priority="2">
+        <!--The first entry is the selected entry in management console-->
+        <option value="g711u">G711u</option>
+        <option value="g711a">G711a</option>
+        <option value="g726">G726</option>
+        <option value="g722">G722</option>
+        <option value="g729">G729</option>
+        <option value="none">DISABLED</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec3" priority="3">
+        <!--The first entry is the selected entry in management console-->
+        <option value="g726">G726</option>
+        <option value="g711a">G711a</option>
+        <option value="g711u">G711u</option>
+        <option value="g722">G722</option>
+        <option value="g729">G729</option>
+        <option value="none">DISABLED</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec4" priority="4">
+        <!--The first entry is the selected entry in management console-->
+        <option value="g722">G722</option>
+        <option value="g711a">G711a</option>
+        <option value="g711u">G711u</option>
+        <option value="g726">G726</option>
+        <option value="g729">G729</option>
+        <option value="none">DISABLED</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec5" priority="5">
+        <!--The first entry is the selected entry in management console-->
+        <option value="g729">G729</option>
+        <option value="g722">G722</option>
+        <option value="g711a">G711a</option>
+        <option value="g711u">G711u</option>
+        <option value="g726">G726</option>
+        <option value="none">DISABLED</option>
+      </Codecspriority>
+    </Codecspriorities>
+  </header>
+  <multicastringgroup maxgroupcount="10" blankvalue="">
+    <multicastrg type="bool" readonly="false" default="false" param="multicastenabled">
+	<item value="false">off</item>
+	<item value="true">on</item>
+    </multicastrg>
+  </multicastringgroup>
+  <data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">Snom Conference phone</field>
+      <deviceconfig filename="cfg%%mac_address%%">
+	  <![CDATA[<?xml version="1.0"?> 
+<settings>
+  <time_date>
+    <date_format>%%datestyle%%</date_format>
+    <hr24_clock>%%timestyle%%</hr24_clock>
+    <ntp_dhcp_option>0</ntp_dhcp_option>
+    <ntp_server>1</ntp_server>
+    <ntp_server_addr>%%param::time_ntp_server%%</ntp_server_addr>
+    <ntp_server_update_interval>1000</ntp_server_update_interval>
+    <timezone_dhcp_option>0</timezone_dhcp_option>
+    <selected_timezone>%%param::time_date.selected_timezone%%</selected_timezone>
+  </time_date>
+  <profile>
+    <admin>
+      <access_password>%%DESKPHONE_PASSWORD%%</access_password>
+    </admin>
+    <user>
+      <access_password>%%DESKPHONE_PASSWORD%%</access_password>
+    </user>
+  </profile>
+  <remoteDir>
+    <xml>
+      <idx id="1">
+        <name>3CX Directory</name>
+        {IF network=LOCALLAN}
+        <uri>%%PROVLINKLOCAL%%/snom_phonebook.xml</uri>
+        {ELSE}
+        <uri>%%PROVLINK%%/snom_phonebook.xml</uri>
+        {ENDIF}
+        <call_lookup_enable>1</call_lookup_enable>
+        <contact_entry_tag>item</contact_entry_tag>
+        <first_name_tag>name</first_name_tag>
+        <last_name_tag></last_name_tag>
+        <work_number_tag>number</work_number_tag>
+        <mobile_number_tag></mobile_number_tag>
+        <other_number_tag></other_number_tag>
+      </idx>
+    </xml>
+  </remoteDir>
+  <file>
+    <contact>
+      <directory>
+        {IF network=LOCALLAN}
+        <overwrite>%%PROVLINKLOCAL%%/snom_phonebook.xml</overwrite>
+        {ELSE}
+        <overwrite>%%PROVLINK%%/snom_phonebook.xml</overwrite>
+        {ENDIF}
+      </directory>
+    </contact>
+  </file>
+  <ringersetting>
+{IF sysparam.CUSTOMIZE_QUEUE_RINGTONES=1}
+  <idx id="1">
+{IF queuecrt1}
+    <ringer_text>%%queueid%%</ringer_text>
+    <ringer_type>%%queueringtonevalue%%</ringer_type>
+{ELSE}
+    <ringer_text>%NULL</ringer_text>
+    <ringer_type>1</ringer_type>
+{ENDIF}
+  </idx>
+  <idx id="2">
+{IF queuecrt2}
+    <ringer_text>%%queueid%%</ringer_text>
+    <ringer_type>%%queueringtonevalue%%</ringer_type>
+{ELSE}
+    <ringer_text>%NULL</ringer_text>
+    <ringer_type>1</ringer_type>
+{ENDIF}
+  </idx>
+  <idx id="3">
+{IF queuecrt3}
+    <ringer_text>%%queueid%%</ringer_text>
+    <ringer_type>%%queueringtonevalue%%</ringer_type>
+{ELSE}
+    <ringer_text>%NULL</ringer_text>
+    <ringer_type>1</ringer_type>
+{ENDIF}
+  </idx>
+  <idx id="4">
+{IF queuecrt4}
+    <ringer_text>%%queueid%%</ringer_text>
+    <ringer_type>%%queueringtonevalue%%</ringer_type>
+{ELSE}
+    <ringer_text>%NULL</ringer_text>
+    <ringer_type>1</ringer_type>
+{ENDIF}
+  </idx>
+  <idx id="5">
+{IF queuecrt5}
+    <ringer_text>%%queueid%%</ringer_text>
+    <ringer_type>%%queueringtonevalue%%</ringer_type>
+{ELSE}
+    <ringer_text>%NULL</ringer_text>
+    <ringer_type>1</ringer_type>
+{ENDIF}
+  </idx>
+  <idx id="6">
+{IF queuecrt6}
+    <ringer_text>%%queueid%%</ringer_text>
+    <ringer_type>%%queueringtonevalue%%</ringer_type>
+{ELSE}
+    <ringer_text>%NULL</ringer_text>
+    <ringer_type>1</ringer_type>
+{ENDIF}
+  </idx>
+    <idx id="7">
+{IF queuecrt7}
+    <ringer_text>%%queueid%%</ringer_text>
+    <ringer_type>%%queueringtonevalue%%</ringer_type>
+{ELSE}
+    <ringer_text>%NULL</ringer_text>
+    <ringer_type>1</ringer_type>
+{ENDIF}
+  </idx>
+    <idx id="8">
+{IF queuecrt8}
+    <ringer_text>%%queueid%%</ringer_text>
+    <ringer_type>%%queueringtonevalue%%</ringer_type>
+{ELSE}
+    <ringer_text>%NULL</ringer_text>
+    <ringer_type>1</ringer_type>
+{ENDIF}
+  </idx>
+{ELSE}
+  <idx id="1">
+    <ringer_text>queue</ringer_text>
+    <ringer_type>%%queueringtone%%</ringer_type>
+  </idx>
+{ENDIF}
+  </ringersetting>
+  <sip_account>
+    <idx id="1">
+      <sip_account_enable>1</sip_account_enable>
+      <label>%%extension_first_name%% %%extension_last_name%%</label>
+      <display_name>%%extension_first_name%% %%extension_last_name%%</display_name>
+      <user_id>%%extension_number%%</user_id>
+      <authentication_name>%%extension_auth_id%%</authentication_name>
+      <authentication_access_password>%%extension_auth_pw%%</authentication_access_password>
+      <dial_plan>x+P</dial_plan>
+      <inter_digit_timeout>3</inter_digit_timeout>
+      <maximum_call_number>6</maximum_call_number>
+      <auto_answer_enable>0</auto_answer_enable>
+      <auto_answer_during_active_call>0</auto_answer_during_active_call>
+      <feature_sync_enable></feature_sync_enable>
+      <music_on_hold_enable>1</music_on_hold_enable>
+      <mwi_enable>%%mwiled%%</mwi_enable>
+      <mwi_ignore_unsolicited>1</mwi_ignore_unsolicited>
+      <mwi_uri></mwi_uri>
+      <mwi_subscription_expires>900</mwi_subscription_expires>
+      <stutter_dial_tone_enable>1</stutter_dial_tone_enable>
+      <voice_encryption_enable>%%srtpvalue%%</voice_encryption_enable>
+<!--######################### LAN  #########################-->
+{IF network=LOCALLAN}	
+      <primary_sip_server_address>%%pbx_ip%%</primary_sip_server_address>
+      <primary_sip_server_port>%%param::sipport%%</primary_sip_server_port>
+      <primary_outbound_proxy_server_address>%%pbx_ip%%</primary_outbound_proxy_server_address>
+      <primary_outbound_proxy_server_port>%%param::sipport%%</primary_outbound_proxy_server_port>
+      <primary_registration_server_address>%%pbx_ip%%</primary_registration_server_address>
+      <primary_registration_server_port>%%param::sipport%%</primary_registration_server_port>
+      <primary_registration_expires>120</primary_registration_expires>
+{ENDIF}
+<!--######################### STUN  #########################-->
+{IF network=REMOTESTUN}
+      <primary_sip_server_address>%%pbx_ip%%</primary_sip_server_address>
+      <primary_sip_server_port>%%param::sipport%%</primary_sip_server_port>
+      <primary_outbound_proxy_server_address>%%pbx_ip%%</primary_outbound_proxy_server_address>
+      <primary_outbound_proxy_server_port>%%param::sipport%%</primary_outbound_proxy_server_port>
+      <primary_registration_server_address>%%pbx_ip%%</primary_registration_server_address>
+      <primary_registration_server_port>%%param::sipport%%</primary_registration_server_port>
+      <primary_registration_expires>120</primary_registration_expires>
+      <local_sip_port>%%phonesipport%%</local_sip_port>
+      <nat_traversal_stun_enable>1</nat_traversal_stun_enable>
+      <nat_traversal_stun_server_port>%%param::sipport%%</nat_traversal_stun_server_port>
+      <nat_traversal_stun_server_address>%%pbx_ip%%</nat_traversal_stun_server_address>
+
+{ENDIF}
+<!--######################### SBC  #########################-->
+{IF network=SBC}
+      <primary_sip_server_address>%%param::pbxpublicip%%</primary_sip_server_address>
+      <primary_sip_server_port>%%param::sipport%%</primary_sip_server_port>
+      <primary_outbound_proxy_server_address>%%local_sbc_ip%%</primary_outbound_proxy_server_address>
+      <primary_outbound_proxy_server_port>%%local_sbc_port%%</primary_outbound_proxy_server_port>
+      <primary_registration_server_address>%%param::pbxpublicip%%</primary_registration_server_address>
+      <primary_registration_server_port>%%param::sipport%%</primary_registration_server_port>
+      <primary_registration_expires>120</primary_registration_expires>
+{ENDIF} 
+
+          
+      <access_code_page></access_code_page>
+      <access_code_park_call></access_code_park_call>
+      <access_code_retrieve_parked_call></access_code_retrieve_parked_call>
+      <access_code_retrieve_voicemail>%%vm_number%%</access_code_retrieve_voicemail>
+      <access_code_dnd_on></access_code_dnd_on>
+      <access_code_dnd_off></access_code_dnd_off>
+      <access_code_cfa_on></access_code_cfa_on>
+      <access_code_cfa_off></access_code_cfa_off>
+      <access_code_cfna_on></access_code_cfna_on>
+      <access_code_cfna_off></access_code_cfna_off>
+      <access_code_cfb_on></access_code_cfb_on>
+      <access_code_cfb_off></access_code_cfb_off>
+      <access_code_outgoing_call_anonymous_on></access_code_outgoing_call_anonymous_on>
+      <access_code_outgoing_call_anonymous_off></access_code_outgoing_call_anonymous_off>
+      <access_code_call_waiting_on></access_code_call_waiting_on>
+      <access_code_call_waiting_off></access_code_call_waiting_off>
+      <access_code_group_call_pickup></access_code_group_call_pickup>
+      <access_code_direct_call_pickup></access_code_direct_call_pickup>
+      <network_conference_enable>1</network_conference_enable>
+{IF network=SBC}
+      <network_bridge_uri>%%param::DIALCODECONFGATEWAY%%*%%extension_number%%@%%local_sbc_ip%%:%%local_sbc_port%%</network_bridge_uri>
+{ELSE}
+      <network_bridge_uri>%%param::DIALCODECONFGATEWAY%%*%%extension_number%%@%%pbx_ip%%:%%param::sipport%%</network_bridge_uri>
+{ENDIF}
+      <sip_session_timer_enable>1</sip_session_timer_enable>
+      <sip_session_timer_min>90</sip_session_timer_min>
+      <sip_session_timer_max>1800</sip_session_timer_max>
+      <dtmf_transport_method>auto</dtmf_transport_method>
+      <codec_priority>
+        <idx id="1">%%codec1%%</idx>
+        <idx id="2">%%codec2%%</idx>
+        <idx id="3">%%codec3%%</idx>
+        <idx id="4">%%codec4%%</idx>
+	<idx id="5">%%codec5%%</idx>
+      </codec_priority>
+      <unregister_after_reboot_enable>1</unregister_after_reboot_enable>
+      <transport_mode>udp</transport_mode>
+      <backup_outbound_proxy_server_address></backup_outbound_proxy_server_address>
+      <registration_retry_time>10</registration_retry_time>
+      <dscp>46</dscp>
+      <sip_dscp>26</sip_dscp>
+      <check_trusted_certificate>0</check_trusted_certificate>
+      <normal_jitter>80</normal_jitter>
+      <g729_annexb_enable>0</g729_annexb_enable>
+      <park_variant>broadsoft</park_variant>
+      <preferred_ptime>20</preferred_ptime>
+      <call_rejection_response_code>486</call_rejection_response_code>
+    </idx>
+  </sip_account>
+  <network>
+    <ip>
+      <dhcp_enable></dhcp_enable>
+      <dns1></dns1>
+      <dns2></dns2>
+      <dns_cache_clear_timeout>60</dns_cache_clear_timeout>
+    </ip>
+    <nat>
+      <masquerading_enable>0</masquerading_enable>
+      <public_ip_addr></public_ip_addr>
+      <public_sip_port>5060</public_sip_port>
+      <public_rtp_port_start>18000</public_rtp_port_start>
+      <public_rtp_port_end>19000</public_rtp_port_end>
+    </nat>
+    <vlan>
+      <wan>
+        <enable>%%vlanwanenabled%%</enable>
+        <id>%%vlanwanportid%%</id>
+        <priority>%%vlanwanportpriority%%</priority>
+      </wan>
+    </vlan>
+{IF network=REMOTESTUN}
+    <rtp>
+      <port_start>%%rtp_port_min%%</port_start>
+      <port_end>%%rtp_port_max%%</port_end>
+    </rtp>
+{ENDIF}
+    <lldp_med>
+      <enable>1</enable>
+      <interval>30</interval>
+    </lldp_med>
+    <eapol>
+      <enable>0</enable>
+      <identity></identity>
+      <access_password></access_password>
+    </eapol>
+  </network>
+  <provisioning>
+    <bootup_check_enable>1</bootup_check_enable>
+    <crypto_enable>0</crypto_enable>
+    <crypto_passphrase></crypto_passphrase>
+    <dhcp_option_enable>0</dhcp_option_enable>
+    <dhcp_option_priority_1></dhcp_option_priority_1>
+    <dhcp_option_priority_2></dhcp_option_priority_2>
+    <dhcp_option_priority_3></dhcp_option_priority_3>
+{IF network=LOCALLAN}	
+    <firmware_url>%%PROVLINKLOCAL%%/firmware/snom/%%firmware%%</firmware_url>
+{ENDIF}
+<!--######################### STUN  #########################-->
+{IF network=REMOTESTUN}
+    <firmware_url>%%PROVLINK%%/firmware/snom/%%firmware%%</firmware_url>
+{ENDIF}
+<!--######################### SBC  #########################-->
+{IF network=SBC}
+    <firmware_url>%%PROVLINK%%/firmware/snom/%%firmware%%</firmware_url>
+{ENDIF}
+    <fw_server_username></fw_server_username>
+    <fw_server_access_password></fw_server_access_password>
+    <resync_mode>config_and_firmware</resync_mode>
+    <resync_time>1440</resync_time>
+{IF network=LOCALLAN}	
+    <server_address>%%PROVLINKLOCAL%%/cfg{mac}</server_address>
+{ENDIF}
+<!--######################### STUN  #########################-->
+{IF network=REMOTESTUN}
+    <server_address>%%PROVLINK%%/cfg{mac}</server_address>
+{ENDIF}
+<!--######################### SBC  #########################-->
+{IF network=SBC}
+    <server_address>%%PROVLINK%%/cfg{mac}</server_address>
+{ENDIF}
+    <server_username></server_username>
+    <server_access_password></server_access_password>
+    <check_trusted_certificate>0</check_trusted_certificate>
+    <click_to_dial>1</click_to_dial>
+    <remote_check_sync_enable>1</remote_check_sync_enable>
+    <pnp_enable>1</pnp_enable>
+    <pnp_response_timeout></pnp_response_timeout>
+    <schedule_mode>interval</schedule_mode>
+    <weekdays></weekdays>
+    <weekdays_start_hr>0</weekdays_start_hr>
+    <weekdays_end_hr>0</weekdays_end_hr>
+  </provisioning>
+  <user_pref>
+    <language>%%langwebUI%%</language>
+    <web_language>en</web_language>
+    <backlight>%%backlight%%</backlight>
+    <backlight_timeout>%%blktime%%</backlight_timeout>
+    <idle_backlight>%%idle_backlight%%</idle_backlight>
+    <account>
+      <idx id="1">
+        <ringer>%%defringtone%%</ringer>
+      </idx>
+    </account>
+    <hold_reminder>
+      <enable>1</enable>
+      <interval>30</interval>
+    </hold_reminder>
+    <call_waiting>
+      <mode>enable</mode>
+      <tone_enable>1</tone_enable>
+      <tone_interval>30</tone_interval>
+    </call_waiting>
+    <notify>
+      <led>
+        <missed_call>
+          <enable>%%missedled%%</enable>
+        </missed_call>
+      </led>
+    </notify>
+  </user_pref>
+  <log>
+    <syslog_enable>1</syslog_enable>
+    <syslog_level>5</syslog_level>
+    <syslog_server_address></syslog_server_address>
+    <syslog_server_port>514</syslog_server_port>
+  </log>
+  <page_zone>
+    <call_priority_threshold>2</call_priority_threshold>
+    <!--Note: page_zone "name" must be 15 characters or less, otherwise incoming page will not work -->
+    <idx id="1">
+      <name>%%multicastrgname1%%</name>
+      <multicast_address>%%multicastrgip1%%</multicast_address>
+      <multicast_port>%%multicastrgport1%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+     <idx id="2">
+      <name>%%multicastrgname2%%</name>
+      <multicast_address>%%multicastrgip2%%</multicast_address>
+      <multicast_port>%%multicastrgport2%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+    <idx id="3">
+      <name>%%multicastrgname3%%</name>
+      <multicast_address>%%multicastrgip3%%</multicast_address>
+      <multicast_port>%%multicastrgport3%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+    <idx id="4">
+      <name>%%multicastrgname4%%</name>
+      <multicast_address>%%multicastrgip4%%</multicast_address>
+      <multicast_port>%%multicastrgport4%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+    <idx id="5">
+      <name>%%multicastrgname5%%</name>
+      <multicast_address>%%multicastrgip5%%</multicast_address>
+      <multicast_port>%%multicastrgport5%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+    <idx id="6">
+      <name>%%multicastrgname6%%</name>
+      <multicast_address>%%multicastrgip6%%</multicast_address>
+      <multicast_port>%%multicastrgport6%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+    <idx id="7">
+      <name>%%multicastrgname7%%</name>
+      <multicast_address>%%multicastrgip7%%</multicast_address>
+      <multicast_port>%%multicastrgport7%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+    <idx id="8">
+      <name>%%multicastrgname8%%</name>
+      <multicast_address>%%multicastrgip8%%</multicast_address>
+      <multicast_port>%%multicastrgport8%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+    <idx id="9">
+      <name>%%multicastrgname9%%</name>
+      <multicast_address>%%multicastrgip9%%</multicast_address>
+      <multicast_port>%%multicastrgport9%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+    <idx id="10">
+      <name>%%multicastrgname10%%</name>
+      <multicast_address>%%multicastrgip10%%</multicast_address>
+      <multicast_port>%%multicastrgport10%%</multicast_port>
+      <accept_incoming_page>%%multicastenabled%%</accept_incoming_page>
+      <priority></priority>
+    </idx>
+  </page_zone>
+  <speed_dial>
+    <idx id="0">
+      <name>VMAIL</name>
+      <number>%%vm_number%%</number>
+      <account>1</account>
+    </idx>
+  </speed_dial>
+  <file>
+    <provisioning>
+      <trusted>
+        <certificate></certificate>
+      </trusted>
+    </provisioning>
+  </file>
+</settings>	  
+	  ]]></deviceconfig>
+    </device>
+  </data>
+</doc>

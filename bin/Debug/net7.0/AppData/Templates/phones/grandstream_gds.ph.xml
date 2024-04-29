@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>145775</version>
+    <time>2021-06-28 10:00:00</time>
+    <name>GrandStream GDS37XX</name>
+    <url>https://www.3cx.com/sip-phones/grandstream-doorphones/</url>
+	<templatetype>thirdparty</templatetype>
+    <models>
+      <model ua="GDS3705">GrandStream GDS-3705</model>
+	  <model ua="GDS3710">GrandStream GDS-3710</model>
+    </models>
+    <description>GrandStream Door Station</description>
+    <rebootParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </rebootParams>
+    <resyncParams>
+      <event-name>check-sync;reboot=false</event-name>
+    </resyncParams>
+    <firmwareParams>
+      <event-name>check-sync;reboot=false</event-name>
+    </firmwareParams>
+	<rps>1</rps>
+	<hotdesking>0</hotdesking>
+    <AllowedNetworkConfig>
+      <option value="LOCALLAN">1</option>
+      <option value="REMOTESTUN">1</option>
+      <option value="SBC">1</option>
+    </AllowedNetworkConfig>
+    <interfaceLink>https://admin:%%PHONE_WEB_PASSWORD%%@%%PHONE_IP%%/direct-login</interfaceLink>
+    <AllowWebPasswordChange>1</AllowWebPasswordChange>
+    <AllowSSLProvisioning>1</AllowSSLProvisioning>
+    <xfertype enabled="false" bxfer_Value="0" attxfer_Value="1" />
+	<vlan>
+      <vlanwanport type="bool" readonly="false" default="false" param="vlanwanenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </vlanwanport>
+	  <vlanwanid type="int" readonly="false" default="0" minvalue="0" maxvalue="4094" param="vlanwanportid" />
+      <vlanwanpriority type="int" readonly="false" default="0" minvalue="0" maxvalue="7" param="vlanwanportpriority" />
+    </vlan>
+    <lldp>
+	  <lldpvalue type="bool" readonly="false" default="true" param="lldpenabled">
+		<item value="false">0</item>
+		<item value="true">1</item>
+	  </lldpvalue>
+	</lldp>
+	<ringtones>
+      <!--The first entry is the selected entry in management console-->
+      <option value="System Ring Tone">
+        <item name="defringtone">0</item>
+      </option>
+      <option value="Custom Ring Tone 1">
+        <item name="defringtone">1</item>
+      </option>
+      <option value="Custom Ring Tone 2">
+        <item name="defringtone">2</item>
+      </option>
+      <option value="Custom Ring Tone 3">
+        <item name="defringtone">3</item>
+      </option>
+    </ringtones>
+    <timezoneParams param="time_timezone_grandstreamexec">
+      <option value="1" id="121" zone="-12:00">GMT-12:00 (Eniwetok, Kwajalein)</option>
+      <option value="2" id="120" zone="-11:00">GMT-11:00 (Midway Island, Samoa)</option>
+      <option value="3" id="1" zone="-10:00">GMT-10:00 (US Hawaiian Time, Aleutian Isl.)</option>
+      <option value="4" id="3" zone="-9:00">GMT-9:00 (Alaska)</option>
+      <option value="5" id="6" zone="-8:00">GMT-8:00 (Las Vegas, San Francisco, Vancouver)</option>
+	  <option value="6" id="4" zone="-7:00">GMT-7:00 (Calgary, Denver, Salt Lake City)</option>
+      <option value="7" zone="-6:00">GMT-6:00 (Chicago, Dallas, Mexico City)</option>
+      <option value="8" id="9" zone="-5:00">GMT-5:00 (Cuba)</option>
+	  <option value="9" id="7" zone="-5:00">GMT-5:00 (New York, Toronto, Washington DC)</option>
+      <option value="10" id="10" zone="-4:00">GMT-4:00 (Paraguay)</option>
+      <option value="11" id="8" zone="-4:00">GMT-4:00 (Chile)</option>
+	  <option value="12" id="18" zone="-4:00">GMT-04:00 (Charlottetown, Manause)</option>
+      <option value="55" id="19" zone="-4:00">GMT-4:00 (Charlottetown, Manause)</option>
+      <option value="13" id="28" zone="-3:00">GMT-3:00 (Brazil, Sao Paulo)</option>
+      <option value="14" zone="-2:00">GMT-02:00 (Naronha, Mid-Atlantic)</option>
+	  <option value="15" id="74" zone="-1:00">GMT-01:00 (Azores, Cap Verde Isl.)</option>
+	  <option value="16" id="75" zone="0:00">GMT+00:00 (Dublin, Lisbon, London, Reykjavik)</option>
+	  <option value="17" id="76" zone="1:00">GMT+01:00 (Amsterdam, Berlin, Rome, Stockholm)</option>
+	  <option value="18" id="77" zone="2:00">GMT+02:00 (Athens, Helsinki, Istanbul, Riga)</option>
+	  <option value="19" id="78" zone="2:00">GMT+02:00 (Egypt)</option>
+      <option value="20" id="79" zone="2:00">GMT+02:00 (Israel)</option>
+	  <option value="21" id="80" zone="2:00">GMT+02:00 (Lebanon)</option>
+      <option value="22" id="81" zone="2:00">GMT+02:00 (Syria)</option>
+	  <option value="23" id="82" zone="3:00">GMT+03:00 (Moscow, Riyadh)</option>
+	  <option value="24" id="83" zone="3:00">GMT+03:00 (Iraq)</option>
+	  <option value="25" id="84" zone="3:30">GMT+03:30 (Iran)</option>
+      <option value="26" id="90" zone="4:00">GMT+04:00 (Abu Dhabi, Baku)</option>
+	  <option value="27" id="86" zone="4:30">GMT+04:30 (Kabul)</option>
+      <option value="28" id="94" zone="5:00">GMT+05:00 (Islamabad, Karachi, Tashkent)</option>
+      <option value="29" id="96" zone="5:30">GMT+05:30 (Bombay, Calcutta, New Delhi)</option>
+	  <option value="30" id="99" zone="6:00">GMT+06:00 (Novosibirsk)</option>
+      <option value="31" id="102" zone="7:00">GMT+07:00 (Bankok, Hanoi, Jakarta)</option>
+      <option value="32" id="103" zone="8:00">GMT+08:00 (Beijing, Hong Kong, Shanghai, Taipei, Taiwan)</option>
+      <option value="33" id="107" zone="9:00">GMT+09:00 (Osaka, Sapporo, Tokyo)</option>
+      <option value="34" id="108" zone="9:30">GMT+09:30 (Adelaide, Darwin)</option>
+      <option value="35" id="112" zone="10:00">GMT+10:00 (Hobart)</option>
+      <option value="36" id="111" zone="10:00">GMT+10:00 (Sydney, Melbourne, Canberra)</option>     
+	  <option value="37" id="115" zone="11:00">GMT+11:00 (Magadan, Solomon Is., New Caledonia)</option>
+      <option value="38" id="116" zone="12:00">GMT+12:00 (Auckland, Wellington)</option>
+    </timezoneParams>
+    <Codecspriorities>
+      <Codecspriority variableName="codec1" priority="1">
+        <!--The first entry is the selected entry in management console-->
+        <option value="0">PCMU</option>
+        <option value="8">PCMA</option>
+        <option value="18">G729A/B</option>
+        <option value="9">G722 (WideBand)</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec2" priority="2">
+        <!--The first entry is the selected entry in management console-->
+        <option value="8">PCMA</option>
+        <option value="0">PCMU</option>
+        <option value="18">G729A/B</option>
+        <option value="9">G722 (WideBand)</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec3" priority="3">
+        <!--The first entry is the selected entry in management console-->
+        <option value="9">G722 (WideBand)</option>
+        <option value="0">PCMU</option>
+        <option value="8">PCMA</option>
+        <option value="18">G729A/B</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec4" priority="4">
+        <!--The first entry is the selected entry in management console-->
+        <option value="18">G729A/B</option>
+        <option value="9">G722 (WideBand)</option>
+        <option value="0">PCMU</option>
+        <option value="8">PCMA</option>
+      </Codecspriority>
+    </Codecspriorities>
+  </header>
+  <blftype>
+    <extension>
+      <Value>%%blfno%%</Value>
+    </extension>
+    <speeddial>
+      <Value>%%blfno%%</Value>
+    </speeddial>
+    <customspeeddial>
+      <Value>%%blfno%%</Value>
+    </customspeeddial>
+  </blftype>
+<data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">GrandStream GDS</field>
+      <deviceconfig filename="cfg%%mac_address%%.xml"><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<gs_provision version="1">
+  <config version="1">
+  
+	<!--################################################################## -->
+	<!--##	 Door System Settings - Basic Settings                      ## -->
+	<!--################################################################## -->
+  
+	<!-- ALMOUT 1 Feature (0:Alarm Output  1:Open Door) -->
+	<!-- <P15450>1</P15450> -->
+	<!-- ALMOUT 1 Status (0:Normal Close 1:Normal Open) -->
+	<!-- <P15470>1</P15470> -->
+	<!-- Control Options (0:Door 1  1:Door 2  2:Door 1 & Door 2  3:None) -->
+	<!-- <P15467>2</P15467> -->
+	<!-- Wiegand Control Options (0:Door 1  1:Door 2  2:Door 1 & Door 2  3:None) -->
+	<!-- <P15468>2</P15468> -->
+	<!-- Delay before Unlock Action(s) Door 1 (value: 0-20) -->
+    <!-- <P14100>0</P14100> -->
+	<!-- Delay before Unlock Action(s) Door 2 (value: 0-20) -->
+    <!-- <P15465>0</P15465> -->
+    <!-- Unlock Action Holding Time(s) Door 1 (value: 1-20) -->
+    <!-- <P14101>5</P14101> -->
+	<!-- Unlock Action Holding Time(s) Door 2 (value: 1-20) -->
+    <!-- <P15466>5</P15466> -->
+	
+    <!-- Min. Interval of Swiping Card(ms) (value: 0-2000) -->
+    <!-- <P14829>300</P14829> -->
+	<!-- Number of Snapshots when Door 1 Opened (value: Integer) -->
+    <!-- <P15474>4</P15474> -->
+	<!-- Number of Snapshots when Door 2 Opened (value: Integer) -->
+    <!-- <P15475>4</P15475> -->
+	<!-- Snapshot when Door Opened - via FTP (0:Disable  1:Enable) -->
+    <!-- <P14103>4</P14103> -->
+	<!-- Snapshot when Door Opened - via Email (0:Disable  1:Enable) -->
+    <!-- <P15471>4</P15471> -->
+	<!-- Snapshot when Door Pressed - via FTP (0:Disable  1:Enable) -->
+    <!-- <P15420>4</P15420> -->
+	<!-- Snapshot when Door Pressed - via Email (0:Disable  1:Enable) -->
+    <!-- <P15409>4</P15409> -->
+
+    <!-- Call Mode (0:Virtual Number  1:SIP Number) -->
+    <P14856>1</P14856> -->
+    <!-- Doorbell Mode (0:Call Doorbell Number  1:Control Doorbell Output  2:Both Of Above) -->
+    <!-- <P14827>0</P14827> -->
+	<!-- Door Bell Call Mode (0:Serial Hunting 1:Parallel Hunting) -->
+    <!-- <P15434>0</P15434> -->
+	
+    <!-- Number Called When Door Bell Pressed (Integer)-->
+	{IF blf1}
+    <P10462>%%Value%%</P10462>
+	{ELSE}
+	<P10462></P10462>
+	{ENDIF}
+	
+	<!-- Maximum Number of Dialed Digits (0 - 20)-->
+    <!-- <P15419>0</P15419> -->
+	<!-- No Key Input Timeout(s) (0 - 15)-->
+    <!-- <P15436>4</P15436> -->
+	<!-- Press Doorbell Schedule (0 - 10)-->
+    <!-- <P15418>0</P15418> -->
+	<!-- Remote PIN to Open the Door 1. (Digital and max length is 8 -->
+    <!-- <P10457></P10457> -->
+    <!-- Remote PIN to Open the Door 2. (Digital and max length is 8 -->
+    <!-- <P15460></P15460> -->
+    <!-- Local PIN Type (0: Private Card PIN  1: Unified PIN  2: Card + Private PIN) -->
+    <!-- <P10464>1</P10464> -->
+    <!-- Unified PIN Open Door Options (0:Door 1  1:Door 2  2:Door 1 & Door 2  3:None) -->
+    <!-- <P15461>0</P15461> -->
+	<!-- Local PIN to Open the Door (Digital and max length is 8) -->
+    <!-- <P10463></P10463> -->
+	
+    <!-- Enable DTMF Open Door (0:Disable  1:Enable) -->
+    <!-- <P14858>0</P14858> -->
+    <!-- Enable Guest PIN (0:Disable  1:Enable) -->
+    <!-- <P14850>0</P14850> -->
+    <!-- Guest PIN (Digital and max length is 8) -->
+    <!-- <P14851></P14851> -->
+	<!-- Guest PIN Open Door Options (0:Door 1  1:Door 2  2:Door 1 & Door 2  3:None) -->
+    <!-- <P15462>0</P15462> -->
+    <!-- Guest PIN Duration Start Time . Example: 20170228023156 => 2017-02-28 02:31:56 -->
+    <!-- <P14852></P14852> -->
+    <!-- Guest PIN Duration End Time . Example: 20170228023156 => 2017-02-28 02:31:56 -->
+    <!-- <P14853></P14853> -->
+    <!-- Disable Auto Answer (0:Disable  1:Enable) -->
+    <P14580>0</P14580> -->
+    <!-- Enable Doorbell Button to Hang Up Call. (0:Disable  1:Enable (default)) -->
+    <!-- <P14582>1</P14582> -->
+    <!-- Disable Keypad (except Doorbell Button). (0:Disable(default)  1:Enable) -->
+    <!-- <P15421>0</P15421> -->
+    <!-- Enable On Hook After Remote Unlock. (0:Disable(default)  1:Enable) -->
+    <!-- <P15422>0</P15422> -->
+	<!-- Enable HTTP API Remote Open Door. (0:Disable  1:Enable) -->
+    <!-- <P15424>0</P15424> -->
+	<!-- Open Door IDCode Valid Time (s). (5 - 300) -->
+    <!-- <P15428>30</P15428> -->
+	
+    <!-- Card Issuing State Expire Time(m) (1-1440) -->
+    <!-- <P15423>5</P15423> -->
+    <!-- Enable Key Blue Light (0:Disable  1:Enable) -->
+    <!-- <P14800>1</P14800> -->
+	<!-- Enable Background Light (0:Disable  1:Enable) -->
+    <!-- <P14801>1</P14801> -->
+    <!-- Enable Blue Doorbell Light (0:Disable 1:enable) -->
+    <!-- <P14562>0</P14562> -->
+    <!-- Blue Doorbell Light Lighting Start TIME(string exmaple: 125900) -->
+    <!-- <P14560>000000</P14560> -->
+    <!-- Blue Doorbell Light Lighting End TIME(string exmaple: 145930) -->
+    <!-- <P14561>000000</P14561> -->
+	<!-- Enable Blue Keypad Light (0:Disable 1:enable) -->
+    <!-- <P15500>0</P15500> -->
+    <!-- Blue Keypad Light Lighting Start TIME(string exmaple: 125900) -->
+    <!-- <P15501>000000</P15501> -->
+    <!-- Blue Keypad Light Lighting End TIME(string exmaple: 145930) -->
+    <!-- <P15502>000000</P15502> -->
+    <!-- Central Mode (0:disable 1:Enable) -->
+    <!-- <P15301>0</P15301> -->
+    <!-- Key Tone Type (0:Default  1:DTMF  2:Mute) -->
+    <!-- <P14340>0</P14340> -->
+    <!-- Wiegand Input Enable (0:Disable  1:Enable) -->
+    <!-- <P14120>0</P14120> -->
+    <!-- Wiegand Output (0:Disabled  1:Relay and  Local Authentication  2:Relay and Bypass Local) -->
+    <!-- <P14121>0</P14121> -->
+  
+	<!--################################################################## -->
+	<!--##	 Door System Settings - Keep Door Open                      ## -->
+	<!--################################################################## -->
+	<!-- Keep Door 1 Open (0: Disable  1:Immediate Open Door  2:Schedule Open Door) -->
+    <!-- <P15429>0</P15429> -->
+    <!-- Emergency PIN to Disable Keep Door 1 Open (Digital string. Max.Length=8) -->
+    <!-- <P15435></P15435> -->
+	<!-- Length(m) to Keep Door 1 Open (Integer value: 5 - 480) -->
+    <!-- <P15430>5</P15430> -->
+    <!-- Schedule Start Time(Digital string) -->
+    <!-- <P15211>20180516000000</P15211> -->
+    <!-- Schedule End Time (Digital string) -->
+    <!-- <P15212>20180516000000</P15212> -->
+    <!-- Schedule Table (Format:door_sch,0@start_time@end_time. Example:door_sch,0@0000@2359) -->
+    <!-- <P15213>0</P15213> -->
+	
+    <!-- Keep Door 2 Open (0: Disable  1:Immediate Open Door  2:Schedule Open Door) -->
+    <!-- <P15455>0</P15455> -->
+    <!-- Emergency PIN to Disable Keep Door 2 Open (Digital string. Max.Length=8) -->
+    <!-- <P15472></P15472> -->
+	<!-- Length(m) to Keep Door 2 Open (Integer value: 5 - 480) -->
+    <!-- <P15456>5</P15456> -->
+    <!-- Schedule Start Time(Digital string) -->
+    <!-- <P15457>20180516000000</P15457> -->
+    <!-- Schedule End Time (Digital string) -->
+    <!-- <P15458>20180516000000</P15458> -->
+    <!-- Schedule Table (Format:door_sch,0@start_time@end_time. Example:door_sch,0@0000@2359) -->
+    <!-- <P15459>0</P15459> -->
+	
+	<!--################################################################## -->
+	<!--##	 Door System Settings - Group		                        ## -->
+	<!--################################################################## -->
+    <!-- Group string. (Format:index@scheduleX@name. Example:1@1@info,2@1@test) -->
+    <!-- <P15300></P15300> -->
+	
+	<!--################################################################## -->
+	<!--##	 Door System Settings - Schedule	                        ## -->
+	<!--################################################################## -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15200>schedule1@0,0@0000@0000,</P15200> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15201>schedule2@0,0@0000@0000,</P15201> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15202>schedule3@0,0@0000@0000,</P15202> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15203>schedule4@0,0@0000@0000,</P15203> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15204>schedule5@0,0@0000@0000,</P15204> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15205>schedule6@0,0@0000@0000,</P15205> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15206>schedule7@0,0@0000@0000,</P15206> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15207>schedule8@0,0@0000@0000,</P15207> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15208>schedule9@0,0@0000@0000,</P15208> -->
+    <!-- Schedule String. Format: name@holiday_mode,weekday@start_time@end_time,weekday@start_time@end_time, -->
+    <!-- <P15209>schedule10@0,0@0000@0000,</P15209> -->
+	
+	<!--################################################################## -->
+	<!--##	 Door System Settings - Holiday		                        ## -->
+	<!--################################################################## -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15250>holiday1,</P15250> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15251>holiday2,</P15251> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15252>holiday3,</P15252> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15253>holiday4,</P15253> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15254>holiday5,</P15254> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15255>holiday6,</P15255> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15256>holiday7,</P15256> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15257>holiday8,</P15257> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15258>holiday9,</P15258> -->
+    <!-- Holiday string. Format: name,start_date@end_date, Example: hahaha,20170708@20170910, -->
+    <!-- <P15259>holiday10,</P15259> -->
+	
+	<!--################################################################## -->
+	<!--##	 System Settings - Date & Time		                        ## -->
+	<!--################################################################## -->
+	<!-- Allow DHCP Option 42 to override NTP server (0:Disable  1:Enable) -->
+	<P144>0</P144>
+    <!-- Time Zone -->
+	<P64>%%param::time_timezone_grandstreamexec%%</P64>
+    <!-- Enable Daylight Saving Time (0:Disable  1:Enable) -->
+    <!-- <P10004>1</P10004> -->
+    <!-- DST -->
+    <!-- <P10005></P10005> -->
+    <!-- Enable NTP (0:Disable  1:Enable) -->
+    <P5006>1</P5006>
+    <!-- NTP Server (type:string maxlength:255) -->
+	<P30>%%param::time_ntp_server%%</P30>
+    <!-- Update Interval(m) (value:60~1440) -->
+    <P10006>1440</P10006>
+
+	<!--################################################################## -->
+	<!--##	 System Settings - Network Settings                         ## -->
+	<!--################################################################## -->
+	<!-- IP Address Mode (0:DHCP  1:Static IP) -->
+    <!-- <P8>0</P8> -->
+    <!-- IP Address segment1 (value: 0~255) -->
+    <!-- <P9>192</P9> -->
+    <!-- IP Address segment2 (value: 0~255) -->
+    <!-- <P10>168</P10> -->
+    <!-- IP Address segment3 (value: 0~255) -->
+    <!-- <P11>40</P11> -->
+    <!-- IP Address segment4 (value: 0~255) -->
+    <!-- <P12>130</P12> -->
+    <!-- Subnet Mask segment1 (value: 0~255) -->
+    <!-- <P13>255</P13> -->
+    <!-- Subnet Mask segment2 (value: 0~255) -->
+    <!-- <P14>255</P14> -->
+    <!-- Subnet Mask segment3 (value: 0~255) -->
+    <!-- <P15>254</P15> -->
+    <!-- Subnet Mask segment4 (value: 0~255, if segment1,segment2,segment3 equal 255,then segment4 limited 0 - 240) -->
+    <!-- <P16>0</P16> -->
+    <!-- Gateway segment1 (value: 0~255) -->
+    <!-- <P17>192</P17> -->
+    <!-- Gateway segment2 (value: 0~255) -->
+    <!-- <P18>168</P18> -->
+    <!-- Gateway segment3 (value: 0~255) -->
+    <!-- <P19>40</P19> -->
+    <!-- Gateway segment4 (value: 0~255) -->
+    <!-- <P20>5</P20> -->
+
+    <!-- DNS Address Type (0:Dynamic  1:Static DNS) -->
+    <!-- <P10107>0</P10107> -->
+    <!-- DNS Server 1 segment1 (value: 0~255) -->
+    <!-- <P21>192</P21> -->
+    <!-- DNS Server 1 segment2 (value: 0~255) -->
+    <!-- <P22>168</P22> -->
+    <!-- DNS Server 1 segment3 (value: 0~255) -->
+    <!-- <P23>40</P23> -->
+    <!-- DNS Server 1 segment4 (value: 0~255) -->
+    <!-- <P24>58</P24> -->
+    <!-- DNS Server 2 segment1 (value: 0~255) -->
+    <!-- <P25>8</P25> -->
+    <!-- DNS Server 2 segment2 (value: 0~255) -->
+    <!-- <P26>8</P26> -->
+    <!-- DNS Server 2 segment3 (value: 0~255) -->
+    <!-- <P27>8</P27> -->
+    <!-- DNS Server 2 segment4 (value: 0~255) -->
+    <!-- <P28>8</P28> -->
+
+    <!-- LLDP Enable(0:Disable 1:Enable) -->
+    <P1684>%%lldpenabled%%</P1684> -->
+	
+	<!-- Enable DHCP VLAN. 0 - Disable, 1 - Enable. Default is 0. -->
+    <P8300>%%vlanwanenabled%%</P8300>
+	
+    <!-- Layer 2 QoS 802.1Q/VLAN Tag(0-255) -->
+    <P51>%%vlanwanportid%%</P51> -->
+	
+    <!-- Layer 2 QoS 802.1p Priority Value for SIP signaling(0-7) -->
+    <P87>%%vlanwanportpriority%%</P87> -->
+
+	<!--################################################################## -->
+	<!--##	 System Settings - Access Settings                          ## -->
+	<!--################################################################## -->
+    <!-- Web Connection Mode (0:HTTP  1:HTTPS) -->
+    <!-- <P12054>1</P12054> -->
+    <!-- Web Access Port (value: HTTP 80~65535  HTTPS 443-65535) -->
+    <!-- <P901>443</P901> -->
+	<!-- RTSP Port (value: 554 - 65535) -->
+    <!-- <P903>10810</P903> -->
+    <!-- User Login Timeout(min) (value: 3~60) -->
+    <!-- <P12056>5</P12056> -->
+    <!-- Max Times Consecutively Login Error (value: 3~10) -->
+    <!-- <P14832>5</P14832> -->
+    <!-- Login Error Lock Time (value: 5~60) -->
+    <!-- <P14834>5</P14834> -->
+	<!-- Disable Web Access (0:Disable  1:Enable) -->
+    <!-- <P15473>0</P15473> -->
+    <!-- Enable UPnP Discovery (0:Disable  1:Enable) -->
+    <!-- <P12053>1</P12053> -->
+	<!-- Enable Anonymous LiveView (0:Disable  1:Enable) -->
+    <!-- <P15469>0</P15469> -->
+    <!-- Enable SSH (0:Disable  1:Enable) -->
+    <!-- <P276>1</P276> -->
+    <!-- SSH Port(value: 22 or 444-65535, default 22) -->
+    <!-- <P27006>22</P27006> -->
+	<!-- GDSManager Configuration Password (value: String & MAX length is 32) -->
+    <!-- <P15505></P15505> -->
+  
+	<!--################################################################## -->
+	<!--##	 System Settings - User Management                          ## -->
+	<!--################################################################## -->	
+	<!-- Admin Password (Type: string, Max length is 32) -->
+	<P2>%%DESKPHONE_PASSWORD%%</P2>
+	
+	<!--################################################################## -->
+	<!--##	 Account - SIP Basic Settings      		                    ## -->
+	<!--################################################################## -->
+	<!-- Account Active (0:Disable  1:Enable) -->
+	<P271>1</P271>
+
+    <!-- Account Name (type:string maxlength=64) -->
+	<P3>%%extension_first_name%% %%extension_last_name%%</P3>
+
+	{IF network=LOCALLAN}
+    <!-- SIP Server Local configuration - Local internal IP Address of the server -->
+    <P47>%%pbx_ip%%:%%param::sipport%%</P47>
+    <!-- Outbound Proxy - The "P48" field contains the ip address and SIP port of the SIP Outbound Proxy - in this case 3CXPS. The "pbx_ip" and "param::sipport" variables will be replaced by the IP Address and SIP Port of 3CXPS. -->
+    <P48></P48>
+    <!-- Local SIP port (default 5060) -->
+    <P40>5060</P40>
+    <!-- NAT Traversal. 0 - no, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN -->
+    <P52>0</P52>
+    {ENDIF}
+
+    {IF network=REMOTESTUN}
+    <!-- SIP Server configuration for remote using stun mode - External IP Address -->
+    <P47>%%pbx_ip%%:%%param::sipport%%</P47>
+    <!-- Outbound Proxy - The "P48" field contains the ip address and SIP port of the SIP Outbound Proxy - in this case 3CXPS. The "pbx_ip" and "param::sipport" variables will be replaced by the IP Address and SIP Port of 3CXPS. -->
+    <P48></P48>
+    <!-- Local SIP port (default 5060) -->
+    <P40>%%phonesipport%%</P40>
+    <!-- NAT Traversal. 0 - no, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN -->
+    <P52>1</P52>
+    {ENDIF}
+
+    {IF network=SBC}
+    <!-- SIP Server configuration for SBC Profile -->
+    <P47>%%param::PBXPUBLICIP%%:%%param::sipport%%</P47>
+    <!-- Outbound Proxy - The "P48" field contains the ip address and SIP port of the SIP Outbound Proxy - in this case 3CXPS. The "pbx_ip" and "param::sipport" variables will be replaced by the IP Address and SIP Port of 3CXPS. -->
+    <P48>%%local_sbc_ip%%:%%local_sbc_port%%</P48>
+    <!-- Local SIP port (default 5060) -->
+    <!--P40 = 5060 -->
+    <!-- NAT Traversal. 0 - no, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN -->
+    <P52>0</P52>
+    {ENDIF}
+
+    <!--  SIP User ID -->
+    <!--  String -->
+    <P35>%%extension_number%%</P35>
+
+    <!--  Authenticate ID -->
+    <!--  String -->
+    <P36>%%extension_auth_id%%</P36>
+
+    <!--  Authenticate Password -->
+    <!--  String -->
+    <P34>%%extension_auth_pw%%</P34>
+	
+	<!-- TEL URI (0:Disabled 1:User=phone 2:Enabled) -->
+    <P63>0</P63>
+	
+	<!-- Register Expiration(m) (value:60~64800 default:3600) -->
+    <P32>2</P32>
+	<!-- Re-register Expiration(s) (value:1 - 64800 default:0) -->
+    <P2330>0</P2330>
+    <!-- SIP Transport (0:UDP  1:TCP  2:TLS/TCP) -->
+    <!-- <P130>0</P130> -->
+	<!-- Stream (0: Stream 1  1: Stream 2  2: Stream 3) -->
+	<P15480>0</P15480>
+    <!-- Enable DTMF RFC2833 (0:Disable  1:Enable) -->
+    <P2302>1</P2302>
+	<!-- Enable DTMF SIP INFO (0:Disable  1:Enable) -->
+    <P2303>0</P2303>
+	<!-- DTMF Payload Type (value: 96 - 127 default 101) -->
+    <P79>101</P79>
+	
+	<!-- Unregister On Reboot (0:Disable  1:Enable) -->
+    <!-- <P81>1</P81> -->
+    <!-- Enable SRTP (0:Disable  1:Enable) -->
+    <!-- <P183>0</P183> -->
+    <!-- Special Feature (100:Standard  102:Broadsoft) -->
+    <!-- <P100>100</P100> -->
+	<!-- Enable RTCP (0: Disable  1: RTCP  2: RTCP-XR) -->
+    <!-- <P293>0</P293> -->
+	<!-- H.264 Payload Type (value: 96 - 127 and no include 101) -->
+    <!-- <P424>101</P424> -->
+	<!-- # Add MAC in User-Agent -->
+	<!-- # 0 - No, 1 - Yes except REGISTER, 2 - Yes to all SIP. Default is 0 -->
+	<!-- # Number: 0, 1, 2 -->
+	<P26061>2</P26061>	
+
+	<!-- # 0 - PCMU, 2 - G.726-32, 8 - PCMA, 9 - G.722, 18 - G.729A/B, 4 - G.723.1, 98 - iLBC, 125 - OPUS -->
+    <!-- # choice 1. Default is 0 -->
+    <!-- # Number: 0, 2, 4, 8, 9, 18, 98, 125 -->
+    <!-- # Mandatory -->
+    <P57>%%codec1%%</P57>
+
+    <!-- # choice 2. Default is 8 -->
+    <!-- # Number: 0, 2, 4, 8, 9, 18, 98, 125  -->
+    <!-- # Mandatory -->
+    <P58>%%codec2%%</P58>
+
+    <!-- # choice 3. Default is 4 -->
+    <!-- # Number: 0, 2, 4, 8, 9, 18, 98, 125  -->
+    <!-- # Mandatory -->
+    <P59>%%codec3%%</P59>
+
+    <!-- # choice 4. Default is 18 -->
+    <!-- # Number: 0, 2, 4, 8, 9, 18, 98, 125 -->
+    <!-- # Mandatory -->
+    <P60>%%codec4%%</P60>
+
+	<!--################################################################## -->
+	<!--##	 Phone Settings  - Phone Settings      		                ## -->
+	<!--################################################################## -->
+	{IF network=REMOTESTUN}
+    <!-- Local RTP port. Default is 5004 -->
+    <!-- Number: 1024 - 65535. Must be even number -->
+    <!-- Mandatory -->
+    <P39>%%rtp_port_min%%</P39>
+    <!-- STUN server -->
+    <!-- String -->
+    <P76>%%pbx_ip%%:%%param::sipport%%</P76>
+    {ENDIF}
+
+    {IF network=SBC}
+    <!-- Local RTP port (1024-65535, default 5004) -->
+    <P39>5004</P39>
+    <!-- STUN server -->
+    <!-- <P76></P76> -->
+    {ENDIF}
+
+    {IF network=LOCALLAN}
+    <!-- Local RTP port (1024-65535, default 5004) -->
+    <P39>5004</P39>
+    <!-- STUN server -->
+    <!-- <P76></P76> -->
+    {ENDIF}
+	
+	<!-- User Random Port (0:Disable  1:Enable) -->
+    <P78>0</P78>
+    <!-- Auto On-Hook Timer(s) (value: 0~65535) -->
+    <P10451>300</P10451>
+    <!-- Ring Timeout(s) (value: 0~90) -->
+    <P14847>30</P14847>
+	<!-- SIP TLS Certificate (String & MAX length is 4096) -->
+    <!-- <P280></P280> -->
+	<!-- SIP TLS Private Key (String & MAX length is 4096) -->
+    <!-- <P279></P279> -->
+	<!-- SIP TLS Private Key Password (String & MAX length is 4096) -->
+    <!-- <P281></P281> -->
+	
+	<!-- Enable Direct IP Call (0:Disable  1:Enable) -->
+    <P10453>1</P10453>
+    <!-- Enable two-way SIP Calling (0:Enable  1:Disable) -->
+    <P8001>0</P8001>
+	<!-- Allow Reset Via SIP NOTIFY (0:Enable  1:Disable) -->
+    <P15476>0</P15476>
+	
+	{IF ua=GDS3710}
+    <!-- SIP Proxy Compatibility Mode (0:Enable  1:Disable) -->
+    <P8003>1</P8003>
+	<!-- SIP Packetization Compatibility Mode (0:Enable  1:Disable) -->
+    <P957>1</P957>
+	<!-- Enable Multi-channel Call Mode (0:Enable  1:Disable) -->
+    <P15427>1</P15427>
+	{ENDIF}
+	
+	<!--################################################################## -->
+	<!--##	 Phone Settings  - White List	      		                ## -->
+	<!--################################################################## -->
+	<!-- Account 1 White List -->
+    <!-- Enable White Number List (0:Disable  1:Enable) -->
+    <!-- <P10410>0</P10410> -->
+    <!-- Phone Number (Format:123,4567,)  -->
+    <!-- <P10410></P10410> -->
+	
+	<!-- Account 2 White List -->
+	<!-- Enable White Number List (0:Disable  1:Enable) -->
+    <!-- <P10454>0</P10454> -->
+    <!-- Phone Number (Format:123,4567,)  -->
+    <!-- <P10460></P10460> -->
+	
+	<!-- Account 3 White List -->
+	<!-- Enable White Number List (0:Disable  1:Enable) -->
+    <!-- <P10420>0</P10420> -->
+    <!-- Phone Number (Format:123,4567,)  -->
+    <!-- <P10421></P10421> -->
+	
+	<!-- Account 4 White List -->
+	<!-- Enable White Number List (0:Disable  1:Enable) -->
+    <!-- <P10430>0</P10430> -->
+    <!-- Phone Numbert (Format:123,4567,)  -->
+    <!-- <P10431></P10431> -->
+	
+	{IF ua=GDS3710}
+		<!--################################################################## -->
+		<!--##	 Video & Audio Settings  - Video Settings	                ## -->
+		<!--################################################################## -->
+		<!-- Stream 1 Preferred Video Codec (96:H264  26:MJPEG)  -->
+		<!-- <P12306>96</P12306> -->
+		<!-- Stream 1 Profile (0:Baseline 1:Main Profile 2:Hight Profile)  -->
+		<!-- <P12313>1</P12313> -->
+		<!-- Stream 1 Resolution (1025:1920*1080 1022:1280*720)  -->
+		<!-- <P12307>1025</P12307> -->
+		<!-- Stream 1 Bit Rate(kbps) (1024/2048/4096)  -->
+		<!-- <P12315>4096</P12315> -->
+		<!-- Stream 1 Frame Rate(fps) (5/10/15(If CMOS is Low Hight). 5/10/15/20/25/30(Others))  -->
+		<!-- <P12904>30</P12904> -->
+		<!-- Stream 1 Bit Rate Control (0:CBR 1:VBR)  -->
+		<!-- <P12924>0</P12924> -->
+		<!-- Stream 1 Image Quality -->
+		<!-- <P12311></P12311> -->
+		<!-- Stream 1 I-frame Interval (Integer 1 - 100)   -->
+		<!-- <P12312>1</P12312> -->
+		
+		<!-- Stream 2 Preferred Video Codec (96:H264  26:MJPEG)  -->
+		<!-- <P12706>96</P12706> -->
+		<!-- Stream 2 Profile (0:Baseline 1:Main Profile 2:Hight Profile)  -->
+		<!-- <P12713>1</P12713> -->
+		<!-- Stream 2 Resolution (1025:1920*1080 1022:1280*720)  -->
+		<!-- <P12707>1025</P12707> -->
+		<!-- Stream 2 Bit Rate(kbps) (1024/2048/4096)  -->
+		<!-- <P12708>4096</P12708> -->
+		<!-- Stream 2 Frame Rate(fps) (5/10/15(If CMOS is Low Hight). 5/10/15/20/25/30(Others))  -->
+		<!-- <P12709>30</P12709> -->
+		<!-- Stream 2 Bit Rate Control (0:CBR 1:VBR)  -->
+		<!-- <P12710>0</P12710> -->
+		<!-- Stream 2 Image Quality -->
+		<!-- <P12711></P12711> -->
+		<!-- Stream 2 I-frame Interval (Integer 1 - 100)   -->
+		<!-- <P12712>1</P12712> -->
+		
+		<!-- Stream 3 Preferred Video Codec (96:H264  26:MJPEG)  -->
+		<!-- <P13106>96</P13106> -->
+		<!-- Stream 3 Profile (0:Baseline 1:Main Profile 2:Hight Profile)  -->
+		<!-- <P13113>1</P13113> -->
+		<!-- Stream 3 Resolution (1025:1920*1080 1022:1280*720)  -->
+		<!-- <P13107>1025</P13107> -->
+		<!-- Stream 3 Bit Rate(kbps) (1024/2048/4096)  -->
+		<!-- <P13108>4096</P13108> -->
+		<!-- Stream 3 Frame Rate(fps) (5/10/15(If CMOS is Low Hight). 5/10/15/20/25/30(Others))  -->
+		<!-- <P13109>30</P13109> -->
+		<!-- Stream 3 Bit Rate Control (0:CBR 1:VBR)  -->
+		<!-- <P13110>0</P13110> -->
+		<!-- Stream 3 Image Quality -->
+		<!-- <P13111></P13111> -->
+		<!-- Stream 3 I-frame Interval (Integer 1 - 100)   -->
+		<!-- <P13112>1</P13112> -->
+		
+		<!--################################################################## -->
+		<!--##	 Video & Audio Settings  - OSD Settings	 	                ## -->
+		<!--################################################################## -->
+		<!-- Enable Display Time (0:Disable  1:Enable)  -->
+		<!-- <P10044>1</P10044> -->
+		<!-- Enable Display Text (0:Disable  1:Enable)  -->
+		<!-- <P10045>0</P10045> -->
+		<!-- OSD Date Format (0:YYY-MM-DD 1:MM/DD/YYYY 2:DD MM YYYY)  -->
+		<!-- <P10001>1</P10001> -->
+		<!-- OSD Time Format (0:24H 1:12H)  -->
+		<!-- <P10007>0</P10007> -->
+		<!-- OSD Text (String & Max length is 32)  -->
+		<!-- <P10040></P10040> -->
+		<!-- OSD Date/Time Position (0:Top Left 1:Bottom Left 2:Top Right 3:Bottom Right) -->
+		<!-- <P10041>0</P10041> -->
+		<!-- OSD Text Position (0:Top Left 1:Bottom Left 2:Top Right 3:Bottom Right) -->
+		<!-- <P10046>0</P10046> -->
+		
+		<!--################################################################## -->
+		<!--##	 Video & Audio Settings  - CMOS Settings	                ## -->
+		<!--################################################################## -->
+		<!-- CMOS Mode (1:Normal 2:Low Light 3:WDR) -->
+		<!-- <P10572>1</P10572> -->
+		<!-- CMOS LDC (0:OFF 1:ON) -->
+		<!-- <P10573>0</P10573> -->
+		<!-- CMOS LDC Rate(7: 0.7,  8: 0.8,  9: 0.9,  10: 1.0,  11: 1.1,  12: 1.2,  13: 1.3) -->
+		<!-- <P14565>10</P14565> -->
+		<!-- CMOS Power Frequency (0:50HZ 1:60HZ) -->
+		<!-- <P12314>1</P12314> -->
+		<!-- CMOS Shutter Speed (0:auto 30:1/30 60:1/60 125:1/125 250:1/250 500:1/500 1000:1/1000 2000:1/2000 5000:1/5000 10000:1/10000) -->
+		<!-- <P10503>0</P10503> -->
+	{ENDIF}
+		
+	<!--################################################################## -->
+	<!--##	 Video & Audio Settings  - Audio Settings	                ## -->
+	<!--################################################################## -->
+	<!-- Preferred Audio Codec (1:PCMU 2:PCMA 4:G722) -->
+	<!-- <P14000>1</P14000> -->
+	<!-- Speaker Volume (Volume level: 0,1,2,3,4,5,6) -->
+	<!-- <P14003>4</P14003> -->
+	<!-- Doorbell Volume (Volume level: 0,1,2,3,4,5,6) -->
+	<!-- <P14835>2</P14835> -->
+	<!-- Enable Custom Doorbell Ringtone (0:Disable 1:Enable) -->
+	<P15499>%%defringtone%%</P15499>
+
+	<!--################################################################## -->
+	<!--##	 Alarm Settings  - Alarm Event Config	   	                ## -->
+	<!--################################################################## -->
+	{IF ua=GDS3710}
+		<!-- Enable Motion Detection (0:Disable  1:Enable) -->
+		<!-- <P10250>0</P10250> -->
+		<!-- Alarm Sensitivity (value: 0~100) -->
+		<!-- <P14223>50</P14223> -->
+		<!-- Select Alarm Schedule (value: 1~10) -->
+		<!-- <P14221>1</P14221> -->
+		<!-- Select Alarm Action Profile (value: 1~10) -->
+		<!-- <P14222>0</P14222> -->
+		<!-- Select Alarm Schdeule 2 (value: 0~10) -->
+		<!-- <P14326>0</P14326> -->
+		<!-- Select Alarm Action Profile 2 (value: 1~10) -->
+		<!-- <P14327>1</P14327> -->
+	{ENDIF}
+
+    <!-- Digital Input 1 (0:Disable 1:Alarm Input 2:Open Door) -->
+    <!-- <P14320>0</P14320> -->
+	<!-- Digit Input 1 Open Door Options (0:Door 1  1:Door 2  2:Door 1 & Door 2  3:None) -->
+    <!-- <P15451>0</P15451> -->
+	<!-- Digit Input 1 Status (0:Normal Open	1:Normal Close) -->
+    <!-- <P14320>0</P14320> -->
+    <!-- Digital Input 1 -> Select Alarm Schedule 1 (value: 0~10) -->
+    <!-- <P14321>0</P14321> -->
+    <!-- Digital Input 1 -> Select Alarm Action Profile 1 (value: 1~10) -->
+    <!-- <P14322>1</P14322> -->
+	
+	<!-- Digital Input 2 (0:Disable 1:Alarm Input 2:Open Door) -->
+    <!-- <P14325>0</P14325> -->
+	<!-- Digit Input 2 Open Door Options (0:Door 1  1:Door 2  2:Door 1 & Door 2  3:None) -->
+    <!-- <P15452>0</P15452> -->
+	<!-- Digit Input 2 Status (0:Normal Open	1:Normal Close) -->
+    <!-- <P15432>0</P15432> -->
+    <!-- Digital Input 2 -> Select Alarm Schedule 1 (value: 0~10) -->
+    <!-- <P14326>0</P14326> -->
+    <!-- Digital Input 2 -> Select Alarm Action Profile 1 (value: 1~10) -->
+    <!-- <P14327>1</P14327> -->
+
+    <!-- Alarm Output Duration(s) (value: 5/10/15/20/25/30) -->
+    <!-- <P14341>5</P14341> -->
+    <!-- Alarm Silently Alarm Mode (String Format:enable@DI@MD@Tamper@Passwd_Err   Exmaple: 0@1@1@0@1) -->
+    <!-- <P14568>0@0@0@0@0</P14568> -->
+    <!-- Enable Hostage Code (0:Disable  1:Enable) -->
+    <!-- <P10467>0</P10467> -->
+    <!-- Hostage Code (Digital and max length is 8) -->
+    <!-- <P10466></P10466> -->
+    <!-- Hostage Code Alarm Action Profile (value: 1~10) -->
+    <!-- <P10468>1</P10468> -->
+    <!-- Enable Tamper Alarm (0:Disable  1:Enable) -->
+    <!-- <P14350>0</P14350> -->
+    <!-- Tamper Alarm Action Profile (value: 1~10) -->
+    <!-- <P14355>1</P14355> -->
+    <!-- Enable Keypad Input Error Alarm (0:Disable  1:Enable  default:1) -->
+    <!-- <P14825>1</P14825> -->
+    <!-- Keypad Input Error Alarm profile. (value:1-10) -->
+    <!-- <P14826>1</P14826> -->
+	<!-- Enable Non-scheduled Access Alarm (0:Disable  1:Enable  default:1) -->
+    <!-- <P15407>1</P15407> -->
+    <!-- Non-scheduled Access Alarm profile. (value:1-10) -->
+    <!-- <P15408>1</P15408> -->
+
+	<!--################################################################## -->
+	<!--##	 Alarm Settings  - Alarm Schedule		   	                ## -->
+	<!--################################################################## -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14200>schedule1,0@0000@2359,</P14200> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14201>schedule2,0@0000@2359,</P14201> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14202>schedule3,0@0000@2359,</P14202> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14203>schedule4,0@0000@2359,</P14203> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14204>schedule5,0@0000@2359,</P14204> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14205>schedule6,0@0000@2359,</P14205> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14206>schedule7,0@0000@2359,</P14206> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14207>schedule8,0@0000@2359,</P14207> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14208>schedule9,0@0000@2359,</P14208> -->
+    <!-- schedule1. Format:name,Date@start_time@end_time. example:schedule1,0@0000@1011,0@1100@2300 -->
+    <!-- <P14209>schedule10,0@0000@2359,</P14209> -->
+
+	<!--################################################################## -->
+	<!--##	 Alarm Settings  - Alarm Action			   	                ## -->
+	<!--################################################################## -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14300>profile1@0,0,0,0,0,0</P14300> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14301>profile2@0,0,0,0,0,0,</P14301> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14302>profile3@0,0,0,0,0,0,</P14302> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14303>profile4@0,0,0,0,0,0,</P14303> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14304>profile5@0,0,0,0,0,0,</P14304> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14305>profile6@0,0,0,0,0,0,</P14305> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14306>profile7@0,0,0,0,0,0,</P14306> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14307>profile8@0,0,0,0,0,0,</P14307> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14308>profile9@0,0,0,0,0,0,</P14308> -->
+    <!-- Alarm Action Profile. Format:profileName@Alarm-Center,Sound,Sip,Output,Email,JPEG, example:night@1,1,1,0,1,0, -->
+    <!-- <P14309>profile10@0,0,0,0,0,0,</P14309> -->
+
+	<!--################################################################## -->
+	<!--##	 Alarm Settings  - Alarm Phone List		   	                ## -->
+	<!--################################################################## -->
+    <!-- Alarm Phone List. (0: Auto  1: Account 1  2: Account 2  3: Account 3  4: Account 4) -->
+    <!-- <P10471>0</P10471> -->
+	<!-- Alarm Phone List.Example:1122,3344,5566, Don't forget the last ',' -->
+    <!-- <P10459></P10459> -->
+
+	<!--################################################################## -->
+	<!--##	 Email & FTP Settings - Email Settings   	                ## -->
+	<!--################################################################## -->
+    <!-- SMTP Server (type:string) -->
+    <!-- <P10121></P10121> -->
+    <!-- SMTP Server Port (value: 0~65535 && no conflict others) -->
+    <!-- <P10122>25</P10122> -->
+    <!-- From E-Mail Address (type:string) -->
+    <!-- <P10123></P10123> -->
+    <!-- Sender User Name (type:string) -->
+    <!-- <P10127></P10127> -->
+    <!-- Sender Password (type:string) -->
+    <!-- <P10128></P10128> -->
+    <!-- Password Recovery Email (type:string) -->
+    <!-- <P10124></P10124> -->
+    <!-- Alarm Receive Email 1 (type:string) -->
+    <!-- <P14348></P14348> -->
+    <!-- Alarm Receive Email 2 (type:string) -->
+    <!-- <P14349></P14349> -->
+    <!-- SSL (0:Unselected  1:Selected) -->
+    <!-- <P10129>0</P10129> -->
+	
+	<!--################################################################## -->
+	<!--##	 Email & FTP Settings - FTP & Central Storage               ## -->
+	<!--################################################################## -->
+    <!-- Storage Server Type (0:FTP 1:Central Storage) -->
+    <!-- <P14113>1</P14113> -->
+    <!-- FTP Server (Example: 192.168.0.160) -->
+    <!-- <P14114></P14114> -->
+    <!-- FTP Server Port (type:Integer) -->
+    <!-- <P14115>21</P14115> -->
+    <!-- FTP User Name (Max length is 63) -->
+    <!-- <P14116></P14116> -->
+    <!-- FTP Path (type:string) -->
+    <!-- <P14118></P14118> -->	
+
+	<!--################################################################## -->
+	<!--##	 Maintenance -> Upgrade					 	                ## -->
+	<!--################################################################## -->
+	{IF network=LOCALLAN}
+    {IF rpslocal}
+	<!-- Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 1 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P212>2</P212>
+    <!-- Firmware -->
+    <!-- Firmware Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 2 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P6767>2</P6767>
+    <!-- Firmware Server Path -->
+    <P192>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%/firmware/grandstream</P192>
+    <!-- Config Server Path -->
+    <P237>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%</P237>
+	{ELSE}
+	<!-- Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 1 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P212>1</P212>
+    <!-- Firmware -->
+    <!-- Firmware Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 2 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P6767>1</P6767>
+    <!-- Firmware Server Path -->
+    <P192>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%/firmware/grandstream</P192>
+    <!-- Config Server Path -->
+    <P237>%%PROVLINKLOCAL.HOST%%:%%PROVLINKLOCAL.PORT%%%%PROVLINKLOCAL.PATH%%</P237>
+	{ENDIF}
+
+    {ELSE}
+
+    <!-- Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 1 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P212>2</P212>
+    <!-- Firmware -->
+    <!-- Firmware Upgrade Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS. Default is 2 -->
+    <!-- Number: 0, 1, 2 -->
+    <!-- Mandatory -->
+    <P6767>2</P6767>
+    <!-- Firmware Server Path -->
+    <P192>%%PROVLINK.HOST%%:%%PROVLINK.PORT%%%%PROVLINK.PATH%%/firmware/grandstream</P192>
+    <!-- Config Server Path -->
+    <P237>%%PROVLINK.HOST%%:%%PROVLINK.PORT%%%%PROVLINK.PATH%%</P237>
+    {ENDIF}
+	
+	<!-- Firmware HTTP/HTTPS User Name -->
+    <P6768></P6768>
+    <!-- Firmware HTTP/HTTPS Password -->
+    <P6769></P6769>
+    <!-- Firmware File Prefix -->
+    <P232></P232>
+    <!-- Firmware File Postfix -->
+    <P233></P233>
+	
+	<!-- Config HTTP/HTTPS User Name -->
+    <P1360></P1360>
+    <!-- Config HTTP/HTTPS Password -->
+    <P1361></P1361>
+    <!-- Config File Prefix -->
+    <P234></P234>
+    <!-- Config File Postfix -->
+    <P235></P235>
+    <!-- XML Config File Password (type:string) -->
+    <P1359></P1359> -->
+	
+	<!-- Validate Server Certificates (0:Disable  1:Enable) -->
+    <P8463>1</P8463>
+    <!-- DHCP Option 66 Override Server (0:Disable  1:Enable) -->
+    <P145>0</P145>
+    <!-- Zero Config (0:Disable  1:Enable) -->
+    <P1414>1</P1414>
+	<!-- Enable DHCP Option 120 Override SIP Server (0:Disable  1:Enable) -->
+    <P1411>0</P1411>
+    <!-- Automatic Upgrade (0:No  1:Yes,check for upgrade periodic  2:Yes,check for upgrade every day  3:Yes,check for upgrade every week) -->
+    <P194>1</P194>
+    <!-- Automatic Upgrade Interval(m) (value:60~525600) -->
+    <P193>10080</P193>
+    <!-- Randomized Automatic Upgrade (0:Disable  1:Enable) -->
+    <P8458>0</P8458>
+    <!-- Hour of the Day  – Start Time (value: 0 - 23) -->
+    <P285>1</P285>
+	<!-- Hour of the Day – End Time (value: 0 - 23) -->
+    <P8459>23</P8459>
+	<!-- Day of the Week  – Week (value: 0 - 6) -->
+    <P286>1</P286>
+
+	<!--################################################################## -->
+	<!--##	 Maintenance -> Debug Log				 	                ## -->
+	<!--################################################################## -->
+    <!-- Debug Log Server (type:string) -->
+    <!-- <P207></P207> -->
+    <!-- Debug Log Level (0:None 1:Debug 2:Info 3:Warning 4:Error) -->
+    <!-- <P208></P208> -->
+	  
+  </config>
+ </gs_provision>
+]]></deviceconfig>
+    </device>
+  </data>
+</doc>

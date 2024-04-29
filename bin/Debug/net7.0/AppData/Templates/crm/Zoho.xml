@@ -1,0 +1,717 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Country="US" Name="Zoho" SupportsEmojis="false" Version="27">
+    <Number Prefix="Off" MaxLength="[MaxLength]"/>
+    <Connection MaxConcurrentRequests="16"/>
+    <Parameters>
+        <Parameter Parent="General Configuration" Name="AccountsServer" Type="String" Title="Accounts Server URL:" Default="https://accounts.zoho.com"/>
+        <Parameter Parent="General Configuration" Name="Domain" Type="String" Title="Zoho CRM URL:" Default="https://crm.zoho.com" />
+        <Parameter Parent="General Configuration" Name="LookupOrder" Type="List" ListValues="Contacts/Leads/Accounts,Contacts/Accounts/Leads,Leads/Accounts/Contacts,Leads/Contacts/Accounts,Accounts/Contacts/Leads,Accounts/Leads/Contacts" Title="Contact Lookup Order:" Default="Contacts/Leads/Accounts" />
+        <Parameter Parent="General Configuration" Name="ClientId" Type="String" Title="Client ID:"/>
+        <Parameter Parent="General Configuration" Name="ClientSecret" Type="String" Title="Client Secret:"/>
+        <Parameter Parent="General Configuration" Name="RefreshToken" Type="OAuth" Title="Refresh Token:"
+                   RequestUrl="[AccountsServer]/oauth/v2/auth"
+                   RequestUrlParameters="response_type=code&amp;prompt=consent&amp;access_type=offline&amp;client_id=[ClientId]&amp;scope=ZohoCRM.coql.READ,ZohoCRM.modules.accounts.READ,ZohoCRM.modules.leads.READ,ZohoCRM.modules.leads.CREATE,ZohoCRM.modules.contacts.READ,ZohoCRM.modules.contacts.CREATE,ZohoCRM.modules.calls.CREATE,ZohoCRM.modules.tasks.CREATE,ZohoCRM.users.READ&amp;redirect_uri=[RedirectUri]&amp;state=[State]"
+                   ResponseScenario="OAuthGetAccessToken"/>
+        <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False"/>
+        <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Subject:" Default="3CX PhoneSystem Call" />
+        <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+        <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+        <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+        <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+        <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False"/>
+        <Parameter Parent="ReportChatEnabled" Name="ChatCreateTaskOrCall" Type="List" ListValues="Task,Call" Title="Create Task or Call:" Default="Task" />
+        <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Chat Subject:" Default="3CX PhoneSystem Chat Session" />
+        <Parameter Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+        <Parameter Parent="CreateContactEnabled" Name="CreateLeadOrContact" Type="List" ListValues="Lead,Contact" Title="Create Lead or Contact:" Default="Contact" />
+    </Parameters>
+    <Authentication Type="Scenario">
+        <Value>Auth</Value>
+    </Authentication>
+    <Scenarios>
+        <Scenario Id="Auth">
+            <Request
+                    Url="[AccountsServer]/oauth/v2/token"
+                    RequestType="Post">
+                <PostValues>
+                    <Value Key="refresh_token">[RefreshToken]</Value>
+                    <Value Key="grant_type">refresh_token</Value>
+                    <Value Key="client_id">[ClientId]</Value>
+                    <Value Key="client_secret">[ClientSecret]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">access_token</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="AccessToken" Path="access_token"/>
+                <Variable Name="ApiDomain" Path="api_domain"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="HeaderName" Value="Authorization"/>
+                <Output Type="HeaderValue" Value="Zoho-oauthtoken [AccessToken]"/>
+                <!-- Bearer expiration is 1 hour so we need to refresh a bit prior that time -->
+                <Output Type="BearerExpiration" Value="3300" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="OAuthGetAccessToken">
+            <Request
+                    Url="[AccountsServer]/oauth/v2/token"
+                    RequestType="Post">
+                <PostValues>
+                    <Value Key="code">[code]</Value>
+                    <Value Key="grant_type">authorization_code</Value>
+                    <Value Key="client_id">[ClientId]</Value>
+                    <Value Key="client_secret">[ClientSecret]</Value>
+                    <Value Key="scope">ZohoCRM.coql.READ,ZohoCRM.modules.accounts.READ,ZohoCRM.modules.leads.READ,ZohoCRM.modules.contacts.READ,ZohoCRM.modules.contacts.CREATE,ZohoCRM.modules.calls.CREATE,ZohoCRM.modules.tasks.CREATE,ZohoCRM.users.READ</Value>
+                    <Value Key="redirect_uri">[RedirectUri]</Value>
+                    <Value Key="state">[state]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">refresh_token</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Result">refresh_token</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="Result" Value="[Result]"/>
+            </Outputs>
+        </Scenario>
+        <Scenario EntityId="Contacts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[ApiDomain]/crm/v2.1/Contacts/search?criteria=((Phone:equals:[Number]) or (Mobile:equals:[Number]) or (Home_Phone:equals:[Number]) or (Other_Phone:equals:[Number]) or (Fax:equals:[Number]))&amp;fields=Account_Name,id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax"
+                     RequestType="Get" ResponseType="Json">
+                <PostValues/>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario EntityId="Leads" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[ApiDomain]/crm/v2.1/Leads/search?criteria=((Phone:equals:[Number]) or (Mobile:equals:[Number]) or (Fax:equals:[Number]))&amp;fields=id,First_Name,Last_Name,Phone,Mobile,Fax,Email,Company"
+                     RequestType="Get" ResponseType="Json">
+                <PostValues/>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="Company">data.Company</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="Mobile">data.Mobile</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Leads&amp;id=[Id]"/>
+                <Output Type="CompanyName" Value="[Company]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="PhoneMobile" Value="[Mobile]"/>
+                <Output Type="EntityType" Value="Leads" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario EntityId="Accounts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[ApiDomain]/crm/v2.1/Accounts/search?criteria=((Phone:equals:[Number]) or (Fax:equals:[Number]))&amp;fields=id,Phone,Fax,Account_Name"
+                     RequestType="Get" ResponseType="Json">
+                <PostValues/>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="AccountName">data.Account_Name</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Accounts&amp;id=[Id]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>>
+                <Output Type="EntityType" Value="Accounts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="LookupByEmail_Contacts" EntityId="Contacts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[ApiDomain]/crm/v2.1/Contacts/search?criteria=(Email:equals:[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)])&amp;fields=Account_Name,id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax"
+                     RequestType="Get" ResponseType="Json">
+                <PostValues/>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="LookupByEmail_Leads" EntityId="Leads" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[ApiDomain]/crm/v2.1/Leads/search?criteria=(Email:equals:[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)])&amp;fields=id,First_Name,Last_Name,Phone,Mobile,Fax,Email,Company"
+                     RequestType="Get" ResponseType="Json">
+                <PostValues/>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="Company">data.Company</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="Mobile">data.Mobile</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Leads&amp;id=[Id]"/>
+                <Output Type="CompanyName" Value="[Company]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="PhoneMobile" Value="[Mobile]"/>
+                <Output Type="EntityType" Value="Leads" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="SearchContacts_Phone1">
+            <Request Url="[ApiDomain]/crm/v2.1/coql" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+                <PostValues>
+				            <Value Key="select_query" Type="String">select id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax,Account_Name.Account_Name from Contacts where Phone like '%[SearchText]%' or Mobile like '%[SearchText]%' LIMIT 0,[MaxCount]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.Account_Name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="SearchContacts_Phone2">
+            <Request Url="[ApiDomain]/crm/v2.1/coql" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+                <PostValues>
+				            <Value Key="select_query" Type="String">select id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax,Account_Name.Account_Name from Contacts where Home_Phone like '%[SearchText]%' or Asst_Phone like '%[SearchText]%' LIMIT 0,[MaxCount]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.Account_Name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="SearchContacts_Phone3">
+            <Request Url="[ApiDomain]/crm/v2.1/coql" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+                <PostValues>
+				            <Value Key="select_query" Type="String">select id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax,Account_Name.Account_Name from Contacts where Other_Phone like '%[SearchText]%' or Fax like '%[SearchText]%' LIMIT 0,[MaxCount]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.Account_Name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="SearchContacts_Email">
+            <Request Url="[ApiDomain]/crm/v2.1/coql" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+                <PostValues>
+				            <Value Key="select_query" Type="String">select id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax,Account_Name.Account_Name from Contacts where Email like '%[SearchText]%' LIMIT 0,[MaxCount]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.Account_Name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="SearchContacts_FirstLastName">
+            <Request Url="[ApiDomain]/crm/v2.1/coql" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+                <PostValues>
+				            <Value Key="select_query" Type="String">select id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax,Account_Name.Account_Name from Contacts where First_Name like '%[SearchText]%' or Last_Name like '%[SearchText]%' LIMIT 0,[MaxCount]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.Account_Name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="SearchContacts_CompanyName">
+            <Request Url="[ApiDomain]/crm/v2.1/coql" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+                <PostValues>
+				            <Value Key="select_query" Type="String">select id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax,Account_Name.Account_Name from Contacts where Account_Name.Account_Name like '%[SearchText]%' LIMIT 0,[MaxCount]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.Account_Name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="GetAllContacts">
+            <Request Url="[ApiDomain]/crm/v2.1/Contacts?page=[Page+1]&amp;per_page=[PageSize]&amp;fields=Account_Name,id,First_Name,Last_Name,Phone,Mobile,Home_Phone,Asst_Phone,Other_Phone,Email,Fax"
+                     RequestType="Get" ResponseType="Json">
+                <PostValues/>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id">data.id</Variable>
+                <Variable Name="FirstName">data.First_Name</Variable>
+                <Variable Name="LastName">data.Last_Name</Variable>
+                <Variable Name="Email">data.Email</Variable>
+                <Variable Name="Phone">data.Phone</Variable>
+                <Variable Name="HomePhone">data.Home_Phone</Variable>
+                <Variable Name="OtherPhone">data.Other_Phone</Variable>
+                <Variable Name="MobilePhone">data.Mobile</Variable>
+                <Variable Name="Fax">data.Fax</Variable>
+                <Variable Name="AssistantPhone">data.Asst_Phone</Variable>
+                <Variable Name="AccountName">data.Account_Name.name</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=Contacts&amp;id=[Id]"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Phone]"/>
+                <Output Type="PhoneBusiness2" Value="[AssistantPhone]"/>
+                <Output Type="PhoneHome" Value="[HomePhone]"/>
+                <Output Type="PhoneOther" Value="[OtherPhone]"/>
+                <Output Type="PhoneMobile" Value="[MobilePhone]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="EntityType" Value="Contacts" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="ReportCall">
+            <Request SkipIf="[IIf([ReportCallEnabled]!=True||[EntityId]==&quot;&quot;,True,[IIf([AgentEmail]==&quot;&quot;,True,False)])]" 
+      				 			 Url="[ApiDomain]/crm/v2.1/users/search?criteria=(email:equals:[AgentEmail])" 
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any" Ethalon="">users.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="UserId" Path="users.id" />
+            </Variables>
+            <Outputs AllowEmpty="true" Next="CreateCall" />
+        </Scenario>
+        <Scenario Id="CreateCall">
+            <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;"
+            				 Url="[ApiDomain]/crm/v2.1/Calls" RequestType="Post" RequestEncoding="Json" ResponseType="Json">
+                <PostValues>
+                    <Array Key="data">
+                        <Object >
+                            <Value Passes="2" Key="Subject">[[Subject]]</Value>
+                            <Value Key="Call_Start_Time">[[CallStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                            <Value Key="Call_Duration">[Duration]</Value>
+                            <Value Key="Call_Type">[IIf([CallType]==Inbound||[CallType]==Missed,Inbound,Outbound)]</Value>
+                            <Value Key="Call_Result">[IIf([CallType]==Inbound||[CallType]==Outbound,Successful,Failed)]</Value>
+                            <Value Key="$se_module">[EntityType]</Value>
+                            <Value Key="Who_Id" If="[EntityType]==Contacts">[EntityId]</Value>
+                            <Value Key="What_Id" If="[EntityType]!=Contacts">[EntityId]</Value>
+                            <Value Key="Description" Passes="2" If="[CallType]==Inbound">[[InboundCallText]]</Value>
+                            <Value Key="Description" Passes="2" If="[CallType]==Missed">[[MissedCallText]]</Value>
+                            <Value Key="Description" Passes="2" If="[CallType]==Outbound">[[OutboundCallText]]</Value>
+                            <Value Key="Description" Passes="2" If="[CallType]==Notanswered">[[NotAnsweredOutboundCallText]]</Value>
+                            <Object Key="Owner" If="[UserId]!=&quot;&quot;">
+                                <Value Key="id">[UserId]</Value>
+                            </Object>
+                        </Object>
+                    </Array>
+                </PostValues>
+            </Request>
+        </Scenario>
+        <Scenario Id="ReportChat">
+            <Request SkipIf="[IIf([ReportChatEnabled]!=True||[EntityId]==&quot;&quot;,True,[IIf([AgentEmail]==&quot;&quot;,True,False)])]" 
+      				 			 Url="[ApiDomain]/crm/v2.1/users/search?criteria=(email:equals:[AgentEmail])" 
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any" Ethalon="">users.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="UserId" Path="users.id" />
+            </Variables>
+            <Outputs AllowEmpty="true" Next="CreateChat" />
+        </Scenario>
+        <Scenario Id="CreateChat">
+            <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 			 Url="[ApiDomain]/crm/v2.1/[IIf([ChatCreateTaskOrCall]==Task,Tasks,Calls)]"
+                     RequestType="Post" RequestEncoding="Json" ResponseType="Json">
+                <PostValues>
+                    <Array Key="data">
+                        <Object >
+                            <Value Passes="2" Key="Subject">[[ChatSubject]]</Value>
+                            <Value If="[ChatCreateTaskOrCall]==Task" Key="Status">Completed</Value>
+                            <Value If="[ChatCreateTaskOrCall]==Task" Key="Due_Date">[[ChatStartTimeUTC].ToString("yyyy-MM-dd")]</Value>
+                            <Value If="[ChatCreateTaskOrCall]==Call" Key="Call_Start_Time">[[ChatStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                            <Value If="[ChatCreateTaskOrCall]==Call" Key="Call_Duration">[Duration]</Value>
+                            <Value If="[ChatCreateTaskOrCall]==Call" Key="Call_Type">Inbound</Value>
+                            <Value If="[ChatCreateTaskOrCall]==Call" Key="Call_Result">Successful</Value>
+                            <Value Key="$se_module">[EntityType]</Value>
+                            <Value If="[EntityType]==Contacts" Key="Who_Id">[EntityId]</Value>
+                            <Value If="[EntityType]!=Contacts" Key="What_Id">[EntityId]</Value>
+                            <Value Key="Description">[[ChatMessages].Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+                            <Object Key="Owner" If="[UserId]!=&quot;&quot;">
+                                <Value Key="id">[UserId]</Value>
+                            </Object>
+                        </Object>
+                    </Array>
+                </PostValues>
+            </Request>
+        </Scenario>
+        <Scenario Id="CreateContactRecord">
+            <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" Url="[ApiDomain]/crm/v2.1/[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+                <PostValues>
+                    <Array Key="data">
+                        <Object >
+                            <Value Passes="2" Key="First_Name">[[CreateContactFirstName]]</Value>
+                            <Value Passes="2" Key="Last_Name">[[CreateContactLastName]]</Value>
+                            <Value Passes="1" Key="Phone" Type="String">[Number]</Value>
+                        </Object>
+                    </Array>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.details.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id" Path="data.details.id" />
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]&amp;id=[Id]" />
+                <Output Type="FirstName" Passes="2" Value="[[CreateContactFirstName]]" />
+                <Output Type="LastName" Passes="2" Value="[[CreateContactLastName]]" />
+                <Output Type="PhoneBusiness" Value="[Number]" />
+                <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]" />
+                <Output Type="EntityId" Value="[Id]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="CreateContactRecordFromClient">
+            <Request SkipIf="[CreateContactEnabled]!=True" Url="[ApiDomain]/crm/v2.1/[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+                <PostValues>
+                    <Array Key="data">
+                        <Object >
+                            <Value Passes="1" Key="First_Name">[FirstName]</Value>
+                            <Value Passes="1" Key="Last_Name">[LastName]</Value>
+                            <Value Passes="1" Key="Email" If="[Email]!=&quot;&quot;">[Email]</Value>
+                            <Value Passes="1" Key="Mobile" If="[Number]!=&quot;&quot;">[Number]</Value>
+                            <Value Passes="1" If="[CreateLeadOrContact]==Lead&amp;&amp;[Company]!=&quot;&quot;" Key="Company">[Company]</Value>
+                            <Value Passes="1" If="[CreateLeadOrContact]!=Lead&amp;&amp;[Company]!=&quot;&quot;" Key="Account_Name">[Company]</Value>
+                        </Object>
+                    </Array>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">data.details.id</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Id" Path="data.details.id" />
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/crm/EntityInfo.do?module=[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]&amp;id=[Id]" />
+                <Output Type="FirstName" Passes="2" Value="[[FirstName]]" />
+                <Output Type="LastName" Passes="2" Value="[[LastName]]" />
+                <Output Type="PhoneMobile" Value="[Number]" />
+                <Output Type="Email" Value="[Email]" />
+                <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]" />
+                <Output Type="EntityId" Value="[Id]" />
+                <Output Type="CompanyName" Value="[Company]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+            <Request Url="[ApiDomain]/crm/v2.1/Contacts/search?criteria=((Phone:equals:[Number]) or (Mobile:equals:[Number]) or (Home_Phone:equals:[Number]) or (Other_Phone:equals:[Number]) or (Fax:equals:[Number]))"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Contacts_LookupID">
+            <Request Url="[ApiDomain]/crm/v2.1/Contacts/search?criteria=(Id:equals:[EntityID])"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+            <Request Url="[ApiDomain]/crm/v2.1/Contacts/search?criteria=([Query])"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Leads_LookupNumber">
+            <Request Url="[ApiDomain]/crm/v2.1/Leads/search?criteria=((Phone:equals:[Number]) or (Mobile:equals:[Number]) or (Fax:equals:[Number]))"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Leads_LookupID">
+            <Request Url="[ApiDomain]/crm/v2.1/Leads/search?criteria=(Id:equals:[EntityID])"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Leads_LookupFreeQuery">
+            <Request Url="[ApiDomain]/crm/v2.1/Leads/search?criteria=([Query])"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Accounts_LookupNumber">
+            <Request Url="[ApiDomain]/crm/v2.1/Accounts/search?criteria=((Phone:equals:[Number]) or (Fax:equals:[Number]))"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Accounts_LookupID">
+            <Request Url="[ApiDomain]/crm/v2.1/Accounts/search?criteria=(Id:equals:[EntityID])"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+        <Scenario Id="LookupFromCFD_Accounts_LookupFreeQuery">
+            <Request Url="[ApiDomain]/crm/v2.1/Accounts/search?criteria=([Query])"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">data.id</Rule>
+            </Rules>
+            <Outputs AllowEmpty="true" />
+        </Scenario>
+    </Scenarios>
+</Crm>

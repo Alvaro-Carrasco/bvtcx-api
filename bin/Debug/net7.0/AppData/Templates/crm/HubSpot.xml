@@ -1,0 +1,716 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Country="US" Name="HubSpot" SupportsEmojis="true" Version="16">
+  <Number Prefix="AsIs" MaxLength="[MaxLength]" />
+  <Connection MaxConcurrentRequests="2" />
+  <Parameters>
+    <Parameter Parent="General Configuration" Name="HubSpotDomain" Type="String" Editor="String" Title="Domain:" Default="app.hubspot.com" />
+    <Parameter Parent="General Configuration" Name="LookupOrder" Type="List" ListValues="Contacts/Companies,Companies/Contacts" Title="Contact Lookup Order:" Default="Contacts/Companies" />
+    <Parameter Parent="General Configuration" Name="ClientId" Type="String" Editor="String" Title="Client ID:" />
+    <Parameter Parent="General Configuration" Name="ClientSecret" Type="String" Editor="String" Title="Client Secret:" />
+    <Parameter Parent="General Configuration" Name="RefreshToken" Type="OAuth" Editor="String" Title="Refresh Token:" RequestUrl="https://[HubSpotDomain]/oauth/authorize" RequestUrlParameters="response_type=code&amp;client_id=[ClientId]&amp;redirect_uri=[RedirectUri]&amp;state=[State]&amp;scope=crm.objects.contacts.read crm.objects.contacts.write crm.objects.companies.read crm.objects.owners.read timeline" ResponseScenario="OAuthGetRefreshToken" />
+    <Parameter Parent="General Configuration" Name="CreateContactEnabled" Type="Boolean" Editor="String" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+    <Parameter Name="ReportCallEnabled" Type="Boolean" Editor="String" Title="Enable Call Journaling" Default="False" />
+    <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Editor="String" Title="Call Subject:" Default="3CX PhoneSystem Call" />
+    <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Editor="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] to [Agent] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Editor="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] to [Agent]" />
+    <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Editor="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Editor="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number]" />
+    <Parameter Name="ReportChatEnabled" Type="Boolean" Editor="String" Title="Enable Chat Journaling" Default="False" />
+    <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Editor="String" Title="Chat Subject:" Default="3CX PhoneSystem Chat Session" />
+  </Parameters>
+  <Authentication Type="Scenario">
+    <Value>Auth</Value>
+  </Authentication>
+  <Scenarios>
+    <Scenario Id="Auth" Type="REST">
+      <Request Url="https://api.hubapi.com/oauth/v1/token" RequestContentType="application/x-www-form-urlencoded" 
+      				 RequestEncoding="UrlEncoded" RequestType="Post" ResponseType="Json">
+        <PostValues>
+          <Value Key="refresh_token" Type="String">[RefreshToken]</Value>
+          <Value Key="grant_type" Type="String">refresh_token</Value>
+          <Value Key="client_id" Type="String">[ClientId]</Value>
+          <Value Key="client_secret" Type="String">[ClientSecret]</Value>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">access_token</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AccessToken" Path="access_token">
+          <Filter />
+        </Variable>
+        <Variable Name="ExpiresIn" Path="expires_in">
+          <Filter />
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false" Next="GetPortalID" />
+    </Scenario>
+    <Scenario Id="OAuthGetRefreshToken" Type="REST">
+      <Request Url="https://api.hubapi.com/oauth/v1/token" RequestContentType="application/x-www-form-urlencoded" 
+      				 RequestEncoding="UrlEncoded" RequestType="Post" ResponseType="Json">
+        <PostValues>
+          <Value Key="code" Type="String">[code]</Value>
+          <Value Key="grant_type" Type="String">authorization_code</Value>
+          <Value Key="client_id" Type="String">[ClientId]</Value>
+          <Value Key="client_secret" Type="String">[ClientSecret]</Value>
+          <Value Key="redirect_uri" Type="String">[RedirectUri]</Value>
+          <Value Key="state" Type="String">[state]</Value>
+          <Value Key="scope" Type="String">crm.objects.contacts.read crm.objects.contacts.write crm.objects.companies.read crm.objects.owners.read timeline</Value>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">refresh_token</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Result" Path="refresh_token">
+          <Filter />
+        </Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="Result" Value="[Result]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetPortalID" Type="REST">
+      <Request Url="https://api.hubapi.com/integrations/v1/me" RequestType="Get" ResponseType="Json">
+      	<Headers>
+          <Value Key="Authorization">Bearer [AccessToken]</Value>
+      	</Headers>
+      </Request>
+      <Rules>
+        <Rule Type="Any">portalId</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="PortalID" Path="portalId"/>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="PortalID" Value="[PortalID]" />
+        <Output Type="HeaderName" Value="Authorization" />
+        <Output Type="HeaderValue" Value="Bearer [AccessToken]" />
+        <Output Type="BearerExpiration" Value="[ExpiresIn]" />
+      </Outputs>
+    </Scenario>
+    <Scenario EntityId="Contacts" EntityOrder="[LookupOrder]" Type="REST">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      				 Url="https://api.hubapi.com/crm/v3/objects/contacts/search" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" >
+        <PostValues>
+          <Array Key="properties">
+						<Value>firstname</Value>
+						<Value>lastname</Value>
+						<Value>company</Value>
+						<Value>email</Value>
+						<Value>phone</Value>
+						<Value>mobilephone</Value>
+						<Value>fax</Value>
+          </Array>
+          <Array Key="filterGroups">
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">phone</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[Number]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">mobilephone</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[Number]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">fax</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[Number]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+          </Array>
+        </PostValues>
+		  </Request>
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID"     Path="results.id" />
+        <Variable Name="FirstName"     Path="results.properties.firstname" />
+        <Variable Name="LastName"      Path="results.properties.lastname" />
+        <Variable Name="CompanyName"   Path="results.properties.company" />
+        <Variable Name="Email"         Path="results.properties.email" />
+        <Variable Name="PhoneBusiness" Path="results.properties.phone" />
+        <Variable Name="PhoneMobile"   Path="results.properties.mobilephone" />
+        <Variable Name="FaxBusiness"   Path="results.properties.fax" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="ContactUrl" Value="https://[HubSpotDomain]/contacts/[PortalID]/contact/[ContactID]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+    <Scenario EntityId="Companies" EntityOrder="[LookupOrder]" Type="REST">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      				 Url="https://api.hubapi.com/crm/v3/objects/companies/search" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" >
+        <PostValues>
+          <Array Key="properties">
+						<Value>name</Value>
+						<Value>phone</Value>
+          </Array>
+          <Array Key="filterGroups">
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">phone</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[Number]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+          </Array>
+        </PostValues>
+		  </Request>
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyID"     Path="results.id" />
+        <Variable Name="CompanyName"   Path="results.properties.name" />
+        <Variable Name="PhoneBusiness" Path="results.properties.phone" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="ContactUrl" Value="https://[HubSpotDomain]/contacts/[PortalID]/company/[CompanyID]" />
+        <Output Type="EntityId" Value="[CompanyID]" />
+        <Output Type="EntityType" Value="Companies" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Contacts" EntityId="Contacts" EntityOrder="[LookupOrder]" Type="REST">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      				 Url="https://api.hubapi.com/crm/v3/objects/contacts/search" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" >
+        <PostValues>
+          <Array Key="properties">
+						<Value>firstname</Value>
+						<Value>lastname</Value>
+						<Value>company</Value>
+						<Value>email</Value>
+						<Value>phone</Value>
+						<Value>mobilephone</Value>
+						<Value>fax</Value>
+          </Array>
+          <Array Key="filterGroups">
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">email</Value>
+			            <Value Key="operator" Type="String">EQ</Value>
+			            <Value Key="value" Type="String">[Email]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+          </Array>
+        </PostValues>
+		  </Request>
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID"     Path="results.id" />
+        <Variable Name="FirstName"     Path="results.properties.firstname" />
+        <Variable Name="LastName"      Path="results.properties.lastname" />
+        <Variable Name="CompanyName"   Path="results.properties.company" />
+        <Variable Name="Email"         Path="results.properties.email" />
+        <Variable Name="PhoneBusiness" Path="results.properties.phone" />
+        <Variable Name="PhoneMobile"   Path="results.properties.mobilephone" />
+        <Variable Name="FaxBusiness"   Path="results.properties.fax" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="ContactUrl" Value="https://[HubSpotDomain]/contacts/[PortalID]/contact/[ContactID]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_PhoneEmail" Type="REST">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/contacts/search" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" >
+        <PostValues>
+          <Array Key="properties">
+						<Value>firstname</Value>
+						<Value>lastname</Value>
+						<Value>company</Value>
+						<Value>email</Value>
+						<Value>phone</Value>
+						<Value>mobilephone</Value>
+						<Value>fax</Value>
+          </Array>
+          <Array Key="filterGroups">
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">email</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[SearchText]*</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">phone</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[SearchText]*</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">mobilephone</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[SearchText]*</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">fax</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[SearchText]*</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+          </Array>
+          <Value Key="limit" Type="Integer">[MaxCount]</Value>
+        </PostValues>
+		  </Request>
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID"     Path="results.id" />
+        <Variable Name="FirstName"     Path="results.properties.firstname" />
+        <Variable Name="LastName"      Path="results.properties.lastname" />
+        <Variable Name="CompanyName"   Path="results.properties.company" />
+        <Variable Name="Email"         Path="results.properties.email" />
+        <Variable Name="PhoneBusiness" Path="results.properties.phone" />
+        <Variable Name="PhoneMobile"   Path="results.properties.mobilephone" />
+        <Variable Name="FaxBusiness"   Path="results.properties.fax" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="ContactUrl" Value="https://[HubSpotDomain]/contacts/[PortalID]/contact/[ContactID]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_FirstLastCompanyName" Type="REST">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/contacts/search" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" >
+        <PostValues>
+          <Array Key="properties">
+						<Value>firstname</Value>
+						<Value>lastname</Value>
+						<Value>company</Value>
+						<Value>email</Value>
+						<Value>phone</Value>
+						<Value>mobilephone</Value>
+						<Value>fax</Value>
+          </Array>
+          <Array Key="filterGroups">
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">firstname</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[SearchText]*</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">lastname</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[SearchText]*</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">company</Value>
+			            <Value Key="operator" Type="String">CONTAINS_TOKEN</Value>
+			            <Value Key="value" Type="String">*[SearchText]*</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+          </Array>
+          <Value Key="limit" Type="Integer">[MaxCount]</Value>
+        </PostValues>
+		  </Request>
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID"     Path="results.id" />
+        <Variable Name="FirstName"     Path="results.properties.firstname" />
+        <Variable Name="LastName"      Path="results.properties.lastname" />
+        <Variable Name="CompanyName"   Path="results.properties.company" />
+        <Variable Name="Email"         Path="results.properties.email" />
+        <Variable Name="PhoneBusiness" Path="results.properties.phone" />
+        <Variable Name="PhoneMobile"   Path="results.properties.mobilephone" />
+        <Variable Name="FaxBusiness"   Path="results.properties.fax" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="ContactUrl" Value="https://[HubSpotDomain]/contacts/[PortalID]/contact/[ContactID]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetAllContacts" Type="REST">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/contacts" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID"     Path="results.id" />
+        <Variable Name="FirstName"     Path="results.properties.firstname" />
+        <Variable Name="LastName"      Path="results.properties.lastname" />
+        <Variable Name="CompanyName"   Path="results.properties.company" />
+        <Variable Name="Email"         Path="results.properties.email" />
+        <Variable Name="PhoneBusiness" Path="results.properties.phone" />
+        <Variable Name="PhoneMobile"   Path="results.properties.mobilephone" />
+        <Variable Name="FaxBusiness"   Path="results.properties.fax" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="ContactUrl" Value="https://[HubSpotDomain]/contacts/[PortalID]/contact/[ContactID]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateContactRecord" Type="REST">
+      <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" 
+      				 Url="https://api.hubapi.com/crm/v3/objects/contacts" RequestContentType="application/json" RequestEncoding="Json" 
+      				 RequestType="Post" ResponseType="Json">
+        <PostValues Key="">
+          <Object Key="properties">
+            <Value Key="firstname" Passes="2" Type="String">[CreateContactFirstName]</Value>
+            <Value Key="lastname" Passes="2" Type="String">[CreateContactLastName]</Value>
+            <Value Key="phone" Type="String">[Number]</Value>
+          </Object>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID" Path="id" />
+        <Variable Name="FirstName" Path="properties.firstname" />
+        <Variable Name="LastName" Path="properties.lastname" />
+        <Variable Name="PhoneBusiness" Path="properties.phone" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="ContactUrl" Value="https://[HubSpotDomain]/contacts/[PortalID]/contact/[ContactID]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateContactRecordFromClient" Type="REST">
+      <Request SkipIf="[CreateContactEnabled]!=True" Url="https://api.hubapi.com/crm/v3/objects/contacts" 
+      				 RequestContentType="application/json" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+        <PostValues Key="">
+          <Object Key="properties">
+            <Value Key="firstname" Type="String">[FirstName]</Value>
+            <Value Key="lastname" Type="String">[LastName]</Value>
+            <Value Key="email" Type="String" If="[Email]!=&quot;&quot;">[Email]</Value>
+            <Value Key="mobilephone" Type="String" If="[Number]!=&quot;&quot;">[Number]</Value>
+            <Value Key="company" Type="String" If="[Company]!=&quot;&quot;">[Company]</Value>
+          </Object>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[Company]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="ContactUrl" Value="https://[HubSpotDomain]/contacts/[PortalID]/contact/[ContactID]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="ReportCall" Type="REST">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://api.hubapi.com/crm/v3/owners?email=[AgentEmail]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="OwnerId" Path="results.id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateCallActivity" />
+    </Scenario>
+    <Scenario Id="CreateCallActivity" Type="REST">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://api.hubapi.com/crm/v3/objects/calls" 
+      				 RequestContentType="application/json" RequestEncoding="Json" 
+      				 RequestType="Post" ResponseType="Json">
+        <PostValues Key="">
+          <Object Key="properties">
+            <Value Key="hs_timestamp" Type="String">[[CallStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ss.fffZ")]</Value>
+            <Value Key="hubspot_owner_id" Type="String" If="[OwnerId]!=&quot;&quot;">[OwnerId]</Value>
+            <Value Key="hs_call_callee_object_id" Type="String">[EntityId]</Value>
+            <Value Key="hs_call_callee_object_type" Type="String" If="[EntityType]==Contacts">CONTACT</Value>
+            <Value Key="hs_call_callee_object_type" Type="String" If="[EntityType]==Companies">COMPANY</Value>
+            <Value Key="hs_call_direction" Type="String" If="[CallType]==Inbound||[CallType]==Missed">INBOUND</Value>
+            <Value Key="hs_call_direction" Type="String" If="[CallType]==Outbound||[CallType]==Notanswered">OUTBOUND</Value>
+            <Value Key="hs_call_title" Type="String" Passes="2">[Subject]</Value>
+            <Value Key="hs_call_body" Passes="2" Type="String" If="[CallType]==Inbound">[Subject] - [InboundCallText]</Value>
+            <Value Key="hs_call_body" Passes="2" Type="String" If="[CallType]==Missed">[Subject] - [MissedCallText]</Value>
+            <Value Key="hs_call_body" Passes="2" Type="String" If="[CallType]==Outbound">[Subject] - [OutboundCallText]</Value>
+            <Value Key="hs_call_body" Passes="2" Type="String" If="[CallType]==Notanswered">[Subject] - [NotAnsweredOutboundCallText]</Value>
+            <Value Key="hs_call_disposition" Type="String" If="[CallType]==Inbound||[CallType]==Outbound">f240bbac-87c9-4f6e-bf70-924b57d47db7</Value>
+            <Value Key="hs_call_disposition" Type="String" If="[CallType]==Missed||[CallType]==Notanswered">73a0d17f-1163-4015-bdd5-ec830791da20</Value>
+            <Value Key="hs_call_duration" Type="String" If="[CallType]==Inbound||[CallType]==Outbound">[[[DurationTimespan].get_TotalMilliseconds()].ToString("F0")]</Value>
+            <Value Key="hs_call_duration" Type="String" If="[CallType]==Missed||[CallType]==Notanswered">0</Value>
+            <Value Key="hs_call_to_number" Type="String" If="[CallType]==Inbound||[CallType]==Missed">[Agent]</Value>
+            <Value Key="hs_call_to_number" Type="String" If="[CallType]==Outbound||[CallType]==Notanswered">[Number]</Value>
+            <Value Key="hs_call_from_number" Type="String" If="[CallType]==Inbound||[CallType]==Missed">[Number]</Value>
+            <Value Key="hs_call_from_number" Type="String" If="[CallType]==Outbound||[CallType]==Notanswered">[Agent]</Value>
+            <Value Key="hs_call_status" Type="String">COMPLETED</Value>
+<!-- hs_call_recording_url -->
+          </Object>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CallID" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="false" Next="CreateCallActivityAssociation" />
+    </Scenario>
+    <Scenario Id="CreateCallActivityAssociation" Type="REST">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://api.hubapi.com/crm/v3/objects/calls/[CallID]/associations/[IIf([EntityType]==Contacts,&quot;contact&quot;,&quot;company&quot;)]/[EntityId]/[IIf([EntityType]==Contacts,&quot;194&quot;,&quot;182&quot;)]" 
+      				 RequestContentType="application/json" RequestEncoding="Json" Message="{}"
+      				 RequestType="Put">
+      </Request>
+    </Scenario>
+    <Scenario Id="ReportChat" Type="REST">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://api.hubapi.com/crm/v3/owners?email=[AgentEmail]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="OwnerId" Path="results.id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateChatActivity" />
+    </Scenario>
+    <Scenario Id="CreateChatActivity" Type="REST">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://api.hubapi.com/crm/v3/objects/meetings" 
+      				 RequestContentType="application/json" RequestEncoding="Json" 
+      				 RequestType="Post" ResponseType="Json">
+        <PostValues Key="">
+          <Object Key="properties">
+            <Value Key="hs_timestamp" Type="String">[[ChatStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ss.fffZ")]</Value>
+            <Value Key="hubspot_owner_id" Type="String" If="[OwnerId]!=&quot;&quot;">[OwnerId]</Value>
+            <Value Key="hs_meeting_start_time" Type="String">[[ChatStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ss.fffZ")]</Value>
+            <Value Key="hs_meeting_end_time" Type="String">[[ChatEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ss.fffZ")]</Value>
+            <Value Key="hs_meeting_title" Type="String" Passes="2">[[ChatSubject]]</Value>
+            <Value Key="hs_meeting_body" Type="String">[[ChatMessages].Replace(&quot;
+&quot;,&quot;&lt;br/&gt;&quot;).Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+            <Value Key="hs_meeting_outcome" Type="String">COMPLETED</Value>
+          </Object>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="MeetingID" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="false" Next="CreateChatActivityAssociation" />
+    </Scenario>
+    <Scenario Id="CreateChatActivityAssociation" Type="REST">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://api.hubapi.com/crm/v3/objects/meetings/[MeetingID]/associations/[IIf([EntityType]==Contacts,&quot;contact&quot;,&quot;company&quot;)]/[EntityId]/[IIf([EntityType]==Contacts,&quot;200&quot;,&quot;188&quot;)]" 
+      				 RequestContentType="application/json" RequestEncoding="Json" Message="{}"
+      				 RequestType="Put">
+      </Request>
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/contacts/search" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" >
+        <PostValues>
+          <Array Key="filterGroups">
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">phone</Value>
+			            <Value Key="operator" Type="String">EQ</Value>
+			            <Value Key="value" Type="String">[Number]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">mobilephone</Value>
+			            <Value Key="operator" Type="String">EQ</Value>
+			            <Value Key="value" Type="String">[Number]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">fax</Value>
+			            <Value Key="operator" Type="String">EQ</Value>
+			            <Value Key="value" Type="String">[Number]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+          </Array>
+        </PostValues>
+		  </Request>
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId" Path="results.id" />
+      </Variables>
+      <Outputs Next="LookupFromCFD_GetContact" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupID">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/contacts/[EntityID]" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/contacts/search" Message="[Query]" RequestContentType="application/json" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactId" Path="results.id" />
+      </Variables>
+      <Outputs Next="LookupFromCFD_GetContact" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupNumber">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/companies/search" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" >
+        <PostValues>
+          <Array Key="filterGroups">
+	          <Object>
+		          <Array Key="filters">
+			          <Object>
+			            <Value Key="propertyName" Type="String">phone</Value>
+			            <Value Key="operator" Type="String">EQ</Value>
+			            <Value Key="value" Type="String">[Number]</Value>
+			          </Object>
+		          </Array>
+	          </Object>
+          </Array>
+        </PostValues>
+		  </Request>
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyId" Path="results.id" />
+      </Variables>
+      <Outputs Next="LookupFromCFD_GetCompany" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupID">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/companies/[EntityID]" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupFreeQuery">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/companies/search" Message="[Query]" RequestContentType="application/json" 
+      				 RequestEncoding="Json" RequestType="Post" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">results.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyId" Path="results.id" />
+      </Variables>
+      <Outputs Next="LookupFromCFD_GetCompany" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_GetContact">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/contacts/[ContactId]" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_GetCompany">
+      <Request Url="https://api.hubapi.com/crm/v3/objects/companies/[CompanyId]" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+  </Scenarios>
+</Crm>

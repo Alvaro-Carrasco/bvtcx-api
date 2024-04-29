@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+<header>
+    <type>gateway-template</type>
+    <version>145775</version>
+    <time>2023-01-26 16:00:00</time>
+    <name>Gamma</name>
+    <url>https://www.3cx.com/docs/dedicated-sip-trunks/</url>
+    <image>gamma.png</image>
+    <description>UK</description>
+    <priority>2</priority>
+	<tags>registrar</tags>
+    <templatetype>dedicated</templatetype>
+</header>
+<data>
+    <device>
+      <type>provider</type>
+      <manufacturer>Gamma</manufacturer>
+      <model>Provider</model>
+
+      <!-- Friendly Name -->
+      <field name="Name">Gamma</field>
+
+      <!-- Hostnames and Port Numbers -->
+      <field name="RegistrarHost">[Enter IP provided to you by Gamma]</field>		<!-- Registrar & Proxy IP / FQDN  -->
+      <field name="RegistrarPort">5060</field>										<!-- Registrar & Proxy Port Number -->
+      <field name="ProxyHost"></field>												<!-- Proxy IP / FQDN -->
+      <field name="ProxyPort">5060</field>											<!-- Proxy Port Number -->
+      <field name="StunServerHost"></field>											<!-- StunServer IP / FQDN -->
+      <field name="StunServerPort"></field>											<!-- StunServer Port Number -->
+
+      <!-- Registration Settings -->
+      <field name="LineAuthenticationPassword" status="readonly"></field>
+      <field name="TimeBetweenRegistration">120</field>				<!-- Registration Expiry -->
+      <field name="RequireAuthFor">1</field>						<!-- No=1; In=2; Out=3; Both=4 -->
+      <field name="IpInContactReg">1</field>						<!-- Ext=1; Int=2; Both=3; Specified=4 -->
+      <field name="IpInContactRegValue"></field>					<!-- List of PBX IPs -->
+      <field name="3wayauthenticationid" status="readonly"></field>	<!-- Entry to enable 3 way authentication-->
+
+           <!-- Provider Capabilities -->
+      <field name="IsSupportReinvite">0</field>						<!-- Yes=1; No=0 -->
+      <field name="IsSupportReplaces">0</field>						<!-- Yes=1; No=0 -->
+      <field name="DisableVideo">1</field>							<!-- Yes=1; No=0 -->
+      <field name="PublicIPVia"></field>
+
+      <!-- Location of Destination Number -->
+      <field name="DestNumberIn_TO">1</field>						<!-- Yes=1; No=0 -->
+      <field name="DestNumberIn_REQLINEURI">1</field>				<!-- Yes=1; No=0 -->
+      <field name="DestNumberIn_RPID_CALLED">0</field>				<!-- Yes=1; No=0 -->
+
+      <!-- Other Options -->
+      <field name="IPRestriction">ANY</field>						<!-- Restricts IPv4 or IPv6. Values: ANY, IPV4, IPV6 -->
+      <field name="TransportRestriction">UDP</field>				<!-- Restricts the Transport Protocol. Values: ANY, UDP, TCP, TLS -->
+      <field name="SecondaryRegistrar"></field>						<!-- Possible values: FQDN:Port or IP:Port -->
+      <field name="IsBindToMS">1</field>							<!-- Bound=1; NotBound=0 -->
+      <field name="UseIPInContact">0</field>						<!-- UseIP=1; DoNotUseIP=0 -->
+      <field name="CallerIDIn">1</field>							<!-- Fm=1; To=2; ReqURI=3; Con=4; RemPtyClg=6 -->
+      <field name="CalledNumberIn">2</field>						<!-- Fm=1; To=2; ReqURI=3; Con=4; RemPtyCld=5 -->
+
+    <codecs>
+      <codec rfcname="pcmu"/>
+      <codec rfcname="pcma"/>
+      <codec rfcname="gsm"/>
+    </codecs>
+
+      <!--Source Identification - Use Default PBX Internal Source Identification-->
+      <!--<field name="MatchStrategy">1</field>-->
+      <!--<field name="Source" parameter="" custom=""></field>-->
+
+      <!-- Gateway / Provider Inbound Parameters -->
+      <field name="ParameterIn" custom="" parameter="ToUserPart">$CalledNum</field>
+      <field name="ParameterIn" custom="" parameter="FromUserPart">$CallerName</field>
+      <field name="ParameterIn" custom="" parameter="FromUserPart">$CallerNum</field>
+
+      <!-- Gateway / Provider Outbound Parameters -->
+      <field name="ParameterOut" custom="" parameter="RequestLineURIUser">$CalledNum</field>
+      <field name="ParameterOut" custom="" parameter="RequestLineURIHost">$GWHostPort</field>
+      <field name="ParameterOut" custom="" parameter="ContactUser">$LineNumber</field>
+      <field name="ParameterOut" custom="" parameter="ContactHost">$ContactURI</field>
+      <field name="ParameterOut" custom="" parameter="ToDisplayName">$CalledName</field>
+      <field name="ParameterOut" custom="" parameter="ToUserPart">$CalledNum</field>
+      <field name="ParameterOut" custom="" parameter="ToHostPart">$GWHostPort</field>
+      <field name="ParameterOut" custom="" parameter="FromDisplayName">$OriginatorCallerId</field>
+      <field name="ParameterOut" custom="" parameter="FromUserPart">$OriginatorCallerId</field>
+      <field name="ParameterOut" custom="" parameter="FromHostPart">$GWHostPort</field>
+      <field name="ParameterOut" custom="" parameter="P-AssertedIdentityUserPart">$OutboundCallerId</field>
+      <field name="ParameterOut" custom="" parameter="P-AssertedIdentityHostPart">$GWHostPort</field>
+    </device>
+</data>
+</doc>

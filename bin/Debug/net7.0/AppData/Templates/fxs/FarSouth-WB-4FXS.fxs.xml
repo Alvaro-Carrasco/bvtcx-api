@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>fxs-template</type>
+    <version>145775</version>
+    <time>2020-07-15 17:00:00</time>
+    <name>FarSouth 4 port FXS Gateway</name>
+	<templatetype>deleted</templatetype>
+	<models>
+		<model>4 Port FXS gateway (for Wanderbox 4S cards and Com.X 4O4S models)</model>
+	</models>
+	<rebootParams>
+    </rebootParams>
+	<resyncParams>
+	</resyncParams>	
+	<firmwareParams>
+	</firmwareParams>
+	<AllowedNetworkConfig>
+		<option value="LOCALLAN">1</option>
+	</AllowedNetworkConfig>
+	<AllowWebPasswordChange>0</AllowWebPasswordChange>
+	<languages>
+	<option value="English">
+	</option>
+	</languages>
+	<Codecspriorities>
+    </Codecspriorities>
+		
+ </header>
+	<data>
+		<device><!--Friendly Name-->
+			<gateway></gateway>
+			<field name="SimCallsPerPort" status="readonly">1</field>
+			<field name="TypeOfLines" status="readonly">FXS</field> <!--Type of PSTN Lines-->
+			<field name="NumberOfExtensions">4</field> <!--Number of FXS extensions-->
+            <deviceconfig filename="%%mac_address%%-ExtensionConfig.xml" AllowDownload="true">
+            <![CDATA[
+                  <fxs>
+            	<extension id="1">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_01%%</authName>
+            		<password>%%ext_auth_pw_01%%</password>
+            		<extNum>%%ext_int_num_01%%</extNum>
+            		<firstName>%%ext_first_name_01%%</firstName>
+            		<lastName>%%ext_last_name_01%%</lastName>
+            	</extension> 
+            	<extension id="2">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_02%%</authName>
+            		<password>%%ext_auth_pw_02%%</password>
+            		<extNum>%%ext_int_num_02%%</extNum>
+            		<firstName>%%ext_first_name_02%%</firstName>
+            		<lastName>%%ext_last_name_02%%</lastName>
+            	</extension> 
+            	<extension id="3">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_03%%</authName>
+            		<password>%%ext_auth_pw_03%%</password>
+            		<extNum>%%ext_int_num_03%%</extNum>
+            		<firstName>%%ext_first_name_03%%</firstName>
+            		<lastName>%%ext_last_name_03%%</lastName>
+            	</extension> 
+            	<extension id="4">
+            		<pbxIP>%%pbx_ip%%</pbxIP>
+            		<sipPort>%%param::sipport%%</sipPort>
+            		<authName>%%ext_auth_id_04%%</authName>
+            		<password>%%ext_auth_pw_04%%</password>
+            		<extNum>%%ext_int_num_04%%</extNum>
+            		<firstName>%%ext_first_name_04%%</firstName>
+            		<lastName>%%ext_last_name_04%%</lastName>
+            	</extension> 
+                </fxs>
+            	
+            ]]>
+	 	   </deviceconfig>
+  		</device>
+	</data>
+</doc>

@@ -1,0 +1,1027 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+	<header>
+		<type>fxs-template</type>
+		<version>145775</version>
+		<time>2022-02-11 15:00:00</time>
+		<name>Gigaset DECT N670</name>
+		<url>https://www.3cx.com/sip-phones/gigaset-n670-n870/</url>
+		<image>gigaset.png</image>
+		<templatetype>supported</templatetype>
+		<models>
+			<model ua="Gigaset N670 IP PRO" regex="^Gigaset N670 IP PRO/83.V(?'fwver'[0-9\.]*).*;(?'mac'.*)$">Gigaset N670</model>
+		</models>
+		<description>Gigaset DECT N670</description>
+		<rebootParams>
+			<event-name>reboot</event-name>
+		</rebootParams>
+		<resyncParams>
+			<event-name>check-sync;reboot=false</event-name>
+		</resyncParams>
+		<firmwareParams>
+			<event-name>check-sync;reboot=true</event-name>
+		</firmwareParams>
+		<AllowedNetworkConfig>
+			<option value="LOCALLAN">1</option>
+			<option value="SBC">1</option>
+			<option value="REMOTESTUN">0</option>
+		</AllowedNetworkConfig>
+		<enable_extension enable="1" disable="0"/>
+		<AllowWebPasswordChange>1</AllowWebPasswordChange>
+		<AllowSSLProvisioning>1</AllowSSLProvisioning>
+		<interfaceLink>http://%%PHONE_IP%%</interfaceLink>
+		
+		<languages>
+			<option value="English">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">Retail</item>
+                <item name = "areacode">United_kingdom</item>
+                <item name = "intareacode">44</item>
+			</option> 
+			<option value="Austria">
+				<item name = "langwebUI">de-de</item>
+                <item name = "toneset">Austria</item>
+                <item name = "areacode">Austria</item>
+                <item name = "intareacode">43</item>
+			</option>
+			<option value="Belgium">
+				<item name = "langwebUI">nl-nl</item>
+                <item name = "toneset">Belgium</item>
+                <item name = "areacode">Belgium</item>
+                <item name = "intareacode">32</item>
+			</option>
+			<option value="Czech Republic">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">Czech</item>
+                <item name = "areacode">Czech_republic</item>
+                <item name = "intareacode">420</item>
+			</option>
+			<option value="Denmark">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">Denmark</item>
+                <item name = "areacode">Denmark</item>
+                <item name = "intareacode">45</item>
+			</option>  
+			<option value="Finland">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">Finland</item>
+                <item name = "areacode">Finland</item>
+                <item name = "intareacode">358</item>
+			</option>   
+			<option value="France">
+				<item name = "langwebUI">fr-fr</item>
+                <item name = "toneset">France</item>
+                <item name = "areacode">France</item>
+                <item name = "intareacode">33</item>
+			</option>
+			<option value="Germany">
+				<item name = "langwebUI">de-de</item>
+                <item name = "toneset">Germany</item>
+                <item name = "areacode">Germany</item>
+                <item name = "intareacode">49</item>
+			</option>       
+			<option value="Italy">
+				<item name = "langwebUI">it-it</item>
+                <item name = "toneset">Italy</item>
+                <item name = "areacode">Italy</item>
+                <item name = "intareacode">39</item>
+			</option> 
+			<option value="Netherlands">
+				<item name = "langwebUI">nl-nl</item>
+                <item name = "toneset">Netherlands</item>
+                <item name = "areacode">Netherlands</item>
+                <item name = "intareacode">31</item>
+			</option> 
+			<option value="Norway">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">Norway</item>
+                <item name = "areacode">Norway</item>
+                <item name = "intareacode">47</item>
+			</option>
+			<option value="Poland">
+				<item name = "langwebUI">pl-pl</item>
+                <item name = "toneset">Poland</item>
+                <item name = "areacode">Poland</item>
+                <item name = "intareacode">48</item>
+			</option>
+			<option value="Portugal">
+				<item name = "langwebUI">pt-pt</item>
+                <item name = "toneset">Portugal</item>
+                <item name = "areacode">Portugal</item>
+                <item name = "intareacode">351</item>
+			</option>  
+			<option value="Slovakia">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">Slovakia</item>
+                <item name = "areacode">Slovakia</item>
+                <item name = "intareacode">421</item>
+			</option>
+			<option value="Spain">
+				<item name = "langwebUI">es-es</item>
+                <item name = "toneset">Spain</item>
+                <item name = "areacode">Spain</item>
+                <item name = "intareacode">34</item>
+			</option>
+			<option value="Sweden">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">Sweden</item>
+                <item name = "areacode">Sweden</item>
+                <item name = "intareacode">46</item>
+			</option>
+			<option value="Switzerland">
+				<item name = "langwebUI">de-de</item>
+                <item name = "toneset">Switzerland</item>
+                <item name = "areacode">Switzerland</item>
+                <item name = "intareacode">41</item>
+			</option>
+			<option value="Turkey">
+				<item name = "langwebUI">tr-tr</item>
+                <item name = "toneset">Turkey</item>
+                <item name = "areacode">Turkey</item>
+                <item name = "intareacode">90</item>
+			</option>
+			<option value="United Arab Emirates">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">UAE</item>
+                <item name = "areacode">United_arab_emirates</item>
+                <item name = "intareacode">971</item>
+			</option>
+			<option value="United Kingdom">
+				<item name = "langwebUI">en-bt</item>
+                <item name = "toneset">UK</item>
+                <item name = "areacode">United_kingdom</item>
+                <item name = "intareacode">44</item>
+			</option>            
+		</languages>
+		    
+		<timezoneParams param="time_timezone_gigaset">
+			<option value="-11" displaytext="(UTC-11:00) Pacific/Midway" id="1" zone="-11:00">
+				<item name="TimeZoneName">Pacific/Midway</item>
+			</option>	
+			<option value="-11" displaytext="(UTC-11:00) Pacific/Niue" id="120" zone="-11:00">
+				<item name="TimeZoneName">Pacific/Niue</item>
+			</option>				
+			<option value="-11" displaytext="(UTC-11:00) Pacific/Pago_Pago" id="120" zone="-11:00">
+				<item name="TimeZoneName">Pacific/Pago_Pago</item>
+			</option>	
+			<option value="-11" displaytext="(UTC-11:00) Pacific/Samoa" id="120" zone="-11:00">
+				<item name="TimeZoneName">Pacific/Samoa</item>
+			</option>			
+			<option value="-10" displaytext="(UTC-10:00) Pacific/Honolulu" id="2" zone="-10:00">
+				<item name="TimeZoneName">Pacific/Honolulu</item>
+			</option>
+			<option value="-10" displaytext="(UTC-10:00) Pacific/Johnston" id="2" zone="-10:00">
+				<item name="TimeZoneName">Pacific/Johnston</item>
+			</option>			
+			<option value="-10" displaytext="(UTC-10:00) Pacific/Rarotonga" id="2" zone="-10:00">
+				<item name="TimeZoneName">Pacific/Rarotonga</item>
+			</option>			
+			<option value="-10" displaytext="(UTC-10:00) Pacific/Tahiti" id="2" zone="-10:00">
+				<item name="TimeZoneName">Pacific/Tahiti</item>
+			</option>			
+			<option value="-9" displaytext="(UTC-09:00) America/Anchorage" id="3" zone="-9:00">
+				<item name="TimeZoneName">America/Anchorage</item>
+			</option>
+			<option value="-9" displaytext="(UTC-09:00) Pacific/Gambier" id="3" zone="-9:00">
+				<item name="TimeZoneName">Pacific/Gambier</item>
+			</option>			
+			<option value="-8" displaytext="(UTC-08:00) America/Los_Angeles" id="6" zone="-8:00">
+				<item name="TimeZoneName">America/Los_Angeles</item>
+			</option>
+			<option value="-8" displaytext="(UTC-08:00) Pacific/Pitcairn" id="6" zone="-8:00">
+				<item name="TimeZoneName">Pacific/Pitcairn</item>
+			</option>			
+			<option value="-7" displaytext="(UTC-07:00) America/Denver" id="9" zone="-7:00">
+				<item name="TimeZoneName">America/Denver</item>
+			</option>
+			<option value="-6" displaytext="(UTC-06:00) America/Chicago" id="14" zone="-6:00">
+				<item name="TimeZoneName">America/Chicago</item>
+			</option>
+			<option value="-6" displaytext="(UTC-06:00) Pacific/Easter" id="12" zone="-6:00">
+				<item name="TimeZoneName">Pacific/Easter</item>
+			</option>	
+			<option value="-6" displaytext="(UTC-06:00) Pacific/Galapagos" id="12" zone="-6:00">
+				<item name="TimeZoneName">Pacific/Galapagos</item>
+			</option>			
+			<option value="-5" displaytext="(UTC-05:00) America/New York" id="15" zone="-5:00">
+				<item name="TimeZoneName">America/New_York</item>
+			</option>
+			<option value="-4" displaytext="(UTC-04:00) America/Caracas" id="24" zone="-4:00">
+				<item name="TimeZoneName">America/Caracas</item>
+			</option>
+			<option value="-3" displaytext="(UTC-03:00) America/Sao_Paulo" id="28" zone="-3:00">
+				<item name="TimeZoneName">America/Sao_Paulo</item>
+			</option>
+			<option value="0" displaytext="(UTC) Europe/Belfast" zone="0:00">
+				<item name="TimeZoneName">Europe/Belfast</item>
+			</option>			
+			<option value="0" displaytext="(UTC) Europe/Dublin" id="33" zone="0:00">
+				<item name="TimeZoneName">Europe/Dublin</item>
+			</option>
+			<option value="0" displaytext="(UTC) Europe/Guernsey" zone="0:00">
+				<item name="TimeZoneName">Europe/Guernsey</item>
+			</option>
+			<option value="0" displaytext="(UTC) Europe/Isle_of_Man" zone="0:00">
+				<item name="TimeZoneName">Europe/Isle_of_Man</item>
+			</option>
+			<option value="0" displaytext="(UTC) Europe/Jersey" zone="0:00">
+				<item name="TimeZoneName">Europe/Jersey</item>
+			</option>
+			<option value="0" displaytext="(UTC) Europe/Lisbon" id="34" zone="0:00">
+				<item name="TimeZoneName">Europe/Lisbon</item>
+			</option>
+			<option value="0" displaytext="(UTC) Europe/London" id="36" zone="0:00">
+				<item name="TimeZoneName">Europe/London</item>
+			</option>
+			<option value="0" displaytext="(UTC) Greenwich" zone="0:00">
+				<item name="TimeZoneName">Greenwich</item>
+			</option>
+			<option value="+1" displaytext="(UTC+01:00) Europe/Amsterdam" id="51" zone="1:00">
+				<item name="TimeZoneName">Europe/Amsterdam</item>
+			</option>
+			<option value="+1" displaytext="(UTC+01:00) Europe/Andorra" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/Andorra</item>
+			</option>			
+			<option value="+1" displaytext="(UTC+01:00) Europe/Belgrade" id="60" zone="1:00">
+				<item name="TimeZoneName">Europe/Belgrade</item>
+			</option>			
+            <option value="+1" displaytext="(UTC+01:00) Europe/Berlin" id="46" zone="1:00">
+				<item name="TimeZoneName">Europe/Berlin</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Bratislava" id="55" zone="1:00">
+				<item name="TimeZoneName">Europe/Bratislava</item>
+			</option>			
+            <option value="+1" displaytext="(UTC+01:00) Europe/Brussels" id="39" zone="1:00">
+				<item name="TimeZoneName">Europe/Brussels</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Budapest" id="47" zone="1:00">
+				<item name="TimeZoneName">Europe/Budapest</item>
+			</option>			
+            <option value="+1" displaytext="(UTC+01:00) Europe/Busingen" id="46" zone="1:00">
+				<item name="TimeZoneName">Europe/Busingen</item>
+			</option>			
+            <option value="+1" displaytext="(UTC+01:00) Europe/Copenhagen" id="44" zone="1:00">
+				<item name="TimeZoneName">Europe/Copenhagen</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Gibraltar" id="59" zone="1:00">
+				<item name="TimeZoneName">Europe/Gibraltar</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Ljubljana" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/Ljubljana</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Luxembourg" id="49" zone="1:00">
+				<item name="TimeZoneName">Europe/Luxembourg</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Malta" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/Malta</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Monaco" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/Monaco</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Oslo" id="53" zone="1:00">
+				<item name="TimeZoneName">Europe/Oslo</item>
+			</option>			
+            <option value="+1" displaytext="(UTC+01:00) Europe/Paris" id="45" zone="1:00">
+				<item name="TimeZoneName">Europe/Paris</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Madrid" id="56" zone="1:00">
+				<item name="TimeZoneName">Europe/Madrid</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Podgorica" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/Podgorica</item>
+			</option>			
+            <option value="+1" displaytext="(UTC+01:00) Europe/Prague" id="43" zone="1:00">
+				<item name="TimeZoneName">Europe/Prague</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Rome" id="48" zone="1:00">
+				<item name="TimeZoneName">Europe/Rome</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/San_Marino" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/San_Marino</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Sarajevo" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/Sarajevo</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Skopje" id="50" zone="1:00">
+				<item name="TimeZoneName">Europe/Skopje</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Stockholm" id="57" zone="1:00">
+				<item name="TimeZoneName">Europe/Stockholm</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Tirane" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/Tirane</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Vaduz" id="37" zone="1:00">
+				<item name="TimeZoneName">Europe/Vaduz</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Vatican" id="48" zone="1:00">
+				<item name="TimeZoneName">Europe/Vatican</item>
+			</option>			
+            <option value="+1" displaytext="(UTC+01:00) Europe/Vienna" id="38" zone="1:00">
+				<item name="TimeZoneName">Europe/Vienna</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Warsaw" id="54" zone="1:00">
+				<item name="TimeZoneName">Europe/Warsaw</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Europe/Zagreb" id="42" zone="1:00">
+				<item name="TimeZoneName">Europe/Zagreb</item>
+			</option>	
+            <option value="+1" displaytext="(UTC+01:00) Europe/Zurich" id="58" zone="1:00">
+				<item name="TimeZoneName">Europe/Zurich</item>
+			</option>
+            <option value="+1" displaytext="(UTC+01:00) Africa/Cairo" id="61" zone="1:00">
+				<item name="TimeZoneName">Africa/Cairo</item>
+			</option>						
+			<option value="+2" displaytext="(UTC+02:00) Europe/Athens" id="70" zone="2:00">
+				<item name="TimeZoneName">Europe/Athens</item>
+			</option>
+			<option value="+2" displaytext="(UTC+02:00) Europe/Bucharest" id="77" zone="2:00">
+				<item name="TimeZoneName">Europe/Bucharest</item>
+			</option>			
+			<option value="+2" displaytext="(UTC+02:00) Europe/Chisinau" id="70" zone="2:00">
+				<item name="TimeZoneName">Europe/Chisinau</item>
+			</option>		
+			<option value="+2" displaytext="(UTC+02:00) Europe/Helsinki" id="68" zone="2:00">
+				<item name="TimeZoneName">Europe/Helsinki</item>
+			</option>			
+			<option value="+2" displaytext="(UTC+02:00) Europe/Kaliningrad" id="76" zone="2:00">
+				<item name="TimeZoneName">Europe/Kaliningrad</item>
+			</option>			
+			<option value="+2" displaytext="(UTC+02:00) Europe/Kiev" id="80" zone="2:00">
+				<item name="TimeZoneName">Europe/Kiev</item>
+			</option>			
+			<option value="+2" displaytext="(UTC+02:00) Europe/Mariehamn" id="70" zone="2:00">
+				<item name="TimeZoneName">Europe/Mariehamn</item>
+			</option>			
+			<option value="+2" displaytext="(UTC+02:00) Europe/Nicosia" id="64" zone="2:00">
+				<item name="TimeZoneName">Europe/Nicosia</item>
+			</option>			
+			<option value="+2" displaytext="(UTC+02:00) Europe/Riga" id="73" zone="2:00">
+				<item name="TimeZoneName">Europe/Riga</item>
+			</option>			
+			<option value="+2" displaytext="(UTC+02:00) Europe/Sofia" id="63" zone="2:00">
+				<item name="TimeZoneName">Europe/Sofia</item>
+			</option>
+			<option value="+2" displaytext="(UTC+02:00) Europe/Tallinn" id="67" zone="2:00">
+				<item name="TimeZoneName">Europe/Tallinn</item>
+			</option>
+			<option value="+2" displaytext="(UTC+02:00) Europe/Tiraspol" id="70" zone="2:00">
+				<item name="TimeZoneName">Europe/Tiraspol</item>
+			</option>
+			<option value="+2" displaytext="(UTC+02:00) Europe/Uzhgorod" id="70" zone="2:00">
+				<item name="TimeZoneName">Europe/Uzhgorod</item>
+			</option>
+			<option value="+2" displaytext="(UTC+02:00) Europe/Vilnius" id="70" zone="2:00">
+				<item name="TimeZoneName">Europe/Vilnius</item>
+			</option>			
+			<option value="+2" displaytext="(UTC+02:00) Europe/Zaporozhye" id="70" zone="2:00">
+				<item name="TimeZoneName">Europe/Zaporozhye</item>
+			</option>
+			<option value="+3" displaytext="(UTC+03:00) Europe/Istanbul" id="81" zone="3:00">
+				<item name="TimeZoneName">Europe/Istanbul</item>
+			</option>
+			<option value="+3" displaytext="(UTC+03:00) Europe/Kirov" id="81" zone="3:00">
+				<item name="TimeZoneName">Europe/Kirov</item>
+			</option>			
+			<option value="+3" displaytext="(UTC+03:00) Europe/Minsk" id="83" zone="3:00">
+				<item name="TimeZoneName">Europe/Minsk</item>
+			</option>						
+			<option value="+3" displaytext="(UTC+03:00) Europe/Moscow" id="83" zone="3:00">
+				<item name="TimeZoneName">Europe/Moscow</item>
+			</option>
+			<option value="+3" displaytext="(UTC+03:00) Europe/Simferopol" id="83" zone="3:00">
+				<item name="TimeZoneName">Europe/Simferopol</item>
+			</option>			
+			<option value="+3" displaytext="(UTC+03:00) Europe/Volgograd" id="83" zone="3:00">
+				<item name="TimeZoneName">Europe/Volgograd</item>
+			</option>			
+			<option value="+4" displaytext="(UTC+04:00) Asia/Dubai" id="89" zone="4:00">
+				<item name="TimeZoneName">Asia/Dubai</item>
+			</option>
+			<option value="+4" displaytext="(UTC+04:00) Europe/Astrakhan" id="89" zone="4:00">
+				<item name="TimeZoneName">Europe/Astrakhan</item>
+			</option>			
+			<option value="+4" displaytext="(UTC+04:00) Europe/Samara" id="89" zone="4:00">
+				<item name="TimeZoneName">Europe/Samara</item>
+			</option>			
+			<option value="+4" displaytext="(UTC+04:00) Europe/Saratov" id="89" zone="4:00">
+				<item name="TimeZoneName">Europe/Saratov</item>
+			</option>
+			<option value="+4" displaytext="(UTC+04:00) Europe/Ulyanovsk" id="89" zone="4:00">
+				<item name="TimeZoneName">Europe/Ulyanovsk</item>
+			</option>
+			<option value="+5" displaytext="(UTC+05:00) Asia/Karachi" id="92" zone="5:00">
+				<item name="TimeZoneName">Asia/Karachi</item>
+			</option>
+			<option value="+6" displaytext="(UTC+06:00) Asia/Dhaka" id="98" zone="6:00">
+				<item name="TimeZoneName">Asia/Dhaka</item>
+			</option>
+			<option value="+7" displaytext="(UTC+07:00) Asia/Barnaul" id="102" zone="7:00">
+				<item name="TimeZoneName">Asia/Barnaul</item>
+			</option>
+			<option value="+7" displaytext="(UTC+07:00) Asia/Krasnoyarsk" id="101" zone="7:00">
+				<item name="TimeZoneName">Asia/Krasnoyarsk</item>
+			</option>
+			<option value="+7" displaytext="(UTC+07:00) Asia/Novokuznetsk" id="101" zone="7:00">
+				<item name="TimeZoneName">Asia/Novokuznetsk</item>
+			</option>
+			<option value="+7" displaytext="(UTC+07:00) Asia/Novosibirsk" id="101" zone="7:00">
+				<item name="TimeZoneName">Asia/Novosibirsk</item>
+			</option>
+			<option value="+7" displaytext="(UTC+07:00) Asia/Tomsk" id="102" zone="7:00">
+				<item name="TimeZoneName">Asia/Tomsk</item>
+			</option>
+			<option value="+8" displaytext="(UTC+08:00) Asia/Hong_Kong" id="103" zone="8:00">
+				<item name="TimeZoneName">Asia/Hong_Kong</item>
+			</option>			
+			<option value="+8" displaytext="(UTC+08:00) Australia/Perth" id="105" zone="8:00">
+				<item name="TimeZoneName">Australia/Perth</item>
+			</option>
+			<option value="+8" displaytext="(UTC+08:00) Australia/West" id="105" zone="8:00">
+				<item name="TimeZoneName">Australia/West</item>
+			</option>						
+			<option value="+9" displaytext="(UTC+09:00) Asia/Tokyo" id="107" zone="9:00">
+				<item name="TimeZoneName">Asia/Tokyo</item>
+			</option>
+			<option value="+9" displaytext="(UTC+09:00) Pacific/Palau" id="107" zone="9:00">
+				<item name="TimeZoneName">Pacific/Palau</item>
+			</option>	
+			<option value="+9:30" displaytext="(UTC+09:30) Australia/Adelaide" id="108" zone="9:30">
+				<item name="TimeZoneName">Australia/Adelaide</item>
+			</option>
+			<option value="+9:30" displaytext="(UTC+09:30) Australia/Broken_Hill" id="108" zone="9:30">
+				<item name="TimeZoneName">Australia/Broken_Hill</item>
+			</option>
+			<option value="+9:30" displaytext="(UTC+09:30) Australia/Darwin" id="109" zone="9:30">
+				<item name="TimeZoneName">Australia/Darwin</item>
+			</option>
+			<option value="+9:30" displaytext="(UTC+09:30) Australia/North" id="108" zone="9:30">
+				<item name="TimeZoneName">Australia/North</item>
+			</option>			
+			<option value="+9:30" displaytext="(UTC+09:30) Australia/South" id="108" zone="9:30">
+				<item name="TimeZoneName">Australia/South</item>
+			</option>			
+			<option value="+9:30" displaytext="(UTC+09:30) Australia/Yancowinna" id="108" zone="9:30">
+				<item name="TimeZoneName">Australia/Yancowinna</item>
+			</option>			
+			<option value="+10" displaytext="(UTC+10:00) Australia/ACT" id="111" zone="10:00">
+				<item name="TimeZoneName">Australia/ACT</item>
+			</option>						
+			<option value="+10" displaytext="(UTC+10:00) Australia/Brisbane" id="111" zone="10:00">
+				<item name="TimeZoneName">Australia/Brisbane</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Australia/Canberra" id="110" zone="10:00">
+				<item name="TimeZoneName">Australia/Canberra</item>
+			</option>			
+			<option value="+10" displaytext="(UTC+10:00) Australia/Currie" id="111" zone="10:00">
+				<item name="TimeZoneName">Australia/Currie</item>
+			</option>			
+			<option value="+10" displaytext="(UTC+10:00) Australia/Hobart" id="112" zone="10:00">
+				<item name="TimeZoneName">Australia/Hobart</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Australia/Lindeman" id="111" zone="10:00">
+				<item name="TimeZoneName">Australia/Lindeman</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Australia/Melbourne" id="110" zone="10:00">
+				<item name="TimeZoneName">Australia/Melbourne</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Australia/NSW" id="111" zone="10:00">
+				<item name="TimeZoneName">Australia/NSW</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Australia/Queensland" id="111" zone="10:00">
+				<item name="TimeZoneName">Australia/Queensland</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Australia/Sydney" id="110" zone="10:00">
+				<item name="TimeZoneName">Australia/Sydney</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Australia/Tasmania" id="111" zone="10:00">
+				<item name="TimeZoneName">Australia/Tasmania</item>
+			</option>			
+			<option value="+10" displaytext="(UTC+10:00) Australia/Victoria" id="111" zone="10:00">
+				<item name="TimeZoneName">Australia/Victoria</item>
+			</option>	
+			<option value="+10" displaytext="(UTC+10:00) Pacific/Chuuk" id="111" zone="10:00">
+				<item name="TimeZoneName">Pacific/Chuuk</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Pacific/Guam" id="111" zone="10:00">
+				<item name="TimeZoneName">Pacific/Guam</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Pacific/Port Moresby" id="111" zone="10:00">
+				<item name="TimeZoneName">Pacific/Port_Moresby</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Pacific/Saipan" id="111" zone="10:00">
+				<item name="TimeZoneName">Pacific/Saipan</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Pacific/Truk" id="111" zone="10:00">
+				<item name="TimeZoneName">Pacific/Truk</item>
+			</option>
+			<option value="+10" displaytext="(UTC+10:00) Pacific/Yap" id="111" zone="10:00">
+				<item name="TimeZoneName">Pacific/Yap</item>
+			</option>	
+			<option value="+10:30" displaytext="(UTC+10:30) Australia/LHI" id="114" zone="10:30">
+				<item name="TimeZoneName">Australia/LHI</item>
+			</option>			
+			<option value="+10:30" displaytext="(UTC+10:30) Australia/Lord_Howe" id="114" zone="10:30">
+				<item name="TimeZoneName">Australia/Lord_Howe</item>
+			</option>			
+			<option value="+11" displaytext="(UTC+11:00) Pacific/Bougainville" id="115" zone="11:00">
+				<item name="TimeZoneName">Pacific/Bougainville</item>
+			</option>
+			<option value="+11" displaytext="(UTC+11:00) Pacific/Efate" id="115" zone="11:00">
+				<item name="TimeZoneName">Pacific/Efate</item>
+			</option>			
+			<option value="+11" displaytext="(UTC+11:00) Pacific/Guadalcanal" id="115" zone="11:00">
+				<item name="TimeZoneName">Pacific/Guadalcanal</item>
+			</option>
+			<option value="+11" displaytext="(UTC+11:00) Pacific/Kosrae" id="115" zone="11:00">
+				<item name="TimeZoneName">Pacific/Kosrae</item>
+			</option>
+			<option value="+11" displaytext="(UTC+11:00) Pacific/Norfolk" id="115" zone="11:00">
+				<item name="TimeZoneName">Pacific/Norfolk</item>
+			</option>
+			<option value="+11" displaytext="(UTC+11:00) Pacific/Noumea" id="115" zone="11:00">
+				<item name="TimeZoneName">Pacific/Noumea</item>
+			</option>
+			<option value="+11" displaytext="(UTC+11:00) Pacific/Pohnpei" id="115" zone="11:00">
+				<item name="TimeZoneName">Pacific/Pohnpei</item>
+			</option>
+			<option value="+11" displaytext="(UTC+11:00) Pacific/Ponape" id="115" zone="11:00">
+				<item name="TimeZoneName">Pacific/Ponape</item>
+			</option>
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Auckland" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Auckland</item>
+			</option>
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Fiji" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Fiji</item>
+			</option>
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Funafuti" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Funafuti</item>
+			</option>
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Kwajalein" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Kwajalein</item>
+			</option>
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Majuro" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Majuro</item>
+			</option>
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Nauru" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Nauru</item>
+			</option>		
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Tarawa" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Tarawa</item>
+			</option>			
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Wake" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Wake</item>
+			</option>			
+			<option value="+12" displaytext="(UTC+12:00) Pacific/Wallis" id="116" zone="12:00">
+				<item name="TimeZoneName">Pacific/Wallis</item>
+			</option>
+			<option value="+12:45" displaytext="(UTC+12:45) Pacific/Chatham" id="118" zone="12:45">
+				<item name="TimeZoneName">Pacific/Chatham</item>
+			</option>			
+			<option value="+13" displaytext="(UTC+13:00) Pacific/Apia" id="119" zone="13:00">
+				<item name="TimeZoneName">Pacific/Apia</item>
+			</option>
+			<option value="+13" displaytext="(UTC+13:00) Pacific/Enderbury" id="119" zone="13:00">
+				<item name="TimeZoneName">Pacific/Enderbury</item>
+			</option>
+			<option value="+13" displaytext="(UTC+13:00) Pacific/Fakaofo" id="119" zone="13:00">
+				<item name="TimeZoneName">Pacific/Fakaofo</item>
+			</option>
+			<option value="+13" displaytext="(UTC+13:00) Pacific/Tongatapu" id="119" zone="13:00">
+				<item name="TimeZoneName">Pacific/Tongatapu</item>
+			</option>			
+		</timezoneParams>
+        
+		
+		<Codecspriorities>
+			<Codecspriority variableName="codec1" priority="1">
+				<!--The first entry is the selected entry in management console-->
+				<option value="8">G711a</option>
+                <option value="0">G711u</option>
+				<option value="9">G722</option>
+				<option value="18">G729</option>
+			  </Codecspriority>
+			  <Codecspriority variableName="codec2" priority="2">
+				<!--The first entry is the selected entry in management console-->
+				<option value="0">G711u</option>
+                <option value="8">G711a</option>
+				<option value="9">G722</option>
+				<option value="18">G729</option>
+			  </Codecspriority>
+			  <Codecspriority variableName="codec3" priority="3">
+				<!--The first entry is the selected entry in management console-->
+				<option value="9">G722</option>
+				<option value="0">G711u</option>
+				<option value="8">G711a</option>
+				<option value="18">G729</option>
+			  </Codecspriority>
+			  <Codecspriority variableName="codec4" priority="4">
+				<!--The first entry is the selected entry in management console-->
+				<option value="18">G729</option>
+				<option value="0">G711u</option>
+				<option value="8">G711a</option>
+				<option value="9">G722</option>
+			  </Codecspriority>
+		</Codecspriorities>
+
+	</header>
+	
+	<data>
+		<device>
+			<field name="SimCallsPerPort" status="readonly">1</field>
+			<field name="TypeOfLines" status="readonly">DECT</field> <!--Type of PSTN Lines-->
+			<field name="NumberOfExtensions">20</field> <!--Number of FXS extensions-->
+			
+			<variable name="%%distring%%">
+			<title>Distinctive Ring</title>
+			<info>Here you can define if you want to enable distinctive ring, the ringtones have to be defined on the DECT handset:</info>
+			<option name="Distictivering Mode">
+				<value name="Disabled">Disabled</value>
+				<value name="Enabled">Enabled</value>
+			</option>
+			<result name="Disabled">0</result>
+			<result name="Enabled">1</result>
+			</variable>
+			
+		<deviceconfig filename="%%mac_address%%.xml" AllowDownload="false">
+<![CDATA[<?xml version="1.0" encoding="UTF-8"?> 
+<provisioning version="1.1" productID="e2">
+    <nvm>   
+
+<!-- 12:14 01-November-2022 -->
+
+    <oper name="DeleteNotProvisionedHS"/>
+    
+<!-- Change the DECT settings to EUROPE -->
+    <param name="DmGlobal.0.SystemRegDomain" value="EUR"/>
+    
+<!-- Change the default Password-->
+    <param name="WebUIAccounts.1.Password" value="%%DEVICE_PASSWORD%%"/>
+	
+	<param name="SipProvider.0.WithDeregOnHsNotReachable" value="1"/>
+
+<!-- Call Transfer improvement -->
+    <param name="DmGlobal.0.AcceptReplaceInEarlyState" value="1"/>
+
+<!-- General provider settings for all VoIP accounts Provider or PBX profiles -->
+
+	<param name="SipProvider.0.Name" value="3CX"/>
+    <param name="SipProvider.0.PhoneSystem" value="11"/>
+    <param name="DmGlobal.0.HSIdleDisplay" value="0"/>
+	{IF network=SBC}
+		<param name="SipProvider.0.Domain" value="%%local_sbc_ip%%"/>
+        <param name="SipProvider.0.ProxyServerAddress" value="%%local_sbc_ip%%"/>
+        <param name="SipProvider.0.ProxyServerPort" value="%%local_sbc_port%%"/>
+        <param name="SipProvider.0.RegServerAddress" value="%%local_sbc_ip%%"/>
+        <param name="SipProvider.0.RegServerPort" value="%%local_sbc_port%%"/>
+        <param name="SipProvider.0.RegServerRefreshTimer" value="120"/>
+	{ELSE}
+        <param name="SipProvider.0.Domain" value="%%pbx_ip%%"/>
+        <param name="SipProvider.0.ProxyServerAddress" value="%%pbx_ip%%"/>
+        <param name="SipProvider.0.ProxyServerPort" value="%%param::sipport%%"/>
+        <param name="SipProvider.0.RegServerAddress" value="%%pbx_ip%%"/>
+        <param name="SipProvider.0.RegServerPort" value="%%param::sipport%%"/>
+        <param name="SipProvider.0.RegServerRefreshTimer" value="120"/>
+	{ENDIF}
+
+    <param name="SipProvider.0.TransportProtocol" value="1"/>
+    <param name="SipProvider.0.UseSIPS" value="0"/>
+    <param name="SipProvider.0.SRTP_Enabled" value="0"/>
+    <param name="SipProvider.0.AcceptNonSRTPCalls" value="0"/>
+	<param name="SipProvider.0.UDPKeepAliveTimerValue" value="20"/>																
+    
+    <param name="SipProvider.0.FailoverServerEnabled" value="0"/>
+    <param name="SipProvider.0.FailoverServerAddress" value=""/>
+    <param name="SipProvider.0.FailoverServerPort" value="5060"/>
+        
+    <param name="SipProvider.0.OutboundProxyMode" value="2"/>
+    <param name="SipProvider.0.OutboundProxyAddress" value=""/>
+    <param name="SipProvider.0.OutboundProxyPort" value="5060"/>
+
+    <param name="SipProvider.0.ActiveCodecs" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+    <param name="SipProvider.0.RTPPtime" value="20"/>
+    <param name="SipProvider.0.HoldType" value="1"/>
+    <param name="SipProvider.0.CLIPSource" value="0"/>
+       
+<!-- Time Zone: --> 
+    <param name="DmGlobal.0.TimeZone" value="%%TimeZoneName%%"/> 
+
+<!-- web Language: -->    
+    <param name="WebUI.1.Language" value="%%langwebUI%%"/>
+
+<!-- Tone selection -->
+    <param name="Telephony.0.ToneScheme" value="%%toneset%%"/>
+    
+<!-- Areacode -->
+
+    <param name="AreaCodes.0.Country" value="%%areacode%%"/>
+    <param name="AreaCodes.0.Int_Code" value="%%intareacode%%"/>
+
+<!-- CSTA -->
+    <param name="SipProvider.0.CSTA_IsActive" value="0"/>    
+    <param name="SipProvider.0.CSTA_IsExternal" value="0"/>
+	
+	<!-- Central Phonebook -->
+    <param name="Netdir.21.Activated" value="1"/>
+    <param name="CentralBook.0.Name" value="3CX Phonebook"/>
+    <param name="CentralBook.0.ServerURL" value="%%PROVLINK%%/gigaset_phonebook.xml"/>
+    <param name="CentralBook.0.DownloadTime" value="23:00"/>
+    <param name="CentralBook.0.StartWithList" value="1"/>
+    <!-- Assign to all handsets the 3CX phonebook to the phonebook key -->
+    <param name="hs.@.DirectAccessDir" value="30"/>
+	
+	<param name="DmGlobal.0.SupportSipRingtones" value="%%distring%%"/>
+	<param name="SipRingtones.0.DefaultTone" value="0"/>
+	<param name="SipRingtones.0.RingInfo1" value="info=external"/>
+	<param name="SipRingtones.0.RingToneName3" value="Queue"/>
+	<param name="SipRingtones.0.RingInfo3" value="info=q"/>
+	<param name="SipRingtones.0.RingToneName4" value="IVR"/>
+	<param name="SipRingtones.0.RingInfo4" value="info=ivr"/>
+        
+<!--###       SIP Settings for Identity 1 (idx="1")      ###-->
+
+    <oper name="add_hs" value="00001">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+
+    <param name="SipAccount.00001.AuthName" value="%%ext_auth_id_01%%" />
+    <param name="SipAccount.00001.AuthPassword" value="%%ext_auth_pw_01%%" />
+    <param name="SipAccount.00001.UserName" value="%%ext_int_num_01%%" />
+    <param name="SipAccount.00001.DisplayName" value="%%ext_first_name_01%%" />
+    <param name="SipAccount.00001.ProviderId" value="0" />
+    <param name="SipAccount.00001.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00001.VoiceMailActive" value="1" />
+    
+<!--###       SIP Settings for Identity 2 (idx="2")      ###-->
+
+    <oper name="add_hs" value="00002">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00002.AuthName" value="%%ext_auth_id_02%%" />
+    <param name="SipAccount.00002.AuthPassword" value="%%ext_auth_pw_02%%" />
+    <param name="SipAccount.00002.UserName" value="%%ext_int_num_02%%" />
+    <param name="SipAccount.00002.DisplayName" value="%%ext_first_name_02%%" />
+    <param name="SipAccount.00002.ProviderId" value="0" />
+    <param name="SipAccount.00002.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00002.VoiceMailActive" value="1" />    
+    
+<!--###       SIP Settings for Identity 3 (idx="3")      ###-->
+
+    <oper name="add_hs" value="00003">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00003.AuthName" value="%%ext_auth_id_03%%" />
+    <param name="SipAccount.00003.AuthPassword" value="%%ext_auth_pw_03%%" />
+    <param name="SipAccount.00003.UserName" value="%%ext_int_num_03%%" />
+    <param name="SipAccount.00003.DisplayName" value="%%ext_first_name_03%%" />
+    <param name="SipAccount.00003.ProviderId" value="0" />
+    <param name="SipAccount.00003.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00003.VoiceMailActive" value="1" /> 
+    
+<!--###       SIP Settings for Identity 4 (idx="4")      ###-->
+
+    <oper name="add_hs" value="00004">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00004.AuthName" value="%%ext_auth_id_04%%" />
+    <param name="SipAccount.00004.AuthPassword" value="%%ext_auth_pw_04%%" />
+    <param name="SipAccount.00004.UserName" value="%%ext_int_num_04%%" />
+    <param name="SipAccount.00004.DisplayName" value="%%ext_first_name_04%%" />
+    <param name="SipAccount.00004.ProviderId" value="0" />
+    <param name="SipAccount.00004.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00004.VoiceMailActive" value="1" />     
+
+<!--###       SIP Settings for Identity 5 (idx="5")      ###-->
+
+    <oper name="add_hs" value="00005">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00005.AuthName" value="%%ext_auth_id_05%%" />
+    <param name="SipAccount.00005.AuthPassword" value="%%ext_auth_pw_05%%" />
+    <param name="SipAccount.00005.UserName" value="%%ext_int_num_05%%" />
+    <param name="SipAccount.00005.DisplayName" value="%%ext_first_name_05%%" />
+    <param name="SipAccount.00005.ProviderId" value="0" />
+    <param name="SipAccount.00005.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00005.VoiceMailActive" value="1" /> 
+    
+<!--###       SIP Settings for Identity 6 (idx="6")      ###-->
+
+    <oper name="add_hs" value="00006">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00006.AuthName" value="%%ext_auth_id_06%%" />
+    <param name="SipAccount.00006.AuthPassword" value="%%ext_auth_pw_06%%" />
+    <param name="SipAccount.00006.UserName" value="%%ext_int_num_06%%" />
+    <param name="SipAccount.00006.DisplayName" value="%%ext_first_name_06%%" />
+    <param name="SipAccount.00006.ProviderId" value="0" />
+    <param name="SipAccount.00006.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00006.VoiceMailActive" value="1" /> 
+
+<!--###       SIP Settings for Identity 7 (idx="7")      ###-->
+
+    <oper name="add_hs" value="00007">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00007.AuthName" value="%%ext_auth_id_07%%" />
+    <param name="SipAccount.00007.AuthPassword" value="%%ext_auth_pw_07%%" />
+    <param name="SipAccount.00007.UserName" value="%%ext_int_num_07%%" />
+    <param name="SipAccount.00007.DisplayName" value="%%ext_first_name_07%%" />
+    <param name="SipAccount.00007.ProviderId" value="0" />
+    <param name="SipAccount.00007.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00007.VoiceMailActive" value="1" /> 
+
+<!--###       SIP Settings for Identity 8 (idx="8")      ###-->
+    
+    <oper name="add_hs" value="00008">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00008.AuthName" value="%%ext_auth_id_08%%" />
+    <param name="SipAccount.00008.AuthPassword" value="%%ext_auth_pw_08%%" />
+    <param name="SipAccount.00008.UserName" value="%%ext_int_num_08%%" />
+    <param name="SipAccount.00008.DisplayName" value="%%ext_first_name_08%%" />
+    <param name="SipAccount.00008.ProviderId" value="0" />
+    <param name="SipAccount.00008.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00008.VoiceMailActive" value="1" />  
+
+<!--###       SIP Settings for Identity 9 (idx="9")      ###-->
+    
+    <oper name="add_hs" value="00009">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00009.AuthName" value="%%ext_auth_id_09%%" />
+    <param name="SipAccount.00009.AuthPassword" value="%%ext_auth_pw_09%%" />
+    <param name="SipAccount.00009.UserName" value="%%ext_int_num_09%%" />
+    <param name="SipAccount.00009.DisplayName" value="%%ext_first_name_09%%" />
+    <param name="SipAccount.00009.ProviderId" value="0" />
+    <param name="SipAccount.00009.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00009.VoiceMailActive" value="1" /> 
+    
+<!--###       SIP Settings for Identity 10 (idx="10")      ###-->
+    
+    <oper name="add_hs" value="00010">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00010.AuthName" value="%%ext_auth_id_10%%" />
+    <param name="SipAccount.00010.AuthPassword" value="%%ext_auth_pw_10%%" />
+    <param name="SipAccount.00010.UserName" value="%%ext_int_num_10%%" />
+    <param name="SipAccount.00010.DisplayName" value="%%ext_first_name_10%%" />
+    <param name="SipAccount.00010.ProviderId" value="0" />
+    <param name="SipAccount.00010.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00010.VoiceMailActive" value="1" /> 
+
+<!--###       SIP Settings for Identity 11 (idx="11")      ###-->
+    
+    <oper name="add_hs" value="00011">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00011.AuthName" value="%%ext_auth_id_11%%" />
+    <param name="SipAccount.00011.AuthPassword" value="%%ext_auth_pw_11%%" />
+    <param name="SipAccount.00011.UserName" value="%%ext_int_num_11%%" />
+    <param name="SipAccount.00011.DisplayName" value="%%ext_first_name_11%%" />
+    <param name="SipAccount.00011.ProviderId" value="0" />
+    <param name="SipAccount.00011.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00011.VoiceMailActive" value="1" />     
+    
+<!--###       SIP Settings for Identity 12 (idx="12")      ###-->
+    
+    <oper name="add_hs" value="00012">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00012.AuthName" value="%%ext_auth_id_12%%" />
+    <param name="SipAccount.00012.AuthPassword" value="%%ext_auth_pw_12%%" />
+    <param name="SipAccount.00012.UserName" value="%%ext_int_num_12%%" />
+    <param name="SipAccount.00012.DisplayName" value="%%ext_first_name_12%%" />
+    <param name="SipAccount.00012.ProviderId" value="0" />
+    <param name="SipAccount.00012.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00012.VoiceMailActive" value="1" />     
+    
+<!--###       SIP Settings for Identity 13 (idx="13")      ###-->
+    
+    <oper name="add_hs" value="00013">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00013.AuthName" value="%%ext_auth_id_13%%" />
+    <param name="SipAccount.00013.AuthPassword" value="%%ext_auth_pw_13%%" />
+    <param name="SipAccount.00013.UserName" value="%%ext_int_num_13%%" />
+    <param name="SipAccount.00013.DisplayName" value="%%ext_first_name_13%%" />
+    <param name="SipAccount.00013.ProviderId" value="0" />
+    <param name="SipAccount.00013.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00013.VoiceMailActive" value="1" />     
+    
+<!--###       SIP Settings for Identity 14 (idx="14")      ###-->
+    
+    <oper name="add_hs" value="00014">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00014.AuthName" value="%%ext_auth_id_14%%" />
+    <param name="SipAccount.00014.AuthPassword" value="%%ext_auth_pw_14%%" />
+    <param name="SipAccount.00014.UserName" value="%%ext_int_num_14%%" />
+    <param name="SipAccount.00014.DisplayName" value="%%ext_first_name_14%%" />
+    <param name="SipAccount.00014.ProviderId" value="0" />
+    <param name="SipAccount.00014.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00014.VoiceMailActive" value="1" /> 
+    
+<!--###       SIP Settings for Identity 15 (idx="15")      ###-->
+    
+    <oper name="add_hs" value="00015">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00015.AuthName" value="%%ext_auth_id_15%%" />
+    <param name="SipAccount.00015.AuthPassword" value="%%ext_auth_pw_15%%" />
+    <param name="SipAccount.00015.UserName" value="%%ext_int_num_15%%" />
+    <param name="SipAccount.00015.DisplayName" value="%%ext_first_name_15%%" />
+    <param name="SipAccount.00015.ProviderId" value="0" />
+    <param name="SipAccount.00015.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00015.VoiceMailActive" value="1" />    
+
+<!--###       SIP Settings for Identity 16 (idx="16")      ###-->
+    
+    <oper name="add_hs" value="00016">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00016.AuthName" value="%%ext_auth_id_16%%" />
+    <param name="SipAccount.00016.AuthPassword" value="%%ext_auth_pw_16%%" />
+    <param name="SipAccount.00016.UserName" value="%%ext_int_num_16%%" />
+    <param name="SipAccount.00016.DisplayName" value="%%ext_first_name_16%%" />
+    <param name="SipAccount.00016.ProviderId" value="0" />
+    <param name="SipAccount.00016.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00016.VoiceMailActive" value="1" />    
+
+<!--###       SIP Settings for Identity 17 (idx="17")      ###-->
+    
+    <oper name="add_hs" value="00017">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00017.AuthName" value="%%ext_auth_id_17%%" />
+    <param name="SipAccount.00017.AuthPassword" value="%%ext_auth_pw_17%%" />
+    <param name="SipAccount.00017.UserName" value="%%ext_int_num_17%%" />
+    <param name="SipAccount.00017.DisplayName" value="%%ext_first_name_17%%" />
+    <param name="SipAccount.00017.ProviderId" value="0" />
+    <param name="SipAccount.00017.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00017.VoiceMailActive" value="1" />  
+
+<!--###       SIP Settings for Identity 18 (idx="18")      ###-->
+    
+    <oper name="add_hs" value="00018">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00018.AuthName" value="%%ext_auth_id_18%%" />
+    <param name="SipAccount.00018.AuthPassword" value="%%ext_auth_pw_18%%" />
+    <param name="SipAccount.00018.UserName" value="%%ext_int_num_18%%" />
+    <param name="SipAccount.00018.DisplayName" value="%%ext_first_name_18%%" />
+    <param name="SipAccount.00018.ProviderId" value="0" />
+    <param name="SipAccount.00018.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00018.VoiceMailActive" value="1" />     
+    
+<!--###       SIP Settings for Identity 19 (idx="19")      ###-->
+    
+    <oper name="add_hs" value="00019">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00019.AuthName" value="%%ext_auth_id_19%%" />
+    <param name="SipAccount.00019.AuthPassword" value="%%ext_auth_pw_19%%" />
+    <param name="SipAccount.00019.UserName" value="%%ext_int_num_19%%" />
+    <param name="SipAccount.00019.DisplayName" value="%%ext_first_name_19%%" />
+    <param name="SipAccount.00019.ProviderId" value="0" />
+    <param name="SipAccount.00019.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00019.VoiceMailActive" value="1" />     
+    
+<!--###       SIP Settings for Identity 20 (idx="20")      ###-->
+    
+    <oper name="add_hs" value="00020">
+        <param name="hs.RegStatus" value="NotReg"/>
+    </oper>
+    
+    <param name="SipAccount.00020.AuthName" value="%%ext_auth_id_20%%" />
+    <param name="SipAccount.00020.AuthPassword" value="%%ext_auth_pw_20%%" />
+    <param name="SipAccount.00020.UserName" value="%%ext_int_num_20%%" />
+    <param name="SipAccount.00020.DisplayName" value="%%ext_first_name_20%%" />
+    <param name="SipAccount.00020.ProviderId" value="0" />
+    <param name="SipAccount.00020.VoiceMailMailbox" value="%%vm_number%%" />
+    <param name="SipAccount.00020.VoiceMailActive" value="1" />     
+
+</nvm>
+</provisioning>
+]]>
+			</deviceconfig>
+		</device>
+	</data>   
+</doc>

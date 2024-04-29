@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Country="US" Name="Freshdesk" SupportsEmojis="true" Version="26">
+  <Number Prefix="AsIs" MaxLength="[MaxLength]" />
+  <Connection MaxConcurrentRequests="16" />
+  <Parameters>
+    <Parameter Parent="General Configuration" Name="APIkey" Type="String" Title="API Key:" />
+    <Parameter Parent="General Configuration" Name="Domain" Type="String" Title="Domain Part:" />
+    <Parameter Parent="General Configuration" Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+    <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False" />
+    <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Ticket Subject:" Default="New Ticket" />
+    <Parameter Parent="ReportCallEnabled" Name="TicketType" Type="String" Title="Ticket Type:" Default="Question" />
+    <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+    <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+    <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False"/>
+    <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Chat Subject:" Default="3CX PhoneSystem Chat Session" />
+    <Parameter Parent="ReportChatEnabled" Name="ChatTicketType" Type="String" Title="Chat Ticket Type:" Default="Question" />
+  </Parameters>
+  <Authentication Type="Basic">
+    <Value>[APIkey]:X</Value>
+  </Authentication>
+  <Scenarios>
+    <Scenario>
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+      				 Url="https://[Domain].freshdesk.com/api/v2/contacts?phone=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+        <Variable Name="CompanyId" Path="company_id" />
+        <Variable Name="Name" Path="name" />
+        <Variable Name="WorkPhone" Path="phone" />
+        <Variable Name="MobilePhone" Path="mobile" />
+        <Variable Name="Email" Path="email" />
+      </Variables>
+      <Outputs Next="GetCompany" AllowEmpty="false" />
+    </Scenario>
+    <Scenario>
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+      				 Url="https://[Domain].freshdesk.com/api/v2/contacts?mobile=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+        <Variable Name="CompanyId" Path="company_id" />
+        <Variable Name="Name" Path="name" />
+        <Variable Name="WorkPhone" Path="phone" />
+        <Variable Name="MobilePhone" Path="mobile" />
+        <Variable Name="Email" Path="email" />
+      </Variables>
+      <Outputs Next="GetCompany" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupByEmail_Contacts">
+      <Request Url="https://[Domain].freshdesk.com/api/v2/contacts?email=[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+        <Variable Name="CompanyId" Path="company_id" />
+        <Variable Name="Name" Path="name" />
+        <Variable Name="WorkPhone" Path="phone" />
+        <Variable Name="MobilePhone" Path="mobile" />
+        <Variable Name="Email" Path="email" />
+      </Variables>
+      <Outputs Next="GetCompany" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="GetCompany">
+      <Request SkipIf="[CompanyId]==&quot;&quot;" Url="https://[Domain].freshdesk.com/api/v2/companies/[CompanyId]" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">name</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="CompanyName">name</Variable>
+      </Variables>
+      <Outputs AllowEmpty="true">
+        <Output Type="ContactUrl" Value="https://[Domain].freshdesk.com/contacts/[Id]" />
+        <Output Type="FirstName" Value="[Name]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="PhoneMobile" Value="[MobilePhone]" />
+        <Output Type="PhoneBusiness" Value="[WorkPhone]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts">
+      <Request Url="https://[Domain].freshdesk.com/api/v2/contacts/autocomplete?term=[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+        <Variable Name="CompanyId" Path="company_id" />
+        <Variable Name="Name" Path="name" />
+        <Variable Name="WorkPhone" Path="phone" />
+        <Variable Name="MobilePhone" Path="mobile" />
+        <Variable Name="Email" Path="email" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="https://[Domain].freshdesk.com/contacts/[Id]" />
+        <Output Type="FirstName" Value="[Name]" />
+        <Output Type="PhoneMobile" Value="[MobilePhone]" />
+        <Output Type="PhoneBusiness" Value="[WorkPhone]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetAllContacts">
+      <Request Url="https://[Domain].freshdesk.com/api/v2/contacts?page=[Page+1]&amp;per_page=[PageSize]" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+        <Variable Name="CompanyId" Path="company_id" />
+        <Variable Name="Name" Path="name" />
+        <Variable Name="WorkPhone" Path="phone" />
+        <Variable Name="MobilePhone" Path="mobile" />
+        <Variable Name="Email" Path="email" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="https://[Domain].freshdesk.com/contacts/[Id]" />
+        <Output Type="FirstName" Value="[Name]" />
+        <Output Type="PhoneMobile" Value="[MobilePhone]" />
+        <Output Type="PhoneBusiness" Value="[WorkPhone]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="ReportCall">
+      <Request SkipIf="[IIf([ReportCallEnabled]!=True||[EntityId]==&quot;&quot;,True,[IIf([AgentEmail]==&quot;&quot;,True,False)])]" 
+      				 Url="https://[Domain].freshdesk.com/api/v2/agents?email=[AgentEmail]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AgentId" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateTicketForCall" />
+    </Scenario>
+    <Scenario Id="CreateTicketForCall">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://[Domain].freshdesk.com/api/v2/tickets" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+          <Value Key="requester_id" Type="Integer">[EntityId]</Value>
+          <Value Key="responder_id" Type="Integer" If="[AgentId]!=&quot;&quot;">[AgentId]</Value>
+          <Value Key="phone">[Number]</Value>
+          <Value Key="subject" Passes="2">[[Subject]]</Value>
+          <Value Key="type" Passes="2">[[TicketType]]</Value>
+          <Value Key="status" Type="Integer">2</Value>
+          <Value Key="priority" Type="Integer">1</Value>
+          <Value Key="description" Passes="2" If="[CallType]==Inbound">[[InboundCallText]]</Value>
+          <Value Key="description" Passes="2" If="[CallType]==Missed">[[MissedCallText]]</Value>
+          <Value Key="description" Passes="2" If="[CallType]==Outbound">[[OutboundCallText]]</Value>
+          <Value Key="description" Passes="2" If="[CallType]==Notanswered">[[NotAnsweredOutboundCallText]]</Value>
+          <Value Key="source" Type="Integer">3</Value>
+          <Array Key="tags">
+             <Value>[CallType]</Value>
+             <Value>Call</Value>
+             <Value>[Agent]</Value>
+          </Array>
+        </PostValues>
+      </Request>
+    </Scenario>
+    <Scenario Id="ReportChat">
+      <Request SkipIf="[IIf([ReportChatEnabled]!=True||[EntityId]==&quot;&quot;,True,[IIf([AgentEmail]==&quot;&quot;,True,False)])]" 
+      				 Url="https://[Domain].freshdesk.com/api/v2/agents?email=[AgentEmail]" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AgentId" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateTicketForChat" />
+    </Scenario>
+    <Scenario Id="CreateTicketForChat">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="https://[Domain].freshdesk.com/api/v2/tickets" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+          <Value Key="requester_id" Type="Integer">[EntityId]</Value>
+          <Value Key="responder_id" Type="Integer" If="[AgentId]!=&quot;&quot;">[AgentId]</Value>
+          <Value Key="email" If="[Email]!=&quot;&quot;">[Email]</Value>
+          <Value Key="phone" If="[Number]!=&quot;&quot;">[Number]</Value>
+          <Value Key="subject" Passes="2">[[ChatSubject]]</Value>
+          <Value Key="type" Passes="2">[[ChatTicketType]]</Value>
+          <Value Key="status" Type="Integer">2</Value>
+          <Value Key="priority" Type="Integer">1</Value>
+          <Value Key="description">[[ChatMessages].Replace(&quot;&#xD;&quot;,&quot;&lt;br/&gt;&quot;).Replace(&quot;&#xA;&quot;,&quot;&lt;br/&gt;&quot;).Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+          <Value Key="source" Type="Integer">7</Value>
+          <Array Key="tags">
+             <Value>Chat</Value>
+             <Value>[Agent]</Value>
+          </Array>
+        </PostValues>
+      </Request>
+    </Scenario>
+    <Scenario Id="CreateContactRecord">
+      <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" Url="https://[Domain].freshdesk.com/api/v2/contacts" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+            <Value Passes="2" Key="name">[[CreateContactName]]</Value>
+            <Value Passes="1" Key="phone">[Number]</Value>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="https://[Domain].freshdesk.com/contacts/[Id]" />
+        <Output Type="FirstName" Passes="2" Value="[[CreateContactName]]" />
+        <Output Type="PhoneBusiness" Value="[Number]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateContactRecordFromClient">
+      <Request SkipIf="[CreateContactEnabled]!=True" Url="https://[Domain].freshdesk.com/api/v2/contacts" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+            <Value Key="name">[FirstName] [LastName]</Value>
+            <Value Key="email" If="[Email]!=&quot;&quot;">[Email]</Value>
+            <Value Key="mobile" If="[Number]!=&quot;&quot;">[Number]</Value>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="https://[Domain].freshdesk.com/contacts/[Id]" />
+        <Output Type="FirstName" Passes="2" Value="[FirstName]" />
+        <Output Type="LastName" Passes="2" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+      <Request Url="https://[Domain].freshdesk.com/api/v2/contacts?phone=[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupID">
+      <Request Url="https://[Domain].freshdesk.com/api/v2/contacts/[EntityID]" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+      <Request Url="https://[Domain].freshdesk.com/api/v2/contacts?[Query]" 
+      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+  </Scenarios>
+</Crm>

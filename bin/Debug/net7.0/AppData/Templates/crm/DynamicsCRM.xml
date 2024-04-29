@@ -1,0 +1,772 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Country="US" Name="Microsoft Dynamics 365" SupportsEmojis="true" Version="18">
+    <Number Prefix="AsIs" MaxLength="[MaxLength]"/>
+    <Connection MaxConcurrentRequests="16"/>
+    <Parameters>
+        <Parameter Parent="General Configuration" Name="ClientId" Type="String" Title="Application ID:"/>
+        <Parameter Parent="General Configuration" Name="Tenant" Type="String" Title="Tenant:"/>
+        <Parameter Parent="General Configuration" Name="Domain" Type="String" Title="Domain:"/>
+		    <Parameter Parent="General Configuration" Name="LookupOrder" Type="List" ListValues="Contacts/Leads/Accounts,Contacts/Accounts/Leads,Leads/Accounts/Contacts,Leads/Contacts/Accounts,Accounts/Contacts/Leads,Accounts/Leads/Contacts" Title="Contact Lookup Order:" Default="Contacts/Leads/Accounts" />
+        <Parameter Parent="General Configuration" Name="RefreshToken" Type="OAuth" Title="Refresh Token:"
+                   RequestUrl="https://login.microsoftonline.com/[Tenant]/oauth2/authorize"
+                   RequestUrlParameters="response_type=code&amp;client_id=[ClientId]&amp;redirect_uri=[RedirectUri]&amp;state=[State]&amp;resource=[Domain]"
+                   ResponseScenario="OAuthGetAccessToken"/>
+        <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False" />
+        <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Call Subject:" Default="3CX PhoneSystem Call" />
+        <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+        <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+        <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+        <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [[Name]]" />
+        <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False" />
+        <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Chat Subject:" Default="3CX PhoneSystem Chat Session" />
+        <Parameter Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+        <Parameter Parent="CreateContactEnabled" Name="CreateLeadOrContact" Type="List" ListValues="Lead,Contact" Title="Create Lead or Contact:" Default="Contact" />
+        <Parameter Parent="CreateContactEnabled" Name="LeadSubject" Type="String" Title="New Lead Subject:" Default="New Lead From 3CX Call" />
+    </Parameters>
+    <Authentication Type="Scenario">
+        <Value>Auth</Value>
+    </Authentication>
+    <Scenarios>
+        <Scenario Id="Auth">
+            <Request Url="https://login.microsoftonline.com/[Tenant]/oauth2/token" RequestEncoding="UrlEncoded" RequestType="Post"
+                     ResponseType="Json">
+                <PostValues>
+                    <Value Passes="0" Key="refresh_token" Type="String">[RefreshToken]</Value>
+                    <Value Passes="0" Key="grant_type" Type="String">refresh_token</Value>
+                    <Value Passes="0" Key="client_id" Type="String">[ClientId]</Value>
+                    <Value Passes="0" Key="resource" Type="String">[Domain]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">access_token</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="AccessToken" Path="access_token" />
+                <Variable Name="RefreshToken" Path="refresh_token" />
+                <Variable Name="ExpiresIn" Path="expires_in" />
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="HeaderName" Value="Authorization"/>
+                <Output Type="HeaderValue" Value="Bearer [AccessToken]"/>
+                <Output Type="BearerExpiration" Value="[ExpiresIn]"/>
+				        <Output Type="RefreshToken" Value="[RefreshToken]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="OAuthGetAccessToken">
+            <Request Url="https://login.microsoftonline.com/[Tenant]/oauth2/token" RequestEncoding="UrlEncoded" RequestType="Post"
+                     ResponseType="Json">
+                <PostValues>
+                    <Value Passes="0" Key="code" Type="String">[code]</Value>
+                    <Value Passes="0" Key="redirect_uri" Type="String">[RedirectUri]</Value>
+                    <Value Passes="0" Key="grant_type" Type="String">authorization_code</Value>
+                    <Value Passes="0" Key="client_id" Type="String">[ClientId]</Value>
+                    <Value Passes="0" Key="resource" Type="String">[Domain]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">refresh_token</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="Result">refresh_token<Filter/></Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="Result" Value="[Result]"/>
+            </Outputs>
+        </Scenario>
+    		<Scenario EntityId="Contacts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[Domain]/api/data/v9.1/contacts?$select=firstname,lastname,telephone1,telephone2,telephone3,fax,address2_telephone1,address2_telephone2,address2_telephone3,address2_fax,pager,emailaddress1&amp;$filter=contains(telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(pager,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]')&amp;$expand=parentcustomerid_account($select=name)"
+                     RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+            <Rules>
+                <Rule Type="Any">value.contactid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="ContactId" Path="value.contactid"/>
+                <Variable Name="AccountName" Path="value.parentcustomerid_account.name"/>
+                <Variable Name="FirstName" Path="value.firstname"/>
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="Email" Path="value.emailaddress1"/>
+                <Variable Name="PhoneBusiness" Path="value.telephone1"/>
+                <Variable Name="PhoneBusiness2" Path="value.telephone2"/>
+                <Variable Name="PhoneOther" Path="value.telephone3"/>
+                <Variable Name="PhoneMobile" Path="value.address2_telephone1"/>
+                <Variable Name="PhoneMobile2" Path="value.address2_telephone2"/>
+                <Variable Name="PhoneHome" Path="value.address2_telephone3"/>
+                <Variable Name="FaxHome" Path="value.address2_fax"/>
+                <Variable Name="FaxBusiness" Path="value.fax"/>
+                <Variable Name="Pager" Path="value.pager"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=contact&amp;id={[ContactId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="PhoneMobile2" Value="[PhoneMobile2]"/>
+                <Output Type="PhoneHome" Value="[PhoneHome]"/>
+                <Output Type="PhoneHome2" Value="[PhoneHome2]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="FaxHome" Value="[FaxHome]"/>
+                <Output Type="Pager" Value="[Pager]"/>
+                <Output Type="EntityType" Value="Contact" />
+                <Output Type="EntityId" Value="[ContactId]" />
+            </Outputs>
+        </Scenario>
+    		<Scenario EntityId="Contacts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[Domain]/api/data/v9.1/contacts?$select=firstname,lastname,assistantphone,managerphone,mobilephone,business2,home2,address1_telephone1,address1_telephone2,address1_telephone3,address1_fax,emailaddress1&amp;$filter=contains(assistantphone,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(managerphone,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(mobilephone,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(business2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(home2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]')&amp;$expand=parentcustomerid_account($select=name)"
+                     RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+            <Rules>
+                <Rule Type="Any">value.contactid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="ContactId" Path="value.contactid"/>
+                <Variable Name="AccountName" Path="value.parentcustomerid_account.name"/>
+                <Variable Name="FirstName" Path="value.firstname"/>
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="Email" Path="value.emailaddress1"/>
+                <Variable Name="PhoneBusiness" Path="value.assistantphone"/>
+                <Variable Name="PhoneBusiness2" Path="value.business2"/>
+                <Variable Name="PhoneOther" Path="value.managerphone"/>
+                <Variable Name="PhoneMobile" Path="value.mobilephone"/>
+                <Variable Name="PhoneHome" Path="value.home2"/>
+                <Variable Name="PhoneMobile2" Path="value.address1_telephone1"/>
+                <Variable Name="PhoneHome2" Path="value.address1_telephone2"/>
+                <Variable Name="FaxBusiness" Path="value.address1_telephone3"/>
+                <Variable Name="FaxHome" Path="value.address1_fax"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=contact&amp;id={[ContactId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="PhoneMobile2" Value="[PhoneMobile2]"/>
+                <Output Type="PhoneHome" Value="[PhoneHome]"/>
+                <Output Type="PhoneHome2" Value="[PhoneHome2]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="FaxHome" Value="[FaxHome]"/>
+                <Output Type="Pager" Value="[Pager]"/>
+                <Output Type="EntityType" Value="Contact" />
+                <Output Type="EntityId" Value="[ContactId]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario EntityId="Leads" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[Domain]/api/data/v9.1/leads?$select=firstname,lastname,telephone1,telephone2,telephone3,address1_telephone1,address1_telephone2,address1_telephone3,address1_fax,emailaddress1&amp;$filter=contains(telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]')"
+                     RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+            <Rules>
+                <Rule Type="Any">value.leadid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="LeadId" Path="value.leadid"/>
+                <Variable Name="FirstName" Path="value.firstname"/>               
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="Email" Path="value.emailaddress1"/>
+                <Variable Name="PhoneBusiness" Path="value.telephone1"/>
+                <Variable Name="PhoneBusiness2" Path="value.telephone2"/>
+                <Variable Name="PhoneOther" Path="value.telephone3"/>
+                <Variable Name="PhoneMobile" Path="value.address1_telephone1"/>
+                <Variable Name="PhoneMobile2" Path="value.address1_telephone2"/>
+                <Variable Name="PhoneHome" Path="value.address1_telephone3"/>
+                <Variable Name="FaxBusiness" Path="value.address1_fax"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=lead&amp;id={[LeadId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="PhoneMobile2" Value="[PhoneMobile2]"/>
+                <Output Type="PhoneHome" Value="[PhoneHome]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="EntityType" Value="Lead" />
+                <Output Type="EntityId" Value="[LeadId]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario EntityId="Leads" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[Domain]/api/data/v9.1/leads?$select=firstname,lastname,mobilephone,address2_telephone1,address2_telephone2,address2_telephone3,address2_fax,fax,pager,emailaddress1&amp;$filter=contains(mobilephone,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(pager,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]')"
+                     RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+            <Rules>
+                <Rule Type="Any">value.leadid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="LeadId" Path="value.leadid"/>
+                <Variable Name="FirstName" Path="value.firstname"/>
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="Email" Path="value.emailaddress1"/>
+                <Variable Name="PhoneBusiness" Path="value.address2_telephone1"/>
+                <Variable Name="PhoneBusiness2" Path="value.address2_telephone2"/>
+                <Variable Name="PhoneOther" Path="value.address2_telephone3"/>
+                <Variable Name="PhoneMobile" Path="value.mobilephone"/>
+                <Variable Name="FaxBusiness" Path="value.fax"/>
+                <Variable Name="FaxHome" Path="value.address2_fax"/>
+                <Variable Name="Pager" Path="value.pager"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=lead&amp;id={[LeadId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="FaxHome" Value="[FaxHome]"/>
+                <Output Type="Pager" Value="[Pager]"/>
+                <Output Type="EntityType" Value="Lead" />
+                <Output Type="EntityId" Value="[LeadId]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario EntityId="Accounts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[Domain]/api/data/v9.1/accounts?$select=name,telephone1,telephone2,telephone3,fax,address1_telephone1,address1_telephone2,address1_fax,address2_telephone1,address2_telephone2,address2_fax,emailaddress1&amp;$filter=contains(telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]')"
+                     RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+            <Rules>
+                <Rule Type="Any">value.accountid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="AccountId" Path="value.accountid"/>
+                <Variable Name="AccountName" Path="value.name"/>
+                <Variable Name="Email" Path="value.emailaddress1"/>
+                <Variable Name="Telephone1" Path="value.telephone1"/>
+                <Variable Name="Telephone2" Path="value.telephone2"/>
+                <Variable Name="Telephone3" Path="value.telephone3"/>
+                <Variable Name="Fax" Path="value.fax"/>
+                <Variable Name="Address1Telephone1" Path="value.address1_telephone1"/>
+                <Variable Name="Address1Telephone2" Path="value.address1_telephone2"/>
+                <Variable Name="Address1Fax" Path="value.address1_fax"/>
+                <Variable Name="Address2Telephone1" Path="value.address2_telephone1"/>
+                <Variable Name="Address2Telephone2" Path="value.address2_telephone2"/>
+                <Variable Name="Address2Fax" Path="value.address2_fax"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=account&amp;id={[AccountId]}&amp;pagetype=entityrecord"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Telephone1]"/>
+                <Output Type="PhoneBusiness2" Value="[Telephone2]"/>
+                <Output Type="PhoneOther" Value="[Telephone3]"/>
+                <Output Type="PhoneMobile" Value="[Address1Telephone1]"/>
+                <Output Type="PhoneMobile2" Value="[Address1Telephone2]"/>
+                <Output Type="PhoneHome" Value="[Address2Telephone1]"/>
+                <Output Type="PhoneHome2" Value="[Address2Telephone2]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="FaxHome" Value="[Address1Fax]"/>
+                <Output Type="Pager" Value="[Address2Fax]"/>
+                <Output Type="EntityType" Value="Account" />
+                <Output Type="EntityId" Value="[AccountId]" />
+            </Outputs>
+        </Scenario>
+    		<Scenario Id="LookupByEmail_Contacts" EntityId="Contacts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[Domain]/api/data/v9.1/contacts?$select=firstname,lastname,telephone1,telephone2,telephone3,mobilephone,assistantphone,managerphone,business2,home2,fax,pager,emailaddress1,emailaddress2,emailaddress3&amp;$filter=emailaddress1 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]' or emailaddress2 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]' or emailaddress3 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]'&amp;$expand=parentcustomerid_account($select=name)"
+                     RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+            <Rules>
+                <Rule Type="Any">value.contactid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="ContactId" Path="value.contactid"/>
+                <Variable Name="AccountName" Path="value.parentcustomerid_account.name"/>
+                <Variable Name="FirstName" Path="value.firstname"/>
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="PhoneBusiness" Path="value.telephone1"/>
+                <Variable Name="PhoneBusiness2" Path="value.telephone2"/>
+                <Variable Name="PhoneOther" Path="value.telephone3"/>
+                <Variable Name="PhoneMobile" Path="value.mobilephone"/>
+                <Variable Name="PhoneMobile2" Path="value.assistantphone"/>
+                <Variable Name="PhoneHome" Path="value.managerphone"/>
+                <Variable Name="PhoneHome2" Path="value.business2"/>
+                <Variable Name="FaxHome" Path="value.home2"/>
+                <Variable Name="FaxBusiness" Path="value.fax"/>
+                <Variable Name="Pager" Path="value.pager"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=contact&amp;id={[ContactId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="PhoneMobile2" Value="[PhoneMobile2]"/>
+                <Output Type="PhoneHome" Value="[PhoneHome]"/>
+                <Output Type="PhoneHome2" Value="[PhoneHome2]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="FaxHome" Value="[FaxHome]"/>
+                <Output Type="Pager" Value="[Pager]"/>
+                <Output Type="EntityType" Value="Contact" />
+                <Output Type="EntityId" Value="[ContactId]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario Id="LookupByEmail_Leads" EntityId="Leads" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[Domain]/api/data/v9.1/leads?$select=firstname,lastname,telephone1,telephone2,telephone3,mobilephone,address1_telephone1,address1_telephone2,address1_telephone3,address1_fax,emailaddress1,emailaddress2,emailaddress3&amp;$filter=emailaddress1 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]' or emailaddress2 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]' or emailaddress3 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]'"
+                     RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+            <Rules>
+                <Rule Type="Any">value.leadid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="LeadId" Path="value.leadid"/>
+                <Variable Name="FirstName" Path="value.firstname"/>               
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="PhoneBusiness" Path="value.telephone1"/>
+                <Variable Name="PhoneBusiness2" Path="value.telephone2"/>
+                <Variable Name="PhoneOther" Path="value.telephone3"/>
+                <Variable Name="PhoneMobile" Path="value.mobilephone"/>
+                <Variable Name="PhoneMobile2" Path="value.address1_telephone1"/>
+                <Variable Name="PhoneHome" Path="value.address1_telephone2"/>
+                <Variable Name="PhoneHome2" Path="value.address1_telephone3"/>
+                <Variable Name="FaxBusiness" Path="value.address1_fax"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=lead&amp;id={[LeadId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="PhoneMobile2" Value="[PhoneMobile2]"/>
+                <Output Type="PhoneHome" Value="[PhoneHome]"/>
+                <Output Type="PhoneHome2" Value="[PhoneHome2]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="EntityType" Value="Lead" />
+                <Output Type="EntityId" Value="[LeadId]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario Id="LookupByEmail_Accounts" EntityId="Accounts" EntityOrder="[LookupOrder]">
+            <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+                     Url="[Domain]/api/data/v9.1/accounts?$select=name,telephone1,telephone2,telephone3,fax,address1_telephone1,address1_telephone2,address1_fax,address2_telephone1,address2_telephone2,address2_fax,emailaddress1,emailaddress2,emailaddress3&amp;$filter=emailaddress1 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]' or emailaddress2 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]' or emailaddress3 eq '[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]'"
+                     RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json"/>
+            <Rules>
+                <Rule Type="Any">value.accountid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="AccountId" Path="value.accountid"/>
+                <Variable Name="AccountName" Path="value.name"/>
+                <Variable Name="Telephone1" Path="value.telephone1"/>
+                <Variable Name="Telephone2" Path="value.telephone2"/>
+                <Variable Name="Telephone3" Path="value.telephone3"/>
+                <Variable Name="Fax" Path="value.fax"/>
+                <Variable Name="Address1Telephone1" Path="value.address1_telephone1"/>
+                <Variable Name="Address1Telephone2" Path="value.address1_telephone2"/>
+                <Variable Name="Address1Fax" Path="value.address1_fax"/>
+                <Variable Name="Address2Telephone1" Path="value.address2_telephone1"/>
+                <Variable Name="Address2Telephone2" Path="value.address2_telephone2"/>
+                <Variable Name="Address2Fax" Path="value.address2_fax"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=account&amp;id={[AccountId]}&amp;pagetype=entityrecord"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[Telephone1]"/>
+                <Output Type="PhoneBusiness2" Value="[Telephone2]"/>
+                <Output Type="PhoneOther" Value="[Telephone3]"/>
+                <Output Type="PhoneMobile" Value="[Address1Telephone1]"/>
+                <Output Type="PhoneMobile2" Value="[Address1Telephone2]"/>
+                <Output Type="PhoneHome" Value="[Address2Telephone1]"/>
+                <Output Type="PhoneHome2" Value="[Address2Telephone2]"/>
+                <Output Type="FaxBusiness" Value="[Fax]"/>
+                <Output Type="FaxHome" Value="[Address1Fax]"/>
+                <Output Type="Pager" Value="[Address2Fax]"/>
+                <Output Type="EntityType" Value="Account" />
+                <Output Type="EntityId" Value="[AccountId]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario Id="SearchContacts_PhoneEmailFirstLastName" Type="REST">
+            <Request Url="[Domain]/api/data/v9.1/contacts?$select=firstname,lastname,telephone1,telephone2,telephone3,fax,assistantphone,managerphone,mobilephone,business2,home2,emailaddress1&amp;$filter=contains(telephone1,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone2,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone3,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(fax,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(assistantphone,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(managerphone,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(mobilephone,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(business2,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(home2,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(emailaddress1,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(emailaddress2,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(emailaddress2,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(firstname,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(lastname,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]')&amp;$expand=parentcustomerid_account($select=name)&amp;$top=[MaxCount]"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">value.contactid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="ContactId" Path="value.contactid"/>
+                <Variable Name="AccountName" Path="value.parentcustomerid_account.name"/>
+                <Variable Name="FirstName" Path="value.firstname"/>
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="Email" Path="value.emailaddress1"/>
+                <Variable Name="PhoneBusiness" Path="value.telephone1"/>
+                <Variable Name="PhoneBusiness2" Path="value.business2"/>
+                <Variable Name="PhoneOther" Path="value.managerphone"/>
+                <Variable Name="PhoneMobile" Path="value.mobilephone"/>
+                <Variable Name="PhoneMobile2" Path="value.telephone2"/>
+                <Variable Name="PhoneHome" Path="value.telephone3"/>
+                <Variable Name="PhoneHome2" Path="value.home2"/>
+                <Variable Name="FaxBusiness" Path="value.fax"/>
+                <Variable Name="Pager" Path="value.assistantphone"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=contact&amp;id={[ContactId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="PhoneMobile2" Value="[PhoneMobile2]"/>
+                <Output Type="PhoneHome" Value="[PhoneHome]"/>
+                <Output Type="PhoneHome2" Value="[PhoneHome2]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="FaxHome" Value="[FaxHome]"/>
+                <Output Type="Pager" Value="[Pager]"/>
+                <Output Type="EntityType" Value="Contact" />
+                <Output Type="EntityId" Value="[ContactId]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario Id="SearchContacts_CompanyName" Type="REST">
+            <Request Url="[Domain]/api/data/v9.1/accounts?$select=name&amp;$filter=contains(name,'[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]')&amp;$top=[MaxCount]"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">value.accountid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="AccountId" Path="value.accountid"/>
+                <Variable Name="AccountName" Path="value.name"/>
+            </Variables>
+            <Outputs Next="GetContactsForAccount" AllowEmpty="false" />
+        </Scenario>
+		    <Scenario Id="GetContactsForAccount" Type="REST">
+            <Request Url="[Domain]/api/data/v9.1/contacts?$select=firstname,lastname,telephone1,telephone2,telephone3,fax,assistantphone,managerphone,mobilephone,business2,home2,emailaddress1&amp;$filter=_parentcustomerid_value eq [AccountId]&amp;$top=[MaxCount]"
+                     RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any">value.contactid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="ContactId" Path="value.contactid"/>
+                <Variable Name="FirstName" Path="value.firstname"/>
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="Email" Path="value.emailaddress1"/>
+                <Variable Name="PhoneBusiness" Path="value.telephone1"/>
+                <Variable Name="PhoneBusiness2" Path="value.business2"/>
+                <Variable Name="PhoneOther" Path="value.managerphone"/>
+                <Variable Name="PhoneMobile" Path="value.mobilephone"/>
+                <Variable Name="PhoneMobile2" Path="value.telephone2"/>
+                <Variable Name="PhoneHome" Path="value.telephone3"/>
+                <Variable Name="PhoneHome2" Path="value.home2"/>
+                <Variable Name="FaxBusiness" Path="value.fax"/>
+                <Variable Name="Pager" Path="value.assistantphone"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=contact&amp;id={[ContactId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="PhoneMobile2" Value="[PhoneMobile2]"/>
+                <Output Type="PhoneHome" Value="[PhoneHome]"/>
+                <Output Type="PhoneHome2" Value="[PhoneHome2]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="FaxHome" Value="[FaxHome]"/>
+                <Output Type="Pager" Value="[Pager]"/>
+                <Output Type="EntityType" Value="Contact" />
+                <Output Type="EntityId" Value="[ContactId]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario Id="GetAllContacts" Type="REST">
+            <Request Url="[Domain]/api/data/v9.1/contacts?$select=firstname,lastname,telephone1,telephone2,telephone3,fax,assistantphone,managerphone,mobilephone,business2,home2,emailaddress1&amp;$expand=parentcustomerid_account($select=name)&amp;$skiptoken=&lt;cookie pagenumber=&#39;[Page+1]&#39;/&gt;"
+                     RequestType="Get" ResponseType="Json">
+                <Headers>
+                    <Value Key="Prefer">odata.maxpagesize=[PageSize]</Value>
+                </Headers>
+            </Request>
+            <Rules>
+                <Rule Type="Any">value.contactid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="ContactId" Path="value.contactid"/>
+                <Variable Name="AccountName" Path="value.parentcustomerid_account.name"/>
+                <Variable Name="FirstName" Path="value.firstname"/>
+                <Variable Name="LastName" Path="value.lastname"/>
+                <Variable Name="Email" Path="value.emailaddress1"/>
+                <Variable Name="PhoneBusiness" Path="value.telephone1"/>
+                <Variable Name="PhoneBusiness2" Path="value.business2"/>
+                <Variable Name="PhoneOther" Path="value.managerphone"/>
+                <Variable Name="PhoneMobile" Path="value.mobilephone"/>
+                <Variable Name="PhoneMobile2" Path="value.telephone2"/>
+                <Variable Name="PhoneHome" Path="value.telephone3"/>
+                <Variable Name="PhoneHome2" Path="value.home2"/>
+                <Variable Name="FaxBusiness" Path="value.fax"/>
+                <Variable Name="Pager" Path="value.assistantphone"/>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=contact&amp;id={[ContactId]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]"/>
+                <Output Type="LastName" Value="[LastName]"/>
+                <Output Type="CompanyName" Value="[AccountName]"/>
+                <Output Type="Email" Value="[Email]"/>
+                <Output Type="PhoneBusiness" Value="[PhoneBusiness]"/>
+                <Output Type="PhoneBusiness2" Value="[PhoneBusiness2]"/>
+                <Output Type="PhoneOther" Value="[PhoneOther]"/>
+                <Output Type="PhoneMobile" Value="[PhoneMobile]"/>
+                <Output Type="PhoneMobile2" Value="[PhoneMobile2]"/>
+                <Output Type="PhoneHome" Value="[PhoneHome]"/>
+                <Output Type="PhoneHome2" Value="[PhoneHome2]"/>
+                <Output Type="FaxBusiness" Value="[FaxBusiness]"/>
+                <Output Type="FaxHome" Value="[FaxHome]"/>
+                <Output Type="Pager" Value="[Pager]"/>
+                <Output Type="EntityType" Value="Contact" />
+                <Output Type="EntityId" Value="[ContactId]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="ReportCall">
+            <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+            				 Url="[Domain]/api/data/v9.1/systemusers?$select=systemuserid,fullname&amp;$filter=isdisabled eq false and (internalemailaddress eq '[AgentEmail]')" 
+            				 RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any" Ethalon="">value.systemuserid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="SystemUserId" Path="value.systemuserid" />
+            </Variables>
+            <Outputs AllowEmpty="true" Next="CreateCallActivity" />
+        </Scenario>
+        <Scenario Id="CreateCallActivity">
+            <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+            				 Url="[Domain]/api/data/v9.1/phonecalls" 
+            				 RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+                <Headers>
+                    <Value Key="Prefer">return=representation</Value>
+                </Headers>
+                <PostValues>
+                    <Value Key="subject" Passes="2">[[Subject]]</Value>
+                    <Value Key="phonenumber">[Number]</Value>
+                    <Value Key="description" Passes="2" If="[CallType]==Inbound">[[InboundCallText]]</Value>
+                    <Value Key="description" Passes="2" If="[CallType]==Missed">[[MissedCallText]]</Value>
+                    <Value Key="description" Passes="2" If="[CallType]==Outbound">[[OutboundCallText]]</Value>
+                    <Value Key="description" Passes="2" If="[CallType]==Notanswered">[[NotAnsweredOutboundCallText]]</Value>
+                    <Value Key="actualstart" Type="String">[[CallStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                    <Value Key="actualend" Type="String">[[CallEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                    <Value Key="actualdurationminutes">[[[DurationTimespan].get_TotalMinutes()].ToString("F0")]</Value>
+                    <Value Key="directioncode" If="[CallType]==Inbound">false</Value>
+                    <Value Key="directioncode" If="[CallType]==Missed">false</Value>
+                    <Value Key="directioncode" If="[CallType]==Outbound">true</Value>
+                    <Value Key="directioncode" If="[CallType]==Notanswered">true</Value>
+                    <Value Key="ownerid@odata.bind" Type="String" If="[SystemUserId]!=&quot;&quot;">/systemusers([SystemUserId])</Value>
+                    <Value Key="regardingobjectid_contact@odata.bind" If="[EntityType]==Contact">/contacts([EntityId])</Value>
+                    <Value Key="regardingobjectid_lead@odata.bind" If="[EntityType]==Lead">/leads([EntityId])</Value>
+                    <Value Key="regardingobjectid_account@odata.bind" If="[EntityType]==Account">/accounts([EntityId])</Value>
+                    <Array Key="phonecall_activity_parties">
+                        <Object If="[SystemUserId]!=&quot;&quot;">
+                            <Value Key="partyid_systemuser@odata.bind">/systemusers([SystemUserId])</Value>
+                            <Value Key="participationtypemask" If="[CallType]==Inbound">2</Value>
+                            <Value Key="participationtypemask" If="[CallType]==Missed">2</Value>
+                            <Value Key="participationtypemask" If="[CallType]==Outbound">1</Value>
+                            <Value Key="participationtypemask" If="[CallType]==Notanswered">1</Value>
+                        </Object>
+                        <Object>
+                            <Value Key="partyid_contact@odata.bind" If="[EntityType]==Contact">/contacts([EntityId])</Value>
+                            <Value Key="partyid_lead@odata.bind" If="[EntityType]==Lead">/leads([EntityId])</Value>
+                            <Value Key="partyid_account@odata.bind" If="[EntityType]==Account">/accounts([EntityId])</Value>
+                            <Value Key="participationtypemask" If="[CallType]==Inbound">1</Value>
+                            <Value Key="participationtypemask" If="[CallType]==Missed">1</Value>
+                            <Value Key="participationtypemask" If="[CallType]==Outbound">2</Value>
+                            <Value Key="participationtypemask" If="[CallType]==Notanswered">2</Value>
+                        </Object>
+                    </Array>
+                </PostValues>
+            </Request>
+        </Scenario>
+        <Scenario Id="ReportChat">
+            <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+            				 Url="[Domain]/api/data/v9.1/systemusers?$select=systemuserid,fullname&amp;$filter=isdisabled eq false and (internalemailaddress eq '[AgentEmail]')" 
+            				 RequestType="Get" ResponseType="Json" />
+            <Rules>
+                <Rule Type="Any" Ethalon="">value.systemuserid</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="SystemUserId" Path="value.systemuserid" />
+            </Variables>
+            <Outputs AllowEmpty="true" Next="CreateChatActivity" />
+        </Scenario>
+        <Scenario Id="CreateChatActivity">
+            <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+            				 Url="[Domain]/api/data/v9.1/appointments" 
+            				 RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+                <Headers>
+                    <Value Key="Prefer">return=representation</Value>
+                </Headers>
+                <PostValues>
+                    <Value Key="subject" Passes="2">[[ChatSubject]]</Value>
+                    <Value Key="description">[[ChatMessages].Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+                    <Value Key="category">Chat</Value>
+                    <Value Key="scheduledstart" Type="String">[[ChatStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                    <Value Key="scheduledend" Type="String">[[ChatEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                    <Value Key="actualstart" Type="String">[[ChatStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                    <Value Key="actualend" Type="String">[[ChatEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+                    <Value Key="actualdurationminutes">[[[DurationTimespan].get_TotalMinutes()].ToString("F0")]</Value>
+                    <Value Key="statecode" Type="Integer">1</Value> <!-- 1=Completed -->
+                    <Value Key="statuscode" Type="Integer">3</Value> <!-- 3=Completed -->
+                    <Value Key="ownerid@odata.bind" Type="String" If="[SystemUserId]!=&quot;&quot;">/systemusers([SystemUserId])</Value>
+                    <Value Key="regardingobjectid_contact@odata.bind" If="[EntityType]==Contact">/contacts([EntityId])</Value>
+                    <Value Key="regardingobjectid_lead@odata.bind" If="[EntityType]==Lead">/leads([EntityId])</Value>
+                    <Value Key="regardingobjectid_account@odata.bind" If="[EntityType]==Account">/accounts([EntityId])</Value>
+                    <Array Key="appointment_activity_parties">
+                        <Object If="[SystemUserId]!=&quot;&quot;">
+                            <Value Key="partyid_systemuser@odata.bind">/systemusers([SystemUserId])</Value>
+                            <Value Key="participationtypemask">5</Value> <!-- 5=Required attendee -->
+                        </Object>
+                        <Object>
+                            <Value Key="partyid_contact@odata.bind" If="[EntityType]==Contact">/contacts([EntityId])</Value>
+                            <Value Key="partyid_lead@odata.bind" If="[EntityType]==Lead">/leads([EntityId])</Value>
+                            <Value Key="partyid_account@odata.bind" If="[EntityType]==Account">/accounts([EntityId])</Value>
+                            <Value Key="participationtypemask">5</Value> <!-- 5=Required attendee -->
+                        </Object>
+                    </Array>
+                </PostValues>
+            </Request>
+        </Scenario>
+        <Scenario Id="CreateContactRecord">
+            <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" Url="[Domain]/api/data/v9.1/[IIf([CreateLeadOrContact]==Lead,leads,contacts)]" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+                <Headers>
+                    <Value Key="Prefer">return=representation</Value>
+                </Headers>
+                <PostValues>
+                    <Value Passes="2" Key="firstname">[[CreateContactFirstName]]</Value>
+                    <Value Passes="2" Key="lastname">[[CreateContactLastName]]</Value>
+                    <Value Passes="1" Key="telephone1" Type="String">[Number]</Value>
+                    <Value Passes="2" Key="subject" If="[CreateLeadOrContact]==Lead">[[LeadSubject]]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">telephone1</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="ContactId" >contactid</Variable>
+                <Variable Name="LeadId" >leadid</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=[IIf([CreateLeadOrContact]==Lead,lead,contact)]&amp;id={[IIf([CreateLeadOrContact]==Lead,[LeadId],[ContactId])]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Passes="2" Value="[[CreateContactFirstName]]" />
+                <Output Type="LastName" Passes="2" Value="[[CreateContactLastName]]" />
+                <Output Type="PhoneBusiness" Value="[Number]" />
+                <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,Lead,Contact)]" />
+                <Output Type="EntityId" Value="[IIf([CreateLeadOrContact]==Lead,[LeadId],[ContactId])]" />
+            </Outputs>
+        </Scenario>
+        <Scenario Id="CreateContactRecordFromClient">
+            <Request SkipIf="[CreateContactEnabled]!=True" Url="[Domain]/api/data/v9.1/[IIf([CreateLeadOrContact]==Lead,leads,contacts)]" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+                <Headers>
+                    <Value Key="Prefer">return=representation</Value>
+                </Headers>
+                <PostValues>
+                    <Value Key="firstname">[FirstName]</Value>
+                    <Value Key="lastname">[LastName]</Value>
+                    <Value Key="emailaddress1" Type="String" If="[Email]!=&quot;&quot;">[Email]</Value>
+                    <Value Key="mobilephone" Type="String" If="[Number]!=&quot;&quot;">[Number]</Value>
+                    <Value Passes="2" Key="subject" If="[CreateLeadOrContact]==Lead">[[LeadSubject]]</Value>
+                </PostValues>
+            </Request>
+            <Rules>
+                <Rule Type="Any">fullname</Rule>
+            </Rules>
+            <Variables>
+                <Variable Name="ContactId" >contactid</Variable>
+                <Variable Name="LeadId" >leadid</Variable>
+            </Variables>
+            <Outputs AllowEmpty="false">
+                <Output Type="ContactUrl" Value="[Domain]/main.aspx?etn=[IIf([CreateLeadOrContact]==Lead,lead,contact)]&amp;id={[IIf([CreateLeadOrContact]==Lead,[LeadId],[ContactId])]}&amp;pagetype=entityrecord"/>
+                <Output Type="FirstName" Value="[FirstName]" />
+                <Output Type="LastName" Value="[LastName]" />
+                <Output Type="Email" Value="[Email]" />
+                <Output Type="PhoneMobile" Value="[Number]" />
+                <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,Lead,Contact)]" />
+                <Output Type="EntityId" Value="[IIf([CreateLeadOrContact]==Lead,[LeadId],[ContactId])]" />
+            </Outputs>
+        </Scenario>
+		    <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+			      <Request Url="[Domain]/api/data/v9.1/contacts?$select=*&amp;$filter=contains(telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(assistantphone,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(managerphone,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(mobilephone,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(business2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(home2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(pager,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]')"
+			      	       RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+				        <Rule Type="Any">value.contactid</Rule>
+			      </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+		    <Scenario Id="LookupFromCFD_Contacts_LookupID">
+			      <Request Url="[Domain]/api/data/v9.1/contacts?$select=*&amp;$filter=(contactid eq '[EntityID]')"
+			      	       RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+				        <Rule Type="Any">value.contactid</Rule>
+			      </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+		    <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+			      <Request Url="[Domain]/api/data/v9.1/contacts?$select=*&amp;$filter=([Query])"
+			      	       RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+				        <Rule Type="Any">value.contactid</Rule>
+			      </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+		    <Scenario Id="LookupFromCFD_Leads_LookupNumber">
+			      <Request Url="[Domain]/api/data/v9.1/leads?$select=*&amp;$filter=contains(telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(mobilephone,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(pager,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]')"
+		      				 	 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+                <Rule Type="Any">value.leadid</Rule>
+			      </Rules>
+		  	    <Outputs AllowEmpty="true" />
+		    </Scenario>
+		    <Scenario Id="LookupFromCFD_Leads_LookupID">
+			      <Request Url="[Domain]/api/data/v9.1/leads?$select=*&amp;$filter=(leadid eq '[EntityID]')"
+		      				 	 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+                <Rule Type="Any">value.leadid</Rule>
+			      </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+		    <Scenario Id="LookupFromCFD_Leads_LookupFreeQuery">
+			      <Request Url="[Domain]/api/data/v9.1/leads?$select=*&amp;$filter=([Query])"
+		      				 	 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+                <Rule Type="Any">value.leadid</Rule>
+		    	  </Rules>
+		      	<Outputs AllowEmpty="true" />
+		    </Scenario>
+		    <Scenario Id="LookupFromCFD_Accounts_LookupNumber">
+			      <Request Url="[Domain]/api/data/v9.1/accounts?$select=*&amp;$filter=contains(telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(telephone3,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address1_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone1,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_telephone2,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]') or contains(address2_fax,'[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]')"
+			      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+                <Rule Type="Any">value.accountid</Rule>
+			      </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+		    <Scenario Id="LookupFromCFD_Accounts_LookupID">
+			      <Request Url="[Domain]/api/data/v9.1/accounts?$select=*&amp;$filter=(accountid eq '[EntityID]')"
+			      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+                <Rule Type="Any">value.accountid</Rule>
+			      </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+		    <Scenario Id="LookupFromCFD_Accounts_LookupFreeQuery">
+			      <Request Url="[Domain]/api/data/v9.1/accounts?$select=*&amp;$filter=([Query])"
+			      				 RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			      <Rules>
+                <Rule Type="Any">value.accountid</Rule>
+			      </Rules>
+			      <Outputs AllowEmpty="true" />
+		    </Scenario>
+    </Scenarios>
+</Crm>

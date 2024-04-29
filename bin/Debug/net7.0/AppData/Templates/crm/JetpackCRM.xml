@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Country="US" Name="Jetpack CRM" Version="2" SupportsEmojis="false">
+	<Number Prefix="AsIs" MaxLength="[MaxLength]" />
+	<Connection MaxConcurrentRequests="2" />
+	<Parameters>
+		<Parameter Parent="General Configuration" Name="Domain" Type="String" Editor="String" Title="Domain:" />
+		<Parameter Parent="General Configuration" Name="PublicKey" Type="String" Editor="String" Title="API Key:" />
+		<Parameter Parent="General Configuration" Name="PrivateKey" Type="String" Editor="String" Title="API Secret:" />
+		<Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False" />
+		<Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Subject:" Default="3CX Phone System Call" />
+		<Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+		<Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+		<Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+		<Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+		<Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False"/>
+		<Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Chat Subject:" Default="3CX PhoneSystem Chat Session" />
+		<Parameter Name="CreateContactEnabled" Type="Boolean" Editor="String" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+		<Parameter Parent="CreateContactEnabled" Name="CreateCustomerOrLead" Type="List" ListValues="Customer,Lead" Title="Create Customer or Lead:" Default="Customer" />
+	</Parameters>
+  <Authentication Type="No" />
+	<Scenarios>
+		<Scenario Type="REST" EntityId="Contacts">
+			<Request Url="https://[Domain]/zbs_api/customer_search?zbs_query=[Number]&amp;api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+							 MessagePasses="0" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			<Rules>
+				<Rule Type="Any">id</Rule>
+			</Rules>
+			<Variables>
+				<Variable Name="ContactID" Path="id"/>
+				<Variable Name="FirstName" Path="fname"/>
+				<Variable Name="LastName" Path="lname"/>
+				<Variable Name="Email" Path="email"/>
+				<Variable Name="PhoneBusiness" Path="worktel"/>
+				<Variable Name="PhoneMobile" Path="mobtel"/>
+				<Variable Name="PhoneHome" Path="hometel"/>
+			</Variables>
+			<Outputs AllowEmpty="false">
+				<Output Type="ContactUrl" Value="https://[Domain]/wp-admin/admin.php?page=zbs-add-edit&amp;action=view&amp;zbstype=contact&amp;zbsid=[ContactID]" />
+				<Output Type="FirstName" Value="[FirstName]" />
+				<Output Type="LastName" Value="[LastName]" />
+				<Output Type="Email" Value="[Email]" />
+				<Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+				<Output Type="PhoneMobile" Value="[PhoneMobile]" />
+				<Output Type="PhoneHome" Value="[PhoneHome]" />
+				<Output Type="EntityId" Value="[ContactID]" />
+				<Output Type="EntityType" Value="Contacts" />
+			</Outputs>
+		</Scenario>
+		<Scenario Id="LookupByEmail" Type="REST">
+			<Request Url="https://[Domain]/zbs_api/customer_search?email=[Email]&amp;api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+							 MessagePasses="0" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			<Rules>
+				<Rule Type="Any">id</Rule>
+			</Rules>
+			<Variables>
+				<Variable Name="ContactID" Path="id"/>
+				<Variable Name="FirstName" Path="fname"/>
+				<Variable Name="LastName" Path="lname"/>
+				<Variable Name="Email" Path="email"/>
+				<Variable Name="PhoneBusiness" Path="worktel"/>
+				<Variable Name="PhoneMobile" Path="mobtel"/>
+				<Variable Name="PhoneHome" Path="hometel"/>
+			</Variables>
+			<Outputs AllowEmpty="false">
+				<Output Type="ContactUrl" Value="https://[Domain]/wp-admin/admin.php?page=zbs-add-edit&amp;action=view&amp;zbstype=contact&amp;zbsid=[ContactID]" />
+				<Output Type="FirstName" Value="[FirstName]" />
+				<Output Type="LastName" Value="[LastName]" />
+				<Output Type="Email" Value="[Email]" />
+				<Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+				<Output Type="PhoneMobile" Value="[PhoneMobile]" />
+				<Output Type="PhoneHome" Value="[PhoneHome]" />
+				<Output Type="EntityId" Value="[ContactID]" />
+				<Output Type="EntityType" Value="Contacts" />
+			</Outputs>
+		</Scenario>
+		<Scenario Id="SearchContacts" Type="REST">
+			<Request Url="https://[Domain]/zbs_api/customer_search?zbs_query=[SearchText]&amp;api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+							 MessagePasses="0" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			<Rules>
+				<Rule Type="Any">id</Rule>
+			</Rules>
+			<Variables>
+				<Variable Name="ContactID" Path="id"/>
+				<Variable Name="FirstName" Path="fname"/>
+				<Variable Name="LastName" Path="lname"/>
+				<Variable Name="Email" Path="email"/>
+				<Variable Name="PhoneBusiness" Path="worktel"/>
+				<Variable Name="PhoneMobile" Path="mobtel"/>
+				<Variable Name="PhoneHome" Path="hometel"/>
+			</Variables>
+			<Outputs AllowEmpty="false">
+				<Output Type="ContactUrl" Value="https://[Domain]/wp-admin/admin.php?page=zbs-add-edit&amp;action=view&amp;zbstype=contact&amp;zbsid=[ContactID]" />
+				<Output Type="FirstName" Value="[FirstName]" />
+				<Output Type="LastName" Value="[LastName]" />
+				<Output Type="Email" Value="[Email]" />
+				<Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+				<Output Type="PhoneMobile" Value="[PhoneMobile]" />
+				<Output Type="PhoneHome" Value="[PhoneHome]" />
+				<Output Type="EntityId" Value="[ContactID]" />
+				<Output Type="EntityType" Value="Contacts" />
+			</Outputs>
+		</Scenario>
+		<Scenario Id="GetAllContacts" Type="REST">
+			<Request Url="https://[Domain]/zbs_api/customers?api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+							 RequestContentType="application/json" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+				<PostValues Key="">
+					<Value Key="perpage">[PageSize]</Value>
+					<Value Key="page">[Page+1]</Value>
+				</PostValues>
+			</Request>
+			<Rules>
+				<Rule Type="Any">id</Rule>
+			</Rules>
+			<Variables>
+				<Variable Name="ContactID" Path="id"/>
+				<Variable Name="FirstName" Path="fname"/>
+				<Variable Name="LastName" Path="lname"/>
+				<Variable Name="Email" Path="email"/>
+				<Variable Name="PhoneBusiness" Path="worktel"/>
+				<Variable Name="PhoneMobile" Path="mobtel"/>
+				<Variable Name="PhoneHome" Path="hometel"/>
+			</Variables>
+			<Outputs AllowEmpty="false">
+				<Output Type="ContactUrl" Value="https://[Domain]/wp-admin/admin.php?page=zbs-add-edit&amp;action=view&amp;zbstype=contact&amp;zbsid=[ContactID]" />
+				<Output Type="FirstName" Value="[FirstName]" />
+				<Output Type="LastName" Value="[LastName]" />
+				<Output Type="Email" Value="[Email]" />
+				<Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+				<Output Type="PhoneMobile" Value="[PhoneMobile]" />
+				<Output Type="PhoneHome" Value="[PhoneHome]" />
+				<Output Type="EntityId" Value="[ContactID]" />
+				<Output Type="EntityType" Value="Contacts" />
+			</Outputs>
+		</Scenario>
+		<Scenario Id="CreateContactRecord" Type="REST">
+			<Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True"
+				Url="https://[Domain]/zbs_api/create_customer?api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+				MessagePasses="0" RequestContentType="application/json" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+				<PostValues Key="">
+					<Value Key="status">[CreateCustomerOrLead]</Value>
+					<Value Key="fname" Passes="2" Type="String">[[CreateContactFirstName]]</Value>
+					<Value Key="lname" Passes="2" Type="String">[[CreateContactLastName]]</Value>
+					<Value Key="mobtel" Type="String">[Number]</Value>
+					<Value Key="email" Type="String">[Number]@example.com</Value>
+				</PostValues>
+			</Request>
+			<Rules>
+				<Rule Type="Any">id</Rule>
+			</Rules>
+			<Variables>
+				<Variable Name="ContactID" Path="id"/>
+				<Variable Name="FirstName" Path="fname"/>
+				<Variable Name="LastName" Path="lname"/>
+				<Variable Name="Email" Path="email"/>
+				<Variable Name="PhoneBusiness" Path="worktel"/>
+				<Variable Name="PhoneMobile" Path="mobtel"/>
+				<Variable Name="PhoneHome" Path="hometel"/>
+			</Variables>
+			<Outputs AllowEmpty="false">
+				<Output Type="ContactUrl" Value="https://[Domain]/wp-admin/admin.php?page=zbs-add-edit&amp;action=view&amp;zbstype=contact&amp;zbsid=[ContactID]" />
+				<Output Type="FirstName" Value="[FirstName]" />
+				<Output Type="LastName" Value="[LastName]" />
+				<Output Type="Email" Value="[Email]" />
+				<Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+				<Output Type="PhoneMobile" Value="[PhoneMobile]" />
+				<Output Type="PhoneHome" Value="[PhoneHome]" />
+				<Output Type="EntityId" Value="[ContactID]" />
+				<Output Type="EntityType" Value="Contacts" />
+			</Outputs>
+		</Scenario>
+		<Scenario Id="CreateContactRecordFromClient" Type="REST">
+			<Request SkipIf="[CreateContactEnabled]!=True"
+				Url="https://[Domain]/zbs_api/create_customer?api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+				MessagePasses="0" RequestContentType="application/json" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+				<PostValues Key="">
+					<Value Key="status">[CreateCustomerOrLead]</Value>
+					<Value Key="fname" Passes="2" Type="String">[FirstName]</Value>
+					<Value Key="lname" Passes="2" Type="String">[LastName]</Value>
+          <Value Key="mobtel" Type="String" If="[Number]!=&quot;&quot;">[Number]</Value>
+          <Value Key="email" Type="String" If="[Email]!=&quot;&quot;">[Email]</Value>
+          <Value Key="email" Type="String" If="[Email]==&quot;&quot;">[Number]@example.com</Value>
+				</PostValues>
+			</Request>
+			<Rules>
+				<Rule Type="Any">id</Rule>
+			</Rules>
+			<Variables>
+				<Variable Name="ContactID" Path="id"/>
+				<Variable Name="FirstName" Path="fname"/>
+				<Variable Name="LastName" Path="lname"/>
+				<Variable Name="Email" Path="email"/>
+				<Variable Name="PhoneBusiness" Path="worktel"/>
+				<Variable Name="PhoneMobile" Path="mobtel"/>
+				<Variable Name="PhoneHome" Path="hometel"/>
+			</Variables>
+			<Outputs AllowEmpty="false">
+				<Output Type="ContactUrl" Value="https://[Domain]/wp-admin/admin.php?page=zbs-add-edit&amp;action=view&amp;zbstype=contact&amp;zbsid=[ContactID]" />
+				<Output Type="FirstName" Value="[FirstName]" />
+				<Output Type="LastName" Value="[LastName]" />
+				<Output Type="Email" Value="[Email]" />
+				<Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+				<Output Type="PhoneMobile" Value="[PhoneMobile]" />
+				<Output Type="PhoneHome" Value="[PhoneHome]" />
+				<Output Type="EntityId" Value="[ContactID]" />
+				<Output Type="EntityType" Value="Contacts" />
+			</Outputs>
+		</Scenario>
+
+		<Scenario Id="ReportCall">
+			<Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;"
+				Url="https://[Domain]/zbs_api/create_event?api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+				MessagePasses="0" RequestContentType="application/json" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+				<PostValues Key="">
+					<Value Key="title" Passes="2" Type="String">[[Subject]]</Value>
+					<Value Key="customer" Type="String">[EntityId]</Value>
+					<Value Key="notes" Passes="2" If="[CallType]==Inbound">[[InboundCallText]]</Value>
+					<Value Key="notes" Passes="2" If="[CallType]==Missed">[[MissedCallText]]</Value>
+					<Value Key="notes" Passes="2" If="[CallType]==Outbound">[[OutboundCallText]]</Value>
+					<Value Key="notes" Passes="2" If="[CallType]==Notanswered">[[NotAnsweredOutboundCallText]]</Value>
+					<Value Key="from" Type="String">[[CallStartTimeLocal].ToString("MM/dd/yy HH:mm:ss")]</Value>
+					<Value Key="to" Type="String">[[CallEndTimeLocal].ToString("MM/dd/yy HH:mm:ss")]</Value>
+					<Value Key="notify" Type="Integer">0</Value>
+					<Value Key="complete" Type="Integer">1</Value>
+					<Value Key="owner" Type="Integer">-1</Value>
+				</PostValues>
+			</Request>
+		</Scenario>
+    <Scenario Id="ReportChat">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+				Url="https://[Domain]/zbs_api/create_event?api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+				MessagePasses="0" RequestContentType="application/json" RequestEncoding="Json" RequestType="Post" ResponseType="Json">
+				<PostValues Key="">
+					<Value Key="title" Passes="2" Type="String">[[ChatSubject]]</Value>
+					<Value Key="customer" Type="String">[EntityId]</Value>
+					<Value Key="notes" Passes="2">[[ChatMessages].Replace(&quot;&#xD;#xA;&quot;,&quot; // &quot;).Replace(&quot;&#xA;&quot;,&quot; // &quot;)]</Value>
+					<Value Key="from" Type="String">[[ChatStartTimeLocal].ToString("MM/dd/yy HH:mm:ss")]</Value>
+					<Value Key="to" Type="String">[[ChatEndTimeLocal].ToString("MM/dd/yy HH:mm:ss")]</Value>
+					<Value Key="notify" Type="Integer">0</Value>
+					<Value Key="complete" Type="Integer">1</Value>
+					<Value Key="owner" Type="Integer">-1</Value>
+				</PostValues>
+			</Request>
+    </Scenario>
+		<Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+			<Request Url="https://[Domain]/zbs_api/customer_search?zbs_query=[Number]&amp;api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+			MessagePasses="0" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			<Rules>
+				<Rule Type="Any">id</Rule>
+			</Rules>
+			<Outputs AllowEmpty="true" />
+		</Scenario>
+		<Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+			<Request Url="https://[Domain]/zbs_api/customer_search?zbs_query=[Query]&amp;api_key=[PublicKey]&amp;api_secret=[PrivateKey]"
+			MessagePasses="0" RequestEncoding="UrlEncoded" RequestType="Get" ResponseType="Json" />
+			<Rules>
+				<Rule Type="Any">id</Rule>
+			</Rules>
+			<Outputs AllowEmpty="true" />
+		</Scenario>
+	</Scenarios>
+</Crm>

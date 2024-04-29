@@ -1,0 +1,177 @@
+Testing: b.bvoip.net:4980
+TRY 1
+Start Testing all endpoints for b.bvoip.net:4980: 29/04/2024 20:37:01
+Testing Endpoint: xapi/users
+200 OK (802 ms) Items count: 49
+
+Testing Endpoint: xapi/ring-groups
+200 OK (123 ms) Items count: 0
+
+Testing Endpoint: xapi/queues
+200 OK (125 ms) Items count: 11
+
+Testing Endpoint: xapi/ivr
+200 OK (122 ms) Items count: 20
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (123 ms) Items count: 8
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (125 ms) Items count: 34
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (125 ms) Items count: 46
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (122 ms) Items count: 1
+
+All endpoint tests completed.
+Press 'r' to retry all tests or any other key to continue: 
+---------------------
+
+End of Testing Session
+Testing: josevm.bvoip.net:4980
+TRY 1
+Start Testing all endpoints for josevm.bvoip.net:4980: 29/04/2024 20:37:03
+Testing Endpoint: xapi/users
+200 OK (188 ms) Items count: 10
+
+Testing Endpoint: xapi/ring-groups
+200 OK (35 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (36 ms) Items count: 1
+
+Testing Endpoint: xapi/ivr
+200 OK (36 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (36 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (36 ms) Items count: 0
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (38 ms) Items count: 7
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (36 ms) Items count: 0
+
+All endpoint tests completed.
+Press 'r' to retry all tests or any other key to continue: TRY 2
+Start Testing all endpoints for josevm.bvoip.net:4980: 29/04/2024 20:37:05
+Testing Endpoint: xapi/users
+200 OK (38 ms) Items count: 10
+
+Testing Endpoint: xapi/ring-groups
+200 OK (35 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (35 ms) Items count: 1
+
+Testing Endpoint: xapi/ivr
+200 OK (35 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (35 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (36 ms) Items count: 0
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (36 ms) Items count: 7
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (39 ms) Items count: 0
+
+All endpoint tests completed.
+Press 'r' to retry all tests or any other key to continue: TRY 3
+Start Testing all endpoints for josevm.bvoip.net:4980: 29/04/2024 20:37:05
+Testing Endpoint: xapi/users
+200 OK (36 ms) Items count: 10
+
+Testing Endpoint: xapi/ring-groups
+200 OK (35 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (36 ms) Items count: 1
+
+Testing Endpoint: xapi/ivr
+200 OK (36 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (37 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (36 ms) Items count: 0
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (36 ms) Items count: 7
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (35 ms) Items count: 0
+
+All endpoint tests completed.
+Press 'r' to retry all tests or any other key to continue: TRY 4
+Start Testing all endpoints for josevm.bvoip.net:4980: 29/04/2024 20:37:06
+Testing Endpoint: xapi/users
+200 OK (36 ms) Items count: 10
+
+Testing Endpoint: xapi/ring-groups
+200 OK (36 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (36 ms) Items count: 1
+
+Testing Endpoint: xapi/ivr
+200 OK (38 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (35 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (35 ms) Items count: 0
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (39 ms) Items count: 7
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (35 ms) Items count: 0
+
+All endpoint tests completed.
+Press 'r' to retry all tests or any other key to continue: 
+---------------------
+
+End of Testing Session
+Testing: alvarodevtest.bvoip.net:4980
+TRY 1
+Start Testing all endpoints for alvarodevtest.bvoip.net:4980: 29/04/2024 20:37:07
+Testing Endpoint: xapi/users
+200 OK (262 ms) Items count: 145
+
+Testing Endpoint: xapi/ring-groups
+200 OK (37 ms) Items count: 2
+
+Testing Endpoint: xapi/queues
+200 OK (38 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (35 ms) Items count: 7
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (36 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (37 ms) Items count: 2
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (36 ms) Items count: 4
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (35 ms) Items count: 1
+
+All endpoint tests completed.
+Press 'r' to retry all tests or any other key to continue: 
+---------------------
+
+End of Testing Session

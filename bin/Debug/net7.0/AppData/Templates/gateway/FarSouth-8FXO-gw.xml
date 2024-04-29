@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>gateway-template</type>
+    <version>145775</version>
+    <time>2021-07-01 10:00:00</time>
+    <name>FarSouth 8 port FXO Gateway (Com.X 8O models only)</name>
+    <url>http://www.farsouthnet.com</url>
+    <image>FSN.png</image>
+	<templatetype>deleted</templatetype>
+    <description>Com.X FXO GateWay</description>
+    	<models>
+		<model>8 Port FXO gateway (for Com.X 8O model)</model>
+	</models>
+  </header>
+  <data>
+    <device>
+      <type>gateway</type>
+      <!-- Friendly Name -->
+      <field name="Name">Com.X 8 Port FXO gateway device</field>
+      <!-- Hostnames and Port Numbers -->
+	<variable name="%%mac_address1%%">
+	<title>Gateway MAC Address</title>
+	<info>Specify the MAC address of the gateway device</info>
+	<option maxlength="12" pattern="[^0-9a-f]" name="MAC address of gateway device" type="textbox" validation="mac_address"></option>
+        </variable>
+        <variable name="%%outcid1%%">
+	<title>Outbound Caller ID for the FXO trunk group </title>
+	<info>Please specify the outbound caller ID for the FXO trunk group</info>
+	<option name="outboundCID" type="textbox"></option>
+       </variable>
+      <field name="RegistrarHost">192.168.201.1</field>
+      <field name="RegistrarPort">15060</field>
+      <field name="NumberOfLines" status="readonly">8</field>
+      <field name="TypeOfLines" status="readonly">Analog</field>
+      <field name="SimCallsPerPort" status="readonly">1</field>
+
+      <!-- Registration Settings -->
+      <field name="RequireAuthFor">4</field>
+      <field name="UseContactField">0</field>
+
+      <!-- Gateway Capabilities -->
+      <field name="IsSupportReinvite">0</field>
+      <field name="IsSupportReplaces">0</field>
+          <field name="DisableVideo">1</field>
+
+      <!-- Location of Destination Number -->
+      <field name="DestNumberIn_TO">1</field>
+      <field name="DestNumberIn_REQLINEURI">1</field>
+      <field name="DestNumberIn_RPID_CALLED">0</field>
+
+      <!-- Other Options -->
+      <field name="IsInternal">1</field>
+      <field name="IsBindToMS">1</field>
+      <field name="UseIPInContactSrc">0</field>
+      <field name="UseIPInContactSrcValue"></field>
+      <field name="CallerIDIn">1</field>
+      <field name="CalledNumberIn">2</field>
+
+      <!--Source Identification - Use Default PBX Internal Source Identification-->
+      <!--<field name="MatchStrategy">1</field>-->
+      <!--<field name="Source" parameter="" custom=""></field>-->
+      <!--<field name="Source" parameter="" custom=""></field>-->
+      <!--<field name="Source" parameter="" custom=""></field>-->
+
+      <!-- Gateway / Provider Inbound Parameters -->
+      <!--<field name="ParameterIn" custom="" parameter="RequestLineURIUser"></field>-->
+      <!--<field status="readonly" name="ParameterIn" custom="" parameter="RequestLineURIHost"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="ContactUser"></field>-->
+      <field name="ParameterIn" custom="" parameter="ContactHost">$DevHostPort</field>
+      <field name="ParameterIn" custom="" parameter="ToDisplayName">$CalledName</field>
+      <field name="ParameterIn" custom="" parameter="ToUserPart">$CalledNum</field>
+      <!--<field name="ParameterIn" custom="" parameter="ToHostPart"></field>-->
+      <field name="ParameterIn" custom="" parameter="FromDisplayName">$CallerName</field>
+      <field name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyUserPart">$CallerNum</field>
+      <!--<field name="ParameterIn" custom="" parameter="FromHostPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="UserAgentTextString"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyDisplayName"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyUserPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyHostPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyDisplayName"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyUserPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyHostPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="ProxyAuthID"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="ProxyAuthRealm"></field>-->
+
+      <!-- Gateway / Provider Outbound Parameters -->
+      <field name="ParameterOut" custom="" parameter="RequestLineURIUser">$CalledNum</field>
+      <field name="ParameterOut" custom="" parameter="RequestLineURIHost">$GWHostPort</field>
+      <field name="ParameterOut" custom="" parameter="ContactUser">$CallerNum</field>
+      <field name="ParameterOut" custom="" parameter="ContactHost">$ContactURI</field>
+      <field name="ParameterOut" custom="" parameter="ToDisplayName">$CalledName</field>
+      <field name="ParameterOut" custom="" parameter="ToUserPart">$CalledNum</field>
+      <field name="ParameterOut" custom="" parameter="ToHostPart">$GWHostPort</field>
+      <field name="ParameterOut" custom="" parameter="FromDisplayName">$CallerName</field>
+      <field name="ParameterOut" custom="" parameter="FromUserPart">$AuthID</field>
+      <field name="ParameterOut" custom="" parameter="FromHostPart">$ContactURI</field>
+      <!--<field name="ParameterOut" custom="" parameter="UserAgentTextString"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyDisplayName"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyUserPart"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyHostPart"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyDisplayName"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyUserPart"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyHostPart"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="ProxyAuthID"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="ProxyAuthRealm"></field>-->
+
+	<deviceconfig filename="%%mac_address1%%-trunkconfig.xml">
+    <![CDATA[
+    <config>
+        <sip>
+            <tr-peer id="1">
+                <id>1</id>
+                <account>%%line_auth_id_0%%</account>
+                <allow>alaw</allow>
+                <amaflags>default</amaflags>
+                <authuser>%%line_auth_id_0%%</authuser>
+                <calllimit>8</calllimit>
+                <canreinvite>no</canreinvite>
+                <context>flexpath-toProvider</context>
+                <disallow>all</disallow>
+                <dtmfmode>rfc28cc</dtmfmode>
+                <host>%%param::defaultlocalip%%</host>
+                <identifybyusername>yes</identifybyusername>
+                <ishost>no</ishost>
+                <insecure>very</insecure>
+                <mailbox>tr-peer-1@device</mailbox>
+                <nat>no</nat>
+                <port>%%param::sipport%%</port>
+                <qualify></qualify>
+                <realm>%%param::defaultlocalip%%</realm>
+                <secret>%%line_auth_pw_0%%</secret>
+                <sendrpid>yes</sendrpid>
+                <setvar></setvar>
+                <trustrpid>yes</trustrpid>
+                <type>friend</type>
+                <username>%%line_auth_id_0%%</username>
+             </tr-peer>
+	</sip>
+        <trunking>
+            <trunk localid="1">
+		<tech>dahdi</tech>
+		<isPri>no</isPri>
+		<channelid>1</channelid>
+		<name>FXO port 1</name>
+		<outcid>%%outcid1%%</outcid>
+		<keepcid>off</keepcid>
+		<maxchans>1</maxchans>
+		<failscript></failscript>
+		<dialoutprefix></dialoutprefix>
+		<usercontext></usercontext>
+		<provider></provider>
+		<continue>cont</continue>
+		<disabled>false</disabled>
+            </trunk>
+            <trunk localid="2">
+                <tech>dahdi</tech>
+		<isPri>no</isPri>
+                <channelid>2</channelid>
+                <name>FXO Port 2</name>
+                <outcid>%%outcid1%%</outcid>
+                <keepcid>off</keepcid>
+                <maxchans>1</maxchans>
+                <failscript></failscript>
+                <dialoutprefix></dialoutprefix>
+		<usercontext></usercontext>
+                <provider></provider>
+                <continue>cont</continue>
+                <disabled>false</disabled>
+            </trunk>
+		<trunk localid="3">
+                <tech>dahdi</tech>
+		<isPri>no</isPri>
+                <channelid>3</channelid>
+                <name>FXO Port 3</name>
+                <outcid>%%outcid1%%</outcid>
+                <keepcid>off</keepcid>
+                <maxchans>1</maxchans>
+                <failscript></failscript>
+                <dialoutprefix></dialoutprefix>
+		<usercontext></usercontext>
+                <provider></provider>
+                <continue>cont</continue>
+                <disabled>false</disabled>
+            </trunk>
+		<trunk localid="4">
+                <tech>dahdi</tech>
+		<isPri>no</isPri>
+                <channelid>4</channelid>
+                <name>FXO Port 4</name>
+                <outcid>%%outcid1%%</outcid>
+                <keepcid>off</keepcid>
+                <maxchans>1</maxchans>
+                <failscript></failscript>
+                <dialoutprefix></dialoutprefix>
+		<usercontext></usercontext>
+                <provider></provider>
+                <continue>cont</continue>
+                <disabled>false</disabled>
+            </trunk>
+		<trunk localid="5">
+		<tech>dahdi</tech>
+		<isPri>no</isPri>
+		<channelid>5</channelid>
+		<name>FXO port 5</name>
+		<outcid>%%outcid1%%</outcid>
+		<keepcid>off</keepcid>
+		<maxchans>1</maxchans>
+		<failscript></failscript>
+		<dialoutprefix></dialoutprefix>
+		<usercontext></usercontext>
+		<provider></provider>
+		<continue>cont</continue>
+		<disabled>false</disabled>
+            </trunk>
+            <trunk localid="6">
+                <tech>dahdi</tech>
+		<isPri>no</isPri>
+                <channelid>6</channelid>
+                <name>FXO Port 6</name>
+                <outcid>%%outcid1%%</outcid>
+                <keepcid>off</keepcid>
+                <maxchans>1</maxchans>
+                <failscript></failscript>
+                <dialoutprefix></dialoutprefix>
+		<usercontext></usercontext>
+                <provider></provider>
+                <continue>cont</continue>
+                <disabled>false</disabled>
+            </trunk>
+		<trunk localid="7">
+                <tech>dahdi</tech>
+		<isPri>no</isPri>
+                <channelid>7</channelid>
+                <name>FXO Port 7</name>
+                <outcid>%%outcid1%%</outcid>
+                <keepcid>off</keepcid>
+                <maxchans>1</maxchans>
+                <failscript></failscript>
+                <dialoutprefix></dialoutprefix>
+		<usercontext></usercontext>
+                <provider></provider>
+                <continue>cont</continue>
+                <disabled>false</disabled>
+            </trunk>
+		<trunk localid="8">
+                <tech>dahdi</tech>
+		<isPri>no</isPri>
+                <channelid>8</channelid>
+                <name>FXO Port 8</name>
+                <outcid>%%outcid1%%</outcid>
+                <keepcid>off</keepcid>
+                <maxchans>1</maxchans>
+                <failscript></failscript>
+                <dialoutprefix></dialoutprefix>
+		<usercontext></usercontext>
+                <provider></provider>
+                <continue>cont</continue>
+                <disabled>false</disabled>
+            </trunk>	
+			
+        </trunking>
+    </config>
+
+    ]]>		
+	</deviceconfig>
+    </device>
+  </data>
+</doc>
+

@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>gateway-template</type>
+    <version>145775</version>
+    <time>2007-06-02 09:30:00</time>
+    <name>Generic Gateway Device</name>
+    <url>http://www.3cx.com</url>
+    <image>3cx.png</image>
+    <description>Custom Generic Gateway Device</description>
+  </header>
+  <data>
+    <device>
+      <type>gateway</type>
+      
+      <!-- Friendly Name -->
+      <field name="Name">Generic Gateway Device</field>
+      
+      <!-- Hostnames and Port Numbers -->
+      <field name="RegistrarHost"></field>
+      <field name="RegistrarPort">5060</field>
+      <field name="NumberOfLines">1</field>
+      <field name="TypeOfLines">Analog</field>
+	  <field name="SimCallsPerPort">1</field>
+      
+      <!-- Registration Settings -->
+      <field name="RequireAuthFor">4</field>
+      <field name="UseContactField">0</field>
+      
+      <!-- Gateway Capabilities -->
+      <field name="IsSupportReinvite">0</field>
+      <field name="IsSupportReplaces">0</field>
+	  <field name="DisableVideo">1</field>
+      
+      <!-- Location of Destination Number -->
+      <field name="DestNumberIn_TO">1</field>  
+      <field name="DestNumberIn_REQLINEURI">1</field>
+      <field name="DestNumberIn_RPID_CALLED">0</field>
+      
+      <!-- Other Options -->
+      <field name="IsInternal">1</field>
+      <field name="IsBindToMS">1</field>
+      <field name="UseIPInContactSrc">0</field>
+      <field name="UseIPInContactSrcValue"></field>
+      <field name="CallerIDIn">1</field>
+      <field name="CalledNumberIn">2</field>
+      
+      <!--Source Identification - Use Default PBX Internal Source Identification-->
+      <!--<field name="MatchStrategy">1</field>-->
+      <!--<field name="Source" parameter="" custom=""></field>-->
+      <!--<field name="Source" parameter="" custom=""></field>-->
+      <!--<field name="Source" parameter="" custom=""></field>-->
+      
+      <!-- Gateway / Provider Inbound Parameters -->
+      <!--<field name="ParameterIn" custom="" parameter="RequestLineURIUser"></field>-->
+      <!--<field status="readonly" name="ParameterIn" custom="" parameter="RequestLineURIHost"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="ContactUser"></field>-->
+      <field name="ParameterIn" custom="" parameter="ContactHost">$DevHostPort</field>
+      <field name="ParameterIn" custom="" parameter="ToDisplayName">$CalledName</field>
+      <field name="ParameterIn" custom="" parameter="ToUserPart">$CalledNum</field>
+      <!--<field name="ParameterIn" custom="" parameter="ToHostPart"></field>-->
+      <field name="ParameterIn" custom="" parameter="FromDisplayName">$CallerName</field>
+      <field name="ParameterIn" custom="" parameter="FromUserPart">$CallerNum</field>
+      <!--<field name="ParameterIn" custom="" parameter="FromHostPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="UserAgentTextString"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyDisplayName"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyUserPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyHostPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyDisplayName"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyUserPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyHostPart"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="ProxyAuthID"></field>-->
+      <!--<field name="ParameterIn" custom="" parameter="ProxyAuthRealm"></field>-->
+
+      <!-- Gateway / Provider Outbound Parameters -->
+      <field name="ParameterOut" custom="" parameter="RequestLineURIUser">$CalledNum</field>
+      <field name="ParameterOut" custom="" parameter="RequestLineURIHost">$GWHostPort</field>
+      <field name="ParameterOut" custom="" parameter="ContactUser">$CallerNum</field>
+      <field name="ParameterOut" custom="" parameter="ContactHost">$ContactURI</field>
+      <field name="ParameterOut" custom="" parameter="ToDisplayName">$CalledName</field>
+      <field name="ParameterOut" custom="" parameter="ToUserPart">$CalledNum</field>
+      <field name="ParameterOut" custom="" parameter="ToHostPart">$GWHostPort</field>
+      <field name="ParameterOut" custom="" parameter="FromDisplayName">$CallerName</field>
+      <field name="ParameterOut" custom="" parameter="FromUserPart">$CallerNum</field>
+      <field name="ParameterOut" custom="" parameter="FromHostPart">$ContactURI</field>
+      <!--<field name="ParameterOut" custom="" parameter="UserAgentTextString"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyDisplayName"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyUserPart"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyHostPart"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyDisplayName"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyUserPart"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyHostPart"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="ProxyAuthID"></field>-->
+      <!--<field name="ParameterOut" custom="" parameter="ProxyAuthRealm"></field>-->
+
+   </device>
+</data>   
+</doc>

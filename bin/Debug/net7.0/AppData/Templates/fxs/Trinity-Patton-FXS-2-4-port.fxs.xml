@@ -1,0 +1,1308 @@
+<?xml version="1.0"?>
+<doc
+	xmlns:tcx="http://www.3cx.com">
+	<header>
+		<type>fxs-template</type>
+		<version>145775</version>
+		<time>2020-06-18 17:00:00</time>
+		<name>Patton Trinity 2-4 Port FXS GW</name>
+		<url>https://www.3cx.com/voip-gateways/patton-sn200-sn4141-fxs/</url>
+		<templatetype>supported</templatetype>
+		<models>
+			<model ua="SN200" regex="^Patton SN200/4JS4V\s+(?'mac'[0-9A-Fa-f]+)\s+(?'fwver'\S+)\s+.*$">Patton Trinity 2-4 Port FXS GW (SN200)</model>
+		</models>
+		<rebootParams></rebootParams>
+		<resyncParams></resyncParams>
+		<firmwareParams></firmwareParams>
+		<AllowedNetworkConfig>
+			<option value="LOCALLAN">1</option>
+			<option value="SBC">1</option>
+		</AllowedNetworkConfig>
+		<AllowWebPasswordChange>0</AllowWebPasswordChange>
+		<AllowSSLProvisioning>1</AllowSSLProvisioning>
+		<languages>
+			<option value="English"></option>
+		</languages>
+		<Codecspriorities></Codecspriorities>
+	</header>
+	<data>
+		<device>
+			<field name="SimCallsPerPort" status="readonly">1</field>
+			<field name="TypeOfLines" status="readonly">FXS</field>
+			<!--Type of PSTN Lines-->
+			<field name="NumberOfExtensions">4</field>
+			<!--Number of FXS extensions-->
+			<variable name="%%gateway_ip%%">
+				<title>Gateway Hostname or IP</title>
+				<info>Please specify the IP address of device:</info>
+				<option name="IP of Device" type="textbox" validation="ip_address"></option>
+			</variable>
+			<variable name="%%gateway_port%%">
+				<title>Gateway SIP Port</title>
+				<info>Please specify the SIP Port of device:</info>
+				<option name="Port of Device" type="textbox" validation="port"></option>
+			</variable>
+			<variable name="%%gateway_mask%%">
+				<title>Device Subnet Mask</title>
+				<info>Please specify the subnet mask for the device for provisioning purposes:</info>
+				<option name="Subnet Mask" type="textbox" validation="subnet_mask"></option>
+			</variable>
+			<variable name="%%default_router%%">
+				<title>Default IP Route</title>
+				<info>Please specify the Default Route IP Address for the device</info>
+				<option name="Default Route" type="textbox"></option>
+			</variable>
+			<variable name="%%dns_server%%">
+				<title>DNS Server IP Address</title>
+				<info>Please specify the DNS Server IP Address for the device</info>
+				<option name="DNS Server" type="textbox"></option>
+			</variable>
+			<variable name="%%fax_transmission_mode%%">
+				<title>FAX Transmission Mode</title>
+				<info>Here you can define whether you want to have FAX transmitted using T.38 relay or G.711 bypass:</info>
+				<option name="FAX Mode">
+					<value name="FAX in T.38 (Preferred)">T.38</value>
+					<value name="Fax in Audio G711A (If Provider does not support T.38)">G.711aONLY</value>
+					<value name="Fax in Audio G711U (If Provider does not support T.38)">G.711uONLY</value>
+					<value name="Mixed Mode T38 + G711A">G.711aT38</value>
+					<value name="Mixed Mode T38 + G711U">G.711uT38</value>
+				</option>
+				<result name="T.38">fax transmission 1 relay t38-udp</result>
+				<result name="G.711aONLY">fax transmission bypass g711alaw64k rx-length 20 tx-length 20</result>
+				<result name="G.711uONLY">fax transmission bypass g711ulaw64k rx-length 20 tx-length 20</result>
+				<result name="G.711aT38">fax transmission 1 relay t38-udp
+			fax transmission 2 bypass g711alaw64k rx-length 20 tx-length 20</result>
+				<result name="G.711uT38">fax transmission 1 relay t38-udp
+			fax transmission 2 bypass g711ulaw64k rx-length 20 tx-length 20</result>
+			</variable>
+			<variable name="%%toneset%%">
+				<title>Tone Set Selection</title>
+				<info>Select Country for Tone Sets</info>
+				<option name="Country">
+					<value name="Argentina">ToneSet_AR</value>
+					<value name="Australia">ToneSet_AU</value>
+					<value name="Austria 420Hz">ToneSet_AT420</value>
+					<value name="Austria 450Hz">ToneSet_AT450</value>
+					<value name="Belgium">ToneSet_BE</value>
+					<value name="Brazil">ToneSet_BR</value>
+					<value name="Cyprus">ToneSet_CY</value>
+					<value name="Czech Republic">ToneSet_CZ</value>
+					<value name="Denmark">ToneSet_DK</value>
+					<value name="Finland">ToneSet_FI</value>
+					<value name="France">ToneSet_FR</value>
+					<value name="Germany">ToneSet_DE</value>
+					<value name="Greece">ToneSet_GR</value>
+					<value name="Holland">ToneSet_NL</value>
+					<value name="India">ToneSet_IN</value>
+					<value name="Ireland">ToneSet_IE</value>
+					<value name="Italy">ToneSet_IT</value>
+					<value name="Japan">ToneSet_JP</value>
+					<value name="Mexico">ToneSet_MX</value>
+					<value name="New Zealand">ToneSet_NZ</value>
+					<value name="Norway">ToneSet_NO</value>
+					<value name="Poland">ToneSet_PL</value>
+					<value name="Portugal">ToneSet_PT</value>
+					<value name="Russia">ToneSet_RU</value>
+					<value name="South Africa">ToneSet_ZA</value>
+					<value name="Spain">ToneSet_ES</value>
+					<value name="Sweden">ToneSet_SE</value>
+					<value name="Switzerland">ToneSet_CH</value>
+					<value name="Turkey">ToneSet_TR</value>
+					<value name="United Kingdom">ToneSet_UK</value>
+					<value name="United States">ToneSet_US</value>
+				</option>
+				<result name="ToneSet_AR">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+		
+		play 1 1000 425 -6
+	profile call-progress-tone defaultAlertingtone
+		
+		play 1 1000 425 -13
+		pause 2 4000
+	profile call-progress-tone defaultBusytone
+		
+		play 1 300 425 -7
+		pause 2 200
+	profile call-progress-tone defaultReleasetone
+		
+		play 1 300 425 -7
+		pause 2 400
+	profile call-progress-tone defaultCongestiontone
+		
+		play 1 300 425 -7
+		pause 2 400
+			</item>
+				</result>
+				<result name="ToneSet_AU">
+					<item name = "profile">use profile fxs au</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+		
+		play 1 1000 425 -6 450 -6
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 400 425 -13 450 -13
+	  pause 2 200
+	  play 1 400 425 -13 450 -13
+	  pause 2 2000
+	  
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 375 425 -7
+	  pause 2 375
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 375 425 -7
+	  pause 2 375
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 375 425 -7
+	  pause 2 375
+			</item>
+				</result>
+				<result name="ToneSet_AT420">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+		
+		play 1 1000 420 -6
+
+	profile call-progress-tone defaultAlertingtone
+		
+		play 1 1000 420 -13
+		pause 2 5000
+
+	profile call-progress-tone defaultBusytone
+		
+		play 1 400 420 -7
+		pause 2 400
+
+	profile call-progress-tone defaultReleasetone
+		
+		play 1 200 420 -7
+		pause 2 200
+
+	profile call-progress-tone defaultCongestiontone
+		
+		play 1 200 420 -7
+		pause 2 200
+			</item>
+				</result>
+				<result name="ToneSet_AT450">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 450 -6
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 450 -13
+	  pause 2 5000
+	  
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 300 450 -7
+	  pause 2 300
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 300 450 -7
+	  pause 2 300
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 300 450 -7
+	  pause 2 300
+			</item>
+				</result>
+				<result name="ToneSet_BE">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 0
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -7
+	  pause 2 3000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 170 425 -7
+	  pause 2 170
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 170 425 -7
+	  pause 2 170
+			</item>
+				</result>
+				<result name="ToneSet_BR">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -7
+	  pause 2 4000
+	  
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_CY">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 350 -6 450 -6
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1500 425 -13
+	  pause 2 3000
+	  
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_CZ">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 330 425 -6
+	  pause 2 330
+	  play 3 660 425 -6
+	  pause 4 660
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -13
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 330 425 -7
+	  pause 2 330
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 165 425 -7
+	  pause 2 165
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 165 425 -7
+	  pause 2 165
+			</item>
+				</result>
+				<result name="ToneSet_DK">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -7
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_FI">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -7
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 300 425 -7
+	  pause 2 300
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+			</item>
+				</result>
+				<result name="ToneSet_FR">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 440 0
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1500 440 -7
+	  pause 2 3500
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 440 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_DE">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 0
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -7
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 480 425 -7
+	  pause 2 480
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 240 425 -7
+	  pause 2 240
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 240 425 -7
+	  pause 2 240
+			</item>
+				</result>
+				<result name="ToneSet_GR">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  play 1 200 425 0
+	  pause 2 300
+	  play 3 700 425 0
+	  pause 4 800
+
+	profile call-progress-tone defaultBusytone
+	  play 1 300 425 -7
+	  pause 2 300
+
+	profile call-progress-tone defaultReleasetone
+	  play 1 150 425 -7
+	  pause 2 150
+
+	profile call-progress-tone defaultCongestiontone
+	  play 1 150 425 -7
+	  pause 2 150
+			</item>
+				</result>
+				<result name="ToneSet_NL">
+					<item name = "profile">use profile fxs nl</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 0
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -7
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_IN">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 400 400 -13
+	  pause 2 200
+	  play 3 400 400 -13
+	  pause 4 2000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 750 400 -7
+	  pause 2 750
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 400 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 400 -7
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_IE">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 400 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 400 400 -6
+	  pause 2 200
+	  play 3 400 400 -6
+	  pause 4 2000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 425 -6
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 500 425 -6
+	  pause 2 500
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 500 425 -6
+	  pause 2 500
+			</item>
+				</result>
+				<result name="ToneSet_IT">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 200 425 0
+	  pause 2 200
+	  play 3 600 425 0
+	  pause 4 1000
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -7
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_JP">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 400 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 400 -13
+	  pause 2 2000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 400 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 500 400 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 500 400 -7
+	  pause 2 500
+			</item>
+				</result>
+				<result name="ToneSet_MX">
+					<item name = "profile">use profile fxs mx</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 200 425 -12
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -12 
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 250 425 -12
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -12
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_NZ">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 5000 400 -15
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  pause 2 200
+	  play 3 400 400 -15 450 -15
+	  pause 4 2000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 400 -15
+	  pause 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 500 400 -15
+	  pause 500
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 500 400 -15
+	  pause 500
+
+	profile call-progress-tone defaultSDTone
+	  
+	  play 1 10000 425 -19 620 -19
+
+	profile call-progress-tone defaultWaitingtone
+	  
+	  play 1 200 400 -15
+	  pause 200
+			</item>
+				</result>
+				<result name="ToneSet_NO">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -13
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+			</item>
+				</result>
+				<result name="ToneSet_PL">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -13
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+			</item>
+				</result>
+				<result name="ToneSet_PT">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -13
+	  pause 2 5000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+			</item>
+				</result>
+				<result name="ToneSet_RU">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 800 425 -13
+	  pause 2 3200
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 400 425 -7
+	  pause 2 400
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 400 425 -7
+	  pause 2 400
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 400 425 -7
+	  pause 2 400
+			</item>
+				</result>
+				<result name="ToneSet_ZA">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone ZA_Dialtone
+	  play 1 0 400 -13
+	 
+	profile call-progress-tone ZA_Alertingtone
+	  play 1 400 400 -13
+	  pause 2 200
+	  play 3 400 400 -13
+	  pause 4 2000
+	 
+	profile call-progress-tone ZA_Busytone
+	  play 1 500 400 -13
+	  pause 2 500
+	 
+	profile call-progress-tone ZA_Releasetone
+	  play 1 250 400 -13
+	  pause 2 250
+	 
+	profile call-progress-tone ZA_Holdtone
+	  play 1 30 400 -13
+	  pause 2 60
+	  play 3 30 400 -13
+	  pause 4 4880
+			</item>
+				</result>
+				<result name="ToneSet_ES">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1500 425 -13
+	  pause 2 3000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+	  play 3 200 425 -7
+	  pause 4 200
+	  play 5 200 425 -7
+	  pause 6 600
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 200 425 -7
+	  pause 2 200
+	  play 3 200 425 -7
+	  pause 4 200
+	  play 5 200 425 -7
+	  pause 6 600
+			</item>
+				</result>
+				<result name="ToneSet_SE">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -13
+	  pause 2 5000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+	  
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 425 -7
+	  pause 2 750
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -7
+	  pause 2 750
+			</item>
+				</result>
+				<result name="ToneSet_CH">
+					<item name = "profile">use profile fxs ch</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 425 0
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 425 -7
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 425 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 425 -7
+	  pause 2 250
+			</item>
+				</result>
+				<result name="ToneSet_TR">
+					<item name = "profile">use profile fxs DEFAULT_EU</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 450 -6
+	  
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 2000 450 -13
+	  pause 2 4000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 450 -7
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 200 450 -7
+	  pause 2 200
+	  play 3 200 450 -7
+	  pause 4 200
+	  play 5 200 450 -7
+	  pause 6 200
+	  play 7 600 450 -7
+	  pause 8 200
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 200 450 -7
+	  pause 2 200
+	  play 3 200 450 -7
+	  pause 4 200
+	  play 5 200 450 -7
+	  pause 6 200
+	  play 7 600 450 -7
+	  pause 8 200
+			</item>
+				</result>
+				<result name="ToneSet_UK">
+					<item name = "profile">use profile fxs gb</item>
+					<item name = "callerid">caller-id-format etsi</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 350 -13 440 -13
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 400 400 -19 450 -19
+	  pause 2 200
+	  play 3 400 400 -19 450 -19
+	  pause 4 2000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 375 400 -24
+	  pause 2 375
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 400 400 -24
+	  pause 2 350
+	  play 3 225 400 -24
+	  pause 4 525
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 400 400 -24
+	  pause 2 350
+	  play 3 225 400 -24
+	  pause 4 525
+			</item>
+				</result>
+				<result name="ToneSet_US">
+					<item name = "profile">use profile fxs DEFAULT_US</item>
+					<item name = "callerid">caller-id-format bell</item>
+					<item name = "tone">
+	profile call-progress-tone defaultDialtone
+	  
+	  play 1 1000 350 -13 440 -13
+
+	profile call-progress-tone defaultAlertingtone
+	  
+	  play 1 1000 440 -19 480 -19
+	  pause 2 3000
+
+	profile call-progress-tone defaultBusytone
+	  
+	  play 1 500 480 -24 620 -24
+	  pause 2 500
+
+	profile call-progress-tone defaultReleasetone
+	  
+	  play 1 250 480 -24 620 -24
+	  pause 2 250
+
+	profile call-progress-tone defaultCongestiontone
+	  
+	  play 1 250 480 -24 620 -24
+	  pause 2 250
+			</item>
+				</result>
+			</variable>
+			<deviceconfig filename="SN200_%%mac_address%%.gwcfg" AllowDownload="true">
+				<![CDATA[
+#########################################################
+#
+# For Patton 4 port FXS
+# Supported firmware versions - Trinity 3.x
+#
+# Author: Patton Support
+# Support Contact: support@patton.com
+#
+#########################################################
+
+cli version 4.00
+
+profile aaa DEFAULT
+  method 1 local continue-on-reject
+
+console
+  use profile aaa DEFAULT
+
+telnet-server
+  use profile aaa DEFAULT
+  no shutdown
+
+ssh-server
+  use profile aaa DEFAULT
+  no shutdown
+
+snmp-server
+  shutdown
+
+web-server
+  protocol http port 80
+  no protocol https
+  use profile aaa DEFAULT
+  no shutdown
+
+nms-client
+  resource any
+  shutdown
+
+ntp
+  server %%param::time_ntp_server%%
+  server 8.8.8.8
+  no shutdown
+
+dns-client
+  name-server %%dns_server%%
+  
+profile tls DEFAULT
+  authentication incoming
+  authentication outgoing
+  private-key pki:private-key/DEFAULT
+  own-certificate 1 pki:own-certificate/DEFAULT
+  diffie-hellman-parameters pki:diffie-hellman-parameters/DEFAULT-2048
+
+profile fxs DEFAULT_EU
+  electrical-standard etsi
+  caller-id standard fsk-etsi presentation mid-ring
+
+profile fxs DEFAULT_US
+  electrical-standard bell
+  caller-id standard fsk-bell presentation mid-ring
+
+profile fxs-supplementary-services DEFAULT
+
+%%toneset.tone%%
+
+profile voip DEFAULT
+  codec 1 g711ulaw64k rx-length 20 tx-length 20
+  codec 2 g711alaw64k rx-length 20 tx-length 20
+  %%fax_transmission_mode%%
+  fax redundancy low-speed 2 high-speed 1
+
+profile pstn DEFAULT
+
+profile ringing-cadence DEFAULT
+  play 1 1000
+  pause 2 4000
+
+profile sip DEFAULT
+
+context ip ROUTER
+
+	interface WAN
+		ipaddress DHCP
+		tcp adjust-mss rx mtu
+		tcp adjust-mss tx mtu
+
+	interface LAN
+		ipaddress LAN %%gateway_ip%% %%gateway_mask%%
+		tcp adjust-mss rx mtu
+		tcp adjust-mss tx mtu
+  
+  routing-table DEFAULT
+    route 0.0.0.0/0 gateway %%default_router%% 
+		
+	context cs SWITCH
+ 
+	routing-table called-e164 RT_DIGITCOLLECTION
+		route .T dest-interface IF_SIP_3CX MT_EXT_TO_NAME
+
+
+	routing-table called-e164 RT_TO_FXS
+	route %%ext_int_num_01%% dest-interface IF_FXS_00
+	route %%ext_int_num_02%% dest-interface IF_FXS_01
+	route %%ext_int_num_03%% dest-interface IF_FXS_02
+	route %%ext_int_num_04%% dest-interface IF_FXS_03
+
+	mapping-table calling-e164 to calling-name MT_EXT_TO_NAME
+	map %%ext_int_num_01%% to "%%ext_first_name_01%% %%ext_last_name_01%%"
+	map %%ext_int_num_02%% to "%%ext_first_name_02%% %%ext_last_name_02%%"
+	map %%ext_int_num_03%% to "%%ext_first_name_03%% %%ext_last_name_03%%"
+	map %%ext_int_num_04%% to "%%ext_first_name_04%% %%ext_last_name_04%%"
+
+
+	interface sip IF_SIP_3CX
+		bind context sip-gateway GW_SIP_3CX
+		route call dest-table RT_TO_FXS
+	{IF network=LOCALLAN}
+		remote %%pbx_ip%% %%param::sipport%%
+		local %%pbx_ip%% %%param::sipport%%
+		hold-method direction-attribute sendonly
+		trust remote
+	{ENDIF}
+	{IF network=SBC}
+		remote %%param::PBXPUBLICIP%% %%param::sipport%%
+		local %%local_sbc_ip%% %%local_sbc_port%%
+		hold-method direction-attribute sendonly
+		trust remote
+		trust %%local_sbc_ip%%
+	{ENDIF}
+
+	interface fxs IF_FXS_00
+		route call dest-table RT_DIGITCOLLECTION
+		%%toneset.profile%%
+
+	interface fxs IF_FXS_01
+		route call dest-table RT_DIGITCOLLECTION
+		%%toneset.profile%%
+		
+	interface fxs IF_FXS_02
+		route call dest-table RT_DIGITCOLLECTION
+		%%toneset.profile%%
+		
+	interface fxs IF_FXS_03
+		route call dest-table RT_DIGITCOLLECTION
+		%%toneset.profile%%
+
+	context cs SWITCH
+		no shutdown
+
+	authentication-service AS_ALL_EXTENSIONS
+		realm 1 3CXPhoneSystem
+		username %%ext_auth_id_01%% password %%ext_auth_pw_01%%
+		username %%ext_auth_id_02%% password %%ext_auth_pw_02%%
+		username %%ext_auth_id_03%% password %%ext_auth_pw_03%%
+		username %%ext_auth_id_04%% password %%ext_auth_pw_04%%
+
+	location-service LOC_SVC_3CX
+	{IF network=LOCALLAN}
+		domain 1 %%pbx_ip%% %%param::sipport%%
+	{ENDIF}
+	{IF network=SBC}
+		domain 1 %%param::PBXPUBLICIP%% %%param::sipport%%
+	{ENDIF}
+		match-any-domain
+
+	identity-group DEFAULT
+
+    authentication outbound
+		authenticate 1 authentication-service AS_ALL_EXTENSIONS
+
+	registration outbound
+	{IF network=LOCALLAN}
+		registrar %%pbx_ip%% %%param::sipport%%
+	{ENDIF}
+	{IF network=SBC}
+		proxy 1 %%local_sbc_ip%% %%local_sbc_port%%
+	{ENDIF}
+		lifetime 60
+		register auto
+
+	call outbound
+	 force-destination registrar address
+
+	message inbound
+	{IF network=LOCALLAN}
+		message-server %%pbx_ip%% %%param::sipport%%
+	{ENDIF}
+	{IF network=SBC}	
+		message-server %%local_sbc_ip%% %%local_sbc_port%%
+	{ENDIF}
+		subscribe implicit
+
+	identity %%ext_int_num_01%% inherits DEFAULT
+		alias expression %%ext_int_num_01%%
+		
+	authentication outbound
+		authenticate 1 authentication-service AS_ALL_EXTENSIONS username %%ext_auth_id_01%%
+		
+	identity %%ext_int_num_02%% inherits DEFAULT
+		alias expression %%ext_int_num_02%%
+		
+	authentication outbound
+		authenticate 1 authentication-service AS_ALL_EXTENSIONS username %%ext_auth_id_02%%
+		
+	identity %%ext_int_num_03%% inherits DEFAULT
+		alias expression %%ext_int_num_03%%
+		
+	authentication outbound
+		authenticate 1 authentication-service AS_ALL_EXTENSIONS username %%ext_auth_id_03%%
+		
+	identity %%ext_int_num_04%% inherits DEFAULT
+		alias expression %%ext_int_num_04%%
+		
+	authentication outbound
+		authenticate 1 authentication-service AS_ALL_EXTENSIONS username %%ext_auth_id_04%%
+
+		
+	context sip-gateway GW_SIP_3CX
+		bind location-service LOC_SVC_3CX
+
+		interface IF_GW_SIP_3CX
+			transport-protocol udp+tcp 5060
+			no transport-protocol tls
+			bind ipaddress ROUTER LAN LAN
+
+	context sip-gateway GW_SIP_3CX	
+	no shutdown
+
+	port ethernet 0 0
+		bind interface ROUTER LAN
+		no shutdown
+
+	port ethernet 0 1
+		bind interface ROUTER WAN
+		no shutdown
+
+	port fxs 0 0
+		subscriber-number %%ext_int_num_01%%
+		bind interface SWITCH IF_FXS_00 
+		no shutdown
+
+	port fxs 0 1
+		subscriber-number %%ext_int_num_02%%
+		bind interface SWITCH IF_FXS_01 
+		no shutdown
+		
+	port fxs 0 2
+		subscriber-number %%ext_int_num_03%%
+		bind interface SWITCH IF_FXS_02
+		no shutdown
+		
+	port fxs 0 3
+		subscriber-number %%ext_int_num_04%%
+		bind interface SWITCH IF_FXS_03
+		no shutdown
+]]>
+			</deviceconfig>
+		</device>
+	</data>
+</doc>

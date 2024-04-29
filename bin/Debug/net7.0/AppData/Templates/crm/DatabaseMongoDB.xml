@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Country="US" Name="Database MongoDB" SupportsEmojis="true" Version="7">
+  <Number Prefix="AsIs" MaxLength="[MaxLength]" />
+  <Connection MaxConcurrentRequests="2" />
+  <Parameters>
+    <Parameter Parent="General Configuration" Name="ConnectionString" Type="String" Editor="String" Title="ConnectionString:" Default="mongodb+srv://admin:pass@testcluster-fl4dx.mongodb.net/test?retryWrites=true" />
+    <Parameter Parent="General Configuration" Name="Database" Type="String" Editor="String" Title="Database:" />
+    <Parameter Parent="General Configuration" Name="ContactsCollection" Type="String" Editor="String" Title="Contacts Collection:" />
+    <Parameter Parent="General Configuration" Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+    <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False" />
+    <Parameter Parent="ReportCallEnabled" Name="CallsCollection" Type="String" Editor="String" Title="Calls Collection:" />
+    <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Call Subject:" Default="3CX PhoneSystem Call" />
+    <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+    <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+    <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False" />
+    <Parameter Parent="ReportChatEnabled" Name="ChatsCollection" Type="String" Editor="String" Title="Chats Collection:" />
+    <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Chat Subject:" Default="3CX PhoneSystem Chat Session" />
+  </Parameters>
+  <Authentication Type="No" />
+  <Scenarios>
+    <Scenario Type="NoSQLDatabase">
+      <Command DatabaseType="MongoDB" ConnectionString="[ConnectionString]"
+               Database="[Database]" Collection="[ContactsCollection]" CommandType="Filter" 
+               Command="{ $or: {{ { &quot;Phones.Work&quot;: { $regex: &quot;[[Number].Replace(&quot;+&quot;,&quot;\\+&quot;)]$&quot; } }, { &quot;Phones.Mobile&quot;: { $regex: &quot;[[Number].Replace(&quot;+&quot;,&quot;\\+&quot;)]$&quot; } } }} }" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">_id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">_id.$oid</Variable>
+        <Variable Name="FirstName">Name.FirstName</Variable>
+        <Variable Name="LastName">Name.LastName</Variable>
+        <Variable Name="Email">Email</Variable>
+        <Variable Name="Phone">Phones.Work</Variable>
+        <Variable Name="Mobile">Phones.Mobile</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[Mobile]" />
+        <Output Type="ContactUrl" Value="http://example.com/[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[ContactID]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail" Type="NoSQLDatabase">
+      <Command DatabaseType="MongoDB" ConnectionString="[ConnectionString]"
+               Database="[Database]" Collection="[ContactsCollection]" CommandType="Filter" 
+               Command="{ &quot;Email&quot;: { $regex: &quot;[[Email].Replace(&quot;+&quot;,&quot;\\+&quot;)]$&quot; } }" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">_id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">_id.$oid</Variable>
+        <Variable Name="FirstName">Name.FirstName</Variable>
+        <Variable Name="LastName">Name.LastName</Variable>
+        <Variable Name="Phone">Phones.Work</Variable>
+        <Variable Name="Mobile">Phones.Mobile</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[Mobile]" />
+        <Output Type="ContactUrl" Value="http://example.com/[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[ContactID]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts" Type="NoSQLDatabase">
+      <Command DatabaseType="MongoDB" ConnectionString="[ConnectionString]"
+               Database="[Database]" Collection="[ContactsCollection]" CommandType="Filter" 
+               Command="{ $or: {{ { &quot;Phones.Work&quot;: { $regex: ^^[[SearchText].Replace(&quot;+&quot;,&quot;\\+&quot;)]^^ } }, { &quot;Phones.Mobile&quot;: { $regex: ^^[[SearchText].Replace(&quot;+&quot;,&quot;\\+&quot;)]^^ } }, { &quot;Email&quot;: { $regex: ^^[[SearchText].Replace(&quot;+&quot;,&quot;\\+&quot;)]^^ } }, { &quot;Name.FirstName&quot;: { $regex: ^^[[SearchText].Replace(&quot;+&quot;,&quot;\\+&quot;)]^^ } }, { &quot;Name.LastName&quot;: { $regex: ^^[[SearchText].Replace(&quot;+&quot;,&quot;\\+&quot;)]^^ } } }} }" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">_id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">_id.$oid</Variable>
+        <Variable Name="FirstName">Name.FirstName</Variable>
+        <Variable Name="LastName">Name.LastName</Variable>
+        <Variable Name="Email">Email</Variable>
+        <Variable Name="Phone">Phones.Work</Variable>
+        <Variable Name="Mobile">Phones.Mobile</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[Mobile]" />
+        <Output Type="ContactUrl" Value="http://example.com/[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[ContactID]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetAllContacts" Type="NoSQLDatabase">
+      <Command DatabaseType="MongoDB" ConnectionString="[ConnectionString]"
+               Database="[Database]" Collection="[ContactsCollection]" CommandType="Filter" 
+               Command="{}" Skip="[[Page]*[PageSize]]" Limit="[PageSize]"/>
+      <Rules>
+        <Rule Type="Any" Ethalon="">_id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">_id.$oid</Variable>
+        <Variable Name="FirstName">Name.FirstName</Variable>
+        <Variable Name="LastName">Name.LastName</Variable>
+        <Variable Name="Email">Email</Variable>
+        <Variable Name="Phone">Phones.Work</Variable>
+        <Variable Name="Mobile">Phones.Mobile</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[Mobile]" />
+        <Output Type="ContactUrl" Value="http://example.com/[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[ContactID]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="ReportCall" Type="NoSQLDatabase">
+      <Command SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" DatabaseType="MongoDB" ConnectionString="[ConnectionString]"
+               Database="[Database]" Collection="[CallsCollection]" CommandType="Insert">
+        <CommandData>
+          <Value Key="Subject" Passes="2">[[Subject]]</Value>
+          <Value Key="Number">[Number]</Value>
+          <Value Key="CallStartTime" Type="String">[[CallStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+          <Value Key="CallEndTime" Type="String">[[CallEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+          <Value Key="CallDuration">[Duration]</Value>
+          <Value Key="CallType" Type="String">[CallType]</Value>
+          <Value Key="Description" Passes="2" If="[CallType]==Inbound">[[InboundCallText]]</Value>
+          <Value Key="Description" Passes="2" If="[CallType]==Missed">[[MissedCallText]]</Value>
+          <Value Key="Description" Passes="2" If="[CallType]==Outbound">[[OutboundCallText]]</Value>
+          <Value Key="Description" Passes="2" If="[CallType]==Notanswered">[[NotAnsweredOutboundCallText]]</Value>
+        </CommandData>
+      </Command>
+    </Scenario>
+    <Scenario Id="ReportChat" Type="NoSQLDatabase">
+      <Command SkipIf="[ReportChatEnabled]!=True" DatabaseType="MongoDB" ConnectionString="[ConnectionString]"
+               Database="[Database]" Collection="[ChatsCollection]" CommandType="Insert">
+        <CommandData>
+          <Value Key="Subject" Passes="2">[[ChatSubject]]</Value>
+          <Value Key="Number" If="[Number]!=&quot;&quot;">[Number]</Value>
+          <Value Key="Email" If="[Email]!=&quot;&quot;">[Email]</Value>
+          <Value Key="ChatStartTime" Type="String">[[ChatStartTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+          <Value Key="ChatEndTime" Type="String">[[ChatEndTimeUTC].ToString("yyyy-MM-ddTHH:mm:ssZ")]</Value>
+          <Value Key="ChatDuration">[Duration]</Value>
+          <Value Key="Description">[ChatMessages]</Value>
+        </CommandData>
+      </Command>
+    </Scenario>
+    <Scenario Id="CreateContactRecord" Type="NoSQLDatabase">
+      <Command SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" 
+      				 DatabaseType="MongoDB" ConnectionString="[ConnectionString]"
+               Database="[Database]" Collection="[ContactsCollection]" CommandType="Insert">
+        <CommandData>
+          <Object Key="Name">
+            <Value Passes="2" Key="FirstName" Type="String">[[CreateContactFirstName]]</Value>
+            <Value Passes="2" Key="LastName" Type="String">[[CreateContactLastName]]</Value>
+          </Object>
+          <Object Key="Phones">
+            <Value Passes="1" Key="Work" Type="String">[Number]</Value>
+          </Object>
+        </CommandData>
+      </Command>
+      <Rules>
+        <Rule Type="Any">_id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID" Path="_id.$oid"></Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[CreateContactFirstName]" />
+        <Output Type="LastName" Passes="2" Value="[[CreateContactLastName]]" />
+        <Output Type="PhoneBusiness" Value="[Number]" />
+        <Output Type="ContactUrl" Value="http://example.com/[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[ContactID]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateContactRecordFromClient" Type="NoSQLDatabase">
+      <Command SkipIf="[CreateContactEnabled]!=True" 
+      				 DatabaseType="MongoDB" ConnectionString="[ConnectionString]"
+               Database="[Database]" Collection="[ContactsCollection]" CommandType="Insert">
+        <CommandData>
+          <Object Key="Name">
+            <Value Passes="2" Key="FirstName" Type="String">[FirstName]</Value>
+            <Value Passes="2" Key="LastName" Type="String">[LastName]</Value>
+          </Object>
+          <Object Key="Phones" If="[Number]!=&quot;&quot;">
+            <Value Passes="1" Key="Work" Type="String">[Number]</Value>
+          </Object>
+          <Value Passes="1" Key="Email" Type="String" If="[Email]!=&quot;&quot;">[Email]</Value>
+        </CommandData>
+      </Command>
+      <Rules>
+        <Rule Type="Any">_id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID" Path="_id.$oid"></Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Passes="2" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[Number]" />
+        <Output Type="ContactUrl" Value="http://example.com/[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+        <Output Type="EntityId" Value="[ContactID]" />
+      </Outputs>
+    </Scenario>
+  </Scenarios>
+</Crm>

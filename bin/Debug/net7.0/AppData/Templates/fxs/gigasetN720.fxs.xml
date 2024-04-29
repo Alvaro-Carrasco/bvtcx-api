@@ -1,0 +1,1864 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+	<header>
+		<type>fxs-template</type>
+		<version>145775</version>
+		<time>2017-05-18 15:00:00</time>
+		<name>Gigaset DECT N720</name>
+		<url>https://www.3cx.com/sip-phones/gigaset-n720/</url>
+		<image>gigaset.png</image>
+		<templatetype>thirdparty</templatetype>
+		<models>
+			<model ua="Gigaset N720 DM PRO" regex="^Gigaset N720 DM PRO/70.(?'fwver'.*)...........$">Gigaset N720</model>
+		</models>
+		<description>Gigaset DECT N720</description>
+		<rebootParams>
+			<event-name>reboot</event-name>
+		</rebootParams>
+		<resyncParams>
+			<event-name>check-sync;reboot=false</event-name>
+		</resyncParams>
+		<firmwareParams>
+			<event-name>check-sync;reboot=true</event-name>
+		</firmwareParams>
+		<AllowedNetworkConfig>
+			<option value="LOCALLAN">1</option>
+			<option value="SBC">0</option>
+			<option value="REMOTESTUN">0</option>
+		</AllowedNetworkConfig>
+		<enable_extension enable="0x1" disable="0x0"/>
+		<AllowWebPasswordChange>0</AllowWebPasswordChange>
+		<AllowSSLProvisioning>1</AllowSSLProvisioning>
+		<interfaceLink>http://%%PHONE_IP%%</interfaceLink>
+		
+		<languages>
+			<option value="English">
+				<item name = "langwebUI">0x1</item>
+			</option>
+			<option value="Deutsch">
+				<item name = "langwebUI">0x2</item>
+			</option>
+            <option value="Spanish">
+				<item name = "langwebUI">0x4</item>
+			</option>
+            <option value="Portugues">
+				<item name = "langwebUI">0x5</item>
+			</option>
+            <option value="Italian">
+				<item name = "langwebUI">0x7</item>
+			</option>
+			<option value="Francais">
+				<item name = "langwebUI">0x9</item>
+			</option>
+            <option value="Dutch">
+				<item name = "langwebUI">0x0a</item>
+			</option>   
+            <option value="Czech">
+				<item name = "langwebUI">0x0f</item>
+			</option>              
+			<option value="Polska">
+				<item name = "langwebUI">0x11</item>
+			</option>
+			<option value="Slovakian">
+				<item name = "langwebUI">0x16</item>
+			</option>
+			<option value="Russian">
+				<item name = "langwebUI">0x17</item>
+			</option>  
+			<option value="Greek">
+				<item name = "langwebUI">0x18</item>
+			</option> 
+			<option value="Slovanian">
+				<item name = "langwebUI">0x1b</item>
+			</option>         
+			<option value="Romanian">
+				<item name = "langwebUI">0x1c</item>
+			</option>               
+		</languages>
+		
+		<timezoneParams param="time_timezone_gigaset">
+			<option value="-5" displaytext="GMT-5.America/New_York" id="0" zone="-5:00">
+				<item name="TimeZoneName">0x0d</item>
+			</option>
+			<option value="-11" displaytext="GMT-11.Pacific/Midway" id="120" zone="-11:00">
+				<item name="TimeZoneName">0x01</item>
+			</option>
+			<option value="-10" displaytext="GMT-10.Pacific/Honolulu" id="1" zone="-10:00">
+				<item name="TimeZoneName">0x02</item>
+			</option>
+			<option value="-9" displaytext="GMT-9.America/Anchorage" id="3" zone="-9:00">
+				<item name="TimeZoneName">0x03</item>
+			</option>
+			<option value="-8" displaytext="GMT-8.America/Los_Angeles" id="6" zone="-8:00">
+				<item name="TimeZoneName">0x04</item>
+			</option>
+			<option value="-7" displaytext="GMT-7.America/Phoenix" id="7" zone="-7:00">
+				<item name="TimeZoneName">0x07</item>
+			</option>
+			<option value="-6" displaytext="GMT-6.America/Mexico_City" id="13" zone="-6:00">
+				<item name="TimeZoneName">0x09</item>
+			</option>
+			<option value="-5" displaytext="GMT-5.America/Bogota" id="15" zone="-5:00">
+				<item name="TimeZoneName">0x0d</item>
+			</option>
+			<option value="-4" displaytext="GMT-4.America/Halifax" id="24" zone="-4:00">
+				<item name="TimeZoneName">0x0f</item>
+			</option>
+			<option value="-3" displaytext="GMT-3.America/Sao_Paulo" id="28" zone="-3:00">
+				<item name="TimeZoneName">0x15</item>
+			</option>
+			<option value="-2" displaytext="GMT-2.Atlantic/South_Georgia" id="30" zone="-2:00">
+				<item name="TimeZoneName">0x16</item>
+			</option>
+			<option value="-1" displaytext="GMT-1.Atlantic/Azores" id="31" zone="-1:00">
+				<item name="TimeZoneName">0x18</item>
+			</option>
+			<option value="0" displaytext="GMT.Europe/London" id="36" zone="0:00">
+				<item name="TimeZoneName">0x1a</item>
+			</option>
+			<option value="+1" displaytext="GMT+1.Europe/Cenrtral" id="37" zone="1:00">
+				<item name="TimeZoneName">0x1b</item>
+			</option>
+			<option value="+2" displaytext="GMT+2.Europe/Athens" id="70" zone="2:00">
+				<item name="TimeZoneName">0x20</item>
+			</option>
+			<option value="+3" displaytext="GMT+3.Europe/Moscow" id="83" zone="3:00">
+				<item name="TimeZoneName">0x28</item>
+			</option>
+			<option value="+4" displaytext="GMT+4.Asia/Dubai)" id="89" zone="4:00">
+				<item name="TimeZoneName">0x2b</item>
+			</option>
+			<option value="+5" displaytext="GMT+5.Asia/Oral" id="92" zone="5:00">
+				<item name="TimeZoneName">0x2e</item>
+			</option>
+			<option value="+6" displaytext="GMT+6.Asia/Almaty" id="98" zone="6:00">
+				<item name="TimeZoneName">0x33</item>
+			</option>
+			<option value="+7" displaytext="GMT+7.Asia/Bangkok" id="102" zone="7:00">
+				<item name="TimeZoneName">0x37</item>
+			</option>
+			<option value="+8" displaytext="GMT+8.Australia/Perth" id="105" zone="8:00">
+				<item name="TimeZoneName">0x3a</item>
+			</option>
+			<option value="+9" displaytext="GMT+9.Asia/Tokyo" id="107" zone="9:00">
+				<item name="TimeZoneName">0x3d</item>
+			</option>
+			<option value="+10" displaytext="GMT+10.Australia/Brisbane" id="111" zone="10:00">
+				<item name="TimeZoneName">0x43</item>
+			</option>
+		</timezoneParams>
+		
+		<Codecspriorities>
+			<Codecspriority variableName="codec1" priority="1">
+				<!--The first entry is the selected entry in management console-->
+				<option value="0x00">G711u</option>
+				<option value="0x01">G711a</option>
+				<option value="0x05">G722</option>
+				<option value="0x03">G729</option>
+			  </Codecspriority>
+			  <Codecspriority variableName="codec2" priority="2">
+				<!--The first entry is the selected entry in management console-->
+				<option value="0x01">G711a</option>
+				<option value="0x00">G711u</option>
+				<option value="0x05">G722</option>
+				<option value="0x03">G729</option>
+			  </Codecspriority>
+			  <Codecspriority variableName="codec3" priority="3">
+				<!--The first entry is the selected entry in management console-->
+				<option value="0x05">G722</option>
+				<option value="0x00">G711u</option>
+				<option value="0x01">G711a</option>
+				<option value="0x03">G729</option>
+			  </Codecspriority>
+			  <Codecspriority variableName="codec4" priority="4">
+				<!--The first entry is the selected entry in management console-->
+				<option value="0x03">G729</option>
+				<option value="0x00">G711u</option>
+				<option value="0x01">G711a</option>
+				<option value="0x05">G722</option>
+			  </Codecspriority>
+		</Codecspriorities>
+
+	</header>
+	
+	<data>
+		<device>
+			<field name="SimCallsPerPort" status="readonly">1</field>
+			<field name="TypeOfLines" status="readonly">DECT</field> <!--Type of PSTN Lines-->
+			<field name="NumberOfExtensions">100</field> <!--Number of FXS extensions-->
+			
+			<variable name="%%toneset%%">
+			<title>Tone Set Selection</title>
+			<info>Select Country for Tone Sets</info>
+				<option name="Country">
+					  <value name="English">EN</value>
+					  <value name="Čeština">CS</value>
+					  <value name="Dansk">DK</value>
+					  <value name="Deutsch">DE</value>
+					  <value name="Dutch">NK</value>
+					  <value name="Espanol">ES</value>
+					  <value name="Francais">FR</value>
+					  <value name="Greek">GR</value>
+					  <value name="Italiano">IT</value>
+					  <value name="Svenska">SV</value>
+					  <value name="Turkce">TR</value>
+					  <value name="Portugues">PT</value>
+					  <value name="Polska">PL</value>
+					  <value name="Russian">RU</value>
+					  <value name="România">RO</value>
+				</option>
+     	        <result name="EN">
+					<item name = "tone">8</item>
+				</result>
+				<result name="CS">
+					<item name = "tone">5</item>
+				</result>
+				<result name="DK">
+					<item name = "tone">0</item>
+				</result>
+				<result name="DE">
+					<item name = "tone">12</item>
+				</result>
+				<result name="NK">
+					<item name = "tone">9</item>
+				</result>
+				<result name="ES">
+					<item name = "tone">6</item>
+				</result>
+				<result name="FR">
+					<item name = "tone">7</item>
+				</result>
+				<result name="GR">
+					<item name = "tone">0</item>
+				</result>
+				<result name="IT">
+					<item name = "tone">13</item>
+				</result>
+				<result name="SV">
+					<item name = "tone">0</item>
+				</result>
+				<result name="TR">
+					<item name = "tone">0</item>
+				</result>
+				<result name="PT">
+					<item name = "tone">6</item>
+				</result>
+				<result name="PL">
+					<item name = "tone">10</item>
+				</result>
+				<result name="RU">
+					<item name = "tone">11</item>
+				</result>
+				<result name="RO">
+					<item name = "tone">0</item>
+				</result>
+		 </variable>
+			
+		<deviceconfig filename="%%mac_address%%.xml" AllowDownload="false">
+<![CDATA[<?xml version="1.0" encoding="ISO-8859-1"?> 
+<ProviderFrame xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="N710_general.xsd">
+<Provider>
+<MAC_ADDRESS value="%%mac_address%%"/>
+<PROFILE_NAME class="string" value="%%mac_address%%.xml"/>
+
+<!-- Allow access from other networks. -->
+    <SYMB_ITEM ID="BS_IP_Data.ucB_ACCEPT_FOREIGN_SUBNET" class="symb_item" value="0x1"/>
+
+<!-- DTMF Settings -->
+    <SYMB_ITEM ID="BS_VOIP_Data.ucI_DTMF_TX_MODE_BITS" class="symb_item" value='"2"'/>
+    <SYMB_ITEM ID="BS_VOIP_Data.ucB_DTMF_TX_MODE_AUTO" class="symb_item" value='"0"'/>    
+    
+<!-- Call transfer after on Hook -->
+	<SYMB_ITEM ID="BS_CUSTOM_ORG.bit.bEct" class="symb_item" value="1"/>    
+    
+<!-- WEB UI: Settings - Management - Local Settings - Tone Selection
+	 International=0, US=1, CH=2, AUS=4, ES=6, FR=7, UK=8, NL=9, PL=10, Russia=11, DE=12, IT=13 -->
+	<SYMB_ITEM ID="BS_AE_SwConfig.ucCountryCodeTone" class="symb_item" value="%%toneset.tone%%"/>    
+
+<!-- Http language of the device
+	 English=0x1,German=0x2,Spanish=0x4,Italian=0x7,French=0x9,Dutch=0xa,Turkish=0x10,Polski=0x11 -->	
+	<SYMB_ITEM ID="BS_IP_Data.ucI_HTTPLANGUAGE" class="symb_item" value="%%langwebUI%%"/>     
+    
+<!-- Time and DST Settings -->
+    <SYMB_ITEM ID="BS_IP_Data.aucS_TIME_NTP_SERVER" class="symb_item" value='"%%param::time_ntp_server%%"'/>
+    <SYMB_ITEM ID="BS_IP_Data1.ucB_TIME_USE_AUTOMATIC_DST" class="symb_item" value="0x1"/>
+    <SYMB_ITEM ID="BS_IP_Data1.ucB_TIME_USE_AUTOMATIC_NTP_SYN" class="symb_item" value="0x1"/>  
+    
+<!-- Autoprovisioning - Preference - Time Zone: 
+     0x00(GMT-12),0x01(GMT-11),0x02(GMT-10),0x03(GMT-9),0x04(GMT-8),0x07(GMT-7),0x09(GMT-6),0x0d(GMT-5),0x0f(GMT-4),0x15(GMT-3),0x16(GMT-2),
+     0x18(GMT-1),0x1a(GMT),0x1b(GMT+1),0x20(GMT+2),0x28(GMT+3),0x2b(GMT+4),0x2e(GMT+5),0x33(GMT+6),0x37(GMT+7),0x3a(GMT+8),0x3d(GMT+9),0x43(GMT+10) -->    
+	<SYMB_ITEM ID="BS_IP_Data.uiI_TIME_TIMEZONE" class="symb_item" value="%%TimeZoneName%%"/>  
+
+<!-- Transfer Settings -->
+    <SYMB_ITEM ID="BS_VOIP_Data.ucB_ATTENDED_CALL_TRANS_HOLD_TARGET" class="symb_item" value="0x1"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.ucB_UNATTENDED_CALL_TRANS_HOLD_TARGET" class="symb_item" value="0x1"/>
+    <SYMB_ITEM ID="BS_CUSTOM.bit.bMusicOnHoldCap" class="symb_item" value="0x1"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.ucB_USE_R_KEY_FOR_CALL_TRANSFER" class="symb_item" value="0x1"/>    
+
+<!-- Advanced VoIP settings -->
+{IF network=REMOTESTUN}
+	<SYMB_ITEM ID="BS_VOIP_Data.ucB_USE_RANDOM_PORT" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.uiI_SIP_LOCAL_PORT" class="symb_item" value="%%phonesipport%%"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.uiI_RTP_LOCAL_PORT" class="symb_item" value="%%rtp_port_min%%"/>
+{ELSE}
+	<SYMB_ITEM ID="BS_VOIP_Data.ucB_USE_RANDOM_PORT" class="symb_item" value="0x0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.uiI_SIP_LOCAL_PORT" class="symb_item" value="5060"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.uiI_RTP_LOCAL_PORT" class="symb_item" value="5004"/>
+{ENDIF}
+
+    
+<!-- WEB UI: Settings - Management - Local Settings - Select Country optimum setting for behind other platformen is "Other country"--> 
+	<SYMB_ITEM ID="BS_IP_Data.ucI_DIALING_PLAN_COUNTRY_ID" class="symb_item" value="0xff"/>     
+    <SYMB_ITEM ID="BS_CUSTOM_ORG.aucNationalPrefix[0]" class="symb_item" value='""'/> 
+    <SYMB_ITEM ID="BS_CUSTOM_ORG.aucCountryCode[0]=" class="symb_item" value='""'/>    
+    <SYMB_ITEM ID="BS_CUSTOM_ORG.aucInternationalPrefix[0]" class="symb_item" value='""'/> 
+    
+<!-- LAN -->
+    <SYMB_ITEM ID="BS_IP_Data.aucS_NETWORK_DEVICENAME" class="symb_item" value='"gigaset-N720"'/>     
+    
+    <SYMB_ITEM ID="BS_VOIP_Data.NameOnIdleDisplay" class="symb_item" value="0x1"/>
+    
+<!-- General provider settings for all VoIP accounts-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSIP_PROVIDER_NAME" class="symb_item" value='"3CX"'/>
+	{IF network=SBC}
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSIP_DOMAIN" class="symb_item" value='"%%local_sbc_ip%%"'/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSIP_SERVER" class="symb_item" value='"%%local_sbc_ip%%"'/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiSIP_SERVER_PORT" class="symb_item" value="%%local_sbc_port%%"/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSIP_REGISTRAR" class="symb_item" value='"%%local_sbc_ip%%"'/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiSIP_REGISTRAR_PORT" class="symb_item" value="%%local_sbc_port%%"/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiRE_REGISTRATION_TIMER" class="symb_item" value="180"/>
+	{ELSE}
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSIP_DOMAIN" class="symb_item" value='"%%pbx_ip%%"'/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSIP_SERVER" class="symb_item" value='"%%pbx_ip%%"'/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiSIP_SERVER_PORT" class="symb_item" value="%%param::sipport%%"/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSIP_REGISTRAR" class="symb_item" value='"%%pbx_ip%%"'/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiSIP_REGISTRAR_PORT" class="symb_item" value="%%param::sipport%%"/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiRE_REGISTRATION_TIMER" class="symb_item" value="180"/>
+	{ENDIF}
+	
+	{IF network=REMOTESTUN}
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].ucSIP_USE_STUN" class="symb_item" value="1"/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSTUN_SERVER" class="symb_item" value='"%%pbx_ip%%"'/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiSTUN_SERVER_PORT" class="symb_item" value="%%param::sipport%%"/>
+	{ELSE}
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].ucSIP_USE_STUN" class="symb_item" value="0"/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucSTUN_SERVER" class="symb_item" value='""'/>
+		<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiSTUN_SERVER_PORT" class="symb_item" value="0x0d96"/>
+	{ENDIF}
+	
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiRE_STUN_TIMER" class="symb_item" value="240"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiNAT_REFRESH_TIME" class="symb_item" value="20"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].ucOUTBOUND_PROXY_MODE" class="symb_item" value="0x2"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].aucOUTBOUND_PROXY" class="symb_item" value='""'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].uiOUTBOUND_PROXY_PORT" class="symb_item" value="5060"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipProviders[0].ucSIP_PREFERRED_TRANSPORT_LAYER" class="symb_item" value="0"/>   
+
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 1 (idx="1")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_01_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_01%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_01%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_01%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_01%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_01%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[0].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 2 (idx="2")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_02_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_02%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_02%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_02%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_02%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_02%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[1].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 3 (idx="3")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_03_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_03%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_03%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_03%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_03%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_03%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[2].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 4 (idx="4")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_04_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_04%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_04%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_04%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_04%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_04%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[3].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 5 (idx="5")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_05_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_05%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_05%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_05%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_05%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_05%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[4].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 6 (idx="6")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_06_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_06%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_06%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_06%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_06%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_06%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[5].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 7 (idx="7")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_07_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_07%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_07%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_07%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_07%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_07%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[6].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 8 (idx="8")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_08_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_08%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_08%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_08%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_08%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_08%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[7].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 9 (idx="9")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_09_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_09%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_09%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_09%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_09%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_09%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[8].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 10 (idx="10")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_10_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_10%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_10%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_10%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_10%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_10%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[9].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 11 (idx="11")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_11_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_11%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_11%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_11%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_11%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_11%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[10].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 12 (idx="12")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_12_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_12%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_12%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_12%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_12%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_12%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[11].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 13 (idx="13")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_13_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_13%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_13%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_13%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_13%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_13%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[12].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 14 (idx="14")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_14_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_14%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_14%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_14%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_14%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_14%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[13].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 15 (idx="15")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_15_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_15%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_15%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_15%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_15%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_15%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[14].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 16 (idx="16")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_16_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_16%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_16%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_16%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_16%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_16%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[15].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 17 (idx="17")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_17_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_17%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_17%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_17%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_17%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_17%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[16].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 18 (idx="18")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_18_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_18%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_18%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_18%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_18%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_18%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[17].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 19 (idx="19")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_19_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_19%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_19%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_19%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_19%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_19%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[18].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 20 (idx="20")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_20_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_20%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_20%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_20%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_20%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_20%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[19].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 21 (idx="21")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_21_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_21%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_21%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_21%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_21%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_21%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[20].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 22 (idx="22")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_22_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_22%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_22%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_22%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_22%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_22%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[21].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 23 (idx="23")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_23_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_23%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_23%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_23%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_23%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_23%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[22].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 24 (idx="24")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_24_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_24%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_24%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_24%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_24%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_24%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[23].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 25 (idx="25")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_25_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_25%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_25%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_25%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_25%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_25%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[24].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 26 (idx="26")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_26_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_26%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_26%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_26%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_26%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_26%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[25].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 27 (idx="27")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_27_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_27%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_27%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_27%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_27%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_27%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[26].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 28 (idx="28")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_28_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_28%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_28%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_28%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_28%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_28%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[27].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 29 (idx="29")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_29_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_29%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_29%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_29%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_29%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_29%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[28].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 30 (idx="30")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_30_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_30%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_30%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_30%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_30%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_30%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[29].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 31 (idx="31")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_31_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_31%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_31%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_31%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_31%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_31%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[30].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 32 (idx="32")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_32_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_32%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_32%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_32%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_32%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_32%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[31].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 33 (idx="33")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_33_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_33%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_33%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_33%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_33%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_33%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[32].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 34 (idx="34")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_34_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_34%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_34%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_34%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_34%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_34%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[33].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 35 (idx="35")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_35_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_35%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_35%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_35%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_35%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_35%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[34].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 36 (idx="36")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_36_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_36%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_36%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_36%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_36%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_36%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[35].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 37 (idx="37")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_37_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_37%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_37%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_37%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_37%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_37%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[36].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 38 (idx="38")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_38_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_38%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_38%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_38%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_38%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_38%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[37].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 39 (idx="39")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_39_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_39%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_39%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_39%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_39%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_39%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[38].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 40 (idx="40")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_40_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_40%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_40%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_40%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_40%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_40%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[39].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 41 (idx="41")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_41_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_41%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_41%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_41%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_41%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_41%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[40].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 42 (idx="42")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_42_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_42%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_42%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_42%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_42%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_42%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[41].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 43 (idx="43")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_43_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_43%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_43%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_43%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_43%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_43%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[42].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 44 (idx="44")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_44_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_44%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_44%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_44%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_44%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_44%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[43].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 45 (idx="45")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_45_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_45%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_45%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_45%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_45%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_45%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[44].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 46 (idx="46")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_46_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_46%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_46%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_46%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_46%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_46%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[45].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 47 (idx="47")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_47_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_47%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_47%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_47%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_47%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_47%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[46].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 48 (idx="48")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_48_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_48%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_48%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_48%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_48%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_48%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[47].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 49 (idx="49")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_49_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_49%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_49%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_49%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_49%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_49%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[48].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 50 (idx="50")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_50_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_50%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_50%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_50%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_50%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_50%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[49].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 51 (idx="51")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_51_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_51%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_51%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_51%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_51%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_51%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[50].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 52 (idx="52")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_52_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_52%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_52%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_52%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_52%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_52%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[51].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 53 (idx="53")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_53_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_53%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_53%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_53%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_53%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_53%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[52].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 54 (idx="54")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_54_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_54%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_54%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_54%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_54%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_54%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[53].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 55 (idx="55")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_55_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_55%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_55%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_55%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_55%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_55%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[54].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 56 (idx="56")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_56_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_56%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_56%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_56%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_56%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_56%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[55].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 57 (idx="57")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_57_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_57%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_57%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_57%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_57%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_57%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[56].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 58 (idx="58")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_58_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_58%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_58%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_58%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_58%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_58%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[57].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 59 (idx="59")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_59_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_59%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_59%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_59%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_59%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_59%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[58].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 60 (idx="60")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_60_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_60%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_60%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_60%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_60%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_60%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[59].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 61 (idx="61")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_61_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_61%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_61%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_61%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_61%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_61%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[60].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 62 (idx="62")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_62_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_62%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_62%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_62%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_62%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_62%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[61].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 63 (idx="63")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_63_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_63%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_63%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_63%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_63%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_63%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[62].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 64 (idx="64")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_64_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_64%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_64%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_64%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_64%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_64%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[63].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 65 (idx="65")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_65_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_65%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_65%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_65%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_65%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_65%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[64].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 66 (idx="66")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_66_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_66%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_66%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_66%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_66%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_66%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[65].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 67 (idx="67")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_67_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_67%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_67%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_67%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_67%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_67%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[66].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 68 (idx="68")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_68_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_68%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_68%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_68%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_68%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_68%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[67].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 69 (idx="69")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_69_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_69%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_69%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_69%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_69%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_69%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[68].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 70 (idx="70")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_70_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_70%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_70%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_70%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_70%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_70%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[69].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 71 (idx="71")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_71_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_71%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_71%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_71%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_71%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_71%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[70].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 72 (idx="72")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_72_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_72%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_72%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_72%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_72%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_72%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[71].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 73 (idx="73")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_73_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_73%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_73%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_73%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_73%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_73%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[72].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 74 (idx="74")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_74_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_74%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_74%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_74%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_74%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_74%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[73].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 75 (idx="75")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_75_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_75%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_75%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_75%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_75%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_75%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[74].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 76 (idx="76")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_76_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_76%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_76%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_76%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_76%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_76%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[75].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 77 (idx="77")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_77_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_77%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_77%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_77%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_77%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_77%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[76].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 78 (idx="78")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_78_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_78%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_78%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_78%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_78%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_78%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[77].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 79 (idx="79")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_79_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_79%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_79%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_79%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_79%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_79%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[78].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 80 (idx="80")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_80_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_80%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_80%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_80%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_80%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_80%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[79].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 81 (idx="81")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_81_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_81%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_81%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_81%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_81%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_81%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[80].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 82 (idx="82")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_82_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_82%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_82%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_82%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_82%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_82%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[81].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 83 (idx="83")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_83_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_83%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_83%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_83%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_83%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_83%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[82].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 84 (idx="84")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_84_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_84%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_84%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_84%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_84%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_84%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[83].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 85 (idx="85")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_85_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_85%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_85%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_85%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_85%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_85%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[84].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 86 (idx="86")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_86_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_86%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_86%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_86%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_86%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_86%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[85].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 87 (idx="87")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_87_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_87%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_87%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_87%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_87%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_87%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[86].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 88 (idx="88")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_88_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_88%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_88%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_88%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_88%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_88%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[87].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 89 (idx="89")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_89_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_89%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_89%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_89%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_89%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_89%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[88].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 90 (idx="90")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_90_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_90%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_90%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_90%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_90%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_90%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[89].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 91 (idx="91")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_91_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_91%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_91%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_91%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_91%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_91%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[90].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 92 (idx="92")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_92_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_92%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_92%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_92%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_92%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_92%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[91].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 93 (idx="93")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_93_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_93%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_93%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_93%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_93%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_93%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[92].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 94 (idx="94")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_94_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_94%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_94%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_94%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_94%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_94%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[93].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 95 (idx="95")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_95_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_95%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_95%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_95%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_95%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_95%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[94].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 96 (idx="96")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_96_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_96%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_96%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_96%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_96%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_96%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[95].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 97 (idx="97")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_97_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_97%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_97%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_97%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_97%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_97%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[96].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 98 (idx="98")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_98_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_98%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_98%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_98%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_98%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_98%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[97].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 99 (idx="99")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_99_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_99%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_99%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_99%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_99%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_99%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[98].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+<!--########################################################-->
+<!--###       SIP Settings for Identity 100 (idx="100")      ###-->
+<!--########################################################-->
+
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].ucB_SIP_ACCOUNT_IS_ACTIVE_1" class="symb_item" value="%%ext_100_enabled%%"/>
+    <SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].aucS_SIP_LOGIN_ID[0]" class="symb_item" value='"%%ext_auth_id_100%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].aucS_SIP_PASSWORD[0]" class="symb_item" value='"%%ext_auth_pw_100%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].aucS_SIP_USER_ID[0]" class="symb_item" value='"%%ext_int_num_100%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].aucS_SIP_DISPLAYNAME[0]" class="symb_item" value='"%%ext_last_name_100%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].ucVoipProviderIndex" class="symb_item" value="0"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].aucS_VOIP_NET_AM_NUMBER_1" class="symb_item" value='"%%vm_number%%"'/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].ucB_VOIP_NET_AM_ENABLED_1" class="symb_item" value="0x1"/>
+	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].aucS_SIP_ACCOUNT_NAME_1[0]" class="symb_item" value='"%%ext_int_num_100%%"'/>
+ 	<SYMB_ITEM ID="BS_VOIP_Data.astVoipAccounts[99].aucI_SIP_PREFERRED_VOCODER" class="symb_item" value="%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%"/>
+
+</Provider>
+</ProviderFrame>
+]]>
+			</deviceconfig>
+		</device>
+	</data>   
+</doc>

@@ -1,0 +1,3234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>phone-template</type>
+    <version>145775</version>
+    <time>2023-05-10 11:10:00</time>
+    <name>Fanvil Hotel IP Phone</name>
+    <url>https://www.3cx.com/sip-phones/fanvil-hotel-series/</url>
+	<templatetype>preferred</templatetype>
+    <models>
+      <model ua="H2S">Fanvil H2S</model>
+      <model ua="H3">Fanvil H3</model>
+      <model ua="H5">Fanvil H5</model>
+      <model ua="H2U">Fanvil H2U</model>
+      <model ua="H2U-V2">Fanvil H2U-V2</model>
+      <model ua="H3W">Fanvil H3W</model>
+      <model ua="H5W" defaultlogo="H5W.bmp" logowidth="480" logoheight="320" logobitdepth="16">Fanvil H5W</model>
+    </models>
+    <description>Fanvil Hotel IP Phone</description>
+    <parsers>
+      <parser>BLF</parser>
+    </parsers>
+    <rebootParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </rebootParams>
+    <resyncParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </resyncParams>
+    <firmwareParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </firmwareParams>
+	<rps>1</rps>
+    <AllowedNetworkConfig>
+      <option value="LOCALLAN">1</option>
+      <option value="REMOTESTUN">1</option>
+      <option value="SBC">1</option>
+    </AllowedNetworkConfig>
+    <interfaceLink>http://admin:%%PHONE_WEB_PASSWORD%%@%%PHONE_IP%%</interfaceLink>
+    <AllowWebPasswordChange>1</AllowWebPasswordChange>
+    <AllowSSLProvisioning>1</AllowSSLProvisioning>
+    <dst variableName="dstEnableDisable" enable="1" disable="0"></dst>
+    <languages>
+      <!--The first entry is the selected entry in management console.-->
+      <option value="English">
+        <item name="langlcdnew">0</item>
+        <item name="langlcdold">1</item>
+        <item name="langlcdx3id">en</item>
+      </option>
+      <option value="Chinese">
+        <item name="langlcdnew">1</item>
+        <item name="langlcdold">2</item>
+        <item name="langlcdx3id">cn</item>
+      </option>
+      <option value="Tra-Chinese">
+        <item name="langlcdnew">2</item>
+        <item name="langlcdold">2</item>
+        <item name="langlcdx3id">tc</item>
+      </option>
+      <option value="Dutch">
+        <item name="langlcdnew">3</item>
+        <item name="langlcdold">1</item>
+        <item name="langlcdx3id">en</item>
+      </option>
+      <option value="French">
+        <item name="langlcdnew">4</item>
+        <item name="langlcdold">5</item>
+        <item name="langlcdx3id">nl</item>
+      </option>
+      <option value="German">
+        <item name="langlcdnew">16</item>
+        <item name="langlcdold">3</item>
+        <item name="langlcdx3id">de</item>
+      </option>
+      <option value="Polish">
+        <item name="langlcdnew">5</item>
+        <item name="langlcdold">15</item>
+        <item name="langlcdx3id">pl</item>
+      </option>
+      <option value="Russian">
+        <item name="langlcdnew">6</item>
+        <item name="langlcdold">12</item>
+        <item name="langlcdx3id">ru</item>
+      </option>
+      <option value="Italian">
+        <item name="langlcdnew">7</item>
+        <item name="langlcdold">7</item>
+        <item name="langlcdx3id">it</item>
+      </option>
+      <option value="Spanish">
+        <item name="langlcdnew">10</item>
+        <item name="langlcdold">6</item>
+        <item name="langlcdx3id">es</item>
+      </option>
+      <option value="Hebrew">
+        <item name="langlcdnew">8</item>
+        <item name="langlcdold">13</item>
+        <item name="langlcdx3id">he</item>
+      </option>
+      <option value="Turkish">
+        <item name="langlcdnew">9</item>
+        <item name="langlcdold">14</item>
+        <item name="langlcdx3id">tr</item>
+      </option>
+      <option value="Japanese">
+        <item name="langlcdnew">11</item>
+        <item name="langlcdold">6</item>
+        <item name="langlcdx3id">jp</item>
+      </option>
+      <option value="Bulgarian">
+        <item name="langlcdnew">12</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">bg</item>
+      </option>
+      <option value="Slovenian">
+        <item name="langlcdnew">13</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">slo</item>
+      </option>
+      <option value="Portuguese">
+        <item name="langlcdnew">17</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">pt</item>
+      </option>
+      <option value="Czech">
+        <item name="langlcdnew">18</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">cz</item>
+      </option>
+      <option value="Arabic">
+        <item name="langlcdnew">23</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">en</item>
+      </option>
+      <option value="Catalan">
+        <item name="langlcdnew">14</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">cat</item>
+      </option>
+      <option value="Basque">
+        <item name="langlcdnew">15</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">eus</item>
+      </option>
+      <option value="Galician">
+        <item name="langlcdnew">19</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">gal</item>
+      </option>
+      <option value="Indonesian">
+        <item name="langlcdnew">20</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">en</item>
+      </option>
+      <option value="Malay">
+        <item name="langlcdnew">21</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">en</item>
+      </option>
+      <option value="Hungarian">
+        <item name="langlcdnew">22</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">hu</item>
+      </option>
+      <option value="Ukraine">
+        <item name="langlcdnew">24</item>
+        <item name="langlcdold">0</item>
+        <item name="langlcdx3id">ua</item>
+      </option>
+    </languages>
+    <ringtones>
+      <!--The first entry is the selected entry in management console-->
+      <option value="Default">
+        <item name="defringtone">0</item>
+        <item name="defringtonepro">default.wav</item>													  
+      </option>
+      <option value="Ring 1">
+        <item name="defringtone">1</item>
+        <item name="defringtonepro">1.wav</item>
+      </option>
+      <option value="Ring 2">
+        <item name="defringtone">2</item>
+        <item name="defringtonepro">2.wav</item>												
+      </option>
+      <option value="Ring 3">
+        <item name="defringtone">3</item>
+        <item name="defringtonepro">3.wav</item>												
+      </option>
+      <option value="Ring 4">
+        <item name="defringtone">4</item>
+        <item name="defringtonepro">4.wav</item>												
+      </option>
+      <option value="Ring 5">
+        <item name="defringtone">5</item>
+        <item name="defringtonepro">5.wav</item>												
+      </option>
+      <option value="Ring 6">
+        <item name="defringtone">6</item>
+        <item name="defringtonepro">6.wav</item>												
+      </option>
+      <option value="Ring 7">
+        <item name="defringtone">7</item>
+        <item name="defringtonepro">7.wav</item>												
+      </option>
+      <option value="Ring 8">
+        <item name="defringtone">8</item>
+      </option>
+      <option value="Ring 9">
+        <item name="defringtone">9</item>
+      </option>
+    </ringtones>
+	<queueringtones default="Ring 6" maxcount="8">
+      <option value="Ring 1">
+        <item name="queueringtone">1</item>
+      </option>
+      <option value="Ring 2">
+        <item name="queueringtone">2</item>
+      </option>
+      <option value="Ring 3">
+        <item name="queueringtone">3</item>
+      </option>
+      <option value="Ring 4">
+        <item name="queueringtone">4</item>
+      </option>
+      <option value="Ring 5">
+        <item name="queueringtone">5</item>
+      </option>
+      <option value="Ring 6">
+        <item name="queueringtone">6</item>
+      </option>
+      <option value="Ring 7">
+        <item name="queueringtone">7</item>
+      </option>
+      <option value="Ring 8">
+        <item name="queueringtone">8</item>
+      </option>
+     <option value="Ring 9">
+        <item name="queueringtone">9</item>
+      </option>
+    </queueringtones>
+    <dateformat>
+      <option value="15 JAN MON">
+        <item name="datestyle">0</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="JAN 15 MON">
+        <item name="datestyle">2</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="MON 15 JAN">
+        <item name="datesep">0</item>
+      </option>
+      <option value="MON JAN 15">
+        <item name="datestyle">6</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="DD/MM/YY (15/01/17)">
+        <item name="datestyle">8</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="DD-MM-YY (15-01-17)">
+        <item name="datestyle">8</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="DD.MM.YY (15.01.17)">
+        <item name="datestyle">8</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="DD MM YY (15 01 17)">
+        <item name="datestyle">8</item>
+        <item name="datesep">3</item>
+      </option>
+      <option value="DD/MM/YYYY (15/01/2017)">
+        <item name="datestyle">9</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="DD-MM-YYYY (15-01-2017)">
+        <item name="datestyle">9</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="DD.MM.YYYY (15.01.2017)">
+        <item name="datestyle">9</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="DD MM YYYY (15 01 2017)">
+        <item name="datestyle">9</item>
+        <item name="datesep">3</item>
+      </option>
+      <option value="MM/DD/YY (01/15/17)">
+        <item name="datestyle">10</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="MM-DD-YY (01-15-17)">
+        <item name="datestyle">10</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="MM.DD.YY (01.15.17)">
+        <item name="datestyle">10</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="MM DD YY (01 15 17)">
+        <item name="datestyle">10</item>
+        <item name="datesep">3</item>
+      </option>
+      <option value="MM/DD/YYYY (01/15/2017)">
+        <item name="datestyle">11</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="MM-DD-YYYY (01-15-2017)">
+        <item name="datestyle">11</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="MM.DD.YYYY (01.15.2017)">
+        <item name="datestyle">11</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="MM DD YYYY (01 15 2017)">
+        <item name="datestyle">11</item>
+        <item name="datesep">3</item>
+      </option>
+      <option value="YY/MM/DD (17/01/15)">
+        <item name="datestyle">12</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="YY-MM-DD (17-01-15)">
+        <item name="datestyle">12</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="YY.MM.DD (17.01.15)">
+        <item name="datestyle">12</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="YY MM DD (17 01 15)">
+        <item name="datestyle">12</item>
+        <item name="datesep">3</item>
+      </option>
+      <option value="YYYY/MM/DD (2017/01/15)">
+        <item name="datestyle">13</item>
+        <item name="datesep">0</item>
+      </option>
+      <option value="YYYY-MM-DD (2017-01-15)">
+        <item name="datestyle">13</item>
+        <item name="datesep">1</item>
+      </option>
+      <option value="YYYY.MM.DD (2017.01.15)">
+        <item name="datestyle">13</item>
+        <item name="datesep">2</item>
+      </option>
+      <option value="YYYY MM DD (2017 01 15)">
+        <item name="datestyle">13</item>
+        <item name="datesep">3</item>
+      </option>
+    </dateformat>
+    <timeformat>
+      <option value="24-hour clock">
+        <item name="timestyle">0</item>
+      </option>
+      <option value="12-hour clock (AM/PM)">
+        <item name="timestyle">1</item>
+      </option>
+    </timeformat>
+    <vlan>
+      <vlanwanport type="bool" readonly="false" default="false" param="vlanwanenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </vlanwanport>
+      <vlanwanid type="int" readonly="false" default="256" minvalue="1" maxvalue="4094" param="vlanwanportid" />
+      <vlanwanpriority type="int" readonly="false" default="0" minvalue="0" maxvalue="7" param="vlanwanportpriority" />
+      <vlanpcport type="bool" readonly="false" default="false" param="vlanpcenabled">
+        <item value="false">1</item>
+        <item value="true">2</item>
+      </vlanpcport>
+      <vlanpcid type="int" readonly="false" default="254" minvalue="1" maxvalue="4094" param="vlanpcportid" />
+      <vlanpcpriority type="int" readonly="false" default="0" minvalue="0" maxvalue="7" param="vlanpcportpriority" />
+    </vlan>
+	<lldp>
+      <lldpvalue type="bool" readonly="false" default="false" param="lldpenabled">
+        <item value="false">0</item>
+        <item value="true">1</item>
+      </lldpvalue>
+    </lldp>
+	<!--<srtp>
+      <option value="Disabled">
+        <item name="srtpvalue">0</item>
+      </option>
+      <option value="Enabled compulsory (forced)">
+        <item name="srtpvalue">1</item>
+      </option>
+    </srtp>-->
+     <timezoneParams param="time_timezone_fanvil">
+      <!--The first entry is the selected entry in management console-->
+      <option value="12" displaytext="GMT-5:00 US Eastern Time, New York" id="0" zone="-5:00">
+        <item name="timezonename">UCT_-05</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-20</item>
+        <item name="timezonenamex3s">UTC-5</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="0" displaytext="GMT-12:00 International Date Line West" id="121" zone="-12:00">
+        <item name="timezonename">UCT_-12</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-48</item>
+        <item name="timezonenamex3s">UTC-12</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="1" displaytext="GMT-11:00 Samoa" id="120" zone="-11:00">
+        <item name="timezonename">UCT_-11</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-44</item>
+        <item name="timezonenamex3s">UTC-11</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="2" displaytext="GMT-10:00 United States-Hawaii-Aleutian" id="1" zone="-10:00">
+        <item name="timezonename">UCT_-10</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-40</item>
+        <item name="timezonenamex3s">UTC-10</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="3" displaytext="GMT-9:00 United States-Alaska Time" id="3" zone="-9:00">
+        <item name="timezonename">NAS_-09</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-36</item>
+        <item name="timezonenamex3s">UTC-9</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="4" displaytext="GMT-8:00 United States (Pacific Time)" id="6" zone="-8:00">
+        <item name="timezonename">PST_-08</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-32</item>
+        <item name="timezonenamex3s">UTC-8</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="4" displaytext="GMT-8:00 Mexico(Tijuana,Mexicali)" id="5" zone="-8:00">
+        <item name="timezonename">PST_-08</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-32</item>
+        <item name="timezonenamex3s">UTC-8</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="5" displaytext="GMT-7:00 United States-Mountain Time" id="9" zone="-7:00">
+        <item name="timezonename">MST_-07</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-28</item>
+        <item name="timezonenamex3s">UTC-7</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="5" displaytext="GMT-7:00 United States-MST no DST" id="10" zone="-7:00">
+        <item name="timezonename">MST_-07</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-28</item>
+        <item name="timezonenamex3s">UTC-7</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="5" displaytext="GMT-7:00 Canada(Edmonton,Calgary)" id="7" zone="-7:00">
+        <item name="timezonename">MST_-07</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-28</item>
+        <item name="timezonenamex3s">UTC-7</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="5" displaytext="GMT-7:00 Mexico(Mazatlan,Chihuahua)" id="8" zone="-7:00">
+        <item name="timezonename">MST_-07</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">4</item>
+        <item name="dststartweek">1</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-28</item>
+        <item name="timezonenamex3s">UTC-7</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="8" displaytext="GMT-6:00 United States-Central Time" id="14" zone="-6:00">
+        <item name="timezonename">UCT_-06</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-24</item>
+        <item name="timezonenamex3s">UTC-6</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="8" displaytext="GMT-6:00 Saskarchewan" id="11" zone="-6:00">
+        <item name="timezonename">UCT_-06</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-24</item>
+        <item name="timezonenamex3s">UTC-6</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="8" displaytext="GMT-6:00 Mexico(Mexico City,Acapulco)" id="13" zone="-6:00">
+        <item name="timezonename">UCT_-06</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">4</item>
+        <item name="dststartweek">1</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">0</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-24</item>
+        <item name="timezonenamex3s">UTC-6</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="8" displaytext="GMT-6:00 Honduras" id="124" zone="-6:00">
+        <item name="timezonename">UTC_-6</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-24</item>
+        <item name="timezonenamex3s">UTC-6</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">0</item>
+      </option>
+      <option value="12" displaytext="GMT-5:00 Bogota, Lima, Quito" id="125" zone="-5:00">
+        <item name="timezonename">UCT_-05</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-20</item>
+        <item name="timezonenamex3s">UTC-5</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">0</item>
+      </option>
+      <option value="12" displaytext="GMT-5:00 Canada(Montreal,Ottawa,Quebec)" id="16" zone="-5:00">
+        <item name="timezonename">UCT_-05</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-20</item>
+        <item name="timezonenamex3s">UTC-5</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="15" displaytext="GMT-4 Venezuela(Caracas), La Paz" id="18" zone="-4:00">
+        <item name="timezonename">AST_-04</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-16</item>
+        <item name="timezonenamex3s">UTC-4</item>
+        <item name="locationx3s">0</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="15" displaytext="GMT-4 Canada(Halifax,Saint John)" id="19" zone="-4:00">
+        <item name="timezonename">AST_-04</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-16</item>
+        <item name="timezonenamex3s">UTC-4</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="15" displaytext="GMT-4 Chile(Santiago)" id="20" zone="-4:00">
+        <item name="timezonename">AST_-04</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">5</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">8</item>
+        <item name="dstendweek">2</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-16</item>
+        <item name="timezonenamex3s">UTC-4</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="15" displaytext="GMT-4 Georgetown"  zone="-4:00">
+        <item name="timezonename">AST_-04</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">5</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">8</item>
+        <item name="dstendweek">2</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-16</item>
+        <item name="timezonenamex3s">UTC-4</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="18" displaytext="GMT-3:30 Canada-New Foundland(St.Johns)" id="25" zone="-3:30">
+        <item name="timezonename">EBS_-03:30</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">2</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">11</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-14</item>
+        <item name="timezonenamex3s">UTC-3:30</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="19" displaytext="GMT-3 Brazil with DST" id="28" zone="-3:00">
+        <item name="timezonename">EBS_-03</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">10</item>
+        <item name="dststartweek">3</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">2</item>
+        <item name="dstendweek">3</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-12</item>
+        <item name="timezonenamex3s">UTC-3</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="19" displaytext="GMT-3 Brazil without DST" id="28" zone="-3:00">
+        <item name="timezonename">EBS_-03</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-12</item>
+        <item name="timezonenamex3s">UTC-3</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="19" displaytext="GMT-3 Buenos Aires" id="27" zone="-3:00">
+        <item name="timezonename">EBS_-03</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-12</item>
+        <item name="timezonenamex3s">UTC-3</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="19" displaytext="GMT-3 Greenland" id="26" zone="-3:00">
+        <item name="timezonename">EBS_-03</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">6</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">6</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-12</item>
+        <item name="timezonenamex3s">UTC-3</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="22" displaytext="GMT-3 Mid-Atlantic" id="123" zone="-3:00">
+        <item name="timezonename">NOR_-02</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-12</item>
+        <item name="timezonenamex3s">UTC-3</item>
+        <item name="locationx3s">5</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="23" displaytext="GMT-1 Cape Verde Is." zone="-1:00">
+        <item name="timezonename">EUT_-01</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">-4</item>
+        <item name="timezonenamex3s">UTC-1</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="23" displaytext="GMT-1 Portugal(Azores)" id="31" zone="-1:00">
+        <item name="timezonename">EUT_-01</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">-4</item>
+        <item name="timezonenamex3s">UTC-1</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="25" displaytext="GMT, London" id="36" zone="0:00">
+        <item name="timezonename">UCT_000</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">0</item>
+        <item name="timezonenamex3s">UTC</item>
+        <item name="locationx3s">7</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="25" displaytext="GMT, Dublin" id="33" zone="0:00">
+        <item name="timezonename">UCT_000</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">0</item>
+        <item name="timezonenamex3s">UTC</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="25" displaytext="GMT, Porto" id="34" zone="0:00">
+        <item name="timezonename">UCT_000</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">0</item>
+        <item name="timezonenamex3s">UTC</item>
+        <item name="locationx3s">5</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="25" displaytext="GMT, Faroe Islands" id="32" zone="0:00">
+        <item name="timezonename">UCT_000</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">0</item>
+        <item name="timezonenamex3s">UTC</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="25" displaytext="0 Casablanca, Monrovia" zone="0:00">
+        <item name="timezonename">UCT_000</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">0</item>
+        <item name="timezonenamex3s">UTC</item>
+        <item name="locationx3s">6</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Amsterdam, Stockholm" id="51" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">16</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Vienna" id="38" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Berlin" id="46" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">11</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Rome" id="48" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">13</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Prague" id="43" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">8</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Budapest, Belgrade" id="47" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">12</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Brussels" id="39" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Copenhagen" id="44" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">9</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Madrid" id="39" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">6</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Paris" id="45" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">10</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Sarajevo, Sopje" id="50" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">15</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 Warsaw, Zagreb" id="42" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">7</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="27" displaytext="GMT+1 West Central Africa" id="61" zone="1:00">
+        <item name="timezonename">MET_001</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">4</item>
+        <item name="timezonenamex3s">UTC+1</item>
+        <item name="locationx3s">5</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Romania(Bucharest)" id="77" zone="2:00">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">11</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Harare, Pretoria" zone="2:00" id="65">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">10</item>
+        <item name="dstx3s">0</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Helsinki" id="68" zone="2:00">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Kyiv" id="80" zone="2:00">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">14</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Riga" id="73" zone="2:00">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">7</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Sofia, Tallinn, Vilnius" id="67" zone="2:00">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Gaza Cairo" zone="2:00" id="69">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">5</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">5</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Athens" id="70" zone="2:00">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Beirut" id="74" zone="2:00">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">8</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+2 Israel(Tel Aviv)" id="71" zone="2:00">
+        <item name="timezonename">EET_002</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">5</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">8</item>
+        <item name="timezonenamex3s">UTC+2</item>
+        <item name="locationx3s">5</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="38" displaytext="GMT+3 Istanbul" id="79" zone="3:00">
+        <item name="timezonename">IST_003</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">12</item>
+        <item name="timezonenamex3s">UTC+3</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="32" displaytext="GMT+3 Minsk" id="80" zone="3:00">
+        <item name="timezonename">IST_003</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">12</item>
+        <item name="timezonenamex3s">UTC+3</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="38" displaytext="GMT+3 Iraq(Baghdad)" id="82" zone="3:00">
+        <item name="timezonename">IST_003</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">12</item>
+        <item name="timezonenamex3s">UTC+3</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="38" displaytext="GMT+3 Kuwait, Riyadh" id="81" zone="3:00">
+        <item name="timezonename">IST_003</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">12</item>
+        <item name="timezonenamex3s">UTC+3</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="38" displaytext="GMT+3 Russia(Moscow)" id="83" zone="3:00">
+        <item name="timezonename">IST_003</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">12</item>
+        <item name="timezonenamex3s">UTC+3</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="38" displaytext="GMT+3 Nairobi" zone="3:00">
+        <item name="timezonename">IST_003</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">12</item>
+        <item name="timezonenamex3s">UTC+3</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="42" displaytext="GMT+3:30 Iran(Teheran)" id="84" zone="3:30">
+        <item name="timezonename">MSK_003</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">6</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">9</item>
+        <item name="dstendweek">4</item>
+        <item name="dstendday">5</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">14</item>
+        <item name="timezonenamex3s">UTC+3:30</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="43" displaytext="GMT+4 Abu Dhabi, Muscat" id="90" zone="4:00">
+        <item name="timezonename">UCT_004</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">16</item>
+        <item name="timezonenamex3s">UTC+4</item>
+        <item name="locationx3s">5</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="43" displaytext="GMT+4 Yerevan, Tbilisi, Baku" id="85" zone="4:00">
+        <item name="timezonename">UCT_004</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">16</item>
+        <item name="timezonenamex3s">UTC+4</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="45" displaytext="GMT+4:30 Kabul" id="91" zone="4:30">
+        <item name="timezonename">UCT_004:30</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">18</item>
+        <item name="timezonenamex3s">UTC+4:30</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="46" displaytext="GMT+5 Russia(Chelyabinsk, Ekaterinburg)" id="95" zone="5:00">
+        <item name="timezonename">UCT_005</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">20</item>
+        <item name="timezonenamex3s">UTC+5</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="46" displaytext="GMT+5 Islamabad, Tashkent" id="94" zone="5:00">
+        <item name="timezonename">UCT_005</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">20</item>
+        <item name="timezonenamex3s">UTC+5</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="46" displaytext="GMT+5 Karachi, Bishkek" id="93" zone="5:00">
+        <item name="timezonename">UCT_005</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">20</item>
+        <item name="timezonenamex3s">UTC+5</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="50" displaytext="GMT+5:30 Sri Jayawardenepura" zone="5:30">
+        <item name="timezonename">UCT_005:30</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">22</item>
+        <item name="timezonenamex3s">UTC+5:30</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="48" displaytext="GMT+5:30 India(Calcutta)" id="96" zone="5:30">
+        <item name="timezonename">UCT_005:30</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">22</item>
+        <item name="timezonenamex3s">UTC+5:30</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="49" displaytext="GMT+5:45 Katmandu" id="97" zone="5:45">
+        <item name="timezonename">UCT_005:45</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">23</item>
+        <item name="timezonenamex3s">UTC+5:45</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="50" displaytext="GMT+6 Almaty" id="98" zone="6:00">
+        <item name="timezonename">UCT_006</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">24</item>
+        <item name="timezonenamex3s">UTC+6</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="50" displaytext="GMT+6 Astana, Dhaka" id="98" zone="6:00">
+        <item name="timezonename">UCT_006</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">24</item>
+        <item name="timezonenamex3s">UTC+6</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="53" displaytext="GMT+6:30 Rangoon" id="100" zone="6:30">
+        <item name="timezonename">UCT_006:30</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">26</item>
+        <item name="timezonenamex3s">UTC+6:30</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="54" displaytext="GMT+7 Russia(Krasnoyarsk)" id="101" zone="7:00">
+        <item name="timezonename">UCT_007</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">28</item>
+        <item name="timezonenamex3s">UTC+7</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="54" displaytext="GMT+7 Novosibirsk" id="99" zone="7:00">
+        <item name="timezonename">UCT_007</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">28</item>
+        <item name="timezonenamex3s">UTC+7</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="54" displaytext="GMT+7 Thailand(Bangkok)" id="102" zone="7:00">
+        <item name="timezonename">UCT_007</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">28</item>
+        <item name="timezonenamex3s">UTC+7</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="56" displaytext="GMT+8 China(Beijing)" id="103" zone="8:00">
+        <item name="timezonename">CST_008</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">32</item>
+        <item name="timezonenamex3s">UTC+8</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="56" displaytext="GMT+8 Singapore(Singapore)" id="104" zone="8:00">
+        <item name="timezonename">CST_008</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">32</item>
+        <item name="timezonenamex3s">UTC+8</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="56" displaytext="GMT+8 Australia(Perth)" id="105" zone="8:00">
+        <item name="timezonename">CST_008</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">32</item>
+        <item name="timezonenamex3s">UTC+8</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">0</item>
+      </option>
+      <option value="56" displaytext="GMT+8 Taipei" zone="8:00">
+        <item name="timezonename">CST_008</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">32</item>
+        <item name="timezonenamex3s">UTC+8</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="56" displaytext="GMT+8 Irkutsk, Ulaan Bataar" zone="8:00">
+        <item name="timezonename">CST_008</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">9</item>
+        <item name="dstendweek">4</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">32</item>
+        <item name="timezonenamex3s">UTC+8</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="61" displaytext="GMT+9 Japan(Tokyo)" id="107" zone="9:00">
+        <item name="timezonename">JST_009</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">36</item>
+        <item name="timezonenamex3s">UTC+9</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="61" displaytext="GMT+9 Korea(Seoul)" id="106" zone="9:00">
+        <item name="timezonename">JST_009</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">36</item>
+        <item name="timezonenamex3s">UTC+9</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="61" displaytext="GMT+9 Yakutsk" zone="9:00">
+        <item name="timezonename">JST_009</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">36</item>
+        <item name="timezonenamex3s">UTC+9</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="64" displaytext="GMT+9:30 Adelaide" id="108" zone="9:30">
+        <item name="timezonename">KST_009:30</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">10</item>
+        <item name="dststartweek">1</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">4</item>
+        <item name="dstendweek">0</item>
+        <item name="dstendday">2</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">38</item>
+        <item name="timezonenamex3s">UTC+9:30</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="64" displaytext="GMT+9:30 Australia(Darwin)" id="109" zone="9:30">
+        <item name="timezonename">KST_009:30</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">38</item>
+        <item name="timezonenamex3s">UTC+9:30</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="66" displaytext="GMT+10 Australia(Brisbane)" id="111" zone="10:00">
+        <item name="timezonename">UCT_010</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">40</item>
+        <item name="timezonenamex3s">UTC+10</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="66" displaytext="GMT+10 Russia(Vladivostok)" id="113" zone="10:00">
+        <item name="timezonename">UCT_010</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">40</item>
+        <item name="timezonenamex3s">UTC+10</item>
+        <item name="locationx3s">4</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="66" displaytext="GMT+10 Guam, Port Moresby" zone="10:00">
+        <item name="timezonename">UCT_010</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">40</item>
+        <item name="timezonenamex3s">UTC+10</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="66" displaytext="GMT+10 Australia(Hobart)" id="112" zone="10:00">
+        <item name="timezonename">UCT_010</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">10</item>
+        <item name="dststartweek">1</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">4</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">40</item>
+        <item name="timezonenamex3s">UTC+10</item>
+        <item name="locationx3s">3</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="66" displaytext="GMT+10 Australia(Sydney,Melbourne,Canberra)" id="110" zone="10:00">
+        <item name="timezonename">UCT_010</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">10</item>
+        <item name="dststartweek">1</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">4</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">40</item>
+        <item name="timezonenamex3s">UTC+10</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="71" displaytext="GMT+11 Magadan, Solomon Is., New Caledonia" id="115" zone="11:00">
+        <item name="timezonename">UCT_011</item>
+        <item name="dstenabled">0</item>
+        <item name="dstoffsetminutes"></item>
+        <item name="dststartmonth"></item>
+        <item name="dststartweek"></item>
+        <item name="dststartday"></item>
+        <item name="dststarthour"></item>
+        <item name="dststartmin"></item>
+        <item name="dstendmonth"></item>
+        <item name="dstendweek"></item>
+        <item name="dstendday"></item>
+        <item name="dstendhour"></item>
+        <item name="dstendmin"></item>
+        <item name="timezonex3s">44</item>
+        <item name="timezonenamex3s">UTC+11</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="72" displaytext="GMT+12 Fiji, Kamchatka, Marshal Is." id="117" zone="12:00">
+        <item name="timezonename">UCT_012</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">11</item>
+        <item name="dststartweek">0</item>
+        <item name="dststartday">5</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">1</item>
+        <item name="dstendweek">3</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">48</item>
+        <item name="timezonenamex3s">UTC+12</item>
+        <item name="locationx3s">2</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="72" displaytext="GMT+12 New Zealand(Wellington,Auckland)" id="116" zone="12:00">
+        <item name="timezonename">UCT_012</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">9</item>
+        <item name="dststartweek">4</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">4</item>
+        <item name="dstendweek">1</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">48</item>
+        <item name="timezonenamex3s">UTC+12</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+      <option value="72" displaytext="GMT+13 Tonga(Nukualofa)" id="119" zone="13:00">
+        <item name="timezonename">UCT_013</item>
+        <item name="dstenabled">2</item>
+        <item name="dstoffsetminutes">60</item>
+        <item name="dststartmonth">3</item>
+        <item name="dststartweek">5</item>
+        <item name="dststartday">0</item>
+        <item name="dststarthour">2</item>
+        <item name="dststartmin">00</item>
+        <item name="dstendmonth">10</item>
+        <item name="dstendweek">5</item>
+        <item name="dstendday">0</item>
+        <item name="dstendhour">2</item>
+        <item name="dstendmin">00</item>
+        <item name="timezonex3s">52</item>
+        <item name="timezonenamex3s">UTC+13</item>
+        <item name="locationx3s">1</item>
+        <item name="dstx3s">1</item>
+      </option>
+    </timezoneParams>
+    <Codecspriorities>
+      <Codecspriority variableName="codec1" PayloadTypeName="payload1" priority="1">
+        <!--The first entry is the selected entry in management console. codec1 will be replaced by value, payload1 will be replaced by payload-->
+        <option value="G711U" payload="payload=0">PCMU</option>
+        <option value="G711A" payload="payload=8">PCMA</option>
+        <option value="G729" payload="payload=18;annexb=no">G729</option>
+        <option value="G722" payload="payload=9">G722</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec2" PayloadTypeName="payload2" priority="2">
+        <!--The first entry is the selected entry in management console-->
+        <option value="G711A" payload="payload=8">PCMA</option>
+        <option value="G711U" payload="payload=0">PCMU</option>
+        <option value="G729" payload="payload=18;annexb=no">G729</option>
+        <option value="G722" payload="payload=9">G722</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec3" PayloadTypeName="payload3" priority="3">
+        <!--The first entry is the selected entry in management console-->
+        <option value="G722" payload="payload=9">G722</option>
+        <option value="G711U" payload="payload=0">PCMU</option>
+        <option value="G711A" payload="payload=8">PCMA</option>
+        <option value="G729" payload="payload=18;annexb=no">G729</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec4" PayloadTypeName="payload4" priority="4">
+        <!--The first entry is the selected entry in management console-->
+        <option value="G729" payload="payload=18;annexb=no">G729</option>
+        <option value="G711U" payload="payload=0">PCMU</option>
+        <option value="G711A" payload="payload=8">PCMA</option>
+        <option value="G722" payload="payload=9">G722</option>
+      </Codecspriority>
+    </Codecspriorities>
+  </header>
+  <multicastringgroup maxgroupcount="1" blankvalue="">
+		<multicastrg type="bool" readonly="false" default="false" param="multicastenabled">
+			<item value="false">0</item>
+			<item value="true">1</item>
+		</multicastrg>
+	</multicastringgroup>
+  <blftype>
+    <extension>
+      <Line>0</Line>
+      <type>blf</type>
+      <DKtype>bb</DKtype>
+      <!--The variable blfno will be replaced with the corresponding blf number specified in the phone device-->
+      <PickupValue>%%param::pickup%%</PickupValue>
+      <value>fnc=sd+blf+cp;</value>
+    </extension>
+    <speeddial>
+      <Line>0</Line>
+      <type></type>
+      <DKtype>f</DKtype>
+      <PickupValue></PickupValue>
+    </speeddial>
+    <customspeeddial>
+      <Line>0</Line>
+      <type></type>
+      <DKtype>f</DKtype>
+      <PickupValue></PickupValue>
+    </customspeeddial>
+    <queuelogin>
+      <Line>0</Line>
+      <type></type>
+      <DKtype>f</DKtype>
+      <PickupValue></PickupValue>
+    </queuelogin>
+    <profilestatus>
+      <Line>0</Line>
+      <type></type>
+      <DKtype>f</DKtype>
+      <PickupValue></PickupValue>
+    </profilestatus>
+    <parkextension>
+      <Line>1</Line>
+      <type></type>
+      <DKtype>c</DKtype>
+      <PickupValue></PickupValue>
+    </parkextension>
+  </blftype>
+  <data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">Fanvil Phone</field>
+      <deviceconfig filename="%%mac_address%%.cfg"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<VOIP_CONFIG_FILE>
+<Version>2.0003</Version>
+<GLOBAL_CONFIG_MODULE>
+<Use_Vendor_Class_ID>0</Use_Vendor_Class_ID>
+<Host_Name>VOIP</Host_Name>
+{IF network=REMOTESTUN}
+<RTP_Initial_Port>%%rtp_port_min%%</RTP_Initial_Port>
+{ELSE}
+<RTP_Initial_Port>10000</RTP_Initial_Port>
+{ENDIF}
+<SNTP_Server>%%param::time_ntp_server%%</SNTP_Server>
+<Second_SNTP_Server>%%param::time_ntp_server%%</Second_SNTP_Server>
+<Time_Zone>%%timezonex3s%%</Time_Zone>
+<Time_Zone_Name>%%timezonenamex3s%%</Time_Zone_Name>
+<Location>%%locationx3s%%</Location>
+{IF ua=H2S,H3,H5}
+<Enable_DST>%%dstenabled%%</Enable_DST>
+{ENDIF}
+{IF ua=H2U,H3W,H5W,H2U-V2}
+<DST_Type>%%dstx3s%%</DST_Type>
+{ENDIF}
+<SNTP_Timeout>60</SNTP_Timeout>
+<DST_Min_Offset>%%dstoffsetminutes%%</DST_Min_Offset>
+<DST_Start_Mon>%%dststartmonth%%</DST_Start_Mon>
+<DST_Start_Week>%%dststartweek%%</DST_Start_Week>
+<DST_Start_Wday>%%dststartday%%</DST_Start_Wday>
+<DST_Start_Hour>%%dststarthour%%</DST_Start_Hour>
+<DST_Start_Min>%%dststartmin%%</DST_Start_Min>
+<DST_End_Mon>%%dstendmonth%%</DST_End_Mon>
+<DST_End_Week>%%dstendweek%%</DST_End_Week>
+<DST_End_Wday>%%dstendday%%</DST_End_Wday>
+<DST_End_Hour>%%dstendhour%%</DST_End_Hour>
+<DST_End_Min>%%dstendmin%%</DST_End_Min>
+<Default_UI>%%langlcdold%%</Default_UI>
+{IF ua=H2S,H3,H5}
+<Language>%%langlcdnew%%</Language>
+{ELSE}
+<Default_Language>%%langlcdx3id%%</Default_Language>
+{ENDIF}
+<MTU_Length>1500</MTU_Length>
+</GLOBAL_CONFIG_MODULE>
+<TELE_CONFIG_MODULE>
+<Onhook_to_BXfer>1</Onhook_to_BXfer>
+<Onhook_to_AXfer>0</Onhook_to_AXfer>
+<Memory_Key_to_BXfer>1</Memory_Key_to_BXfer>
+<Port_Sequence>0</Port_Sequence>
+<Main_Digit_Prefix></Main_Digit_Prefix>
+<IP_Dial_Prefix>.</IP_Dial_Prefix>
+<Port_Config>
+<Port_Config_Entry>
+<ID>P1</ID>
+<CWaiting_Tone>1</CWaiting_Tone>
+<CallSemiXfer>0</CallSemiXfer>
+<Port_Ext_Num></Port_Ext_Num>
+<SRV_Record_Num></SRV_Record_Num>
+<Use_SRV_Record>0</Use_SRV_Record>
+<Auto_Onhook_Time>1</Auto_Onhook_Time>
+{IF ua=H2S,H3,H5}				 
+<DND_Code>1</DND_Code>
+<Busy_Code>2</Busy_Code>
+<Reject_Code>2</Reject_Code>
+{ELSE}
+<DND_Code>480</DND_Code>
+<Busy_Code>486</Busy_Code>
+<Reject_Code>486</Reject_Code>
+{ENDIF} 
+<CID_Prioiry>1</CID_Prioiry>
+<Disp_num_with_na>0</Disp_num_with_na>
+<Enable_MultiLine>1</Enable_MultiLine>
+</Port_Config_Entry>
+</Port_Config>
+<Default_Ext_line>0</Default_Ext_line>
+<Default_Ans_mode>0</Default_Ans_mode>
+<Default_Dial_mode>0</Default_Dial_mode>
+</TELE_CONFIG_MODULE>
+<DSP_CONFIG_MODULE>
+<Enable_MWI_Tone>1</Enable_MWI_Tone>
+<Onhook_Time>200</Onhook_Time>
+{IF ua=H3W,H5W,H2U-V2}
+<Ring_Type>%%defringtonepro%%</Ring_Type>
+{ELSE}					  
+<Ring_Type>%%defringtone%%</Ring_Type>
+{ENDIF}	   
+<RtpAddr_Check_Mode>1</RtpAddr_Check_Mode>
+<RTP_Probe>0</RTP_Probe>
+<HD_Voice>1</HD_Voice>
+<Handsfree_MIC__GAIN>9</Handsfree_MIC__GAIN>
+<Handsfree_SPRK_GAIN>2</Handsfree_SPRK_GAIN>
+<Handset_MIC__GAIN>8</Handset_MIC__GAIN>
+<Handset_SPRK_GAIN>5</Handset_SPRK_GAIN>
+<Headset_MIC__GAIN>8</Headset_MIC__GAIN>
+<Headset_SPRK_GAIN>5</Headset_SPRK_GAIN>
+<Port_Config>
+<Port_Config_Entry>
+<ID>P1</ID>
+<Voice_Codec1>PCMU/8000</Voice_Codec1>
+<Voice_Codec2>PCMA/8000</Voice_Codec2>
+<Voice_Codec3>G729/8000</Voice_Codec3>
+<Voice_Codec4>G722/8000</Voice_Codec4>
+</Port_Config_Entry>
+</Port_Config>
+{IF ua=H3W,H5W,H2U-V2}
+<Alert_Info_Ring>
+<Alert_Info_Ring_Entry>
+<ID>Alert1</ID>
+<Text>ivr</Text>
+<Ring_Type>7.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert2</ID>
+<Text>external</Text>
+<Ring_Type>2.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{IF sysparam.CUSTOMIZE_QUEUE_RINGTONES=1}
+{IF queuecrt1}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt2}
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt3}
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt4}
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt5}
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt6}
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt7}
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt8}
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text>queue</Text>
+<Ring_Type>%%queueringtone%%.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text></Text>
+<Ring_Type>1.wav</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+</Alert_Info_Ring>
+{ELSE}					  
+<Alert_Info_Ring>
+<Alert_Info_Ring_Entry>
+<ID>Alert1</ID>
+<Text>ivr</Text>
+<Ring_Type>7</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert2</ID>
+<Text>external</Text>
+<Ring_Type>2</Ring_Type>
+</Alert_Info_Ring_Entry>
+{IF sysparam.CUSTOMIZE_QUEUE_RINGTONES=1}
+{IF queuecrt1}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt2}
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt3}
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt4}
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt5}
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt6}
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt7}
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{IF queuecrt8}
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text>%%queueid%%</Text>
+<Ring_Type>%%queueringtonevalue%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+{ELSE}
+<Alert_Info_Ring_Entry>
+<ID>Alert3</ID>
+<Text>queue</Text>
+<Ring_Type>%%queueringtone%%</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert4</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert5</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert6</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert7</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert8</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert9</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+<Alert_Info_Ring_Entry>
+<ID>Alert10</ID>
+<Text></Text>
+<Ring_Type>1</Ring_Type>
+</Alert_Info_Ring_Entry>
+{ENDIF}
+</Alert_Info_Ring>
+{ENDIF}	   
+</DSP_CONFIG_MODULE>
+<SIP_CONFIG_MODULE>
+<CSTA_Enable>1</CSTA_Enable>
+<Strict_UA_Match>1</Strict_UA_Match>
+{IF network=REMOTESTUN}
+<SIP__Port>%%phonesipport%%</SIP__Port>
+{ELSE}
+<SIP__Port>5060</SIP__Port>
+{ENDIF}
+{IF network=REMOTESTUN}
+<STUN_Server>%%pbx_ip%%</STUN_Server>
+<STUN_Port>%%param::sipport%%</STUN_Port>
+<STUN_Refresh_Time>30</STUN_Refresh_Time>
+<SIP_Wait_Stun_Time>800</SIP_Wait_Stun_Time>
+{ELSE}
+<STUN_Server></STUN_Server>
+<STUN_Port></STUN_Port>
+<STUN_Refresh_Time></STUN_Refresh_Time>
+<SIP_Wait_Stun_Time></SIP_Wait_Stun_Time>
+{ENDIF}
+<Extern_NAT_Addrs></Extern_NAT_Addrs>
+<Reg_Fail_Interval>32</Reg_Fail_Interval>
+<SIP_Pswd_Encryption>0</SIP_Pswd_Encryption>
+<Strict_BranchPrefix>0</Strict_BranchPrefix>
+<Video_Mute_Attr>0</Video_Mute_Attr>
+<Enable_Group_Backup>0</Enable_Group_Backup>
+<SIP_Line_List>
+<SIP_Line_List_Entry>
+<ID>SIP1</ID>
+<CSTA_Number>%%extension_number%%</CSTA_Number>
+<Phone_Number>%%extension_number%%</Phone_Number>
+<Display_Name>%%extension_first_name%% %%extension_last_name%%</Display_Name>
+{IF network=SBC}
+<Register_Addr>%%param::pbxpublicip%%</Register_Addr>
+<Register_Port>%%param::sipport%%</Register_Port>
+<Local_Domain>%%param::pbxpublicip%%:%%param::sipport%%</Local_Domain>
+{ELSE}
+<Register_Addr>%%pbx_ip%%</Register_Addr>
+<Register_Port>%%param::sipport%%</Register_Port>
+<Local_Domain>%%pbx_ip%%:%%param::sipport%%</Local_Domain>
+{ENDIF}
+<Register_User>%%extension_auth_id%%</Register_User>
+<Register_Pswd>%%extension_auth_pw%%</Register_Pswd>
+<Register_TTL>120</Register_TTL>
+<Enable_Reg>1</Enable_Reg>
+{IF network=LOCALLAN}
+<Proxy_Addr></Proxy_Addr>
+<Proxy_Port></Proxy_Port>
+{ENDIF}
+{IF network=REMOTESTUN}
+<Proxy_Addr></Proxy_Addr>
+<Proxy_Port></Proxy_Port>
+{ENDIF}
+{IF network=SBC}
+<Proxy_Addr>%%local_sbc_ip%%</Proxy_Addr>
+<Proxy_Port>%%local_sbc_port%%</Proxy_Port>
+{ENDIF}
+<Proxy_User>%%extension_auth_id%%</Proxy_User>
+<Proxy_Pswd>%%extension_auth_pw%%</Proxy_Pswd>
+<Media_Crypto></Media_Crypto>
+<FWD_Timer>60</FWD_Timer>
+{IF ua=H3W,H5W,H2U-V2}
+<Ring_Type>%%defringtonepro%%</Ring_Type>
+{ELSE}
+<RingType>%%defringtone%%</RingType>
+{ENDIF}
+<NAT_UDPUpdate>1</NAT_UDPUpdate>
+<UDPUpdate_TTL>15</UDPUpdate_TTL>
+<Server_Type>31</Server_Type>
+<PRACK>0</PRACK>
+<DTMF_Mode>1</DTMF_Mode>
+{IF network=REMOTESTUN}
+<NAT_Type>1</NAT_Type>
+{ELSE}
+<NAT_Type>0</NAT_Type>
+{ENDIF}
+<Enable_Rport>1</Enable_Rport>
+<Subscribe>1</Subscribe>
+<Sub_Expire>900</Sub_Expire>
+<Strict_Proxy>1</Strict_Proxy>
+{IF network=SBC}
+<Direct_Contact>0</Direct_Contact>
+{ELSE}
+<Direct_Contact>1</Direct_Contact>
+{ENDIF}
+<Enable_ChgPort>0</Enable_ChgPort>
+<TLS_Version>2</TLS_Version>
+<MWI_Num>%%vm_number%%</MWI_Num>
+<NoAnswerTime>60</NoAnswerTime>
+<SvcCode_Mode>1</SvcCode_Mode>
+<VoiceCodecMap>%%codec1%%,%%codec2%%,%%codec3%%,%%codec4%%,G723,G726-32</VoiceCodecMap>
+<Caller_Id_Type>1</Caller_Id_Type>
+<Syn_Clock_Time>0</Syn_Clock_Time>
+<Feature_Sync>1</Feature_Sync>
+<Req_With_Port>0</Req_With_Port>
+{IF ua=H2S,H3,H5}
+<Unreg_Reboot>1</Unreg_Reboot>
+{ELSE}
+<Unregister_On_Boot>1</Unregister_On_Boot>
+{ENDIF}
+{IF ua=H2S,H3,H5}
+<Ena_MAC_Header>1</Ena_MAC_Header>
+<Ena_REG_MAC>1</Ena_REG_MAC>
+{ELSE}
+<Ena_MAC_Header>1</Ena_MAC_Header>
+<Ena_REG_MAC>1</Ena_REG_MAC>
+{ENDIF}
+</SIP_Line_List_Entry>
+</SIP_Line_List>
+</SIP_CONFIG_MODULE>
+<MCAST_CFG_MODULE>
+<Priority>9</Priority>
+<Enable_Priority>0</Enable_Priority>
+<Mcast_Addr>
+<Mcast_Addr_Entry>
+<ID>MCAST1</ID>
+<Port>%%multicastrgport1%%</Port>
+<Name>%%multicastrgname1%%</Name>
+<Host>%%multicastrgip1%%</Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST2</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST3</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST4</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST5</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST6</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST7</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST8</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST9</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+<Mcast_Addr_Entry>
+<ID>MCAST10</ID>
+<Port>0</Port>
+<Name></Name>
+<Host></Host>
+</Mcast_Addr_Entry>
+</Mcast_Addr>
+</MCAST_CFG_MODULE>
+<PPPoE_CONFIG_MODULE>
+</PPPoE_CONFIG_MODULE>
+<MMI_CONFIG_MODULE>
+<Telnet_Port>23</Telnet_Port>
+<Web_Port>80</Web_Port>
+<Web_Authentication>1</Web_Authentication>
+<MMI_Account>
+<MMI_Account_Entry>
+<ID>Account1</ID>
+<Name>admin</Name>
+<Password>%%DESKPHONE_PASSWORD%%</Password>
+<Level>10</Level>
+</MMI_Account_Entry>
+</MMI_Account>
+</MMI_CONFIG_MODULE>
+<QOS_CONFIG_MODULE>
+{IF ua=H2S,H3,H5}
+<Enable_VLAN>%%vlanwanenabled%%</Enable_VLAN>
+<VLAN_ID>%%vlanwanportid%%</VLAN_ID>
+<Signalling_Priority>%%vlanwanportpriority%%</Signalling_Priority>
+<Voice_Priority>%%vlanwanportpriority%%</Voice_Priority>
+<Enable_PVID>%%vlanpcenabled%%</Enable_PVID>
+<PVID_Value>%%vlanpcportid%%</PVID_Value>
+<LLDP_Transmit>%%lldpenabled%%</LLDP_Transmit>
+<LLDP_Refresh_Time>60</LLDP_Refresh_Time>
+<LLDP_Learn_Policy>%%lldpenabled%%</LLDP_Learn_Policy>
+{ENDIF}
+{IF ua=H2U,H3W,H5W,H2U-V2}
+<EnableVLAN>%%vlanwanenabled%%</EnableVLAN>
+<VLANID>%%vlanwanportid%%</VLANID>
+<SignallingPriority>%%vlanwanportpriority%%</SignallingPriority>
+<VoicePriority>%%vlanwanportpriority%%</VoicePriority>
+<EnablePVID>%%vlanpcenabled%%</EnablePVID>
+<PVIDValue>%%vlanpcportid%%</PVIDValue>
+<LLDPTransmit>%%lldpenabled%%</LLDPTransmit>
+<LLDPRefreshTime>60</LLDPRefreshTime>
+<LLDPLearnPolicy>%%lldpenabled%%</LLDPLearnPolicy>
+{ENDIF}
+<LAN_Port_Priority>%%vlanpcportpriority%%</LAN_Port_Priority>
+<Enable_diffServ>0</Enable_diffServ>
+<Singalling_DSCP>-1</Singalling_DSCP>
+<VLAN_Recv_Check>1</VLAN_Recv_Check>
+<CDP_Enabled>0</CDP_Enabled>
+<CDPEnable>0</CDPEnable>
+</QOS_CONFIG_MODULE>
+<DEBUG_CONFIG_MODULE>
+<Enable_Watch_Dog>1</Enable_Watch_Dog>
+</DEBUG_CONFIG_MODULE>
+{IF ua=H2U,H2U-V2,H3W,H5W}
+<UI_MAINTAIN_CONFIG_MODULE>
+<Play_Boot_Up_Tone>0</Play_Boot_Up_Tone>
+</UI_MAINTAIN_CONFIG_MODULE>
+{ENDIF}
+<PHONE_CONFIG_MODULE>
+{IF ua=H3,H5,H2S}
+<Play_Boot_Up_Tone>0</Play_Boot_Up_Tone>
+{ENDIF}
+<Menu_Password>%%DESKPHONE_PASSWORD%%</Menu_Password>
+<KeyLock_Password>%%DESKPHONE_PASSWORD%%</KeyLock_Password>
+<LCD_Title>%%extension_number%% | %%extension_first_name%% %%extension_last_name%%</LCD_Title>																							  
+<LCD_Luminance>1</LCD_Luminance>
+<Time_Display_Style>%%timestyle%%</Time_Display_Style>
+<FuncKey_Page_Num>5</FuncKey_Page_Num>
+<Blf_Default_type>1</Blf_Default_type>
+<Date_Display_Style>%%datestyle%%</Date_Display_Style>
+<Date_Separator>%%datesep%%</Date_Separator>
+<Enable_Pre-Dial>1</Enable_Pre-Dial>
+<Default_Line>1</Default_Line>
+{IF ua=H3,H5}
+<Function_Key>
+<Function_Key_Entry>
+<ID>Fkey1</ID>
+{IF blf1}
+<Type>1</Type>
+<Value>%%blf1%%@1/f%%blf1%%</Value>
+<Title>%%blffirstname1%% %%blflastname1%%</Title>
+{ELSE}
+<Type>1</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey2</ID>
+{IF blf2}
+<Type>1</Type>
+<Value>%%blf2%%@1/f%%blf2%%</Value>
+<Title>%%blffirstname2%% %%blflastname2%%</Title>
+{ELSE}
+<Type>1</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey3</ID>
+{IF blf3}
+<Type>1</Type>
+<Value>%%blf3%%@1/f%%blf3%%</Value>
+<Title>%%blffirstname3%% %%blflastname3%%</Title>
+{ELSE}
+<Type>1</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey4</ID>
+{IF blf4}
+<Type>1</Type>
+<Value>%%blf4%%@1/f%%blf4%%</Value>
+<Title>%%blffirstname4%% %%blflastname4%%</Title>
+{ELSE}
+<Type>1</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey5</ID>
+{IF blf5}
+<Type>1</Type>
+<Value>%%blf5%%@1/f%%blf5%%</Value>
+<Title>%%blffirstname5%% %%blflastname5%%</Title>
+{ELSE}
+<Type>1</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+<Function_Key_Entry>
+<ID>Fkey6</ID>
+{IF blf6}
+<Type>1</Type>
+<Value>%%blf6%%@1/f%%blf6%%</Value>
+<Title>%%blffirstname6%% %%blflastname6%%</Title>
+{ELSE}
+<Type>1</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+</Function_Key>
+{ENDIF}
+{IF ua=H2S,H2U,H2U-V2}
+<Function_Key>
+<Function_Key_Entry>
+<ID>Fkey1</ID>
+{IF blf1}
+<Type>1</Type>
+<Value>%%blf1%%@1/f%%blf1%%</Value>
+<Title>%%blffirstname1%% %%blflastname1%%</Title>
+{ELSE}
+<Type>1</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</Function_Key_Entry>
+</Function_Key>
+{ENDIF}
+</PHONE_CONFIG_MODULE>
+<DSSKEY_CONFIG_MODULE>
+{IF ua=H3W,H5W}
+<SoftDss_Config>
+<SoftDss_Config_Entry>
+<ID>Fkey1</ID>
+{IF blf1}
+<Type>1</Type>
+<Value>%%blf1%%@1/f%%blf1%%</Value>
+<Title>%%blffirstname1%% %%blflastname1%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</SoftDss_Config_Entry>
+<SoftDss_Config_Entry>
+<ID>Fkey2</ID>
+{IF blf2}
+<Type>1</Type>
+<Value>%%blf2%%@1/f%%blf2%%</Value>
+<Title>%%blffirstname2%% %%blflastname2%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</SoftDss_Config_Entry>
+<SoftDss_Config_Entry>
+<ID>Fkey3</ID>
+{IF blf3}
+<Type>1</Type>
+<Value>%%blf3%%@1/f%%blf3%%</Value>
+<Title>%%blffirstname3%% %%blflastname3%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</SoftDss_Config_Entry>
+<SoftDss_Config_Entry>
+<ID>Fkey4</ID>
+{IF blf4}
+<Type>1</Type>
+<Value>%%blf4%%@1/f%%blf4%%</Value>
+<Title>%%blffirstname4%% %%blflastname4%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</SoftDss_Config_Entry>
+<SoftDss_Config_Entry>
+<ID>Fkey5</ID>
+{IF blf5}
+<Type>1</Type>
+<Value>%%blf5%%@1/f%%blf5%%</Value>
+<Title>%%blffirstname5%% %%blflastname5%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</SoftDss_Config_Entry>
+<SoftDss_Config_Entry>
+<ID>Fkey6</ID>
+{IF blf6}
+<Type>1</Type>
+<Value>%%blf6%%@1/f%%blf6%%</Value>
+<Title>%%blffirstname6%% %%blflastname6%%</Title>
+{ELSE}
+<Type>0</Type>
+<Value></Value>
+<Title></Title>
+{ENDIF}
+</SoftDss_Config_Entry>
+</SoftDss_Config>
+{ENDIF}
+</DSSKEY_CONFIG_MODULE>					  
+<AUTOUPDATE_CONFIG_MODULE>
+<Download_CommonConf>0</Download_CommonConf>
+<Check_FailTimes>1</Check_FailTimes>
+<CheckFailTimes>1</CheckFailTimes>
+<UPDATE_PB_INTERVAL>0</UPDATE_PB_INTERVAL>
+<Auto_Mmiset_Url></Auto_Mmiset_Url>
+{IF network=LOCALLAN}
+<Auto_Pbook_Url>%%PROVLINKLOCAL%%/fanvil_phonebook.xml</Auto_Pbook_Url>
+<Auto_Image_Url>%%PROVLINKLOCAL%%/firmware/fanvil/%%firmware%%</Auto_Image_Url>
+{ELSE}
+<Auto_Pbook_Url>%%PROVLINK%%/fanvil_phonebook.xml</Auto_Pbook_Url>
+<Auto_Image_Url>%%PROVLINK%%/firmware/fanvil/%%firmware%%</Auto_Image_Url>
+{ENDIF}
+{IF ua=H3,H5}
+{IF network=LOCALLAN}
+<Auto_Logo_Url>%%PROVLINKLOCAL%%/logo/etc.tar.gz</Auto_Logo_Url>
+{ELSE}
+<Auto_Logo_Url>%%PROVLINK%%/logo/etc.tar.gz</Auto_Logo_Url>
+{ENDIF}
+{ENDIF}     
+{IF ua=H5W}
+{IF network=LOCALLAN}
+<Auto_Etc_Url>%%PROVLINKLOCAL%%/%%logo%%</Auto_Etc_Url>
+{ELSE}
+<Auto_Etc_Url>%%PROVLINK%%/%%logo%%</Auto_Etc_Url>
+{ENDIF}
+{ENDIF}		   
+<Contact_Account>1</Contact_Account>
+<Clr_PB_B4_Import>1</Clr_PB_B4_Import>
+<X_SYS_Upgrade_Url1></X_SYS_Upgrade_Url1>
+<X_SYS_Upgrade_Url2></X_SYS_Upgrade_Url2>
+<Config_File_Name>%%mac_address%%.cfg</Config_File_Name>
+{IF network=LOCALLAN}
+<Download_Server_IP>%%PROVLINKLOCAL%%</Download_Server_IP>
+<Download_Protocol>4</Download_Protocol>
+{ELSE}
+<Download_Server_IP>%%PROVLINK%%</Download_Server_IP>
+<Download_Protocol>5</Download_Protocol>
+{ENDIF}
+<Download_Mode>2</Download_Mode>
+{IF ua=H2S,H3,H5}
+<Download_Interval>24</Download_Interval>
+{ENDIF}
+{IF ua=H2U,H2U-V2}
+<Flash_Interval>24</Flash_Interval>
+{ENDIF}
+<DHCP_Option>0</DHCP_Option>
+<PNP_Enable>0</PNP_Enable>
+<PNP_IP></PNP_IP>
+<PNP_Port></PNP_Port>
+<PNP_Transport>0</PNP_Transport>
+<PNP_Interval>1</PNP_Interval>
+<Save_Provision_Info>1</Save_Provision_Info>
+<Trust_Certification>1</Trust_Certification>
+</AUTOUPDATE_CONFIG_MODULE>
+</VOIP_CONFIG_FILE>
+
+]]></deviceconfig>
+    </device>
+  </data>
+</doc>

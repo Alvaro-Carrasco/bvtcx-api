@@ -1,0 +1,542 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Country="US" Name="SalesforceV2" SupportsEmojis="true" Version="30">
+  <Number Prefix="Off" MaxLength="[MaxLength]" />
+  <Connection MaxConcurrentRequests="16" />
+  <Parameters>
+    <Parameter Parent="General Configuration" Name="LookupOrder" Type="List" ListValues="Contacts/Leads/Accounts,Contacts/Accounts/Leads,Leads/Accounts/Contacts,Leads/Contacts/Accounts,Accounts/Contacts/Leads,Accounts/Leads/Contacts" Title="Contact Lookup Order:" Default="Contacts/Leads/Accounts" />
+    <Parameter Parent="General Configuration" Name="ClientId" Type="String" Title="Consumer Key:" />
+    <Parameter Parent="General Configuration" Name="ClientSecret" Type="String" Title="Consumer Secret:" />
+    <Parameter Parent="General Configuration" Name="RefreshToken" Type="OAuth" Title="Refresh Token:"
+               RequestUrl="https://login.salesforce.com/services/oauth2/authorize"
+               RequestUrlParameters="response_type=code&amp;client_id=[ClientId]&amp;redirect_uri=[RedirectUri]&amp;state=[State]"
+               ResponseScenario="OAuthGetAccessToken"/>
+    <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False"/>
+    <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Call Subject:" Default="3CX PhoneSystem Call" />
+    <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+    <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+    <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False"/>
+    <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Chat Subject:" Default="3CX PhoneSystem Chat Session" />
+    <Parameter Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+    <Parameter Parent="CreateContactEnabled" Name="CreateLeadOrContact" Type="List" ListValues="Lead,Contact" Title="Create Lead or Contact:" Default="Contact" />
+    <Parameter Parent="CreateContactEnabled" Name="CreateContactCompany" Type="String" Title="New Lead Company:" Default="3CX Ltd" />
+  </Parameters>
+  <Authentication Type="Scenario">
+    <Value>Auth</Value>
+  </Authentication>
+  <Scenarios>
+    <Scenario Id="Auth">
+      <Request Url="https://login.salesforce.com/services/oauth2/token" RequestType="Post" ResponseType="Json">
+        <PostValues>
+          <Value Key="grant_type">refresh_token</Value>
+          <Value Key="refresh_token">[RefreshToken]</Value>
+          <Value Key="client_id">[ClientId]</Value>
+          <Value Key="client_secret">[ClientSecret]</Value>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">instance_url</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Url">instance_url</Variable>
+        <Variable Name="AccessToken">access_token</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="Bearer" Value="[AccessToken]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="OAuthGetAccessToken">
+      <Request Url="https://login.salesforce.com/services/oauth2/token" RequestType="Post">
+        <PostValues>
+          <Value Key="code">[code]</Value>
+          <Value Key="grant_type">authorization_code</Value>
+          <Value Key="client_id">[ClientId]</Value>
+          <Value Key="client_secret">[ClientSecret]</Value>
+          <Value Key="redirect_uri">[RedirectUri]</Value>
+          <Value Key="state">[state]</Value>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">refresh_token</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Result">refresh_token</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="Result" Value="[Result]"/>
+      </Outputs>
+    </Scenario>
+    <Scenario EntityId="Contacts" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      	       Url="[Url]/services/data/v55.0/search/?q=FIND {[Number]} IN PHONE FIELDS RETURNING Contact(Id,FirstName,LastName,AssistantPhone,Fax,HomePhone,MobilePhone,OtherPhone,Phone,Email,AccountId)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="searchRecords.Id" />
+        <Variable Name="EntityType" Path="searchRecords.attributes.type" />
+        <Variable Name="FirstName" Path="searchRecords.FirstName" />
+        <Variable Name="LastName" Path="searchRecords.LastName" />
+        <Variable Name="Phone" Path="searchRecords.Phone" />
+        <Variable Name="MobilePhone" Path="searchRecords.MobilePhone" />
+        <Variable Name="HomePhone" Path="searchRecords.HomePhone" />
+        <Variable Name="AssistantPhone" Path="searchRecords.AssistantPhone" />
+        <Variable Name="OtherPhone" Path="searchRecords.OtherPhone" />
+        <Variable Name="Fax" Path="searchRecords.Fax" />
+        <Variable Name="Email" Path="searchRecords.Email" />
+        <Variable Name="AccountId" Path="searchRecords.AccountId" />
+      </Variables>
+      <Outputs Next="GetAccountName" AllowEmpty="false" />
+    </Scenario>
+    <Scenario EntityId="Leads" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      	       Url="[Url]/services/data/v55.0/search/?q=FIND {[Number]} IN PHONE FIELDS RETURNING Lead(Id,FirstName,LastName,Fax,MobilePhone,Phone,Email,Company)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="searchRecords.Id" />
+        <Variable Name="EntityType" Path="searchRecords.attributes.type" />
+        <Variable Name="FirstName" Path="searchRecords.FirstName" />
+        <Variable Name="LastName" Path="searchRecords.LastName" />
+        <Variable Name="AccountName" Path="searchRecords.Company" />
+        <Variable Name="Phone" Path="searchRecords.Phone" />
+        <Variable Name="MobilePhone" Path="searchRecords.MobilePhone" />
+        <Variable Name="Fax" Path="searchRecords.Fax" />
+        <Variable Name="Email" Path="searchRecords.Email" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Url]/[Id]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[AccountName]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[MobilePhone]" />
+        <Output Type="FaxBusiness" Value="[Fax]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityType" Value="[EntityType]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario EntityId="Accounts" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      	       Url="[Url]/services/data/v55.0/search/?q=FIND {[Number]} IN PHONE FIELDS RETURNING Account(Id,Name,Fax,Phone)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="searchRecords.Id" />
+        <Variable Name="EntityType" Path="searchRecords.attributes.type" />
+        <Variable Name="AccountName" Path="searchRecords.Name" />
+        <Variable Name="Phone" Path="searchRecords.Phone" />
+        <Variable Name="Fax" Path="searchRecords.Fax" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Url]/[Id]" />
+        <Output Type="CompanyName" Value="[AccountName]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="FaxBusiness" Value="[Fax]" />
+        <Output Type="EntityType" Value="[EntityType]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Contacts" EntityId="Contacts" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      	       Url="[Url]/services/data/v55.0/search/?q=FIND {[[Email].Replace(&quot;+&quot;,&quot;\%2B&quot;)]} IN EMAIL FIELDS RETURNING Contact(Id,FirstName,LastName,AssistantPhone,Fax,HomePhone,MobilePhone,OtherPhone,Phone,Email,AccountId)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="searchRecords.Id" />
+        <Variable Name="EntityType" Path="searchRecords.attributes.type" />
+        <Variable Name="FirstName" Path="searchRecords.FirstName" />
+        <Variable Name="LastName" Path="searchRecords.LastName" />
+        <Variable Name="Phone" Path="searchRecords.Phone" />
+        <Variable Name="MobilePhone" Path="searchRecords.MobilePhone" />
+        <Variable Name="HomePhone" Path="searchRecords.HomePhone" />
+        <Variable Name="AssistantPhone" Path="searchRecords.AssistantPhone" />
+        <Variable Name="OtherPhone" Path="searchRecords.OtherPhone" />
+        <Variable Name="Fax" Path="searchRecords.Fax" />
+        <Variable Name="Email" Path="searchRecords.Email" />
+        <Variable Name="AccountId" Path="searchRecords.AccountId" />
+      </Variables>
+      <Outputs Next="GetAccountName" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupByEmail_Leads" EntityId="Leads" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      	       Url="[Url]/services/data/v55.0/search/?q=FIND {[[Email].Replace(&quot;+&quot;,&quot;\%2B&quot;)]} IN EMAIL FIELDS RETURNING Lead(Id,FirstName,LastName,Fax,MobilePhone,Phone,Email,Company)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="searchRecords.Id" />
+        <Variable Name="EntityType" Path="searchRecords.attributes.type" />
+        <Variable Name="FirstName" Path="searchRecords.FirstName" />
+        <Variable Name="LastName" Path="searchRecords.LastName" />
+        <Variable Name="AccountName" Path="searchRecords.Company" />
+        <Variable Name="Phone" Path="searchRecords.Phone" />
+        <Variable Name="MobilePhone" Path="searchRecords.MobilePhone" />
+        <Variable Name="Fax" Path="searchRecords.Fax" />
+        <Variable Name="Email" Path="searchRecords.Email" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Url]/[Id]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[AccountName]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneMobile" Value="[MobilePhone]" />
+        <Output Type="FaxBusiness" Value="[Fax]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityType" Value="[EntityType]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Accounts" EntityId="Accounts" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]" 
+      	       Url="[Url]/services/data/v55.0/search/?q=FIND {[[Email].Replace(&quot;+&quot;,&quot;\%2B&quot;)]} IN EMAIL FIELDS RETURNING Account(Id,Name,Fax,Phone)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="searchRecords.Id" />
+        <Variable Name="EntityType" Path="searchRecords.attributes.type" />
+        <Variable Name="AccountName" Path="searchRecords.Name" />
+        <Variable Name="Phone" Path="searchRecords.Phone" />
+        <Variable Name="Fax" Path="searchRecords.Fax" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Url]/[Id]" />
+        <Output Type="CompanyName" Value="[AccountName]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="FaxBusiness" Value="[Fax]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityType" Value="[EntityType]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetAccountName">
+      <Request Url="[Url]/services/data/v55.0/query/?q=SELECT Name from Account where Id = '[AccountId]'" RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">records.Name</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AccName" Path="records.Name" />
+      </Variables>
+      <Outputs AllowEmpty="true">
+        <Output Type="ContactUrl" Value="[Url]/[Id]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneBusiness2" Value="[AssistantPhone]" />
+        <Output Type="PhoneOther" Value="[OtherPhone]" />
+        <Output Type="PhoneMobile" Value="[MobilePhone]" />
+        <Output Type="PhoneHome" Value="[HomePhone]" />
+        <Output Type="FaxBusiness" Value="[Fax]" />
+        <Output Type="CompanyName" Value="[AccName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityType" Value="[EntityType]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_PhoneEmailFirstLastName">
+      <Request Url="[Url]/services/data/v55.0/query/?q=SELECT Id,FirstName,LastName,AssistantPhone,Fax,HomePhone,MobilePhone,OtherPhone,Phone,Email,AccountId FROM Contact WHERE FirstName LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR LastName LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR AssistantPhone LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR Fax LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR HomePhone LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR MobilePhone LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR OtherPhone LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR Phone LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' OR Email LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' LIMIT [MaxCount]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">records.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="records.Id" />
+        <Variable Name="EntityType" Path="records.attributes.type" />
+        <Variable Name="FirstName" Path="records.FirstName" />
+        <Variable Name="LastName" Path="records.LastName" />
+        <Variable Name="Phone" Path="records.Phone" />
+        <Variable Name="MobilePhone" Path="records.MobilePhone" />
+        <Variable Name="HomePhone" Path="records.HomePhone" />
+        <Variable Name="AssistantPhone" Path="records.AssistantPhone" />
+        <Variable Name="OtherPhone" Path="records.OtherPhone" />
+        <Variable Name="Fax" Path="records.Fax" />
+        <Variable Name="Email" Path="records.Email" />
+        <Variable Name="AccountId" Path="records.AccountId" />
+      </Variables>
+      <Outputs Next="GetAccountName" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="SearchContacts_CompanyName">
+      <Request Url="[Url]/services/data/v55.0/query/?q=SELECT Id, Name FROM Account WHERE Name LIKE '%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25' LIMIT [MaxCount]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">records.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AccountId" Path="records.Id" />
+        <Variable Name="AccountName" Path="records.Name" />
+      </Variables>
+      <Outputs Next="GetContactsForAccount" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="GetContactsForAccount">
+      <Request Url="[Url]/services/data/v55.0/query/?q=SELECT Id,FirstName,LastName,AssistantPhone,Fax,HomePhone,MobilePhone,OtherPhone,Phone,Email FROM Contact WHERE AccountId = '[AccountId]'"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">records.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="records.Id" />
+        <Variable Name="EntityType" Path="records.attributes.type" />
+        <Variable Name="FirstName" Path="records.FirstName" />
+        <Variable Name="LastName" Path="records.LastName" />
+        <Variable Name="Phone" Path="records.Phone" />
+        <Variable Name="MobilePhone" Path="records.MobilePhone" />
+        <Variable Name="HomePhone" Path="records.HomePhone" />
+        <Variable Name="AssistantPhone" Path="records.AssistantPhone" />
+        <Variable Name="OtherPhone" Path="records.OtherPhone" />
+        <Variable Name="Fax" Path="records.Fax" />
+        <Variable Name="Email" Path="records.Email" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Url]/[Id]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="PhoneBusiness" Value="[Phone]" />
+        <Output Type="PhoneBusiness2" Value="[AssistantPhone]" />
+        <Output Type="PhoneOther" Value="[OtherPhone]" />
+        <Output Type="PhoneMobile" Value="[MobilePhone]" />
+        <Output Type="PhoneHome" Value="[HomePhone]" />
+        <Output Type="FaxBusiness" Value="[Fax]" />
+        <Output Type="CompanyName" Value="[AccountName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityType" Value="[EntityType]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetAllContacts">
+      <Request Url="[Url]/services/data/v55.0/query/?q=SELECT Id,FirstName,LastName,AssistantPhone,Fax,HomePhone,MobilePhone,OtherPhone,Phone,Email,AccountId FROM Contact LIMIT [PageSize] OFFSET [[Page]*[PageSize]]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">records.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="records.Id" />
+        <Variable Name="EntityType" Path="records.attributes.type" />
+        <Variable Name="FirstName" Path="records.FirstName" />
+        <Variable Name="LastName" Path="records.LastName" />
+        <Variable Name="Phone" Path="records.Phone" />
+        <Variable Name="MobilePhone" Path="records.MobilePhone" />
+        <Variable Name="HomePhone" Path="records.HomePhone" />
+        <Variable Name="AssistantPhone" Path="records.AssistantPhone" />
+        <Variable Name="OtherPhone" Path="records.OtherPhone" />
+        <Variable Name="Fax" Path="records.Fax" />
+        <Variable Name="Email" Path="records.Email" />
+        <Variable Name="AccountId" Path="records.AccountId" />
+      </Variables>
+      <Outputs Next="GetAccountName" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="ReportCall">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[Url]/services/data/v55.0/query/?q=SELECT Id from User where Email = '[AgentEmail]'" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">records.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="OwnerId" Path="records.Id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateCallActivity" />
+    </Scenario>
+    <Scenario Id="CreateCallActivity">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[Url]/services/data/v55.0/sobjects/task" 
+      				 RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+          <Value Passes="2" Key="Subject">[[Subject]]</Value>
+          <Value Key="Status">Completed</Value>
+          <Value Key="Priority">Normal</Value>
+          <Value Key="TaskSubtype">Call</Value>
+          <Value Key="ActivityDate">[[CallStartTimeUTC].ToString("yyyy-MM-dd")]</Value>
+          <Value Key="CallDurationInSeconds">[[[DurationTimespan].get_TotalSeconds()].ToString("F0")]</Value>
+          <Value Key="CallType" Passes="2" If="[CallType]==Inbound">Inbound</Value>
+          <Value Key="CallType" Passes="2" If="[CallType]==Missed">Inbound</Value>
+          <Value Key="CallType" Passes="2" If="[CallType]==Outbound">Outbound</Value>
+          <Value Key="CallType" Passes="2" If="[CallType]==Notanswered">Outbound</Value>
+          <Value Key="Description" Passes="2" If="[CallType]==Inbound">[[InboundCallText]]</Value>
+          <Value Key="Description" Passes="2" If="[CallType]==Missed">[[MissedCallText]]</Value>
+          <Value Key="Description" Passes="2" If="[CallType]==Outbound">[[OutboundCallText]]</Value>
+          <Value Key="Description" Passes="2" If="[CallType]==Notanswered">[[NotAnsweredOutboundCallText]]</Value>
+          <Value Key="WhoId" If="[EntityType]!=Account">[EntityId]</Value>
+          <Value Key="WhatId" If="[EntityType]==Account">[EntityId]</Value>
+          <Value Key="OwnerId" If="[OwnerId]!=&quot;&quot;">[OwnerId]</Value>
+        </PostValues>
+      </Request>
+    </Scenario>
+    <Scenario Id="ReportChat">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[Url]/services/data/v55.0/query/?q=SELECT Id from User where Email = '[AgentEmail]'" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">records.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="OwnerId" Path="records.Id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateChatActivity" />
+    </Scenario>
+    <Scenario Id="CreateChatActivity">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[Url]/services/data/v55.0/sobjects/task" 
+      				 RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+          <Value Passes="2" Key="Subject">[[ChatSubject]]</Value>
+          <Value Key="Status">Completed</Value>
+          <Value Key="Priority">Normal</Value>
+          <Value Key="TaskSubtype">Task</Value>
+          <Value Key="ActivityDate">[[ChatStartTimeUTC].ToString("yyyy-MM-dd")]</Value>
+          <Value Key="CallDurationInSeconds">[[[DurationTimespan].get_TotalSeconds()].ToString("F0")]</Value>
+          <Value Key="Description">[[ChatMessages].Replace(&quot;\&quot;,&quot;&quot;)]</Value>
+          <Value Key="WhoId" If="[EntityType]!=Account">[EntityId]</Value>
+          <Value Key="WhatId" If="[EntityType]==Account">[EntityId]</Value>
+          <Value Key="OwnerId" If="[OwnerId]!=&quot;&quot;">[OwnerId]</Value>
+        </PostValues>
+      </Request>
+    </Scenario>
+    <Scenario Id="CreateContactRecord">
+      <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" Url="[Url]/services/data/v55.0/sobjects/[IIf([CreateLeadOrContact]==Lead,lead,contact)]" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+          <Value Passes="2" Key="FirstName">[[CreateContactFirstName]]</Value>
+          <Value Passes="2" Key="LastName">[[CreateContactLastName]]</Value>
+          <Value Key="Phone">[Number]</Value>
+          <Value Passes="2" Key="Company" If="[CreateLeadOrContact]==Lead">[[CreateContactCompany]]</Value>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Url]/[Id]" />
+        <Output Type="FirstName" Passes="2" Value="[[CreateContactFirstName]]" />
+        <Output Type="LastName" Passes="2" Value="[[CreateContactLastName]]" />
+        <Output Type="CompanyName" Value="[IIf([CreateLeadOrContact]==Lead,&quot;[CreateContactCompany]&quot;,&quot;&quot;)]" />
+        <Output Type="PhoneBusiness" Value="[Number]" />
+        <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,Lead,Contact)]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateContactRecordFromClient">
+      <Request SkipIf="[CreateContactEnabled]!=True" Url="[Url]/services/data/v55.0/sobjects/[IIf([CreateLeadOrContact]==Lead,lead,contact)]" RequestType="Post" RequestEncoding="Json" ResponseType="Json" >
+        <PostValues>
+          <Value Key="FirstName">[FirstName]</Value>
+          <Value Key="LastName">[LastName]</Value>
+          <Value Key="Email" If="[Email]!=&quot;&quot;">[Email]</Value>
+          <Value Key="MobilePhone" If="[Number]!=&quot;&quot;">[Number]</Value>
+          <Value Passes="2" Key="Company" If="[CreateLeadOrContact]==Lead&amp;&amp;[Company]!=&quot;&quot;">[Company]</Value>
+          <Value Passes="2" Key="Company" If="[CreateLeadOrContact]==Lead&amp;&amp;[Company]==&quot;&quot;">[CreateContactCompany]</Value>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[Url]/[Id]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[IIf([Company]==&quot;&quot;,&quot;[CreateContactCompany]&quot;,&quot;[Company]&quot;)]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,Lead,Contact)]" />
+        <Output Type="EntityId" Value="[Id]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+      <Request Url="[Url]/services/data/v55.0/search/?q=FIND {[Number]} IN PHONE FIELDS RETURNING Contact(Id)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="EntityID" Path="searchRecords.Id" />
+      </Variables>
+      <Outputs Next="LookupFromCFD_Contacts_LookupID" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupID">
+      <Request Url="[Url]/services/data/v55.0/sobjects/Contact/[EntityID]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">Id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+      <Request Url="[Url]/services/data/v55.0/search/?q=[Query]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupNumber">
+      <Request Url="[Url]/services/data/v55.0/search/?q=FIND {[Number]} IN PHONE FIELDS RETURNING Lead(Id)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="EntityID" Path="searchRecords.Id" />
+      </Variables>
+      <Outputs Next="LookupFromCFD_Leads_LookupID" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupID">
+      <Request Url="[Url]/services/data/v55.0/sobjects/Lead/[EntityID]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">Id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupFreeQuery">
+      <Request Url="[Url]/services/data/v55.0/search/?q=[Query]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupNumber">
+      <Request Url="[Url]/services/data/v55.0/search/?q=FIND {[Number]} IN PHONE FIELDS RETURNING Account(Id)"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="EntityID" Path="searchRecords.Id" />
+      </Variables>
+      <Outputs Next="LookupFromCFD_Accounts_LookupID" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupID">
+      <Request Url="[Url]/services/data/v55.0/sobjects/Account/[EntityID]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">Id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupFreeQuery">
+      <Request Url="[Url]/services/data/v55.0/search/?q=[Query]"
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">searchRecords.Id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+  </Scenarios>
+</Crm>

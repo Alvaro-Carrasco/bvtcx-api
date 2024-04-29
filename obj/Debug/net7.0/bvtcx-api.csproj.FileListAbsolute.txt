@@ -1,0 +1,792 @@
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\Bitrix.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\connectWise.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DatabaseMongoDB.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DatabaseMsSQL.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DatabaseMySQL.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DatabasePostgreSQL.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DynamicsCRM.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\FreshDesk.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\HubSpot.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\JetpackCRM.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\Salesforce.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\SalesforceV2.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\vTiger.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\Zendesk.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\Zoho.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-12FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-24FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-8FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-WB-2FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-WB-4FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN510.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN610.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN670.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN720.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN870.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamGXW4216.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamGXW4224.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamGXW4232.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamGXW4248.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT801.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT802.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT812.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT814.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT818.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\Patton-FXS-2.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\Patton-FXS-4.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\snomM300.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\snomM400.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\snomM700.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\snomM900.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\Trinity-Patton-FXS-2-4-port.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\Trinity-Patton-FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W52.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W60B.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W70B.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W80B.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W90B.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\3cx.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\BeroFix_BRI.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\BeroFix_FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\BeroFix_PRI.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Beronet.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-8FXO-gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-WB-1P-T1E1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-WB-2FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-WB-2P-T1E1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-WB-4FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\generic.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\grandstream-gxw-4104.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Khomp-UMG.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\khomp.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Patton-BRI.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Patton-E1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Patton-FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Patton-T1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\patton.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Trinity-Patton-BRI.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Trinity-Patton-E1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Trinity-Patton-FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Trinity-Patton-T1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\messaging\facebook.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\messaging\facebook.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\messaging\whatsapp.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\messaging\whatsapp.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\aastra.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\avaya.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco79X1.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco79XX.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\ciscoSPA525.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco_sidecarSPA50X.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco_sidecarSPA525.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cyberdata.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cyberdata_new.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvileol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil_android.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil_doorphone.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil_eoldoorphone.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil_hotel.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\genericphone.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstream.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstreamexecutive.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstream_gds.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstream_grp.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstream_gsc.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\htek.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\intelbras.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\polycom.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\polycom31x.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\polycomvvx.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\polycomvvx_gen2.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\snom.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\snomvt_cseries.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\snom_eol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealink.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkcp.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkcpeol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT3x.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT4x.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT4xeol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT5x.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT5xeol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkVP530.ph.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\1cx.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\1tel.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\1tel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\28voip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\2aplus.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\2aplus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\2talk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\3.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\3c1b.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\3c1b.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\3cx.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\58voip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\a1bulgaria.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\aaasip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\aatroxcommunications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\aatroxcommunicationsnz.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\actio.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\actio.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\afterdark.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ahoytelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alhambra.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alhambra.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alloyvoice.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alphalink.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alphalink.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\amazonchime.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\asterisk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\australianphonecompany.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\avanphone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\avencom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bandwidth.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\beeline.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\beelineacc.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\breezeconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\brightstar.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\brightstar.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bsipott.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bt.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bt.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bthsipt.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\btitaly.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\buroserv.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\c2communications.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\c2communications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cal4care.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\callacloud.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\callacloud.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\callcentric.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\Callcentric.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\calncall.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\calncall.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ccarchitect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\centurylink.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\centurylink.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\chinamobile.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\citelia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\clarity.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\clouditalia.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\clouditalia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cloudnippon.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cmcom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cobaltit.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\connectviet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\convergia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\coriolis.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cytacy.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\dataphone.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\dataphone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\datora.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\default-icon.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\default-logo.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\destiny.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\destinyflux.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\didlogic.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\didlogic.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\directcall.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\dominiontelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\dusnet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\easybell.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\easybell.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\elastix.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ewetel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fiberstream.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fidalia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fl1telecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\flexnetwork.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\flowroute.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fmtelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fuse2communications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\gamma.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\gamma.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\GenericSIPTrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\GenericVoIPProvider.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\go.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\gradwell.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\hfo.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\hfo.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\hostprofis.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\infoset.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\internetport.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\internetport.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\intertel.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\intertel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\itcommunications.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\itcommunications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\iway.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ixica.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\jaguarnetworks.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\jivetel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\keensystems.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\keyyotrunksip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\kinetixconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\kiwivoip.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\kiwivoip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\kyivstar.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lcrcom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lcrtelecom.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lcrtelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\libra.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lifecell.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lightwire.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mangooffice.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mcntelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\messagenet.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\messagenet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mixvoip.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mixvoip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mkvoiceconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mnet.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mnet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\modulus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mtncy.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mtncy.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\multiconnectgmbh.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mynetfone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\nasksa.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\netplanet.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\netplanet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\netpluzsip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ngxnetworks.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\nova.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\novofon.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ntes.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ntes.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\nvoip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\openip.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\openip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\orange.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ovh.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ovh.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\partnercommunications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefone.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefonech.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefonech.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefonede.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefonepolska.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\plink.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\plusnetconnectr.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\pocos.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\primetel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\proximus.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\proximus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\qbit.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\reventix.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\reventix.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ringoffice.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ringoffice.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\serveurcom.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\serveurcom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sewan.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sewan.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sfr.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sfr.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\singtel.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\singtel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipcall.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipcall.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipconnectTCP.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipconnectUDP.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipgate.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipgatetrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\siptrunk.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\siptrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipus.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\skyetel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\spitfire.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\spitfire.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sunrisebusiness.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\swisscombusinessconnect.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\swisscombusinessconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\swisscomenterprise.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\swisscomsmartbusinessconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\t4com.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\t4com.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\tatacommunications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomcallandsurf.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomcallandsurf.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomcompanyflex.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomcompanyflexvoicedata.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomsiptrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telerys.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\teletek.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\teletek.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\televoip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telin.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telnyx.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telstra-businesssip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telstra-enterprisetrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telstra-siptrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telxi.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\trenove.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\trenove.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\trunksipsrr.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\trunkvoiptelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\twilio.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\twt.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ucexperts.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ufone.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ufone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ukrtelecom.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ukrtelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\unidata.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\upcschweiz.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\upsczech.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\upsczech.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\versatel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vitelity.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vitelity.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vivacom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vivo.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vocus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vodafone.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vodafoneauthde.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vodafoneiceland.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vodafoneuk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voiceflex.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voiceflex.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voicehost.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voiceland.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voicemeup.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voicemeupreg.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voipcall.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voipms.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voipvoice.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voipvoice.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voxbone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voxsiptrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voxtelesys.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wavix.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wavixasia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wavixeu.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wavixna.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\weepee.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\weepee.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wilhelm.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wiretaptelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\yellowgrid.pv.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\zenbusinesstalksip.png
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\zenbusinesstalksip.xml
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.exe
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.deps.json
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.runtimeconfig.json
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.dll
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.pdb
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\Google.Authenticator.dll
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\QRCoder.dll
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\BvoipModels.dll
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\BvoipModels.pdb
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.csproj.AssemblyReference.cache
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.AssemblyInfoInputs.cache
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.AssemblyInfo.cs
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.csproj.CopyComplete
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.dll
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\refint\bvtcx-api.dll
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.pdb
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.genruntimeconfig.cache
+C:\Users\AlvaroCarrasco\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\ref\bvtcx-api.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\Bitrix.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\connectWise.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DatabaseMongoDB.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DatabaseMsSQL.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DatabaseMySQL.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DatabasePostgreSQL.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\DynamicsCRM.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\FreshDesk.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\HubSpot.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\JetpackCRM.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\Salesforce.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\SalesforceV2.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\vTiger.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\Zendesk.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\crm\Zoho.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-12FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-24FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-8FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-WB-2FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\FarSouth-WB-4FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN510.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN610.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN670.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN720.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\gigasetN870.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamGXW4216.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamGXW4224.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamGXW4232.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamGXW4248.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT801.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT802.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT812.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT814.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\GrandstreamHT818.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\Patton-FXS-2.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\Patton-FXS-4.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\snomM300.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\snomM400.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\snomM700.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\snomM900.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\Trinity-Patton-FXS-2-4-port.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\Trinity-Patton-FXS.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W52.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W60B.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W70B.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W80B.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\fxs\yealink.W90B.fxs.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\3cx.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\BeroFix_BRI.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\BeroFix_FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\BeroFix_PRI.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Beronet.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-8FXO-gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-WB-1P-T1E1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-WB-2FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-WB-2P-T1E1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\FarSouth-WB-4FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\generic.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\grandstream-gxw-4104.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Khomp-UMG.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\khomp.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Patton-BRI.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Patton-E1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Patton-FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Patton-T1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\patton.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Trinity-Patton-BRI.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Trinity-Patton-E1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Trinity-Patton-FXO.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\gateway\Trinity-Patton-T1.gw.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\messaging\facebook.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\messaging\facebook.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\messaging\whatsapp.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\messaging\whatsapp.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\aastra.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\avaya.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco79X1.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco79XX.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\ciscoSPA525.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco_sidecarSPA50X.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cisco_sidecarSPA525.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cyberdata.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\cyberdata_new.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvileol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil_android.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil_doorphone.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil_eoldoorphone.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\fanvil_hotel.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\genericphone.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstream.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstreamexecutive.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstream_gds.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstream_grp.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\grandstream_gsc.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\htek.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\intelbras.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\polycom.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\polycom31x.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\polycomvvx.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\polycomvvx_gen2.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\snom.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\snomvt_cseries.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\snom_eol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealink.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkcp.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkcpeol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT3x.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT4x.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT4xeol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT5x.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkT5xeol.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\phones\yealinkVP530.ph.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\1cx.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\1tel.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\1tel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\28voip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\2aplus.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\2aplus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\2talk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\3.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\3c1b.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\3c1b.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\3cx.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\58voip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\a1bulgaria.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\aaasip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\aatroxcommunications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\aatroxcommunicationsnz.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\actio.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\actio.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\afterdark.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ahoytelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alhambra.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alhambra.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alloyvoice.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alphalink.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\alphalink.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\amazonchime.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\asterisk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\australianphonecompany.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\avanphone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\avencom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bandwidth.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\beeline.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\beelineacc.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\breezeconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\brightstar.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\brightstar.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bsipott.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bt.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bt.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\bthsipt.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\btitaly.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\buroserv.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\c2communications.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\c2communications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cal4care.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\callacloud.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\callacloud.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\callcentric.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\Callcentric.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\calncall.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\calncall.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ccarchitect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\centurylink.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\centurylink.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\chinamobile.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\citelia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\clarity.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\clouditalia.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\clouditalia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cloudnippon.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cmcom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cobaltit.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\connectviet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\convergia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\coriolis.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\cytacy.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\dataphone.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\dataphone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\datora.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\default-icon.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\default-logo.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\destiny.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\destinyflux.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\didlogic.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\didlogic.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\directcall.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\dominiontelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\dusnet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\easybell.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\easybell.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\elastix.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ewetel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fiberstream.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fidalia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fl1telecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\flexnetwork.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\flowroute.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fmtelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\fuse2communications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\gamma.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\gamma.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\GenericSIPTrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\GenericVoIPProvider.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\go.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\gradwell.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\hfo.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\hfo.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\hostprofis.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\infoset.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\internetport.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\internetport.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\intertel.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\intertel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\itcommunications.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\itcommunications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\iway.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ixica.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\jaguarnetworks.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\jivetel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\keensystems.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\keyyotrunksip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\kinetixconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\kiwivoip.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\kiwivoip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\kyivstar.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lcrcom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lcrtelecom.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lcrtelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\libra.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lifecell.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\lightwire.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mangooffice.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mcntelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\messagenet.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\messagenet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mixvoip.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mixvoip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mkvoiceconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mnet.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mnet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\modulus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mtncy.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mtncy.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\multiconnectgmbh.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\mynetfone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\nasksa.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\netplanet.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\netplanet.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\netpluzsip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ngxnetworks.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\nova.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\novofon.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ntes.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ntes.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\nvoip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\openip.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\openip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\orange.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ovh.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ovh.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\partnercommunications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefone.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefonech.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefonech.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefonede.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\peoplefonepolska.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\plink.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\plusnetconnectr.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\pocos.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\primetel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\proximus.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\proximus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\qbit.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\reventix.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\reventix.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ringoffice.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ringoffice.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\serveurcom.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\serveurcom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sewan.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sewan.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sfr.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sfr.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\singtel.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\singtel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipcall.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipcall.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipconnectTCP.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipconnectUDP.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipgate.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipgatetrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\siptrunk.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\siptrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipus.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sipus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\skyetel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\spitfire.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\spitfire.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\sunrisebusiness.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\swisscombusinessconnect.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\swisscombusinessconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\swisscomenterprise.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\swisscomsmartbusinessconnect.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\t4com.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\t4com.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\tatacommunications.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomcallandsurf.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomcallandsurf.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomcompanyflex.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomcompanyflexvoicedata.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telekomsiptrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telerys.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\teletek.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\teletek.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\televoip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telin.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telnyx.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telstra-businesssip.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telstra-enterprisetrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telstra-siptrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\telxi.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\trenove.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\trenove.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\trunksipsrr.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\trunkvoiptelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\twilio.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\twt.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ucexperts.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ufone.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ufone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ukrtelecom.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\ukrtelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\unidata.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\upcschweiz.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\upsczech.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\upsczech.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\versatel.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vitelity.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vitelity.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vivacom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vivo.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vocus.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vodafone.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vodafoneauthde.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vodafoneiceland.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\vodafoneuk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voiceflex.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voiceflex.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voicehost.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voiceland.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voicemeup.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voicemeupreg.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voipcall.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voipms.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voipvoice.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voipvoice.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voxbone.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voxsiptrunk.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\voxtelesys.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wavix.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wavixasia.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wavixeu.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wavixna.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\weepee.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\weepee.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wilhelm.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\wiretaptelecom.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\yellowgrid.pv.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\zenbusinesstalksip.png
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\AppData\Templates\provider\zenbusinesstalksip.xml
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.exe
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.deps.json
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.runtimeconfig.json
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\bvtcx-api.pdb
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\Google.Authenticator.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\QRCoder.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\BvoipModels.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\bin\Debug\net7.0\BvoipModels.pdb
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.csproj.AssemblyReference.cache
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.AssemblyInfoInputs.cache
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.AssemblyInfo.cs
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.csproj.CopyComplete
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\refint\bvtcx-api.dll
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.pdb
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\bvtcx-api.genruntimeconfig.cache
+C:\Users\AlvaroCarrasco\Documents\OneDrive - Bardissi Enterprises, LLC\Documents\CODE\bvtcx-api\bvtcx-api\obj\Debug\net7.0\ref\bvtcx-api.dll

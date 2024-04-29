@@ -1,0 +1,1754 @@
+<?xml version="1.0"?>
+<doc
+	xmlns:tcx="http://www.3cx.com">
+	<header>
+		<type>gateway-template</type>
+		<version>145775</version>
+		<time>2020-04-06 14:30:00</time>
+		<name>Patton Trinity ISDN T1 (SN4171/SN4970A)</name>
+		<url>http://www.patton.com</url>
+		<image>patton.png</image>
+		<description>Patton Trinity ISDN 1-4 Port T1</description>
+	</header>
+	<data>
+		<device>
+			<type>gateway</type>
+			<variable name="%%gateway_mask%%">
+				<title>Device Subnet Mask</title>
+				<info>Please specify the subnet mask for the device for provisioning purposes:</info>
+				<option name="Subnet Mask" type="textbox" validation="subnet_mask"></option>
+			</variable>
+			<variable name="%%tone_set_data%%">
+				<title>Tone Set Selection</title>
+				<info>Select Country for Tone Sets</info>
+				<option name="Country">
+					<value name="Argentina">ToneSet_AR</value>
+					<value name="Australia">ToneSet_AU</value>
+					<value name="Austria 420Hz">ToneSet_AT420</value>
+					<value name="Austria 450Hz">ToneSet_AT450</value>
+					<value name="Belgium">ToneSet_BE</value>
+					<value name="Brazil">ToneSet_BR</value>
+					<value name="Cyprus">ToneSet_CY</value>
+					<value name="Czech Republic">ToneSet_CZ</value>
+					<value name="Denmark">ToneSet_DK</value>
+					<value name="Finland">ToneSet_FI</value>
+					<value name="France">ToneSet_FR</value>
+					<value name="Germany">ToneSet_DE</value>
+					<value name="Greece">ToneSet_GR</value>
+					<value name="Holland">ToneSet_NL</value>
+					<value name="India">ToneSet_IN</value>
+					<value name="Ireland">ToneSet_IE</value>
+					<value name="Italy">ToneSet_IT</value>
+					<value name="Japan">ToneSet_JP</value>
+					<value name="Mexico">ToneSet_MX</value>
+					<value name="New Zealand">ToneSet_NZ</value>
+					<value name="Norway">ToneSet_NO</value>
+					<value name="Poland">ToneSet_PL</value>
+					<value name="Portugal">ToneSet_PT</value>
+					<value name="Russia">ToneSet_RU</value>
+					<value name="South Africa">ToneSet_ZA</value>
+					<value name="Spain">ToneSet_ES</value>
+					<value name="Sweden">ToneSet_SE</value>
+					<value name="Switzerland">ToneSet_CH</value>
+					<value name="Turkey">ToneSet_TR</value>
+					<value name="United Kingdom">ToneSet_UK</value>
+					<value name="United States">ToneSet_US</value>
+				</option>
+				<result name="ToneSet_AR">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -13
+  pause 2 4000
+  
+profile call-progress-tone defaultBusytone
+  
+  play 1 300 425 -7
+  pause 2 200
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 300 425 -7
+  pause 2 400
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 300 425 -7
+  pause 2 400
+  </result>
+				<result name="ToneSet_AU">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6 450 -6
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 400 425 -13 450 -13
+  pause 2 200
+  play 1 400 425 -13 450 -13
+  pause 2 2000
+  
+profile call-progress-tone defaultBusytone
+  
+  play 1 375 425 -7
+  pause 2 375
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 375 425 -7
+  pause 2 375
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 375 425 -7
+  pause 2 375
+  </result>
+				<result name="ToneSet_AT420">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 420 -6
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 420 -13
+  pause 2 5000
+  
+profile call-progress-tone defaultBusytone
+  
+  play 1 400 420 -7
+  pause 2 400
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 200 420 -7
+  pause 2 200
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 200 420 -7
+  pause 2 200
+  </result>
+				<result name="ToneSet_MX">
+profile call-progress-tone defaultDialtone
+  play 1 200 425 -12
+  
+profile call-progress-tone defaultAlertingtone
+  play 1 1000 425 -12 
+  pause 2 4000
+  
+profile call-progress-tone defaultBusytone
+  play 1 250 425 -12
+  pause 2 250
+  
+profile call-progress-tone defaultCongestiontone
+  play 1 250 425 -12
+  pause 2 250
+  </result>
+				<result name="ToneSet_AT450">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 450 -6
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 450 -13
+  pause 2 5000
+  
+profile call-progress-tone defaultBusytone
+  
+  play 1 300 450 -7
+  pause 2 300
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 300 450 -7
+  pause 2 300
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 300 450 -7
+  pause 2 300
+  </result>
+				<result name="ToneSet_BE">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 0
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -7
+  pause 2 3000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 425 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 170 425 -7
+  pause 2 170
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 170 425 -7
+  pause 2 170
+  </result>
+				<result name="ToneSet_BR">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -7
+  pause 2 4000
+  
+profile call-progress-tone defaultBusytone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 425 -7
+  pause 2 250
+  </result>
+				<result name="ToneSet_CY">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 350 -6 450 -6
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1500 425 -13
+  pause 2 3000
+  
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 425 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 425 -7
+  pause 2 250
+  </result>
+				<result name="ToneSet_CZ">
+profile call-progress-tone defaultDialtone
+  
+  play 1 330 425 -6
+  pause 2 330
+  play 3 660 425 -6
+  pause 4 660
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -13
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 330 425 -7
+  pause 2 330
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 165 425 -7
+  pause 2 165
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 165 425 -7
+  pause 2 165
+  </result>
+				<result name="ToneSet_DK">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -7
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 425 -7
+  pause 2 250
+  </result>
+				<result name="ToneSet_FI">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -7
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 300 425 -7
+  pause 2 300
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 200 425 -7
+  pause 2 200
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 200 425 -7
+  pause 2 200
+  </result>
+				<result name="ToneSet_FR">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 440 0
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1500 440 -7
+  pause 2 3500
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 440 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 425 -7
+  pause 2 250
+  </result>
+				<result name="ToneSet_DE">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 0
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -7
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 480 425 -7
+  pause 2 480
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 240 425 -7
+  pause 2 240
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 240 425 -7
+  pause 2 240
+  </result>
+				<result name="ToneSet_GR">
+profile call-progress-tone defaultDialtone
+  play 1 200 425 0
+  pause 2 300
+  play 3 700 425 0
+  pause 4 800
+
+profile call-progress-tone defaultBusytone
+  play 1 300 425 -7
+  pause 2 300
+
+profile call-progress-tone defaultReleasetone
+  play 1 150 425 -7
+  pause 2 150
+
+profile call-progress-tone defaultCongestiontone
+  play 1 150 425 -7
+  pause 2 150
+  </result>
+				<result name="ToneSet_NL">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 0
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -7
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 425 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 425 -7
+  pause 2 250
+  </result>
+				<result name="ToneSet_IN">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 400 400 -13
+  pause 2 200
+  play 3 400 400 -13
+  pause 4 2000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 750 400 -7
+  pause 2 750
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 400 -7
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 400 -7
+  pause 2 250
+  </result>
+				<result name="ToneSet_IE">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 400 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 400 400 -6
+  pause 2 200
+  play 3 400 400 -6
+  pause 4 2000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 425 -6
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 500 425 -6
+  pause 2 500
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 500 425 -6
+  pause 2 500
+  </result>
+				<result name="ToneSet_IT">
+profile call-progress-tone defaultDialtone
+  
+  play 1 200 425 0
+  pause 2 200
+  play 3 600 425 0
+  pause 4 1000
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -7
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 200 425 -7
+  pause 2 200
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 425 -7
+  pause 2 250
+  </result>
+				<result name="ToneSet_JP">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 400 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 400 -13
+  pause 2 2000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 400 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 500 400 -7
+  pause 2 500
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 500 400 -7
+  pause 2 500
+  </result>
+				<result name="ToneSet_NZ">
+profile call-progress-tone defaultDialtone
+  
+  play 1 5000 400 -15
+  
+profile call-progress-tone defaultAlertingtone
+  
+  pause 2 200
+  play 3 400 400 -15 450 -15
+  pause 4 2000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 400 -15
+  pause 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 500 400 -15
+  pause 500
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 500 400 -15
+  pause 500
+
+profile call-progress-tone defaultSDTone
+  
+  play 1 10000 425 -19 620 -19
+
+profile call-progress-tone defaultWaitingtone
+  
+  play 1 200 400 -15
+  pause 200
+  </result>
+				<result name="ToneSet_NO">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -13
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 425 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 200 425 -7
+  pause 2 200
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 200 425 -7
+  pause 2 200
+  </result>
+				<result name="ToneSet_PL">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -13
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 425 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 500 425 -7
+  pause 2 500
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 500 425 -7
+  pause 2 500
+  </result>
+				<result name="ToneSet_PT">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -13
+  pause 2 5000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 425 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 200 425 -7
+  pause 2 200
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 200 425 -7
+  pause 2 200
+  </result>
+				<result name="ToneSet_RU">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 800 425 -13
+  pause 2 3200
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 400 425 -7
+  pause 2 400
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 400 425 -7
+  pause 2 400
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 400 425 -7
+  pause 2 400
+  </result>
+				<result name="ToneSet_ZA">
+profile call-progress-tone defaultDialtone
+  
+  play 1 0 400 -13
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 400 400 -13
+  pause 2 200
+  play 3 400 400 -13
+  pause 4 2000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 400 -13
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 400 -13
+  pause 2 250
+
+profile call-progress-tone defaultHoldtone
+  
+  play 1 30 400 -13
+  pause 2 60
+  play 3 30 400 -13
+  pause 4 4880
+  </result>
+				<result name="ToneSet_ES">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1500 425 -13
+  pause 2 3000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 200 425 -7
+  pause 2 200
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 200 425 -7
+  pause 2 200
+  play 3 200 425 -7
+  pause 4 200
+  play 5 200 425 -7
+  pause 6 600
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 200 425 -7
+  pause 2 200
+  play 3 200 425 -7
+  pause 4 200
+  play 5 200 425 -7
+  pause 6 600
+  </result>
+				<result name="ToneSet_SE">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -13
+  pause 2 5000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 250 425 -7
+  pause 2 250
+  
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 425 -7
+  pause 2 750
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 425 -7
+  pause 2 750
+  </result>
+				<result name="ToneSet_CH">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 425 0
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 425 -7
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 425 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 425 -7
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 425 -7
+  pause 2 250
+  </result>
+				<result name="ToneSet_TR">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 450 -6
+  
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 2000 450 -13
+  pause 2 4000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 450 -7
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 200 450 -7
+  pause 2 200
+  play 3 200 450 -7
+  pause 4 200
+  play 5 200 450 -7
+  pause 6 200
+  play 7 600 450 -7
+  pause 8 200
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 200 450 -7
+  pause 2 200
+  play 3 200 450 -7
+  pause 4 200
+  play 5 200 450 -7
+  pause 6 200
+  play 7 600 450 -7
+  pause 8 200
+  </result>
+				<result name="ToneSet_UK">
+profile call-progress-tone defaultDialtone
+  
+  play 1 1000 350 -13 440 -13
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 400 400 -19 450 -19
+  pause 2 200
+  play 3 400 400 -19 450 -19
+  pause 4 2000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 375 400 -24
+  pause 2 375
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 400 400 -24
+  pause 2 350
+  play 3 225 400 -24
+  pause 4 525
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 400 400 -24
+  pause 2 350
+  play 3 225 400 -24
+  pause 4 525
+  </result>
+				<result name="ToneSet_US">
+ profile call-progress-tone defaultDialtone
+  
+  play 1 1000 350 -13 440 -13
+
+profile call-progress-tone defaultAlertingtone
+  
+  play 1 1000 440 -19 480 -19
+  pause 2 3000
+
+profile call-progress-tone defaultBusytone
+  
+  play 1 500 480 -24 620 -24
+  pause 2 500
+
+profile call-progress-tone defaultReleasetone
+  
+  play 1 250 480 -24 620 -24
+  pause 2 250
+
+profile call-progress-tone defaultCongestiontone
+  
+  play 1 250 480 -24 620 -24
+  pause 2 250</result>
+				<!-- No leading zero for all countries. Except Italy with special rule for mobile numbers -->
+				<result name="ToneSet_AR" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		    </result>
+				<result name="ToneSet_AU" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_AT420" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_AT450" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_BE" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_BR" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_CY" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_CZ" index="2"> 
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_DK" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_FI" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_FR" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_DE" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_GR" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_NL" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_IN" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_IE" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_IT" index="2">
+        map (3.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (3.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (3.%)-(.%)-(.%) to \1\2\3
+        map (3.%)-(.%) to \1\2
+        map (3.%) to \1
+        map (.%)-(.%)-(.%)-(.%)-(.%) to 0\1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to 0\1\2\3\4
+        map (.%)-(.%)-(.%) to 0\1\2\3
+        map (.%)-(.%) to 0\1\2
+        map (.%) to 0\1
+		     </result>
+				<result name="ToneSet_JP" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_MX" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_NZ" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_NO" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_PL" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_PT" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_RU" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_ZA" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_ES" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_SE" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_CH" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_TR" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_UK" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<result name="ToneSet_US" index="2">
+		    map (.%)-(.%)-(.%)-(.%)-(.%) to \1\2\3\4\5
+        map (.%)-(.%)-(.%)-(.%) to \1\2\3\4
+        map (.%)-(.%)-(.%) to \1\2\3
+        map (.%)-(.%) to \1\2
+		     </result>
+				<!-- CLIP No Screening for DACH conutries -->
+				<result name="ToneSet_AR" index="3"></result>
+				<result name="ToneSet_AU" index="3"></result>
+				<result name="ToneSet_AT420" index="3">OUTBOUND</result>
+				<result name="ToneSet_AT450" index="3">OUTBOUND</result>
+				<result name="ToneSet_BE" index="3"></result>
+				<result name="ToneSet_BR" index="3"></result>
+				<result name="ToneSet_CY" index="3"></result>
+				<result name="ToneSet_CZ" index="3"></result>
+				<result name="ToneSet_DK" index="3"></result>
+				<result name="ToneSet_FI" index="3"></result>
+				<result name="ToneSet_FR" index="3"></result>
+				<result name="ToneSet_DE" index="3">OUTBOUND</result>
+				<result name="ToneSet_GR" index="3"></result>
+				<result name="ToneSet_NL" index="3"></result>
+				<result name="ToneSet_IN" index="3"></result>
+				<result name="ToneSet_IE" index="3"></result>
+				<result name="ToneSet_IT" index="3"></result>
+				<result name="ToneSet_JP" index="3"></result>
+				<result name="ToneSet_MX" index="3"></result>
+				<result name="ToneSet_NZ" index="3"></result>
+				<result name="ToneSet_NO" index="3"></result>
+				<result name="ToneSet_PL" index="3"></result>
+				<result name="ToneSet_PT" index="3"></result>
+				<result name="ToneSet_RU" index="3"></result>
+				<result name="ToneSet_ZA" index="3"></result>
+				<result name="ToneSet_ES" index="3"></result>
+				<result name="ToneSet_SE" index="3"></result>
+				<result name="ToneSet_CH" index="3">OUTBOUND</result>
+				<result name="ToneSet_TR" index="3"></result>
+				<result name="ToneSet_UK" index="3"></result>
+				<result name="ToneSet_US" index="3"></result>
+				<!-- ISDN Protocol Selection -->
+				<result name="ToneSet_AR"    index="4">protocol dss1</result>
+				<result name="ToneSet_AU"    index="4">protocol dss1</result>
+				<result name="ToneSet_AT420" index="4">protocol dss1</result>
+				<result name="ToneSet_AT450" index="4">protocol dss1</result>
+				<result name="ToneSet_BE"    index="4">protocol dss1</result>
+				<result name="ToneSet_BR"    index="4">protocol dss1</result>
+				<result name="ToneSet_CY"    index="4">protocol dss1</result>
+				<result name="ToneSet_CZ"    index="4">protocol dss1</result>
+				<result name="ToneSet_DK"    index="4">protocol dss1</result>
+				<result name="ToneSet_FI"    index="4">protocol dss1</result>
+				<result name="ToneSet_FR"    index="4">protocol dss1</result>
+				<result name="ToneSet_DE"    index="4">protocol dss1</result>
+				<result name="ToneSet_GR"    index="4">protocol dss1</result>
+				<result name="ToneSet_NL"    index="4">protocol dss1</result>
+				<result name="ToneSet_IN"    index="4">protocol dss1</result>
+				<result name="ToneSet_IE"    index="4">protocol dss1</result>
+				<result name="ToneSet_IT"    index="4">protocol dss1</result>
+				<result name="ToneSet_JP"    index="4">protocol ntt</result>
+				<result name="ToneSet_MX"    index="4">protocol dss1</result>
+				<result name="ToneSet_NZ"    index="4">protocol dss1</result>
+				<result name="ToneSet_NO"    index="4">protocol dss1</result>
+				<result name="ToneSet_PL"    index="4">protocol dss1</result>
+				<result name="ToneSet_PT"    index="4">protocol dss1</result>
+				<result name="ToneSet_RU"    index="4">protocol dss1</result>
+				<result name="ToneSet_ZA"    index="4">protocol dss1</result>
+				<result name="ToneSet_ES"    index="4">protocol dss1</result>
+				<result name="ToneSet_SE"    index="4">protocol dss1</result>
+				<result name="ToneSet_CH"    index="4">protocol dss1</result>
+				<result name="ToneSet_TR"    index="4">protocol dss1</result>
+				<result name="ToneSet_UK"    index="4">protocol dss1</result>
+				<result name="ToneSet_US"    index="4">protocol ni2</result>
+				<!-- Law select -->
+				<result name="ToneSet_AR"    index="5">aLaw</result>
+				<result name="ToneSet_AU"    index="5">aLaw</result>
+				<result name="ToneSet_AT420" index="5">aLaw</result>
+				<result name="ToneSet_AT450" index="5">aLaw</result>
+				<result name="ToneSet_BE"    index="5">aLaw</result>
+				<result name="ToneSet_BR"    index="5">aLaw</result>
+				<result name="ToneSet_CY"    index="5">aLaw</result>
+				<result name="ToneSet_CZ"    index="5">aLaw</result>
+				<result name="ToneSet_DK"    index="5">aLaw</result>
+				<result name="ToneSet_FI"    index="5">aLaw</result>
+				<result name="ToneSet_FR"    index="5">aLaw</result>
+				<result name="ToneSet_DE"    index="5">aLaw</result>
+				<result name="ToneSet_GR"    index="5">aLaw</result>
+				<result name="ToneSet_NL"    index="5">aLaw</result>
+				<result name="ToneSet_IN"    index="5">aLaw</result>
+				<result name="ToneSet_IE"    index="5">aLaw</result>
+				<result name="ToneSet_IT"    index="5">aLaw</result>
+				<result name="ToneSet_MX"    index="5">aLaw</result>
+				<result name="ToneSet_JP"    index="5">uLaw</result>
+				<result name="ToneSet_NZ"    index="5">aLaw</result>
+				<result name="ToneSet_NO"    index="5">aLaw</result>
+				<result name="ToneSet_PL"    index="5">aLaw</result>
+				<result name="ToneSet_PT"    index="5">aLaw</result>
+				<result name="ToneSet_RU"    index="5">aLaw</result>
+				<result name="ToneSet_ZA"    index="5">aLaw</result>
+				<result name="ToneSet_ES"    index="5">aLaw</result>
+				<result name="ToneSet_SE"    index="5">aLaw</result>
+				<result name="ToneSet_CH"    index="5">aLaw</result>
+				<result name="ToneSet_TR"    index="5">aLaw</result>
+				<result name="ToneSet_UK"    index="5">aLaw</result>
+				<result name="ToneSet_US"    index="5">aLaw</result>
+			</variable>
+			<variable name="%%pri_q931_protocol%%">
+				<title>PRI Q931 Protocol</title>
+				<info>Select whether the signalling protocol used by your ISDN line provider is "NI2", "DMS-100", or "DSS1"</info>
+				<option name="Signalling Protocol">
+					<value name="NI2 (Commonly known as National ISDN)">q931_ni2</value>
+					<value name="DSS1 (Commonly kown as EURO ISDN)">q931_dss1</value>
+					<value name="DMS-100 (Digital Multiplex System 100)">q931_dms100</value>
+				</option>
+				<result name="q931_ni2">protocol ni2</result>
+				<result name="q931_dms100">protocol dms-100</result>
+				<result name="q931_dss1">protocol dss1</result>
+			</variable>
+			<variable name="%%overlap_dialing%%">
+				<title>Overlap dialing</title>
+				<info>Select whether to allow the ISDN protocol to deliver incoming calls with the overlap dialing procedure. This is most likely to be true in Germany and Austria. Enabling overlap dialing works in all cases and installations, but may delay incoming calls by 2 seconds. Disabling overlap dialing may prohibit the last few digits of the called party number to be recognized on incoming calls, especially in Germany and Austria.</info>
+				<option name="Overlap dialing enabled">
+					<value name="Yes (Preferred)">overlap_yes</value>
+					<value name="No">overlap_no</value>
+				</option>
+				<result name="overlap_yes">T2</result>
+				<result name="overlap_no">default</result>
+			</variable>
+			<variable name="%%port_number%%">
+				<title>Ports</title>
+				<info>Define the amount of ISDN ports your Patton device has</info>
+				<option name="Ports:">
+					<value name="1">port_number_1</value>
+					<value name="2">port_number_2</value>
+					<value name="3">port_number_3</value>
+					<value name="4">port_number_4</value>
+				</option>
+				<result name="port_number_1">
+		
+		 interface isdn IF_ISDN_00
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name
+		</result>
+				<result name="port_number_2">
+		
+		 interface isdn IF_ISDN_00
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+			
+		interface isdn IF_ISDN_01
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+			
+		</result>
+				<result name="port_number_3">
+		
+		 interface isdn IF_ISDN_00
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+			
+		interface isdn IF_ISDN_01
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+			
+		interface isdn IF_ISDN_02
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+		
+		</result>
+				<result name="port_number_4">
+		
+		 interface isdn IF_ISDN_00
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+			
+		interface isdn IF_ISDN_01
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+			
+		interface isdn IF_ISDN_02
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+			
+		interface isdn IF_ISDN_03
+			route call dest-table RT_ISDN_TO_SIP
+			call-reroute emit
+			diversion emit
+			user-side-ringback-tone
+			call-hold disable
+			caller-name	
+			
+		</result>
+				<result name="port_number_1" index="2">
+	
+		route call 1 dest-interface IF_ISDN_00
+			
+		</result>
+				<result name="port_number_2" index="2">
+	
+		route call 1 dest-interface IF_ISDN_00
+		route call 2 dest-interface IF_ISDN_01	
+			
+		</result>
+				<result name="port_number_3" index="2">
+	
+		route call 1 dest-interface IF_ISDN_00
+		route call 2 dest-interface IF_ISDN_01	
+		route call 3 dest-interface IF_ISDN_02	
+		
+		</result>
+				<result name="port_number_4" index="2">
+	
+		route call 1 dest-interface IF_ISDN_00
+		route call 2 dest-interface IF_ISDN_01	
+		route call 3 dest-interface IF_ISDN_02	
+		route call 4 dest-interface IF_ISDN_03
+		
+		</result>
+				<result name="port_number_1" index="3">
+	   
+	   port e1t1 0 1
+		shutdown
+	   port e1t1 0 2
+		shutdown
+	   port e1t1 0 3
+		shutdown		
+		
+		</result>
+				<result name="port_number_2" index="3">
+	
+        port e1t1 0 2
+		shutdown
+	   port e1t1 0 3
+		shutdown
+			
+		</result>
+				<result name="port_number_3" index="3">
+	
+		 
+	    port e1t1 0 3
+		shutdown
+		
+		</result>
+				<result name="port_number_4" index="3"></result>
+<result name="port_number_1" index="4">
+  clock-source 1 e1t1 0 0
+			
+		</result>
+				<result name="port_number_2" index="4">
+	
+  clock-source 1 e1t1 0 0
+  clock-source 2 e1t1 0 1
+	
+			
+		</result>
+				<result name="port_number_3" index="4">
+  clock-source 1 e1t1 0 0
+  clock-source 2 e1t1 0 1
+  clock-source 3 e1t1 0 2
+
+		
+		</result>
+				<result name="port_number_4" index="4">
+	
+  clock-source 1 e1t1 0 0
+  clock-source 2 e1t1 0 1
+  clock-source 3 e1t1 0 2
+  clock-source 4 e1t1 0 3
+		</result>		
+			</variable>
+			<variable name="%%hunt_mode%%">
+				<title>Hunting Mode</title>
+				<info>Select whether the hunting of the ports should be Normal (Always starts from the first interface) or Cyclic (Round-Robin)</info>
+				<option name="Mode">
+					<value name="Normal">hunt_normal</value>
+					<value name="Cyclic">hunt_cyclic</value>
+				</option>
+				<result name="hunt_normal"></result>
+				<result name="hunt_cyclic">
+		cyclic
+        </result>
+			</variable>
+			<variable name="%%default_router%%">
+				<title>Default IP Route</title>
+				<info>Please specify the Default Route IP Address for the device</info>
+				<option name="Default Route" type="textbox"></option>
+			</variable>
+			<variable name="%%dns_server%%">
+				<title>DNS Server IP Address</title>
+				<info>Please specify the DNS Server IP Address for the device</info>
+				<option name="DNS Server" type="textbox"></option>
+			</variable>
+						<variable name="%%cloud_connect%%">
+				<title>Patton Cloud Connect - Organization Key</title>
+				<info>To connect your SmartNode to the Patton Cloud, enter in your Organization Key.</info>
+				<option name="Cloud Connect Organization Key" type="textbox" defaultvalue=""></option>
+			</variable>	
+			<!-- Friendly Name -->
+			<field name="Name">Patton 1 to 4 Port ISDN T1</field>
+			<!-- Hostnames and Port Numbers -->
+			<field name="RegistrarHost"></field>
+			<field name="RegistrarPort">5060</field>
+			<field name="NumberOfLines" status="readonly">1</field>
+			<field name="TypeOfLines" status="readonly">T1</field>
+			<field name="SimCallsPerPort" status="readonly">24</field>
+			<!-- Registration Settings -->
+			<field name="RequireAuthFor" status="readonly">4</field>
+			<field name="UseContactField" status="readonly">0</field>
+			<!-- Gateway Capabilities -->
+			<field name="IsSupportReinvite" status="readonly">1</field>
+			<field name="IsSupportReplaces" status="readonly">1</field>
+			<!-- Location of Destination Number -->
+			<field name="DestNumberIn_TO" status="readonly">1</field>
+			<field name="DestNumberIn_REQLINEURI" status="readonly">1</field>
+			<field name="DestNumberIn_RPID_CALLED" status="readonly">0</field>
+			<!-- Other Options -->
+			<field name="IsInternal" status="readonly">1</field>
+			<field name="IsBindToMS" status="readonly">0</field>
+			<field name="UseIPInContactSrc" status="readonly">0</field>
+			<field name="UseIPInContactSrcValue" status="readonly"></field>
+			<field name="CallerIDIn" status="readonly">1</field>
+			<field name="CalledNumberIn" status="readonly">2</field>
+			<!--Source Identification - Use Default PBX Internal Source Identification-->
+			<!--<field status="readonly" name="MatchStrategy">1</field>-->
+			<!--<field status="readonly" name="Source" parameter="" custom=""></field>-->
+			<!--<field status="readonly" name="Source" parameter="" custom=""></field>-->
+			<!--<field status="readonly" name="Source" parameter="" custom=""></field>-->
+			<!-- Gateway / Provider Inbound Parameters -->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="RequestLineURIUser"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="RequestLineURIHost"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="ContactUser"></field>-->
+			<field status="readonly" name="ParameterIn" custom="" parameter="ContactHost">$DevHostPort</field>
+			<field status="readonly" name="ParameterIn" custom="" parameter="ToDisplayName">$CalledName</field>
+			<field status="readonly" name="ParameterIn" custom="" parameter="ToUserPart">$CalledNum</field>
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="ToHostPart"></field>-->
+			<field status="readonly" name="ParameterIn" custom="" parameter="FromDisplayName">$CallerName</field>
+			<field status="readonly" name="ParameterIn" custom="" parameter="FromUserPart">$CallerNum</field>
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="FromHostPart"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="UserAgentTextString"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyDisplayName"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyUserPart"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="RemotePartyIDCalledPartyHostPart"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyDisplayName"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyUserPart"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="RemotePartyIDCallingPartyHostPart"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="ProxyAuthID"></field>-->
+			<!--<field status="readonly" name="ParameterIn" custom="" parameter="ProxyAuthRealm"></field>-->
+			<!-- Gateway / Provider Outbound Parameters -->
+			<field status="readonly" name="ParameterOut" custom="" parameter="RequestLineURIUser">$CalledNum</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="RequestLineURIHost">$DevHostPort</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="ContactUser">$AuthID</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="ContactHost">$ContactURI</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="ToDisplayName">$CalledName</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="ToUserPart">$CalledNum</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="ToHostPart">$DevHostPort</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="FromDisplayName">$CallerName</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="FromUserPart">$OutboundCallerId</field>
+			<field status="readonly" name="ParameterOut" custom="" parameter="FromHostPart">$ContactURI</field>
+			<!--<field status="readonly" name="ParameterOut" custom="" parameter="UserAgentTextString"></field>-->
+			<!--<field status="readonly" name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyDisplayName"></field>-->
+			<!--<field status="readonly" name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyUserPart"></field>-->
+			<!--<field status="readonly" name="ParameterOut" custom="" parameter="RemotePartyIDCalledPartyHostPart"></field>-->
+			<!--<field status="readonly" name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyDisplayName"></field>-->
+			<!--<field status="readonly" name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyUserPart"></field>-->
+			<!--<field status="readonly" name="ParameterOut" custom="" parameter="RemotePartyIDCallingPartyHostPart"></field>-->
+			<deviceconfig>
+				<![CDATA[
+#########################################################
+#
+# For Patton 1-4 port T1
+# Supported firmware versions - Trinity 3.x
+#
+# Author: Patton Support
+# Support Contact: support@patton.com
+# 
+#########################################################
+
+cli version 4.00
+system pcm law-select ulaw
+
+profile aaa DEFAULT
+  method 1 local
+  method 2 none
+
+
+console
+  use profile aaa DEFAULT
+
+telnet-server
+  use profile aaa DEFAULT
+  no shutdown
+
+ssh-server
+  use profile aaa DEFAULT
+  no shutdown
+
+snmp-server
+  shutdown
+
+web-server
+  protocol http port 80
+  protocol https port 443
+  use profile aaa DEFAULT
+  no shutdown
+
+ntp
+  server 0.patton.pool.ntp.org
+  server 1.patton.pool.ntp.org
+  server 2.patton.pool.ntp.org
+  server 3.patton.pool.ntp.org
+  no shutdown
+  
+system
+%%port_number[4]%%
+
+dns-client
+  name-server %%dns_server%%
+  name-server 8.8.8.8
+  
+profile tls DEFAULT
+  authentication incoming
+  authentication outgoing
+  private-key pki:private-key/DEFAULT
+  own-certificate 1 pki:own-certificate/DEFAULT
+  diffie-hellman-parameters pki:diffie-hellman-parameters/DEFAULT-2048
+
+profile voip DEFAULT
+  codec 1 g711ulaw64k rx-length 20 tx-length 20
+  codec 2 g711alaw64k rx-length 20 tx-length 20
+  fax transmission 1 relay t38-udp
+  fax transmission 2 bypass g711ulaw64k rx-length 20 tx-length 20
+
+profile pstn DEFAULT
+
+profile sip DEFAULT
+
+context ip ROUTER
+
+	interface WAN
+		ipaddress DHCP
+		tcp adjust-mss rx mtu
+		tcp adjust-mss tx mtu
+
+	interface LAN
+		ipaddress LAN %%gateway_ip%% %%gateway_mask%%
+		tcp adjust-mss rx mtu
+		tcp adjust-mss tx mtu
+
+  routing-table DEFAULT
+    route 0.0.0.0/0 gateway %%default_router%% 
+	
+	context cs SWITCH
+  
+  mapping-table calling-pi to calling-e164 MAP_REMOVE_BLANK_CALLERID
+    map restricted to ""
+
+  mapping-table calling-e164 to calling-e164 MAP_LEADING_ZERO
+    %%tone_set_data[2]%%
+  
+  mapping-table calling-e164 to calling-name MAP_CID_TO_CNAME
+    map (.%) to \1
+
+  complex-function MAPPING_INCOMING_CALLS
+    execute 1 MAP_REMOVE_BLANK_CALLERID
+    execute 2 MAP_LEADING_ZERO
+
+  complex-function MAPPING_INCOMING_CALLS_WITH_CNAME
+    execute 1 MAP_REMOVE_BLANK_CALLERID
+    execute 2 MAP_LEADING_ZERO
+	execute 3 MAP_CID_TO_CNAME
+	
+  mapping-table calling-e164 to calling-e164 SET_CNPN
+    map 0(.%) to \1
+
+  mapping-table calling-type-of-number to calling-type-of-number TYPE
+    map default to national
+
+  mapping-table calling-numbering-plan to calling-numbering-plan PLAN
+    map default to isdn-telephony
+
+  complex-function OUTBOUND
+    execute 1 PLAN
+    execute 2 SET_CNPN
+    execute 3 TYPE
+	
+  routing-table calling-name SET_CNAME
+    route ^$ dest-interface IF_SIP_3CX MAPPING_INCOMING_CALLS_WITH_CNAME
+	route default dest-interface IF_SIP_3CX MAPPING_INCOMING_CALLS
+  
+  routing-table called-e164 RT_ISDN_TO_SIP
+    route T2 dest-table SET_CNAME
+    
+  routing-table called-e164 RT_SIP_TO_ISDN
+    route default dest-service HG_TO_ISDN OUTBOUND
+	
+service hunt-group HG_TO_ISDN
+    %%hunt_mode%%
+    drop-cause normal-unspecified
+    drop-cause no-circuit-channel-available
+    drop-cause network-out-of-order
+    drop-cause temporary-failure
+    drop-cause switching-equipment-congestion
+    drop-cause access-info-discarded
+    drop-cause circuit-channel-not-available
+    drop-cause resources-unavailable
+    %%port_number[2]%%
+	%%port_number%%
+    
+
+
+  interface sip IF_SIP_3CX
+    bind context sip-gateway GW_SIP_3CX
+    early-disconnect
+    route call dest-table RT_SIP_TO_ISDN
+    remote %%param::defaultlocalip%% %%param::sipport%%
+    call-reroute accept
+   	trust remote
+    address-translation outgoing-call request-uri user-part fix %%line_int_num_0%% host-part to-header target-param none
+    address-translation incoming-call called-e164 request-uri
+
+
+
+context cs SWITCH
+  no shutdown
+
+authentication-service AUTH_SVC_3CX
+  realm 1 3CXPhoneSystem
+  username %%line_auth_id_0%% password %%line_auth_pw_0%%
+
+
+location-service LOC_SVC_3CX_%%line_int_num_0%%
+  domain 1 %%param::defaultlocalip%%
+  match-any-domain
+  
+  identity-group DEFAULT
+    authentication outbound
+      authenticate 1 authentication-service AUTH_SVC_3CX username %%line_auth_id_0%%
+  
+  identity %%line_int_num_0%% inherits DEFAULT
+    authentication outbound
+      authenticate 1 authentication-service AUTH_SVC_3CX username %%line_auth_id_0%%
+
+    registration outbound
+      registrar %%param::defaultlocalip%% %%param::sipport%%
+      lifetime 60
+      register auto
+
+
+context sip-gateway GW_SIP_3CX
+	bind location-service LOC_SVC_3CX_%%line_int_num_0%%
+		
+		interface IF_GW_SIP_3CX
+			transport-protocol udp+tcp 5060
+			no transport-protocol tls
+			bind ipaddress ROUTER LAN LAN
+
+context sip-gateway GW_SIP_3CX
+  no shutdown
+
+nodems-client
+  server https://nodems.patton.io:443
+  organization-key %%cloud_connect%%
+  resource any
+  no shutdown
+  
+port ethernet 0 0
+  bind interface ROUTER LAN
+  no shutdown
+  
+port ethernet 0 1
+  bind interface ROUTER WAN
+  no shutdown
+
+%%port_number[3]%%
+
+port e1t1 0 3
+  port-type t1
+  clock auto
+  linecode b8zs
+  framing esf
+  encapsulation q921
+
+  q921
+    uni-side auto
+    encapsulation q931
+
+    q931
+      %%pri_q931_protocol%%
+      uni-side user
+      bchan-number-order ascending
+      encapsulation cc-isdn
+      bind interface SWITCH IF_ISDN_03 
+
+port e1t1 0 3
+  no shutdown
+
+port e1t1 0 2
+  port-type t1
+  clock auto
+  linecode b8zs
+  framing esf
+  encapsulation q921
+
+  q921
+    uni-side auto
+    encapsulation q931
+
+    q931
+      %%pri_q931_protocol%%
+      uni-side user
+      bchan-number-order ascending
+      encapsulation cc-isdn
+      bind interface SWITCH IF_ISDN_02 
+
+port e1t1 0 2
+  no shutdown
+
+port e1t1 0 1
+  port-type t1
+  clock auto
+  linecode b8zs
+  framing esf
+  encapsulation q921
+
+  q921
+    uni-side auto
+    encapsulation q931
+
+    q931
+      %%pri_q931_protocol%%
+      uni-side user
+      bchan-number-order ascending
+      encapsulation cc-isdn
+      bind interface SWITCH IF_ISDN_01 
+
+port e1t1 0 1
+  no shutdown
+
+port e1t1 0 0
+  port-type t1
+  clock auto
+  linecode b8zs
+  framing esf
+  encapsulation q921
+
+  q921
+    uni-side auto
+    encapsulation q931
+
+    q931
+      %%pri_q931_protocol%%
+      uni-side user
+      bchan-number-order ascending
+      encapsulation cc-isdn
+      bind interface SWITCH IF_ISDN_00 
+
+port e1t1 0 0
+  no shutdown
+  
+
+
+
+]]>
+			</deviceconfig>
+		</device>
+	</data>
+</doc>

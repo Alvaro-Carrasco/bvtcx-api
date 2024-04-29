@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+<header>
+    <type>messaging-template</type>
+    <version>145775</version>
+    <time>2022-06-06 15:00:00</time>
+    <name>Facebook</name>
+    <url>https://www.3cx.com/docs/manual/facebook/</url>
+    <image>facebook.png</image>
+    <description>Worldwide</description>
+    <templatetype>preferred</templatetype>
+</header>
+<data>
+   <sms>
+     <variable name="PAGE_ACCESS_TOKEN">
+        <title>ACCESS_TOKEN</title>
+        <option name="Access Token" required="true" maxlength="1024" secure="true" type="textbox"></option>
+     </variable>
+     <field name="ProviderName" status="readonly">Facebook</field>
+     <field name="OptionalProvider" status="readonly">0</field>
+     <field name="ProviderType" status="readonly">facebook</field>
+     <field name="OutboundRouting" status="readonly">0</field>
+     <field name="HasWebhook" status="readonly">1</field>
+   </sms>
+</data>
+</doc>

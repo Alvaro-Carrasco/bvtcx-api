@@ -1,0 +1,576 @@
+<?xml version="1.0"?>
+<Crm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Country="US" Name="Vtiger" SupportsEmojis="true" Version="18">
+  <Number Prefix="AsIs" MaxLength="[MaxLength]" />
+  <Connection MaxConcurrentRequests="16" />
+  <Parameters>
+    <Parameter Parent="General Configuration" Name="URL" Type="String" Title="URL:" Default="" />
+    <Parameter Parent="General Configuration" Name="Username" Type="String" Title="Username:" Default="" />
+    <Parameter Parent="General Configuration" Name="AccessKey" Type="String" Title="Access Key:" Default="" />
+    <Parameter Parent="General Configuration" Name="LookupOrder" Type="List" ListValues="Contacts/Leads/Organizations,Contacts/Organizations/Leads,Leads/Organizations/Contacts,Leads/Contacts/Organizations,Organizations/Contacts/Leads,Organizations/Leads/Contacts" Title="Contact Lookup Order:" Default="Contacts/Leads/Organizations" />
+    <Parameter Parent="General Configuration" Name="LeadLookupEnabled" Type="Boolean" Title="Enable Lookup on Leads" Default="False"/>
+    <Parameter Name="ReportCallEnabled" Type="Boolean" Title="Enable Call Journaling" Default="False"/>
+    <Parameter Parent="ReportCallEnabled" Name="Subject" Type="String" Title="Subject:" Default="3CX PhoneSystem Call" />
+    <Parameter Parent="ReportCallEnabled" Name="InboundCallText" Type="String" Title="Answered Inbound Call:" Default="[DateTime]: Answered incoming call from [Number] [Name] to [Agent] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="MissedCallText" Type="String" Title="Missed Call:" Default="[DateTime]: Missed call from [Number] [Name] to [Agent]" />
+    <Parameter Parent="ReportCallEnabled" Name="OutboundCallText" Type="String" Title="Answered Outbound Call:" Default="[DateTime]: Answered outgoing call from [Agent] to [Number] [Name] ([Duration])" />
+    <Parameter Parent="ReportCallEnabled" Name="NotAnsweredOutboundCallText" Type="String" Title="Unanswered Outbound Call:" Default="[DateTime]: Unanswered outgoing call from [Agent] to [Number] [Name]" />
+    <Parameter Name="ReportChatEnabled" Type="Boolean" Title="Enable Chat Journaling" Default="False"/>
+    <Parameter Parent="ReportChatEnabled" Name="ChatSubject" Type="String" Title="Subject:" Default="3CX PhoneSystem Chat Session" />
+    <Parameter Name="CreateContactEnabled" Type="Boolean" Title="Allow contact creation directly to your CRM using 3CX Web Client" Default="False" />
+    <Parameter Parent="CreateContactEnabled" Name="CreateLeadOrContact" Type="List" ListValues="Lead,Contact" Title="Create Lead or Contact:" Default="Contact" />
+  </Parameters>
+    <Authentication Type="Basic">
+        <Value>[Username]:[AccessKey]</Value>
+    </Authentication>
+  <Scenarios>
+    <Scenario EntityId="Contacts" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+               Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20phone,%20mobile,%20homephone,%20otherphone,%20fax,%20firstname%20,lastname%20,email%20FROM%20Contacts%20WHERE%20phone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20mobile%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20homephone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20otherphone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20fax%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">result.id</Variable>
+        <Variable Name="FirstName">result.firstname</Variable>
+        <Variable Name="LastName">result.lastname</Variable>
+        <Variable Name="Email">result.email</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneMobile">result.mobile</Variable>
+        <Variable Name="PhoneHome">result.homephone</Variable>
+        <Variable Name="PhoneOther">result.otherphone</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Contacts&amp;id=[Split([ContactID],x,1)]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+    <Scenario EntityId="Leads" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0||[LeadLookupEnabled]!=True,True,False)]"
+               Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20company,%20phone,%20mobile,%20fax,%20firstname%20,lastname%20,email%20FROM%20Leads%20WHERE%20phone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20mobile%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20fax%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="LeadID">result.id</Variable>
+        <Variable Name="FirstName">result.firstname</Variable>
+        <Variable Name="LastName">result.lastname</Variable>
+        <Variable Name="CompanyName">result.company</Variable>
+        <Variable Name="Email">result.email</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneMobile">result.mobile</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Leads&amp;id=[Split([LeadID],x,1)]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[LeadID]" />
+        <Output Type="EntityType" Value="Leads" />
+      </Outputs>
+    </Scenario>
+    <Scenario EntityId="Organizations" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+               Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20phone,%20otherphone,%20fax,%20accountname,%20email1,%20email2,%20fax%20FROM%20Accounts%20WHERE%20phone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20otherphone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20fax%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AccountID">result.id</Variable>
+        <Variable Name="CompanyName">result.accountname</Variable>
+        <Variable Name="Email1">result.email1</Variable>
+        <Variable Name="Email2">result.email2</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneOther">result.otherphone</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Accounts&amp;id=[Split([AccountID],x,1)]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[IIf([Email1]!=&quot;&quot;,[Email1],[Email2])]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[AccountID]" />
+        <Output Type="EntityType" Value="Organizations" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Contacts" EntityId="Contacts" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+               Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20phone,%20mobile,%20homephone,%20otherphone,%20fax,%20firstname%20,lastname%20,email%20FROM%20Contacts%20WHERE%20email%20=%20'[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">result.id</Variable>
+        <Variable Name="FirstName">result.firstname</Variable>
+        <Variable Name="LastName">result.lastname</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneMobile">result.mobile</Variable>
+        <Variable Name="PhoneHome">result.homephone</Variable>
+        <Variable Name="PhoneOther">result.otherphone</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Contacts&amp;id=[Split([ContactID],x,1)]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Leads" EntityId="Leads" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0||[LeadLookupEnabled]!=True,True,False)]"
+               Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20company,%20phone,%20mobile,%20fax,%20firstname%20,lastname%20,email%20FROM%20Leads%20WHERE%20email%20=%20'[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="LeadID">result.id</Variable>
+        <Variable Name="FirstName">result.firstname</Variable>
+        <Variable Name="LastName">result.lastname</Variable>
+        <Variable Name="CompanyName">result.company</Variable>
+        <Variable Name="Email">result.email</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneMobile">result.mobile</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Leads&amp;id=[Split([LeadID],x,1)]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[LeadID]" />
+        <Output Type="EntityType" Value="Leads" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupByEmail_Organizations" EntityId="Organizations" EntityOrder="[LookupOrder]">
+      <Request SkipIf="[IIf([FoundRecordCount]&gt;0,True,False)]"
+               Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20phone,%20otherphone,%20fax,%20accountname,%20email1,%20email2,%20fax%20FROM%20Accounts%20WHERE%20email1%20=%20'[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20email2%20=%20'[[Email].Replace(&quot;+&quot;,&quot;%2B&quot;)]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AccountID">result.id</Variable>
+        <Variable Name="CompanyName">result.accountname</Variable>
+        <Variable Name="Email1">result.email1</Variable>
+        <Variable Name="Email2">result.email2</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneOther">result.otherphone</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Accounts&amp;id=[Split([AccountID],x,1)]" />
+        <Output Type="CompanyName" Value="[CompanyName]" />
+        <Output Type="Email" Value="[IIf([Email1]!=&quot;&quot;,[Email1],[Email2])]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[AccountID]" />
+        <Output Type="EntityType" Value="Organizations" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_PhoneEmailFirstLastName">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20phone,%20mobile,%20homephone,%20otherphone,%20fax,%20firstname%20,lastname%20,email%20FROM%20Contacts%20WHERE%20phone%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20OR%20mobile%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20OR%20homephone%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20OR%20otherphone%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20OR%20fax%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20OR%20firstname%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20OR%20lastname%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20OR%20email%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20limit%200,[MaxCount];"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">result.id</Variable>
+        <Variable Name="FirstName">result.firstname</Variable>
+        <Variable Name="LastName">result.lastname</Variable>
+        <Variable Name="Email">result.email</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneMobile">result.mobile</Variable>
+        <Variable Name="PhoneHome">result.homephone</Variable>
+        <Variable Name="PhoneOther">result.otherphone</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Contacts&amp;id=[Split([ContactID],x,1)]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="SearchContacts_CompanyName">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20accountname%20FROM%20Accounts%20WHERE%20accountname%20like%20'%25[[SearchText].Replace(&quot;+&quot;,&quot;%2B&quot;)]%25'%20limit%200,[MaxCount];"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AccountId">result.id</Variable>
+        <Variable Name="AccountName">result.accountname</Variable>
+      </Variables>
+      <Outputs Next="GetContactsForAccount" AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="GetContactsForAccount">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20phone,%20mobile,%20homephone,%20otherphone,%20fax,%20firstname%20,lastname%20,email%20FROM%20Contacts%20WHERE%20account_id%20=%20'[AccountId]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">result.id</Variable>
+        <Variable Name="FirstName">result.firstname</Variable>
+        <Variable Name="LastName">result.lastname</Variable>
+        <Variable Name="Email">result.email</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneMobile">result.mobile</Variable>
+        <Variable Name="PhoneHome">result.homephone</Variable>
+        <Variable Name="PhoneOther">result.otherphone</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Contacts&amp;id=[Split([ContactID],x,1)]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="CompanyName" Value="[AccountName]"/>
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="GetAllContacts">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id,%20phone,%20mobile,%20homephone,%20otherphone,%20fax,%20firstname%20,lastname%20,email%20FROM%20Contacts%20limit%20[[Page]*[PageSize]],[PageSize];"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="ContactID">result.id</Variable>
+        <Variable Name="FirstName">result.firstname</Variable>
+        <Variable Name="LastName">result.lastname</Variable>
+        <Variable Name="Email">result.email</Variable>
+        <Variable Name="PhoneBusiness">result.phone</Variable>
+        <Variable Name="PhoneMobile">result.mobile</Variable>
+        <Variable Name="PhoneHome">result.homephone</Variable>
+        <Variable Name="PhoneOther">result.otherphone</Variable>
+        <Variable Name="FaxBusiness">result.fax</Variable>
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=Contacts&amp;id=[Split([ContactID],x,1)]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="PhoneBusiness" Value="[PhoneBusiness]" />
+        <Output Type="PhoneMobile" Value="[PhoneMobile]" />
+        <Output Type="PhoneHome" Value="[PhoneHome]" />
+        <Output Type="PhoneOther" Value="[PhoneOther]" />
+        <Output Type="FaxBusiness" Value="[FaxBusiness]" />
+        <Output Type="EntityId" Value="[ContactID]" />
+        <Output Type="EntityType" Value="Contacts" />
+      </Outputs>
+    </Scenario>
+
+    <Scenario Id="ReportCall">
+      <Request SkipIf="[IIf([ReportCallEnabled]!=True||[EntityId]==&quot;&quot;,True,[IIf([AgentEmail]==&quot;&quot;,True,False)])]" 
+      				 Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id%20FROM%20Users%20WHERE%20user_name='[AgentEmail]'%20OR%20email1='[AgentEmail]'%20OR%20email2='[AgentEmail]';"
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AssignedUserId" Path="result.id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="GetAssignedUserIdForCall" />
+    </Scenario>
+    <Scenario Id="GetAssignedUserIdForCall">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id%20FROM%20Users%20WHERE%20user_name='[Username]';" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AssignedUserIdForUserName" Path="result.id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateCallActivity" />
+    </Scenario>
+    <Scenario Id="CreateCallActivity">
+      <Request SkipIf="[ReportCallEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[URL]/restapi/v1/vtiger/default/create" 
+      				 RequestType="Post" RequestEncoding="Json" ResponseType="Json">
+        <PostValues>
+          <Value Key="elementType" Type="String">Events</Value>
+          <Object Key="element">
+            <Value Passes="2" Key="subject" Type="String">[[Subject]]</Value>
+            <Value Passes="2" Key="label" Type="String">[[Subject]]</Value>
+            <Value Key="assigned_user_id" Type="String">[IIf([AssignedUserId]==&quot;&quot;,[AssignedUserIdForUserName],[AssignedUserId])]</Value>
+            <Value Key="date_start" Type="String">[[CallStartTimeUTC].ToString("yyyy-MM-dd")]</Value>
+            <Value Key="time_start" Type="String">[[CallStartTimeUTC].ToString("HH:mm:ss")]</Value>
+            <Value Key="due_date" Type="String">[[CallEndTimeUTC].ToString("yyyy-MM-dd")]</Value>
+            <Value Key="time_end" Type="String">[[CallEndTimeUTC].ToString("HH:mm:ss")]</Value>
+            <Value Key="duration_minutes" Type="String">[[[DurationTimespan].get_TotalMinutes()].ToString("F0")]</Value>
+            <Value Key="duration_hours" Type="String">[[[DurationTimespan].get_TotalHours()].ToString("F0")]</Value>
+            <Value Key="eventstatus" Type="String" If="[CallType]==Inbound||[CallType]==Outbound">Held</Value>
+            <Value Key="eventstatus" Type="String" If="[CallType]==Missed||[CallType]==Notanswered">Not Held</Value>
+            <Value Key="activitytype" Type="String">Call</Value>
+            <Value Key="taskpriority" Type="String">Medium</Value>
+            <Value Key="parent_id" Type="String" If="[EntityType]==Organizations">[EntityId]</Value>
+            <Value Key="contact_id" Type="String" If="[EntityType]==Contacts">[EntityId]</Value>
+            <Value Key="parent_id" Type="String" If="[EntityType]==Leads">[EntityId]</Value>
+            <Value Passes="2" Key="description" Type="String" If="[CallType]==Inbound">[[InboundCallText]]</Value>
+            <Value Passes="2" Key="description" Type="String" If="[CallType]==Missed">[[MissedCallText]]</Value>
+            <Value Passes="2" Key="description" Type="String" If="[CallType]==Outbound">[[OutboundCallText]]</Value>
+            <Value Passes="2" Key="description" Type="String" If="[CallType]==Notanswered">[[NotAnsweredOutboundCallText]]</Value>
+            <Value Key="isclosed" Type="Integer">0</Value>
+					</Object>
+        </PostValues>
+      </Request>
+      <Variables />
+      <Outputs AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="ReportChat">
+      <Request SkipIf="[IIf([ReportChatEnabled]!=True||[EntityId]==&quot;&quot;,True,[IIf([AgentEmail]==&quot;&quot;,True,False)])]" 
+      				 Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id%20FROM%20Users%20WHERE%20user_name='[AgentEmail]'%20OR%20email1='[AgentEmail]'%20OR%20email2='[AgentEmail]';"
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AssignedUserId" Path="result.id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="GetAssignedUserIdForChat" />
+    </Scenario>
+    <Scenario Id="GetAssignedUserIdForChat">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id%20FROM%20Users%20WHERE%20user_name='[Username]';" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AssignedUserIdForUserName" Path="result.id" />
+      </Variables>
+      <Outputs AllowEmpty="true" Next="CreateChatActivity" />
+    </Scenario>
+    <Scenario Id="CreateChatActivity">
+      <Request SkipIf="[ReportChatEnabled]!=True||[EntityId]==&quot;&quot;" 
+      				 Url="[URL]/restapi/v1/vtiger/default/create" RequestType="Post" RequestEncoding="Json" ResponseType="Json">
+        <PostValues>
+          <Value Key="elementType" Type="String">Events</Value>
+          <Object Key="element">
+            <Value Passes="2" Key="subject" Type="String">[[ChatSubject]]</Value>
+            <Value Passes="2" Key="label" Type="String">[[ChatSubject]]</Value>
+            <Value Key="assigned_user_id" Type="String">[IIf([AssignedUserId]==&quot;&quot;,[AssignedUserIdForUserName],[AssignedUserId])]</Value>
+            <Value Key="date_start" Type="String">[[ChatStartTimeUTC].ToString("yyyy-MM-dd")]</Value>
+            <Value Key="time_start" Type="String">[[ChatStartTimeUTC].ToString("HH:mm:ss")]</Value>
+            <Value Key="due_date" Type="String">[[ChatEndTimeUTC].ToString("yyyy-MM-dd")]</Value>
+            <Value Key="time_end" Type="String">[[ChatEndTimeUTC].ToString("HH:mm:ss")]</Value>
+            <Value Key="duration_minutes" Type="String">[[[DurationTimespan].get_TotalMinutes()].ToString("F0")]</Value>
+            <Value Key="duration_hours" Type="String">[[[DurationTimespan].get_TotalHours()].ToString("F0")]</Value>
+            <Value Key="eventstatus" Type="String">Held</Value>
+            <Value Key="activitytype" Type="String">Onsite meeting</Value>
+            <Value Key="taskpriority" Type="String">Medium</Value>
+            <Value Key="account_id" Type="String" If="[EntityType]==Organizations">[EntityId]</Value>
+            <Value Key="contact_id" Type="String" If="[EntityType]==Contacts">[EntityId]</Value>
+            <Value Key="parent_id" Type="String" If="[EntityType]==Leads">[EntityId]</Value>
+            <Value Key="description" Type="String">[[ChatMessages].Replace(&quot;&#xD;&quot;,&quot;&quot;).Replace(&quot;&#xA;&quot;,&quot;&lt;br/&gt;&quot;).Replace("\'","'")]</Value>
+            <Value Key="isclosed" Type="Integer">0</Value>
+					</Object>
+        </PostValues>
+      </Request>
+      <Variables />
+      <Outputs AllowEmpty="false" />
+    </Scenario>
+    <Scenario Id="CreateContactRecord">
+      <Request SkipIf="[CreateContactEnabled]!=True||[IIf([CreateOnCallDirection]==Inbound,[CallDirection]!=Inbound,False)]==True" 
+      				 Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id%20FROM%20Users%20WHERE%20user_name='[Username]';" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AssignedUserId" Path="result.id" />
+      </Variables>
+      <Outputs AllowEmpty="false" Next="CreateContact" />
+    </Scenario>
+    <Scenario Id="CreateContact">
+      <Request Url="[URL]/restapi/v1/vtiger/default/create" RequestType="Post" RequestEncoding="Json" ResponseType="Json">
+        <PostValues>
+          <Value Key="elementType" Type="String">[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]</Value>
+          <Object Key="element">
+            <Value Passes="2" Key="firstname" Type="String">[[CreateContactFirstName]]</Value>
+            <Value Passes="2" Key="lastname" Type="String">[[CreateContactLastName]]</Value>
+            <Value Key="phone" Type="String">[Number]</Value>
+            <Value Key="assigned_user_id" Type="String">[AssignedUserId]</Value>
+            <Value Key="contacttype" Type="String" If="[CreateLeadOrContact]==Contact">Customer</Value>
+					</Object>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">result</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="result.id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]&amp;id=[Split([Id],x,1)]" />
+        <Output Type="FirstName" Passes="2" Value="[[CreateContactFirstName]]" />
+        <Output Type="LastName" Passes="2" Value="[[CreateContactLastName]]" />
+        <Output Type="PhoneBusiness" Value="[Number]" />
+        <Output Type="EntityId" Value="[Id]" />
+        <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="CreateContactRecordFromClient">
+      <Request SkipIf="[CreateContactEnabled]!=True" 
+      				 Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20id%20FROM%20Users%20WHERE%20user_name='[Username]';" 
+      				 RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any" Ethalon="">result.id</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="AssignedUserId" Path="result.id" />
+      </Variables>
+      <Outputs AllowEmpty="false" Next="CreateContactFromClient" />
+    </Scenario>
+    <Scenario Id="CreateContactFromClient">
+      <Request Url="[URL]/restapi/v1/vtiger/default/create" RequestType="Post" RequestEncoding="Json" ResponseType="Json">
+        <PostValues>
+          <Value Key="elementType" Type="String">[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]</Value>
+          <Object Key="element">
+            <Value Key="firstname" Type="String">[FirstName]</Value>
+            <Value Key="lastname" Type="String">[LastName]</Value>
+            <Value Key="email" Type="String" If="[Email]!=&quot;&quot;">[Email]</Value>
+            <Value Key="mobile" Type="String" If="[Number]!=&quot;&quot;">[Number]</Value>
+            <Value Key="assigned_user_id" Type="String">[AssignedUserId]</Value>
+            <Value Key="contacttype" Type="String" If="[CreateLeadOrContact]==Contact">Customer</Value>
+					</Object>
+        </PostValues>
+      </Request>
+      <Rules>
+        <Rule Type="Any">result</Rule>
+      </Rules>
+      <Variables>
+        <Variable Name="Id" Path="result.id" />
+      </Variables>
+      <Outputs AllowEmpty="false">
+        <Output Type="ContactUrl" Value="[URL]/view/detail?module=[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]&amp;id=[Split([Id],x,1)]" />
+        <Output Type="FirstName" Value="[FirstName]" />
+        <Output Type="LastName" Value="[LastName]" />
+        <Output Type="PhoneMobile" Value="[Number]" />
+        <Output Type="Email" Value="[Email]" />
+        <Output Type="EntityId" Value="[Id]" />
+        <Output Type="EntityType" Value="[IIf([CreateLeadOrContact]==Lead,Leads,Contacts)]" />
+      </Outputs>
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupNumber">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20*%20FROM%20Contacts%20WHERE%20phone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20mobile%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20homephone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20otherphone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20fax%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupID">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20*%20FROM%20Contacts%20WHERE%20id=[EntityID];"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Contacts_LookupFreeQuery">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=[Query]"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupNumber">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20*%20FROM%20Leads%20WHERE%20phone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20mobile%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20fax%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]';"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupID">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20*%20FROM%20Leads%20WHERE%20id=[EntityID];"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Leads_LookupFreeQuery">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=[Query]"
+               RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupNumber">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20*%20FROM%20Accounts%20WHERE%20phone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20otherphone%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]'%20OR%20fax%20like%20'%25[[Number].Replace(&quot;+&quot;,&quot;%2B&quot;)]';" 
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupID">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=SELECT%20*%20FROM%20Accounts%20WHERE%20id=[EntityID];" 
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+    <Scenario Id="LookupFromCFD_Accounts_LookupFreeQuery">
+      <Request Url="[URL]/restapi/v1/vtiger/default/query?query=[Query]" 
+      	       RequestType="Get" ResponseType="Json" />
+      <Rules>
+        <Rule Type="Any">result.id</Rule>
+      </Rules>
+      <Outputs AllowEmpty="true" />
+    </Scenario>
+  </Scenarios>
+</Crm>

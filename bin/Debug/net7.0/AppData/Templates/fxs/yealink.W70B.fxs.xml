@@ -1,0 +1,2129 @@
+<?xml version="1.0"?>
+<doc xmlns:tcx="http://www.3cx.com">
+  <header>
+    <type>fxs-template</type>
+    <version>145775</version>
+    <time>2022-02-10 10:00:00</time>
+    <name>Yealink W70B DECT Phone</name>
+    <url>https://www.3cx.com/sip-phones/yealink-dect-w80p/</url>
+	<templatetype>supported</templatetype>
+    <models>
+	  <model ua="SIP-W70B" regex="^Yealink\s+W70B\s+(?'fwver'.*)\s+(?'mac'.*)$">Yealink W70B</model>
+    </models>
+    <description>Yealink W70B DECT Phone</description>
+    <rebootParams>
+      <event-name>check-sync;reboot=true</event-name>
+    </rebootParams>
+	<resyncParams>
+		<event-name>check-sync;reboot=true</event-name>
+	</resyncParams>	
+	<firmwareParams>
+		<event-name>check-sync;reboot=true</event-name>
+	</firmwareParams>
+	<AllowedNetworkConfig>
+        <option value="LOCALLAN">1</option>
+		<option value="SBC">1</option>
+		<option value="REMOTESTUN">1</option>
+	</AllowedNetworkConfig>
+	<AllowWebPasswordChange>1</AllowWebPasswordChange>
+	<AllowSSLProvisioning>1</AllowSSLProvisioning>
+	<interfaceLink>http://%%PHONE_IP%%</interfaceLink>
+	<enable_extension enable="1" disable="0"/>
+	<dst variableName ="dstEnableDisable" enable ="1" disable = "0"></dst>
+	<languages>
+	<!--The first entry is the selected entry in management console--> 
+	<option value="English">
+		<item name = "langwebUI">English</item>
+	</option>
+	<option value="French">
+		<item name = "langwebUI">French</item>
+	</option>
+	<option value="German">
+		<item name = "langwebUI">German</item>
+	</option>
+	<option value="Dutch - Requires Lydis Yealink Devices">
+        <item name="langwebUI">Dutch</item>
+    </option>
+	<option value="Italian">
+		<item name = "langwebUI">Italian</item>
+	</option>
+	<option value="Portuguese">
+		<item name = "langwebUI">Portuguese</item>
+	</option>
+	<option value="Spanish">
+		<item name = "langwebUI">Spanish</item>
+	</option>
+	<option value="Turkish">
+		<item name = "langwebUI">Turkish</item>
+	</option>	
+		<option value="Russian">
+		<item name = "langwebUI">Russian</item>
+	</option>	
+		<option value="Polish">
+		<item name = "langwebUI">Polish</item>
+	</option>	
+	</languages>
+	<timezoneParams param="time_timezone_yealink">
+      <!--The first entry is the selected entry in management console-->
+      <option value="-5" displaytext="GMT-5:00 US Eastern Time, New York" id="0" zone="-5:00">
+        <item name="TimeZoneName">United States-Eastern Time</item>
+      </option>
+      <option value="-12" displaytext="GMT-12:00 Eniwetok,Kwajalein" zone="-12:00">
+        <item name="TimeZoneName">Eniwetok,Kwajalein</item>
+      </option>
+      <option value="-11" displaytext="GMT-11:00 Midway Island" zone="-11:00">
+        <item name="TimeZoneName">Midway Island</item>
+      </option>
+      <option value="-10" displaytext="GMT-10:00 United States-Hawaii-Aleutian" id="1" zone="-10:00">
+        <item name="TimeZoneName">United States-Hawaii-Aleutian</item>
+      </option>
+      <option value="-10" displaytext="GMT-10:00 United States-Alaska-Aleutian" id="2" zone="-10:00">
+        <item name="TimeZoneName">United States-Alaska-Aleutian</item>
+      </option>
+      <option value="-9:30" displaytext="GMT-9:30 French Polynesia" id="122" zone="-9:30">
+        <item name="TimeZoneName">French Polynesia</item>
+      </option>
+      <option value="-9" displaytext="GMT-9:00 United States-Alaska Time" id="3" zone="-9:00">
+        <item name="TimeZoneName">United States-Alaska Time</item>
+      </option>
+      <option value="-8" displaytext="GMT-8:00 Canada(Vancouver,Whitehorse)" id="4" zone="-8:00">
+        <item name="TimeZoneName">Canada(Vancouver,Whitehorse)</item>
+      </option>
+      <option value="-8" displaytext="GMT-8:00 Mexico(Tijuana,Mexicali)" id="5" zone="-8:00">
+        <item name="TimeZoneName">Mexico(Tijuana,Mexicali)</item>
+      </option>
+      <option value="-8" displaytext="GMT-8:00 United States-Pacific Time" id="6" zone="-8:00">
+        <item name="TimeZoneName">United States-Pacific Time</item>
+      </option>
+      <option value="-8" displaytext="GMT-8:00 Baja California" id="10" zone="-8:00">
+        <item name="TimeZoneName">Baja California</item>
+      </option>
+      <option value="-7" displaytext="GMT-7:00 Canada(Edmonton,Calgary)" id="7" zone="-7:00">
+        <item name="TimeZoneName">Canada(Edmonton,Calgary)</item>
+      </option>
+      <option value="-7" displaytext="GMT-7:00 Mexico(Mazatlan,Chihuahua)" id="8" zone="-7:00">
+        <item name="TimeZoneName">Mexico(Mazatlan,Chihuahua)</item>
+      </option>
+      <option value="-7" displaytext="GMT-7:00 United States-Mountain Time" id="9" zone="-7:00">
+        <item name="TimeZoneName">United States-Mountain Time</item>
+      </option>
+      <option value="-7" displaytext="GMT-7:00 United States-MST no DST" id="10" zone="-7:00">
+        <item name="TimeZoneName">United States-MST no DST</item>
+      </option>
+      <option value="-7" displaytext="GMT-7:00 Chihuahua,La Paz" id="15" zone="-7:00">
+        <item name="TimeZoneName">Chihuahua,La Paz</item>
+      </option>
+      <option value="-7" displaytext="GMT-7:00 Arizona" id="16" zone="-7:00">
+        <item name="TimeZoneName">Arizona</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Canada-Manitoba(Winnipeg)" id="11" zone="-6:00">
+        <item name="TimeZoneName">Canada-Manitoba(Winnipeg)</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Chile(Easter Islands)" id="12" zone="-6:00">
+        <item name="TimeZoneName">Chile(Easter Islands)</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Mexico(Mexico City,Acapulco)" id="13" zone="-6:00">
+        <item name="TimeZoneName">Mexico(Mexico City,Acapulco)</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 United States-Central Time" id="14" zone="-6:00">
+        <item name="TimeZoneName">United States-Central Time</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Belize" zone="-6:00">
+        <item name="TimeZoneName">Belize</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Costa Rica" zone="-6:00">
+        <item name="TimeZoneName">Costa Rica</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 El Salvador" zone="-6:00">
+        <item name="TimeZoneName">El Salvador</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Guatemala" zone="-6:00">
+        <item name="TimeZoneName">Guatemala</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Honduras(Tegucigalpa)" id="124" zone="-6:00">
+        <item name="TimeZoneName">Honduras</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Nicaragua" zone="-6:00">
+        <item name="TimeZoneName">Nicaragua</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Guadalajara" zone="-6:00">
+        <item name="TimeZoneName">Guadalajara</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Monterrey" zone="-6:00">
+        <item name="TimeZoneName">Monterrey</item>
+      </option>
+      <option value="-6" displaytext="GMT-6:00 Saskatchewan" zone="-6:00">
+        <item name="TimeZoneName">Saskatchewan</item>
+      </option>
+      <option value="-5" displaytext="GMT-5:00 Quito" zone="-5:00">
+        <item name="TimeZoneName">Quito</item>
+      </option>
+      <option value="-5" displaytext="GMT-5:00 Indiana (East)" zone="-5:00">
+        <item name="TimeZoneName">Indiana (East)</item>
+      </option>
+      <option value="-5" displaytext="GMT-5:00 Bahamas(Nassau)" id="15" zone="-5:00">
+        <item name="TimeZoneName">Bahamas(Nassau)</item>
+      </option>
+      <option value="-5" displaytext="GMT-5:00 Canada(Montreal,Ottawa,Quebec)" id="16" zone="-5:00">
+        <item name="TimeZoneName">Canada(Montreal,Ottawa,Quebec)</item>
+      </option>
+      <option value="-5" displaytext="GMT-5:00 Cuba(Havana)" id="17" zone="-5:00">
+        <item name="TimeZoneName">Cuba(Havana)</item>
+      </option>
+      <option value="-5" displaytext="GMT-5:00 Colombia(Bogota), Peru(Lima), Panama(Panama City), Puerto Rico(San Juan)" id="125" zone="-5:00">
+        <item name="TimeZoneName">Peru</item>
+      </option>
+      <option value="-4:30" displaytext="GMT-4:30 Venezuela(Caracas)" id="18" zone="-4:30">
+        <item name="TimeZoneName">Venezuela(Caracas)</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 Canada(Halifax,Saint John)" id="19" zone="-4:00">
+        <item name="TimeZoneName">Canada(Halifax,Saint John)</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 Atlantic Time (Canada)" zone="-4:00">
+        <item name="TimeZoneName">Atlantic Time (Canada)</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 San Juan" zone="-4:00">
+        <item name="TimeZoneName">San Juan</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 Manaus,Cuiaba" zone="-4:00">
+        <item name="TimeZoneName">Manaus,Cuiaba</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 Georgetown" zone="-4:00">
+        <item name="TimeZoneName">Georgetown</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 Chile(Santiago)" id="20" zone="-4:00">
+        <item name="TimeZoneName">Chile(Santiago)</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 Paraguay(Asuncion)" id="21" zone="-4:00">
+        <item name="TimeZoneName">Paraguay(Asuncion)</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 United Kingdom-Bermuda(Bermuda)" id="22" zone="-4:00">
+        <item name="TimeZoneName">United Kingdom-Bermuda(Bermuda)</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 United Kingdom(Falkland Islands)" id="23" zone="-4:00">
+        <item name="TimeZoneName">United Kingdom(Falkland Islands)</item>
+      </option>
+      <option value="-4" displaytext="GMT-4 Trinidad Tobago" id="24" zone="-4:00">
+        <item name="TimeZoneName">TrinidadTobago</item>
+      </option>
+      <option value="-3:30" displaytext="GMT-3:30 Canada-New Foundland(St.Johns)" id="25" zone="-3:30">
+        <item name="TimeZoneName">Canada-New Foundland(St.Johns)</item>
+      </option>
+      <option value="-3" displaytext="GMT-3 Greenland(NUUK)" id="26" zone="-3:00">
+        <item name="TimeZoneName">Greenland(NUUK)</item>
+      </option>
+      <option value="-3" displaytext="GMT-3 Argentina(Buenos Aires)" id="27" zone="-3:00">
+        <item name="TimeZoneName">Argentina(Buenos Aires)</item>
+      </option>
+      <option value="-3" displaytext="GMT-3 Brazil(no DST)" id="28" zone="-3:00">
+        <item name="TimeZoneName">Brazil(no DST)</item>
+      </option>
+      <option value="-3" displaytext="GMT-3 Brasilia" id="28" zone="-3:00">
+        <item name="TimeZoneName">Brasilia</item>
+      </option>
+      <option value="-3" displaytext="GMT-3 Cayenne,Fortaleza" zone="-3:00">
+        <item name="TimeZoneName">Cayenne,Fortaleza</item>
+      </option>
+      <option value="-3" displaytext="GMT-3 Montevideo" zone="-3:00">
+        <item name="TimeZoneName">Montevideo</item>
+      </option>
+      <option value="-3" displaytext="GMT-3 Salvador" zone="-3:00">
+        <item name="TimeZoneName">Salvador</item>
+      </option>
+      <option value="-3" displaytext="GMT-3 Brazil(DST)" zone="-3:00">
+        <item name="TimeZoneName">Brazil(DST)</item>
+      </option>
+      <option value="-2" displaytext="GMT-2 Brazil(no DST)" id="30" zone="-2:00">
+        <item name="TimeZoneName">Brazil(no DST)</item>
+      </option>
+      <option value="-2" displaytext="GMT-2 Mid-Atlantic" id="60" zone="-2:00">
+        <item name="TimeZoneName">Mid-Atlantic</item>
+      </option>
+      <option value="-1" displaytext="GMT-1 Portugal(Azores)" id="31" zone="-1:00">
+        <item name="TimeZoneName">Portugal(Azores)</item>
+      </option>
+      <option value="-1" displaytext="GMT-1 Cape Verde Islands" zone="-1:00">
+        <item name="TimeZoneName">Cape Verde Islands</item>
+      </option>
+      <option value="0" displaytext="GMT" zone="0:00">
+        <item name="TimeZoneName">GMT</item>
+      </option>
+      <option value="0" displaytext="0 Greenland" zone="0:00">
+        <item name="TimeZoneName">Greenland</item>
+      </option>
+      <option value="0" displaytext="0 Western Europe Time" zone="0:00">
+        <item name="TimeZoneName">Western Europe Time</item>
+      </option>
+      <option value="0" displaytext="0 Monrovia" zone="0:00">
+        <item name="TimeZoneName">Monrovia</item>
+      </option>
+      <option value="0" displaytext="0 Casablanca" zone="0:00">
+        <item name="TimeZoneName">Casablanca</item>
+      </option>
+      <option value="0" displaytext="0 Denmark-Faroe Islands(Torshaven)" id="32" zone="0:00">
+        <item name="TimeZoneName">Denmark-Faroe Islands(Torshaven)</item>
+      </option>
+      <option value="0" displaytext="0 Ireland(Dublin)" id="33" zone="0:00">
+        <item name="TimeZoneName">Ireland(Dublin)</item>
+      </option>
+      <option value="0" displaytext="0 Edinburgh" zone="0:00">
+        <item name="TimeZoneName">Edinburgh</item>
+      </option>
+      <option value="0" displaytext="0 Portugal(Lisboa,Porto,Funchal)" id="34" zone="0:00">
+        <item name="TimeZoneName">Portugal(Lisboa,Porto,Funchal)</item>
+      </option>
+      <option value="0" displaytext="0 Spain-Canary Islands(Las Palmas)" id="35" zone="0:00">
+        <item name="TimeZoneName">Spain-Canary Islands(Las Palmas)</item>
+      </option>
+      <option value="0" displaytext="0 United Kingdom(London)" id="36" zone="0:00">
+        <item name="TimeZoneName">United Kingdom(London)</item>
+      </option>
+      <option value="0" displaytext="0 Iceland (Reykjavik, Monrovia)" id="126" zone="0:00">
+        <item name="TimeZoneName">Reykjavik</item>
+      </option>
+      <option value="0" displaytext="0 Lisbon" zone="0:00">
+        <item name="TimeZoneName">Lisbon</item>
+      </option>
+      <option value="0" displaytext="0 Morocco" zone="0:00">
+        <item name="TimeZoneName">Morocco</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Albania(Tirane)" id="37" zone="1:00">
+        <item name="TimeZoneName">Albania(Tirane)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Austria(Vienna)" id="38" zone="1:00">
+        <item name="TimeZoneName">Austria(Vienna)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Belgium(Brussels)" id="39" zone="1:00">
+        <item name="TimeZoneName">Belgium(Brussels)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Caicos" id="40" zone="1:00">
+        <item name="TimeZoneName">Caicos</item>
+      </option>  
+      <option value="+1" displaytext="GMT+1 Belgrade" id="60" zone="1:00">
+        <item name="TimeZoneName">Belgrade</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Bratislava" id="55" zone="1:00">
+        <item name="TimeZoneName">Bratislava</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Croatia(Zagreb)" id="42" zone="1:00">
+        <item name="TimeZoneName">Croatia(Zagreb)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Ljubljana" zone="1:00">
+        <item name="TimeZoneName">Ljubljana</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Chad" zone="1:00">
+        <item name="TimeZoneName">Chad</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Copenhagen" id="26" zone="1:00">
+        <item name="TimeZoneName">Copenhagen</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 West Central Africa" id="61" zone="1:00">
+        <item name="TimeZoneName">West Central Africa</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Poland(Warsaw)" id="54" zone="1:00">
+        <item name="TimeZoneName">Poland(Warsaw)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Spain(Madrid)" id="56" zone="1:00">
+        <item name="TimeZoneName">Spain(Madrid)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Czech Republic(Prague)" id="43" zone="1:00">
+        <item name="TimeZoneName">Czech Republic(Prague)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Denmark(Copenhagen)" id="44" zone="1:00">
+        <item name="TimeZoneName">Denmark(Copenhagen)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 France(Paris)" id="45" zone="1:00">
+        <item name="TimeZoneName">France(Paris)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Germany(Berlin)" id="46" zone="1:00">
+        <item name="TimeZoneName">Germany(Berlin)</item>
+      </option>
+	  <option value="+1" displaytext="GMT+1 Switzerland(Bern)" id="58" zone="1:00">
+        <item name="TimeZoneName">Switzerland(Bern)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Hungary(Budapest)" id="47" zone="1:00">
+        <item name="TimeZoneName">Hungary(Budapest)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Italy(Rome)" id="48" zone="1:00">
+        <item name="TimeZoneName">Italy(Rome)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Luxembourg(Luxembourg)" id="49" zone="1:00">
+        <item name="TimeZoneName">Luxembourg(Luxembourg)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 North Macedonia(Skopje)" id="50" zone="1:00">
+        <item name="TimeZoneName">Macedonia(Skopje)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Netherlands(Amsterdam)" id="51" zone="1:00">
+        <item name="TimeZoneName">Netherlands(Amsterdam)</item>
+      </option>
+      <option value="+1" displaytext="GMT+1 Namibia(Windhoek)" id="52" zone="1:00">
+        <item name="TimeZoneName">Namibia(Windhoek)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Pretoria" id="65" zone="2:00">
+        <item name="TimeZoneName">Pretoria</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Estonia(Tallinn)" id="67" zone="2:00">
+        <item name="TimeZoneName">Estonia(Tallinn)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Finland(Helsinki)" id="68" zone="2:00">
+        <item name="TimeZoneName">Finland(Helsinki)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Gaza Strip(Gaza)" id="69" zone="2:00">
+        <item name="TimeZoneName">Gaza Strip(Gaza)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Greece(Athens)" id="70" zone="2:00">
+        <item name="TimeZoneName">Greece(Athens)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Israel(Tel Aviv)" id="71" zone="2:00">
+        <item name="TimeZoneName">Israel(Tel Aviv)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Jordan(Amman)" id="72" zone="2:00">
+        <item name="TimeZoneName">Jordan(Amman)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Latvia(Riga)" id="73" zone="2:00">
+        <item name="TimeZoneName">Latvia(Riga)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Lebanon(Beirut)" id="74" zone="2:00">
+        <item name="TimeZoneName">Lebanon(Beirut)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Moldova(Kishinev)" id="75" zone="2:00">
+        <item name="TimeZoneName">Moldova(Kishinev)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Jerusalem" id="71" zone="2:00">
+        <item name="TimeZoneName">Jerusalem</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Russia(Kaliningrad)" id="76" zone="2:00">
+        <item name="TimeZoneName">Russia(Kaliningrad)</item>
+      </option>	  
+      <option value="+2" displaytext="GMT+2 Bulgaria(Sofia)" id="63" zone="2:00">
+        <item name="TimeZoneName">JBulgaria(Sofia)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Lithuania(Vilnius)" zone="2:00">
+        <item name="TimeZoneName">Lithuania(Vilnius)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Cairo" id="66" zone="2:00">
+        <item name="TimeZoneName">Cairo</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Istanbul" zone="2:00">
+        <item name="TimeZoneName">Istanbul</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 E.Europe" zone="2:00">
+        <item name="TimeZoneName">E.Europe</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Tripoli" zone="2:00">
+        <item name="TimeZoneName">Tripoli</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Romania(Bucharest)" id="77" zone="2:00">
+        <item name="TimeZoneName">Romania(Bucharest)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Syria(Damascus)" id="78" zone="2:00">
+        <item name="TimeZoneName">Syria(Damascus)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Turkey(Ankara)" id="112" zone="2:00">
+        <item name="TimeZoneName">Turkey(Ankara)</item>
+      </option>
+      <option value="+2" displaytext="GMT+2 Ukraine(Kyiv,Odessa)" id="80" zone="2:00">
+        <item name="TimeZoneName">Ukraine(Kyiv,Odessa)</item>
+      </option>
+      <option value="+3" displaytext="GMT+3 East Africa Time" id="81" zone="3:00">
+        <item name="TimeZoneName">East Africa Time</item>
+      </option>
+      <option value="+3" displaytext="GMT+3 Iraq(Baghdad)" id="82" zone="3:00">
+        <item name="TimeZoneName">Iraq(Baghdad)</item>
+      </option>
+      <option value="+3" displaytext="GMT+3 Russia(Moscow)" id="83" zone="3:00">
+        <item name="TimeZoneName">Russia(Moscow)</item>
+      </option>	  
+      <option value="+3" displaytext="GMT+3 St.Petersburg" id="117" zone="3:00">
+        <item name="TimeZoneName">St.Petersburg</item>
+      </option>
+      <option value="+3" displaytext="GMT+3 Kuwait,Riyadh" id="79" zone="3:00">
+        <item name="TimeZoneName">Kuwait,Riyadh</item>
+      </option>
+      <option value="+3" displaytext="GMT+3 Nairobi" zone="3:00">
+        <item name="TimeZoneName">Nairobi</item>
+      </option>
+      <option value="+3" displaytext="GMT+3 Minsk" zone="3:00">
+        <item name="TimeZoneName">Minsk</item>
+      </option>
+      <option value="+3" displaytext="GMT+3 Volgograd (RTZ 2)" zone="3:00">
+        <item name="TimeZoneName">Volgograd (RTZ 2)</item>
+      </option>  
+      <option value="+3:30" displaytext="GMT+3:30 Iran(Teheran)" id="84" zone="3:30">
+        <item name="TimeZoneName">Iran(Teheran)</item>
+      </option>
+      <option value="+4" displaytext="GMT+4 Armenia(Yerevan)" id="85" zone="4:00">
+        <item name="TimeZoneName">Armenia(Yerevan)</item>
+      </option>
+      <option value="+4" displaytext="GMT+4 Azerbaijan(Baku)" id="86" zone="4:00">
+        <item name="TimeZoneName">Azerbaijan(Baku)</item>
+      </option>
+      <option value="+4" displaytext="GMT+4 Georgia(Tbilisi)" id="87" zone="4:00">
+        <item name="TimeZoneName">Georgia(Tbilisi)</item>
+      </option>
+      <option value="+4" displaytext="GMT+4 Kazakstan(Aqtau)" id="88" zone="4:00">
+        <item name="TimeZoneName">Kazakstan(Aqtau)</item>
+      </option>
+      <option value="+4" displaytext="GMT+4 Russia(Samara)" id="89" zone="4:00">
+        <item name="TimeZoneName">Russia(Samara)</item>
+      </option>  
+      <option value="+4" displaytext="GMT+4 Abu Dhabi,Muscat" id="90" zone="4:00">
+        <item name="TimeZoneName">Abu Dhabi,Muscat</item>
+      </option>
+      <option value="+4" displaytext="GMT+4 Izhevsk,Samara (RTZ 3)" zone="4:00">
+        <item name="TimeZoneName">Izhevsk,Samara (RTZ 3)</item>
+      </option>
+      <option value="+4" displaytext="GMT+4 Port Louis" zone="4:00">
+        <item name="TimeZoneName">Port Louis</item>
+      </option>
+      <option value="+4:30" displaytext="GMT+4:30 Afghanistan(Kabul)" id="91" zone="4:30">
+        <item name="TimeZoneName">Afghanistan(Kabul)</item>
+      </option> 
+      <option value="+5" displaytext="GMT+5 Kazakstan(Aqtobe)" id="92" zone="5:00">
+        <item name="TimeZoneName">Kazakstan(Aqtobe)</item>
+      </option>
+      <option value="+5" displaytext="GMT+5 Kyrgyzstan(Bishkek)" id="93" zone="5:00">
+        <item name="TimeZoneName">Kyrgyzstan(Bishkek)</item>
+      </option>
+      <option value="+5" displaytext="GMT+5 Ekaterinburg (RTZ 4)" zone="5:00">
+        <item name="TimeZoneName">Ekaterinburg (RTZ 4)</item>
+      </option>
+      <option value="+5" displaytext="GMT+5 Karachi" zone="5:00">
+        <item name="TimeZoneName">Karachi</item>
+      </option>
+      <option value="+5" displaytext="GMT+5 Tashkent" zone="5:00">
+        <item name="TimeZoneName">Tashkent</item>
+      </option>
+      <option value="+5" displaytext="GMT+5 Pakistan(Islamabad)" id="94" zone="5:00">
+        <item name="TimeZoneName">Pakistan(Islamabad)</item>
+      </option>
+      <option value="+5" displaytext="GMT+5 Russia(Chelyabinsk)" id="95" zone="5:00">
+        <item name="TimeZoneName">Russia(Chelyabinsk)</item>
+      </option>
+      <option value="+5:30" displaytext="GMT+5:30 India(Calcutta)" id="96" zone="5:30">
+        <item name="TimeZoneName">India(Calcutta)</item>
+      </option>
+      <option value="+5:30" displaytext="GMT+5:30 Mumbai,Chennai" zone="5:30">
+        <item name="TimeZoneName">Mumbai,Chennai</item>
+      </option>
+      <option value="+5:30" displaytext="GMT+5:30 Kolkata,New Delhi" zone="5:30">
+        <item name="TimeZoneName">Kolkata,New Delhi</item>
+      </option>
+      <option value="+5:30" displaytext="GMT+5:30 Sri Jayawardenepura" zone="5:30">
+        <item name="TimeZoneName">Sri Jayawardenepura</item>
+      </option>
+      <option value="+5:45" displaytext="GMT+5:45 Nepal(Katmandu)" id="97" zone="5:45">
+        <item name="TimeZoneName">Nepal(Katmandu)</item>
+      </option>
+      <option value="+6" displaytext="GMT+6 Kazakstan(Astana,Almaty)" id="98" zone="6:00">
+        <item name="TimeZoneName">Kazakstan(Astana,Almaty)</item>
+      </option>
+      <option value="+6" displaytext="GMT+6 Russia(Novosibirsk,Omsk)" id="99" zone="6:00">
+        <item name="TimeZoneName">Russia(Novosibirsk,Omsk)</item>
+      </option>	  
+      <option value="+6" displaytext="GMT+6 Bangladesh(Dhaka)" zone="6:00">
+        <item name="TimeZoneName">Bangladesh(Dhaka)</item>
+      </option>
+      <option value="+6:30" displaytext="GMT+6:30 Myanmar(Naypyitaw)" zone="6:30">
+        <item name="TimeZoneName">Myanmar(Naypyitaw)</item>
+      </option>
+      <option value="+6:30" displaytext="GMT+6:30 Yangon (Rangoon)" zone="6:30">
+        <item name="TimeZoneName">Yangon (Rangoon)</item>
+      </option>  
+      <option value="+7" displaytext="GMT+7 Russia(Krasnoyarsk)" id="101" zone="7:00">
+        <item name="TimeZoneName">Russia(Krasnoyarsk)</item>
+      </option>
+      <option value="+7" displaytext="GMT+7 Thailand(Bangkok)" id="102" zone="7:00">
+        <item name="TimeZoneName">Thailand(Bangkok)</item>
+      </option>
+      <option value="+8" displaytext="GMT+8 Australia(Perth)" id="105" zone="8:00">
+        <item name="TimeZoneName">Australia(Perth)</item>
+      </option>
+      <option value="+7" displaytext="GMT+7 Vietnam(Hanoi)" zone="7:00">
+        <item name="TimeZoneName">Vietnam(Hanoi)</item>
+      </option>
+      <option value="+7" displaytext="GMT+7 Jakarta" zone="7:00">
+        <item name="TimeZoneName">Jakarta</item>
+      </option>	
+      <option value="+8" displaytext="GMT+8 China(Beijing)" id="103" zone="8:00">
+        <item name="TimeZoneName">China(Beijing)</item>
+      </option>
+      <option value="+8" displaytext="GMT+8 Singapore(Singapore)" id="104" zone="8:00">
+        <item name="TimeZoneName">Singapore(Singapore)</item>
+      </option>
+      <option value="+8" displaytext="GMT+8 Hong Kong,Urumqi" zone="8:00">
+        <item name="TimeZoneName">Hong Kong,Urumqi</item>
+      </option>
+      <option value="+8" displaytext="GMT+8 Taipei" zone="8:00">
+        <item name="TimeZoneName">Taipei</item>
+      </option>	  
+      <option value="+8" displaytext="GMT+8 Kuala Lumpur" zone="9:00">
+        <item name="TimeZoneName">Kuala Lumpur</item>
+      </option>
+      <option value="+8" displaytext="GMT+8 Russia(Irkutsk, Ulan-Ude)" zone="8:00">
+        <item name="TimeZoneName">Russia(Irkutsk, Ulan-Ude)</item>
+      </option>
+      <option value="+8" displaytext="GMT+8 Ulaanbaatar" zone="8:00">
+        <item name="TimeZoneName">Ulaanbaatar</item>
+      </option>
+      <option value="+8:45" displaytext="GMT+8:45 Eucla" zone="8:45">
+        <item name="TimeZoneName">Eucla</item>
+      </option>  
+      <option value="+9" displaytext="GMT+9 Korea(Seoul)" id="106" zone="9:00">
+        <item name="TimeZoneName">Korea(Seoul)</item>
+      </option>
+      <option value="+9" displaytext="GMT+9 Japan(Tokyo)" id="107" zone="9:00">
+        <item name="TimeZoneName">Japan(Tokyo)</item>
+      </option>
+      <option value="+9" displaytext="GMT+9 Russia(Yakutsk, Chita)" zone="9:00">
+        <item name="TimeZoneName">Russia(Yakutsk, Chita)</item>
+      </option>	  
+      <option value="+9:30" displaytext="GMT+9:30 Australia(Adelaide)" id="108" zone="9:30">
+        <item name="TimeZoneName">Australia(Adelaide)</item>
+      </option>
+      <option value="+9:30" displaytext="GMT+9:30 Australia(Darwin)" id="109" zone="9:30">
+        <item name="TimeZoneName">Australia(Darwin)</item>
+      </option>
+      <option value="+10" displaytext="GMT+10 Australia(Sydney,Melbourne,Canberra)" id="110" zone="10:00">
+        <item name="TimeZoneName">Australia(Sydney,Melbourne,Canberra)</item>
+      </option>
+      <option value="+10" displaytext="GMT+10 Australia(Brisbane)" id="111" zone="10:00">
+        <item name="TimeZoneName">Australia(Brisbane)</item>
+      </option>
+      <option value="+10" displaytext="GMT+10 Australia(Hobart)" id="112" zone="10:00">
+        <item name="TimeZoneName">Australia(Hobart)</item>
+      </option>
+      <option value="+10" displaytext="GMT+10 Russia(Vladivostok)" id="113" zone="10:00">
+        <item name="TimeZoneName">Russia(Vladivostok)</item>
+      </option>
+      <option value="+10" displaytext="GMT+10 Magadan (RTZ 9)" zone="10:00">
+        <item name="TimeZoneName">Magadan (RTZ 9)</item>
+      </option>
+      <option value="+10" displaytext="GMT+10 Guam,Port Moresby" zone="10:00">
+        <item name="TimeZoneName">Guam,Port Moresby</item>
+      </option>
+      <option value="+10" displaytext="GMT+10 Solomon Islands" zone="10:00">
+        <item name="TimeZoneName">Solomon Islands</item>
+      </option>	  
+      <option value="+10:30" displaytext="GMT+10:30 Australia(Lord Howe Islands)" id="114" zone="10:30">
+        <item name="TimeZoneName">Australia(Lord Howe Islands)</item>
+      </option>
+      <option value="+11" displaytext="GMT+11 New Caledonia(Noumea)" id="115" zone="11:00">
+        <item name="TimeZoneName">New Caledonia(Noumea)</item>
+      </option>
+      <option value="+12" displaytext="GMT+12 New Zealand(Wellington,Auckland)" id="116" zone="12:00">
+        <item name="TimeZoneName">New Zealand(Wellington,Auckland)</item>
+      </option>
+      <option value="+12:45" displaytext="GMT+12:45 New Zealand(Chatham Islands)" id="118" zone="12:45">
+        <item name="TimeZoneName">New Zealand(Chatham Islands)</item>
+      </option>
+      <option value="+11" displaytext="GMT+11 Chokurdakh (RTZ 10)" id="176" zone="11:00">
+        <item name="TimeZoneName">Chokurdakh (RTZ 10)</item>
+      </option>
+      <option value="+11" displaytext="GMT+11 Russia(Srednekolymsk Time)" zone="11:00">
+        <item name="TimeZoneName">Russia(Srednekolymsk Time)</item>
+      </option>
+      <option value="+11:30" displaytext="GMT+11:30 Norfolk Island" zone="11:30">
+        <item name="TimeZoneName">Norfolk Island</item>
+      </option>
+      <option value="+12" displaytext="GMT+12 Fiji Islands" zone="12:00">
+        <item name="TimeZoneName">Fiji Islands</item>
+      </option>
+      <option value="+12" displaytext="GMT+12 Russia(Kamchatka Time)" zone="12:00">
+        <item name="TimeZoneName">Russia(Kamchatka Time)</item>
+      </option>
+      <option value="+12" displaytext="GMT+12 Anadyr" zone="12:00">
+        <item name="TimeZoneName">Anadyr</item>
+      </option>
+      <option value="+12" displaytext="GMT+12 Petropavlovsk-Kamchatsky (RTZ 11)" zone="12:00">
+        <item name="TimeZoneName">Petropavlovsk-Kamchatsky (RTZ 11)</item>
+      </option>
+      <option value="+12" displaytext="GMT+12 Marshall Islands" zone="12:00">
+        <item name="TimeZoneName">New Marshall Islands</item>
+      </option>	
+      <option value="+13" displaytext="GMT+13 Nuku'alofa" zone="13:00">
+        <item name="TimeZoneName">Nuku'alofa</item>
+      </option>
+      <option value="+13" displaytext="GMT+13 Tonga(Nukualofa)" id="119" zone="13:00">
+        <item name="TimeZoneName">Tonga(Nukualofa)</item>
+      </option>
+      <option value="+13:30" displaytext="GMT+13:30 Chatham Islands" zone="13:30">
+        <item name="TimeZoneName">Chatham Islands</item>
+      </option>
+      <option value="+14" displaytext="GMT+14 Kiribati" zone="14:00">
+        <item name="TimeZoneName">Kiribati</item>
+      </option>
+    </timezoneParams>
+	<Codecspriorities>
+      <Codecspriority variableName="codec1" PayloadTypeName="payload1" priority="1">
+        <!--The first entry is the selected entry in management console. codec1 will be replaced by value, payload1 will be replaced by payload-->
+        <option value="0" payload="PCMU">PCMU</option>
+		<option value="8" payload="PCMA">PCMA</option>
+        <option value="18" payload="G729">G729</option>
+        <option value="9" payload="G722">G722</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec2" PayloadTypeName="payload2" priority="2">
+        <!--The first entry is the selected entry in management console-->
+        <option value="8" payload="PCMA">PCMA</option>
+		<option value="0" payload="PCMU">PCMU</option>
+        <option value="18" payload="G729">G729</option>
+        <option value="9" payload="G722">G722</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec3" PayloadTypeName="payload3" priority="3">
+        <!--The first entry is the selected entry in management console-->
+        <option value="9" payload="G722">G722</option>
+		<option value="0" payload="PCMU">PCMU</option>
+		<option value="8" payload="PCMA">PCMA</option>
+        <option value="18" payload="G729">G729</option>
+      </Codecspriority>
+      <Codecspriority variableName="codec4" PayloadTypeName="payload4" priority="4">
+        <!--The first entry is the selected entry in management console-->
+        <option value="18" payload="G729">G729</option>
+		<option value="0" payload="PCMU">PCMU</option>
+		<option value="8" payload="PCMA">PCMA</option>
+        <option value="9" payload="G722">G722</option> 
+	  </Codecspriority>
+    </Codecspriorities>
+  </header>
+  <data>
+    <device>
+	  <field name="SimCallsPerPort" status="readonly">1</field>
+      <field name="TypeOfLines" status="readonly">DECT</field> <!--Type of PSTN Lines-->
+      <field name="NumberOfExtensions">10</field> <!--Number of FXS extensions-->
+
+      <deviceconfig filename="y000000000146.cfg" AllowDownload="false">
+        <filename>
+          <model name="Yealink W70B" filename="y000000000146.cfg" />
+        </filename><![CDATA[#!version:1.0.0.1
+
+#######################################################################################
+##                Syslog Server                                                      ##          
+#######################################################################################
+
+#Configure the syslog level. It ranges from 0 to 6, the default value is 3.
+#Require reboot;
+syslog.level = 
+
+]]></deviceconfig>
+    </device>
+  </data>
+  <data>
+    <device>
+      <type>phone</type>
+      <!-- Friendly Name -->
+      <field name="Name">Yealink DECT Phones</field>
+      <deviceconfig filename="%%mac_address%%.cfg" AllowDownload="true"><![CDATA[#!version:1.0.0.1
+
+#######################################################################################
+##                 Auto Provisioning                                                 ##      
+#######################################################################################
+
+#Enable or disable the Plug and Play feature; 0-Disabled, 1-Enabled(default);
+auto_provision.pnp_enable = 0
+
+#Enable or disable the phone to check the new configuration weekly; 0-Disabled (default), 1-Enabled;
+auto_provision.weekly.enable = 0
+
+#Configure the week time the phone checks the new configuration. Applicable when the auto provisioning mode is configured as weekly or power on + weekly.
+auto_provision.weekly.mask = 0123456
+auto_provision.weekly.begin_time = 00:00
+auto_provision.weekly.end_time = 00:00
+
+#Configure the URL of the auto provisioning server.
+{IF network=LOCALLAN}
+auto_provision.server.url = %%PROVLINKLOCAL%%
+{ELSE}
+auto_provision.server.url = %%PROVLINK%%
+{ENDIF}
+
+#Configure the name of the common file.
+
+
+auto_provision.common_file_name = y000000000146.cfg
+
+
+#######################################################################################
+##                          Network                                                  ## 
+#######################################################################################
+
+{IF network=REMOTESTUN}
+#Configure the maximum local RTP port. It ranges from 0 to 65535, the default value is 11800.
+#Require reboot;
+network.port.max_rtpport = %%rtp_port_max%%
+
+#Configure the minimum local RTP port. It ranges from 0 to 65535, the default value is 11780.
+#Require reboot;
+network.port.min_rtpport = %%rtp_port_min%%
+{ELSE}
+#Configure the maximum local RTP port. It ranges from 0 to 65535, the default value is 11800.
+#Require reboot;
+network.port.max_rtpport = 12780
+
+#Configure the minimum local RTP port. It ranges from 0 to 65535, the default value is 11780.
+#Require reboot;
+network.port.min_rtpport = 11780
+{ENDIF}
+
+#Configure the phone whether to add the MAC address to the User-Agent header; 0-Do not add, 1-Add;
+#Require reboot;
+network.sip.tag_mac_to_ua.enable = 1
+
+#######################################################################################
+##	                Phone Features                                                   ##
+#######################################################################################
+
+sip.trust_ctrl = 1
+over_the_air.url.w53h =
+
+#Enable or disable the RFC2543 Hold feature; 0-Disabled (default), 1-Enabled;
+sip.rfc2543_hold = 0
+
+#Enable or disable the phone to keep sending the SIP messages to the outbound server; 0-Disabled, 1-Enabled (default);
+sip.use_out_bound_in_dialog = 1
+
+#Enable or disable the transferee to display the missed call prompt when receiving a semi_attended transfer call;
+#0-Disabled, 1-Enabled (default);
+transfer.semi_attend_tran_enable = 0
+
+#Enable or disable the phone to complete the blind or attended transfer through on-hook;
+#0-Disabled(default),1-Enabled;
+transfer.blind_tran_on_hook_enable = 1
+transfer.on_hook_trans_enable = 1
+
+#Choose when transferred call need to be marked as successfully transferred 1-200 OK (default), 2-180 Ringing, 3-100 Trying
+transfer.hang_up_after_success_trans = 3
+
+#Enable or disable the feature key synchronization, 0-Disabled (default), 1-Enabled;
+bw.feature_key_sync = 1
+
+#EPhone SIP port; default is 5060
+{IF network=LOCALLAN}
+sip.listen_port = 5060
+{ENDIF}
+{IF network=REMOTESTUN}
+sip.listen_port = %%phonesipport%%
+{ENDIF}
+{IF network=SBC}
+sip.listen_port = 5060
+{ENDIF}
+
+#Send MAC address in UA.0-Disable 1-Enable(00:11:22:33:44:55) 2-Enable(001122334455)
+sip.mac_in_ua = 2
+
+#######################################################################################
+##         	                   Security Settings                                     ##                   
+#######################################################################################
+
+#Enable or disable the phone to only accept the certificates in the Trusted Certificates list;
+#0-Disabled, 1-Enabled (default);
+security.trust_certificates = 0
+
+
+
+#Set the password of the user or the administrator, the value format is: user:password or admin:password;
+security.user_password = admin:%%DEVICE_PASSWORD%%
+static.security.user_password = admin:%%DEVICE_PASSWORD%%
+static.security.user_password = user:%%DEVICE_PASSWORD%%
+
+#######################################################################################
+##         	                   Time Settings                                         ##
+#######################################################################################
+
+#Configure the time zone and time zone name. The time zone ranges from -11 to +12, the default value is +8. 
+#The default time zone name is China(Beijing).  
+#Refer to Yealink IP Phones User Guide for more available time zones and time zone names. 
+#local_time.time_zone = +8
+#local_time.time_zone_name = China(Beijing) 
+local_time.time_zone = %%timezone%%
+local_time.time_zone_name = %%TimeZoneName%%
+
+#Configure the domain name or the IP address of the NTP server. The default value is cn.pool.ntp.org.
+local_time.ntp_server1 = %%param::time_ntp_server%%
+local_time.ntp_server2 = %%param::time_ntp_server%%
+
+#Configure the update interval (in seconds) when using the NTP server. The default value is 1000.
+local_time.interval =
+
+#Configure the daylight saving time feature; 0-Disabled, 1-Enabled, 2-Automatic (default); 
+local_time.summer_time = 2
+
+#Configure the DST type when the DST feature is enabled; 0-By Date (default), 1-By Week;
+local_time.dst_time_type = 0
+
+#Configure the start time of DST. The default value is 1/1/0.
+#If the DST type is configured as By Date, the value format is Month/Day/Hour. For example, the value 5/20/10 means the start time is at 10:00 on May 20.  
+#If the DST type is configured as By Week, the value format is Month/Day of Week/Day of Week Last in Month/Hour of Day. 
+#For example, the value 1/4/2/5 means the start time is at 5 o'clock on Tuesday of the 4th week in January.
+local_time.start_time = %%param::time_dst_start_month%%/%%param::time_dst_start_day%%/%%param::time_dst_start_hour%%
+
+#Configure the end time of DST. The default value is 12/31/23. The value format is the same to the start time.
+local_time.end_time = %%param::time_dst_end_month%%/%%param::time_dst_end_day%%/%%param::time_dst_end_hour%%
+
+#Configure the offset time (in seconds). It ranges from -300 to 300, the default value is 60.
+local_time.offset_time = %%param::time_utc_offset_minutes%%
+
+#Enable or disable the DHCP Time; 0-Disabled (default), 1-Enabled;
+local_time.dhcp_time = 0
+
+
+#######################################################################################
+##         	              Phone Features                                             ##
+#######################################################################################
+
+#Configure the return code when activating DND; 404-No Found, 480-Temporarily not available (default), 486-Busy here;
+#features.dnd_refuse_code = 480
+features.dnd_refuse_code = 486
+
+#Configure the return code when refusing a call. The valid values are 404, 480, 486 (default).
+features.normal_refuse_code = 
+
+#Enable or disable the call waiting feature; 0-Disabled, 1-Enabled (default);
+call_waiting.enable = 1
+
+#Enable or disable the playing of call waiting tone; 0-Disabled, 1-Enabled (default);
+call_waiting.tone = 1
+
+#Enable or disable the phone to dial the IP address directly; 0-Disabled, 1-Enabled (default);
+features.direct_ip_call_enable = 0
+
+features.redial_via_local_sip_server.enable = 1 
+ 
+#######################################################################################
+##                           Account1 Settings                                       ##                                                                          
+#######################################################################################
+account.%d.check_cseq.enable = 1
+account.1.enable = %%ext_01_enabled%%
+account.1.label = %%ext_first_name_01%% %%ext_last_name_01%%
+account.1.display_name =%%ext_first_name_01%% %%ext_last_name_01%%
+account.1.auth_name = %%ext_auth_id_01%%
+account.1.password = %%ext_auth_pw_01%% 
+account.1.user_name = %%ext_int_num_01%%
+account.1.sip_server.1.expires = 120
+{IF network=LOCALLAN}
+account.1.sip_server_host.legacy = %%pbx_ip%%
+account.1.sip_server_port.legacy = %%param::sipport%%
+account.1.expires.legacy = 120
+account.1.sip_server.1.address = %%pbx_ip%%
+account.1.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.1.sip_server_host.legacy = %%pbx_ip%%
+account.1.sip_server_port.legacy = %%param::sipport%%
+account.1.expires.legacy = 120
+account.1.sip_server.1.address = %%pbx_ip%%
+account.1.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.1.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.1.sip_server_port.legacy = %%param::sipport%%
+account.1.expires.legacy = 120
+account.1.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.1.sip_server.1.port = %%param::sipport%%
+account.1.outbound_proxy_enable = 1
+account.1.outbound_proxy.1.address = %%local_sbc_ip%%
+account.1.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.1.subscribe_mwi = 1
+account.1.subscribe_mwi_expires = 900
+voice_mail.number.1 = %%vm_number%%
+account.1.100rel_enable = 0
+account.1.check_cseq.enable = 1
+account.1.sip_trust_ctrl = 1
+
+account.2.enable = %%ext_02_enabled%%
+account.2.label = %%ext_first_name_02%% %%ext_last_name_02%%
+account.2.display_name = %%ext_first_name_02%% %%ext_last_name_02%%
+account.2.user_name = %%ext_int_num_02%%
+account.2.auth_name = %%ext_auth_id_02%%
+account.2.password = %%ext_auth_pw_02%% 
+{IF network=LOCALLAN}
+account.2.sip_server_host.legacy = %%pbx_ip%%
+account.2.sip_server_port.legacy = %%param::sipport%%
+account.2.expires.legacy = 120
+account.2.sip_server.1.address = %%pbx_ip%%
+account.2.sip_server.1.expires = 120
+account.2.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.2.sip_server_host.legacy = %%pbx_ip%%
+account.2.sip_server_port.legacy = %%param::sipport%%
+account.2.expires.legacy = 120
+account.2.sip_server.1.address = %%pbx_ip%%
+account.2.sip_server.1.expires = 120
+account.2.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.2.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.2.sip_server_port.legacy = %%param::sipport%%
+account.2.expires.legacy = 120
+account.2.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.2.sip_server.1.expires = 120
+account.2.sip_server.1.port = %%param::sipport%%
+account.2.outbound_proxy_enable = 1
+account.2.outbound_proxy.1.address = %%local_sbc_ip%%
+account.2.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.2.subscribe_mwi = 1
+account.2.subscribe_mwi_expires = 900
+voice_mail.number.2 = %%vm_number%%
+account.2.100rel_enable = 0
+account.2.check_cseq.enable = 1
+account.2.sip_trust_ctrl = 1
+
+account.3.enable = %%ext_03_enabled%%
+account.3.label = %%ext_first_name_03%% %%ext_last_name_03%%
+account.3.display_name = %%ext_first_name_03%% %%ext_last_name_03%%
+account.3.user_name = %%ext_int_num_03%%
+account.3.auth_name = %%ext_auth_id_03%%
+account.3.password = %%ext_auth_pw_03%% 
+{IF network=LOCALLAN}
+account.3.sip_server_host.legacy = %%pbx_ip%%
+account.3.sip_server_port.legacy = %%param::sipport%%
+account.3.expires.legacy = 120
+account.3.sip_server.1.address = %%pbx_ip%%
+account.3.sip_server.1.expires = 120
+account.3.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.3.sip_server_host.legacy = %%pbx_ip%%
+account.3.sip_server_port.legacy = %%param::sipport%%
+account.3.expires.legacy = 120
+account.3.sip_server.1.address = %%pbx_ip%%
+account.3.sip_server.1.expires = 120
+account.3.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.3.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.3.sip_server_port.legacy = %%param::sipport%%
+account.3.expires.legacy = 120
+account.3.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.3.sip_server.1.expires = 120
+account.3.sip_server.1.port = %%param::sipport%%
+account.3.outbound_proxy_enable = 1
+account.3.outbound_proxy.1.address = %%local_sbc_ip%%
+account.3.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.3.subscribe_mwi = 1
+account.3.subscribe_mwi_expires = 900
+voice_mail.number.3 = %%vm_number%%
+account.3.100rel_enable = 0
+account.3.check_cseq.enable = 1
+account.3.sip_trust_ctrl = 1
+
+account.4.enable = %%ext_04_enabled%%
+account.4.label = %%ext_first_name_04%% %%ext_last_name_04%%
+account.4.display_name = %%ext_first_name_04%% %%ext_last_name_04%%
+account.4.user_name = %%ext_int_num_04%%
+account.4.auth_name = %%ext_auth_id_04%%
+account.4.password = %%ext_auth_pw_04%% 
+{IF network=LOCALLAN}
+account.4.sip_server_host.legacy = %%pbx_ip%%
+account.4.sip_server_port.legacy = %%param::sipport%%
+account.4.expires.legacy = 120
+account.4.sip_server.1.address = %%pbx_ip%%
+account.4.sip_server.1.expires = 120
+account.4.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.4.sip_server_host.legacy = %%pbx_ip%%
+account.4.sip_server_port.legacy = %%param::sipport%%
+account.4.expires.legacy = 120
+account.4.sip_server.1.address = %%pbx_ip%%
+account.4.sip_server.1.expires = 120
+account.4.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.4.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.4.sip_server_port.legacy = %%param::sipport%%
+account.4.expires.legacy = 120
+account.4.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.4.sip_server.1.expires = 120
+account.4.sip_server.1.port = %%param::sipport%%
+account.4.outbound_proxy_enable = 1
+account.4.outbound_proxy.1.address = %%local_sbc_ip%%
+account.4.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.4.subscribe_mwi = 1
+account.4.subscribe_mwi_expires = 900
+voice_mail.number.4 = %%vm_number%%
+account.4.100rel_enable = 0
+account.4.check_cseq.enable = 1
+account.4.sip_trust_ctrl = 1
+
+account.5.enable = %%ext_05_enabled%%
+account.5.label = %%ext_first_name_05%% %%ext_last_name_05%%
+account.5.display_name = %%ext_first_name_05%% %%ext_last_name_05%%
+account.5.user_name = %%ext_int_num_05%%
+account.5.auth_name = %%ext_auth_id_05%%
+account.5.password = %%ext_auth_pw_05%% 
+{IF network=LOCALLAN}
+account.5.sip_server_host.legacy = %%pbx_ip%%
+account.5.sip_server_port.legacy = %%param::sipport%%
+account.5.expires.legacy = 120
+account.5.sip_server.1.address = %%pbx_ip%%
+account.5.sip_server.1.expires = 120
+account.5.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.5.sip_server_host.legacy = %%pbx_ip%%
+account.5.sip_server_port.legacy = %%param::sipport%%
+account.5.expires.legacy = 120
+account.5.sip_server.1.address = %%pbx_ip%%
+account.5.sip_server.1.expires = 120
+account.5.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.5.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.5.sip_server_port.legacy = %%param::sipport%%
+account.5.expires.legacy = 120
+account.5.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.5.sip_server.1.expires = 120
+account.5.sip_server.1.port = %%param::sipport%%
+account.5.outbound_proxy_enable = 1
+account.5.outbound_proxy.1.address = %%local_sbc_ip%%
+account.5.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.5.subscribe_mwi = 1
+account.5.subscribe_mwi_expires = 900
+voice_mail.number.5 = %%vm_number%%
+account.5.100rel_enable = 0
+account.5.check_cseq.enable = 1
+account.5.sip_trust_ctrl = 1
+
+account.6.check_cseq.enable = 1
+account.6.enable = %%ext_06_enabled%%
+account.6.label = %%ext_first_name_06%% %%ext_last_name_06%%
+account.6.display_name =%%ext_first_name_06%% %%ext_last_name_06%%
+account.6.auth_name = %%ext_auth_id_06%%
+account.6.password = %%ext_auth_pw_06%% 
+account.6.user_name = %%ext_int_num_06%%
+{IF network=LOCALLAN}
+account.6.sip_server_host.legacy = %%pbx_ip%%
+account.6.sip_server_port.legacy = %%param::sipport%%
+account.6.expires.legacy = 120
+account.6.sip_server.1.address = %%pbx_ip%%
+account.6.sip_server.1.expires = 120
+account.6.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.6.sip_server_host.legacy = %%pbx_ip%%
+account.6.sip_server_port.legacy = %%param::sipport%%
+account.6.expires.legacy = 120
+account.6.sip_server.1.address = %%pbx_ip%%
+account.6.sip_server.1.expires = 120
+account.6.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.6.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.6.sip_server_port.legacy = %%param::sipport%%
+account.6.expires.legacy = 120
+account.6.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.6.sip_server.1.expires = 120
+account.6.sip_server.1.port = %%param::sipport%%
+account.6.outbound_proxy_enable = 1
+account.6.outbound_proxy.1.address = %%local_sbc_ip%%
+account.6.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.6.subscribe_mwi = 1
+account.6.subscribe_mwi_expires = 900
+voice_mail.number.6 = %%vm_number%%
+account.6.100rel_enable = 0
+account.6.check_cseq.enable = 1
+account.6.sip_trust_ctrl = 1
+
+account.7.check_cseq.enable = 1
+account.7.enable = %%ext_07_enabled%%
+account.7.label = %%ext_first_name_07%% %%ext_last_name_07%%
+account.7.display_name =%%ext_first_name_07%% %%ext_last_name_07%%
+account.7.auth_name = %%ext_auth_id_07%%
+account.7.password = %%ext_auth_pw_07%% 
+account.7.user_name = %%ext_int_num_07%%
+{IF network=LOCALLAN}
+account.7.sip_server_host.legacy = %%pbx_ip%%
+account.7.sip_server_port.legacy = %%param::sipport%%
+account.7.expires.legacy = 120
+account.7.sip_server.1.address = %%pbx_ip%%
+account.7.sip_server.1.expires = 120
+account.7.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.7.sip_server_host.legacy = %%pbx_ip%%
+account.7.sip_server_port.legacy = %%param::sipport%%
+account.7.expires.legacy = 120
+account.7.sip_server.1.address = %%pbx_ip%%
+account.7.sip_server.1.expires = 120
+account.7.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.7.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.7.sip_server_port.legacy = %%param::sipport%%
+account.7.expires.legacy = 120
+account.7.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.7.sip_server.1.expires = 120
+account.7.sip_server.1.port = %%param::sipport%%
+account.7.outbound_proxy_enable = 1
+account.7.outbound_proxy.1.address = %%local_sbc_ip%%
+account.7.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.7.subscribe_mwi = 1
+account.7.subscribe_mwi_expires = 900
+voice_mail.number.7 = %%vm_number%%
+account.7.100rel_enable = 0
+account.7.check_cseq.enable = 1
+account.7.sip_trust_ctrl = 1
+
+account.8.check_cseq.enable = 1
+account.8.enable = %%ext_08_enabled%%
+account.8.label = %%ext_first_name_08%% %%ext_last_name_08%%
+account.8.display_name =%%ext_first_name_08%% %%ext_last_name_08%%
+account.8.auth_name = %%ext_auth_id_08%%
+account.8.password = %%ext_auth_pw_08%% 
+account.8.user_name = %%ext_int_num_08%%
+{IF network=LOCALLAN}
+account.8.sip_server_host.legacy = %%pbx_ip%%
+account.8.sip_server_port.legacy = %%param::sipport%%
+account.8.expires.legacy = 120
+account.8.sip_server.1.address = %%pbx_ip%%
+account.8.sip_server.1.expires = 120
+account.8.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.8.sip_server_host.legacy = %%pbx_ip%%
+account.8.sip_server_port.legacy = %%param::sipport%%
+account.8.expires.legacy = 120
+account.8.sip_server.1.address = %%pbx_ip%%
+account.8.sip_server.1.expires = 120
+account.8.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.8.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.8.sip_server_port.legacy = %%param::sipport%%
+account.8.expires.legacy = 120
+account.8.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.8.sip_server.1.expires = 120
+account.8.sip_server.1.port = %%param::sipport%%
+account.8.outbound_proxy_enable = 1
+account.8.outbound_proxy.1.address = %%local_sbc_ip%%
+account.8.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.8.subscribe_mwi = 1
+account.8.subscribe_mwi_expires = 900
+voice_mail.number.8 = %%vm_number%%
+account.8.100rel_enable = 0
+account.8.check_cseq.enable = 1
+account.8.sip_trust_ctrl = 1
+
+
+account.9.check_cseq.enable = 1
+account.9.enable = %%ext_09_enabled%%
+account.9.label = %%ext_first_name_09%% %%ext_last_name_09%%
+account.9.display_name =%%ext_first_name_09%% %%ext_last_name_09%%
+account.9.auth_name = %%ext_auth_id_09%%
+account.9.password = %%ext_auth_pw_09%% 
+account.9.user_name = %%ext_int_num_09%%
+{IF network=LOCALLAN}
+account.9.sip_server_host.legacy = %%pbx_ip%%
+account.9.sip_server_port.legacy = %%param::sipport%%
+account.9.expires.legacy = 120
+account.9.sip_server.1.address = %%pbx_ip%%
+account.9.sip_server.1.expires = 120
+account.9.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.9.sip_server_host.legacy = %%pbx_ip%%
+account.9.sip_server_port.legacy = %%param::sipport%%
+account.9.expires.legacy = 120
+account.9.sip_server.1.address = %%pbx_ip%%
+account.9.sip_server.1.expires = 120
+account.9.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.9.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.9.sip_server_port.legacy = %%param::sipport%%
+account.9.expires.legacy = 120
+account.9.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.9.sip_server.1.expires = 120
+account.9.sip_server.1.port = %%param::sipport%%
+account.9.outbound_proxy_enable = 1
+account.9.outbound_proxy.1.address = %%local_sbc_ip%%
+account.9.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.9.subscribe_mwi = 1
+account.9.subscribe_mwi_expires = 900
+voice_mail.number.9 = %%vm_number%%
+account.9.100rel_enable = 0
+account.9.check_cseq.enable = 1
+account.9.sip_trust_ctrl = 1
+
+
+account.10.check_cseq.enable = 1
+account.10.enable = %%ext_09_enabled%%
+account.10.label = %%ext_first_name_10%% %%ext_last_name_10%%
+account.10.display_name =%%ext_first_name_10%% %%ext_last_name_10%%
+account.10.auth_name = %%ext_auth_id_10%%
+account.10.password = %%ext_auth_pw_10%% 
+account.10.user_name = %%ext_int_num_10%%
+{IF network=LOCALLAN}
+account.10.sip_server_host.legacy = %%pbx_ip%%
+account.10.sip_server_port.legacy = %%param::sipport%%
+account.10.expires.legacy = 120
+account.10.sip_server.1.address = %%pbx_ip%%
+account.10.sip_server.1.expires = 120
+account.10.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=REMOTESTUN}
+account.10.sip_server_host.legacy = %%pbx_ip%%
+account.10.sip_server_port.legacy = %%param::sipport%%
+account.10.expires.legacy = 120
+account.10.sip_server.1.address = %%pbx_ip%%
+account.10.sip_server.1.expires = 120
+account.10.sip_server.1.port = %%param::sipport%%
+{ENDIF}
+{IF network=SBC}
+account.10.sip_server_host.legacy = %%param::PBXPUBLICIP%%
+account.10.sip_server_port.legacy = %%param::sipport%%
+account.10.expires.legacy = 120
+account.10.sip_server.1.address = %%param::PBXPUBLICIP%%
+account.10.sip_server.1.expires = 120
+account.10.sip_server.1.port = %%param::sipport%%
+account.10.outbound_proxy_enable = 1
+account.10.outbound_proxy.1.address = %%local_sbc_ip%%
+account.10.outbound_proxy.1.port = %%local_sbc_port%%
+{ENDIF}
+account.10.subscribe_mwi = 1
+account.10.subscribe_mwi_expires = 900
+voice_mail.number.10 = %%vm_number%%
+account.10.100rel_enable = 0
+account.10.check_cseq.enable = 1
+account.10.sip_trust_ctrl = 1
+
+
+
+#########################################################################
+##                     NAT Settings                                    ##
+#########################################################################
+{IF network=REMOTESTUN}
+#STUN Server configuration;
+sip.nat_stun.enable = 1
+sip.nat_stun.server = %%pbx_ip%%
+sip.nat_stun.port = %%param::sipport%%
+{ELSE}
+#STUN Server configuration;
+sip.nat_stun.enable = 0
+sip.nat_stun.server = %%param::PBXPUBLICIP%%
+sip.nat_stun.port = %%param::sipport%%
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.1.nat.nat_traversal = 1
+sip.listen_port = %%phonesipport%%
+account.1.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.1.nat.nat_traversal = 0
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.2.nat.nat_traversal = 1
+account.2.nat.rport = 2
+{else}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.2.nat.nat_traversal = 0
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.3.nat.nat_traversal = 1
+account.3.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.3.nat.nat_traversal = 0
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.4.nat.nat_traversal = 1
+account.4.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.4.nat.nat_traversal = 0
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.5.nat.nat_traversal = 1
+account.5.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.5.nat.nat_traversal = 0
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.6.nat.nat_traversal = 1
+account.6.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.6.nat.nat_traversal = 0
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.7.nat.nat_traversal = 1
+account.7.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.7.nat.nat_traversal = 0
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.8.nat.nat_traversal = 1
+account.8.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.8.nat.nat_traversal = 0
+account.8.nat.rport = 2
+{ENDIF}
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.9.nat.nat_traversal = 1
+account.9.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.9.nat.nat_traversal = 0
+account.9.nat.rport = 2
+{ENDIF}
+
+
+{IF network=REMOTESTUN}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.10.nat.nat_traversal = 1
+account.10.nat.rport = 2
+{ELSE}
+#Enable or disable the NAT traversal; 0-Disabled (default), 1-STUN;
+account.10.nat.nat_traversal = 0
+account.10.nat.rport = 2
+{ENDIF}
+
+
+#Configure the session timer (in seconds), the default value of T1, T2, T3 is 0.5, 4, 5.
+sip.timer_t1 =
+sip.timer_t2 =
+sip.timer_t4 =
+
+#Audio codecs for account1 (Y ranges from 1 to 9).
+#Enable or disable the specified codec; 0-Disabled, 1-Enabled;
+#account.1.codec.Y.enable = 
+#The type of the specified codec.
+#account.1.codec.Y.payload_type = 
+#The priority of the specified codec. It's available when the codec is enabled.
+#account.1.codec.Y.priority = 
+#The payload of the specified codec.
+#account.1.codec.Y.rtpmap = 
+
+#account.1.codec.g722.enable = 
+#account.1.codec.g722.priority =
+#account.1.codec.g729.enable = 
+#account.1.codec.g729.priority = 
+#account.1.codec.g723_53.enable =
+#account.1.codec.g723_53.priority =
+#account.1.codec.g723_63.enable = 
+#account.1.codec.g723_63.priority = 
+#account.1.codec.g726_16.enable = 
+#account.1.codec.g726_16.priority = 
+#account.1.codec.g726_16.rtpmap =
+#account.1.codec.g726_24.enable = 
+#account.1.codec.g726_24.priority = 
+#account.1.codec.g726_24.rtpmap =
+#account.1.codec.g726_32.enable = 
+#account.1.codec.g726_32.priority = 
+#account.1.codec.g726_32.rtpmap = 
+#account.1.codec.g726_40.enable = 
+#account.1.codec.g726_40.priority = 
+#account.1.codec.g726_40.rtpmap= 
+#account.1.codec.ilbc.enable = 
+#account.1.codec.ilbc.priority =
+#account.1.codec.ilbc.rtpmap = 
+#account.1.codec.opus.enable = 
+#account.1.codec.opus.priority = 
+#account.1.codec.opus.rtpmap = 
+#account.1.codec.pcmu.enable = 
+#account.1.codec.pcmu.priority = 
+#account.1.codec.pcma.enable = 
+#account.1.codec.pcma.priority = 
+
+account.1.codec.1.enable=1
+account.1.codec.1.payload_type= %%payload1%%
+account.1.codec.1.priority=1
+account.1.codec.1.rtpmap= %%codec1%%
+
+account.1.codec.2.enable=1
+account.1.codec.2.payload_type= %%payload2%%
+account.1.codec.2.priority=2
+account.1.codec.2.rtpmap= %%codec2%%
+
+account.1.codec.3.enable=1
+account.1.codec.3.payload_type= %%payload3%%
+account.1.codec.3.priority=3
+account.1.codec.3.rtpmap= %%codec3%%
+
+account.1.codec.4.enable=1
+account.1.codec.4.payload_type= %%payload4%%
+account.1.codec.4.priority=4
+account.1.codec.4.rtpmap= %%codec4%%
+
+account.1.codec.5.enable=0
+account.1.codec.5.payload_type=iLBC
+account.1.codec.5.priority=5
+account.1.codec.5.rtpmap=106
+
+account.1.codec.6.enable=0
+account.1.codec.6.payload_type=G726-16
+account.1.codec.6.priority=6
+account.1.codec.6.rtpmap=103
+
+account.1.codec.7.enable=0
+account.1.codec.7.payload_type=G726-24
+account.1.codec.7.priority=7
+account.1.codec.7.rtpmap=104
+
+account.1.codec.8.enable=0
+account.1.codec.8.payload_type=G726-32
+account.1.codec.8.priority=8
+account.1.codec.8.rtpmap=102
+
+account.1.codec.9.enable=0
+account.1.codec.9.payload_type=G726-40
+account.1.codec.9.priority=9
+account.1.codec.9.rtpmap=105
+
+account.1.codec.10.channel=2
+account.1.codec.10.enable=0
+account.1.codec.10.payload_type=opus
+account.1.codec.10.priority=10
+account.1.codec.10.rtpmap=107
+account.1.codec.10.samplerate=48000
+
+account.2.codec.1.enable=1
+account.2.codec.1.payload_type= %%payload1%%
+account.2.codec.1.priority=1
+account.2.codec.1.rtpmap= %%codec1%%
+
+account.2.codec.2.enable=1
+account.2.codec.2.payload_type= %%payload2%%
+account.2.codec.2.priority=2
+account.2.codec.2.rtpmap= %%codec2%%
+
+account.2.codec.3.enable=1
+account.2.codec.3.payload_type= %%payload3%%
+account.2.codec.3.priority=3
+account.2.codec.3.rtpmap= %%codec3%%
+
+account.2.codec.4.enable=1
+account.2.codec.4.payload_type= %%payload4%%
+account.2.codec.4.priority=4
+account.2.codec.4.rtpmap= %%codec4%%
+
+account.2.codec.5.enable=0
+account.2.codec.5.payload_type=iLBC
+account.2.codec.5.priority=5
+account.2.codec.5.rtpmap=106
+
+account.2.codec.6.enable=0
+account.2.codec.6.payload_type=G726-16
+account.2.codec.6.priority=6
+account.2.codec.6.rtpmap=103
+
+account.2.codec.7.enable=0
+account.2.codec.7.payload_type=G726-24
+account.2.codec.7.priority=7
+account.2.codec.7.rtpmap=104
+
+account.2.codec.8.enable=0
+account.2.codec.8.payload_type=G726-32
+account.2.codec.8.priority=8
+account.2.codec.8.rtpmap=102
+
+account.2.codec.9.enable=0
+account.2.codec.9.payload_type=G726-40
+account.2.codec.9.priority=9
+account.2.codec.9.rtpmap=105
+
+account.2.codec.10.channel=2
+account.2.codec.10.enable=0
+account.2.codec.10.payload_type=opus
+account.2.codec.10.priority=10
+account.2.codec.10.rtpmap=107
+account.2.codec.10.samplerate=48000
+
+account.3.codec.1.enable=1
+account.3.codec.1.payload_type= %%payload1%%
+account.3.codec.1.priority=1
+account.3.codec.1.rtpmap= %%codec1%%
+
+account.3.codec.2.enable=1
+account.3.codec.2.payload_type= %%payload2%%
+account.3.codec.2.priority=2
+account.3.codec.2.rtpmap= %%codec2%%
+
+account.3.codec.3.enable=1
+account.3.codec.3.payload_type= %%payload3%%
+account.3.codec.3.priority=3
+account.3.codec.3.rtpmap= %%codec3%%
+
+account.3.codec.4.enable=1
+account.3.codec.4.payload_type= %%payload4%%
+account.3.codec.4.priority=4
+account.3.codec.4.rtpmap= %%codec4%%
+
+account.3.codec.5.enable=0
+account.3.codec.5.payload_type=iLBC
+account.3.codec.5.priority=5
+account.3.codec.5.rtpmap=106
+
+account.3.codec.6.enable=0
+account.3.codec.6.payload_type=G726-16
+account.3.codec.6.priority=6
+account.3.codec.6.rtpmap=103
+
+account.3.codec.7.enable=0
+account.3.codec.7.payload_type=G726-24
+account.3.codec.7.priority=7
+account.3.codec.7.rtpmap=104
+
+account.3.codec.8.enable=0
+account.3.codec.8.payload_type=G726-32
+account.3.codec.8.priority=8
+account.3.codec.8.rtpmap=102
+
+account.3.codec.9.enable=0
+account.3.codec.9.payload_type=G726-40
+account.3.codec.9.priority=9
+account.3.codec.9.rtpmap=105
+
+account.3.codec.10.channel=2
+account.3.codec.10.enable=0
+account.3.codec.10.payload_type=opus
+account.3.codec.10.priority=10
+account.3.codec.10.rtpmap=107
+account.3.codec.10.samplerate=48000
+
+account.4.codec.1.enable=1
+account.4.codec.1.payload_type= %%payload1%%
+account.4.codec.1.priority=1
+account.4.codec.1.rtpmap= %%codec1%%
+
+account.4.codec.2.enable=1
+account.4.codec.2.payload_type= %%payload2%%
+account.4.codec.2.priority=2
+account.4.codec.2.rtpmap= %%codec2%%
+
+account.4.codec.3.enable=1
+account.4.codec.3.payload_type= %%payload3%%
+account.4.codec.3.priority=3
+account.4.codec.3.rtpmap= %%codec3%%
+
+account.4.codec.4.enable=1
+account.4.codec.4.payload_type= %%payload4%%
+account.4.codec.4.priority=4
+account.4.codec.4.rtpmap= %%codec4%%
+
+account.4.codec.5.enable=0
+account.4.codec.5.payload_type=iLBC
+account.4.codec.5.priority=5
+account.4.codec.5.rtpmap=106
+
+account.4.codec.6.enable=0
+account.4.codec.6.payload_type=G726-16
+account.4.codec.6.priority=6
+account.4.codec.6.rtpmap=103
+
+account.4.codec.7.enable=0
+account.4.codec.7.payload_type=G726-24
+account.4.codec.7.priority=7
+account.4.codec.7.rtpmap=104
+
+account.4.codec.8.enable=0
+account.4.codec.8.payload_type=G726-32
+account.4.codec.8.priority=8
+account.4.codec.8.rtpmap=102
+
+account.4.codec.9.enable=0
+account.4.codec.9.payload_type=G726-40
+account.4.codec.9.priority=9
+account.4.codec.9.rtpmap=105
+
+account.4.codec.10.channel=2
+account.4.codec.10.enable=0
+account.4.codec.10.payload_type=opus
+account.4.codec.10.priority=10
+account.4.codec.10.rtpmap=107
+account.4.codec.10.samplerate=48000
+
+account.5.codec.1.enable=1
+account.5.codec.1.payload_type= %%payload1%%
+account.5.codec.1.priority=1
+account.5.codec.1.rtpmap= %%codec1%%
+
+account.5.codec.2.enable=1
+account.5.codec.2.payload_type= %%payload2%%
+account.5.codec.2.priority=2
+account.5.codec.2.rtpmap= %%codec2%%
+
+account.5.codec.3.enable=1
+account.5.codec.3.payload_type= %%payload3%%
+account.5.codec.3.priority=3
+account.5.codec.3.rtpmap= %%codec3%%
+
+account.5.codec.4.enable=1
+account.5.codec.4.payload_type= %%payload4%%
+account.5.codec.4.priority=4
+account.5.codec.4.rtpmap= %%codec4%%
+
+account.5.codec.5.enable=0
+account.5.codec.5.payload_type=iLBC
+account.5.codec.5.priority=5
+account.5.codec.5.rtpmap=106
+
+account.5.codec.6.enable=0
+account.5.codec.6.payload_type=G726-16
+account.5.codec.6.priority=6
+account.5.codec.6.rtpmap=103
+
+account.5.codec.7.enable=0
+account.5.codec.7.payload_type=G726-24
+account.5.codec.7.priority=7
+account.5.codec.7.rtpmap=104
+
+account.5.codec.8.enable=0
+account.5.codec.8.payload_type=G726-32
+account.5.codec.8.priority=8
+account.5.codec.8.rtpmap=102
+
+account.5.codec.9.enable=0
+account.5.codec.9.payload_type=G726-40
+account.5.codec.9.priority=9
+account.5.codec.9.rtpmap=105
+
+account.5.codec.10.channel=2
+account.5.codec.10.enable=0
+account.5.codec.10.payload_type=opus
+account.5.codec.10.priority=10
+account.5.codec.10.rtpmap=107
+account.5.codec.10.samplerate=48000
+
+account.6.codec.1.enable=1
+account.6.codec.1.payload_type= %%payload1%%
+account.6.codec.1.priority=1
+account.6.codec.1.rtpmap= %%codec1%%
+
+account.6.codec.2.enable=1
+account.6.codec.2.payload_type= %%payload2%%
+account.6.codec.2.priority=2
+account.6.codec.2.rtpmap= %%codec2%%
+
+account.6.codec.3.enable=1
+account.6.codec.3.payload_type= %%payload3%%
+account.6.codec.3.priority=3
+account.6.codec.3.rtpmap= %%codec3%%
+
+account.6.codec.4.enable=1
+account.6.codec.4.payload_type= %%payload4%%
+account.6.codec.4.priority=4
+account.6.codec.4.rtpmap= %%codec4%%
+
+account.6.codec.5.enable=0
+account.6.codec.5.payload_type=iLBC
+account.6.codec.5.priority=5
+account.6.codec.5.rtpmap=106
+
+account.6.codec.6.enable=0
+account.6.codec.6.payload_type=G726-16
+account.6.codec.6.priority=6
+account.6.codec.6.rtpmap=103
+
+account.6.codec.7.enable=0
+account.6.codec.7.payload_type=G726-24
+account.6.codec.7.priority=7
+account.6.codec.7.rtpmap=104
+
+account.6.codec.8.enable=0
+account.6.codec.8.payload_type=G726-32
+account.6.codec.8.priority=8
+account.6.codec.8.rtpmap=102
+
+account.6.codec.9.enable=0
+account.6.codec.9.payload_type=G726-40
+account.6.codec.9.priority=9
+account.6.codec.9.rtpmap=105
+
+account.6.codec.10.channel=2
+account.6.codec.10.enable=0
+account.6.codec.10.payload_type=opus
+account.6.codec.10.priority=10
+account.6.codec.10.rtpmap=107
+account.6.codec.10.samplerate=48000
+
+account.7.codec.1.enable=1
+account.7.codec.1.payload_type= %%payload1%%
+account.7.codec.1.priority=1
+account.7.codec.1.rtpmap= %%codec1%%
+
+account.7.codec.2.enable=1
+account.7.codec.2.payload_type= %%payload2%%
+account.7.codec.2.priority=2
+account.7.codec.2.rtpmap= %%codec2%%
+
+account.7.codec.3.enable=1
+account.7.codec.3.payload_type= %%payload3%%
+account.7.codec.3.priority=3
+account.7.codec.3.rtpmap= %%codec3%%
+
+account.7.codec.4.enable=1
+account.7.codec.4.payload_type= %%payload4%%
+account.7.codec.4.priority=4
+account.7.codec.4.rtpmap= %%codec4%%
+
+account.7.codec.5.enable=0
+account.7.codec.5.payload_type=iLBC
+account.7.codec.5.priority=5
+account.7.codec.5.rtpmap=106
+
+account.7.codec.6.enable=0
+account.7.codec.6.payload_type=G726-16
+account.7.codec.6.priority=6
+account.7.codec.6.rtpmap=103
+
+account.7.codec.7.enable=0
+account.7.codec.7.payload_type=G726-24
+account.7.codec.7.priority=7
+account.7.codec.7.rtpmap=104
+
+account.7.codec.8.enable=0
+account.7.codec.8.payload_type=G726-32
+account.7.codec.8.priority=8
+account.7.codec.8.rtpmap=102
+
+account.7.codec.9.enable=0
+account.7.codec.9.payload_type=G726-40
+account.7.codec.9.priority=9
+account.7.codec.9.rtpmap=105
+
+account.7.codec.10.channel=2
+account.7.codec.10.enable=0
+account.7.codec.10.payload_type=opus
+account.7.codec.10.priority=10
+account.7.codec.10.rtpmap=107
+account.7.codec.10.samplerate=48000
+
+account.8.codec.1.enable=1
+account.8.codec.1.payload_type= %%payload1%%
+account.8.codec.1.priority=1
+account.8.codec.1.rtpmap= %%codec1%%
+
+account.8.codec.2.enable=1
+account.8.codec.2.payload_type= %%payload2%%
+account.8.codec.2.priority=2
+account.8.codec.2.rtpmap= %%codec2%%
+
+account.8.codec.3.enable=1
+account.8.codec.3.payload_type= %%payload3%%
+account.8.codec.3.priority=3
+account.8.codec.3.rtpmap= %%codec3%%
+
+account.8.codec.4.enable=1
+account.8.codec.4.payload_type= %%payload4%%
+account.8.codec.4.priority=4
+account.8.codec.4.rtpmap= %%codec4%%
+
+account.8.codec.5.enable=0
+account.8.codec.5.payload_type=iLBC
+account.8.codec.5.priority=5
+account.8.codec.5.rtpmap=106
+
+account.8.codec.6.enable=0
+account.8.codec.6.payload_type=G726-16
+account.8.codec.6.priority=6
+account.8.codec.6.rtpmap=103
+
+account.8.codec.7.enable=0
+account.8.codec.7.payload_type=G726-24
+account.8.codec.7.priority=7
+account.8.codec.7.rtpmap=104
+
+account.8.codec.8.enable=0
+account.8.codec.8.payload_type=G726-32
+account.8.codec.8.priority=8
+account.8.codec.8.rtpmap=102
+
+account.8.codec.9.enable=0
+account.8.codec.9.payload_type=G726-40
+account.8.codec.9.priority=9
+account.8.codec.9.rtpmap=105
+
+account.8.codec.10.channel=2
+account.8.codec.10.enable=0
+account.8.codec.10.payload_type=opus
+account.8.codec.10.priority=10
+account.8.codec.10.rtpmap=107
+account.8.codec.10.samplerate=48000
+
+
+account.9.codec.1.enable=1
+account.9.codec.1.payload_type= %%payload1%%
+account.9.codec.1.priority=1
+account.9.codec.1.rtpmap= %%codec1%%
+
+account.9.codec.2.enable=1
+account.9.codec.2.payload_type= %%payload2%%
+account.9.codec.2.priority=2
+account.9.codec.2.rtpmap= %%codec2%%
+
+account.9.codec.3.enable=1
+account.9.codec.3.payload_type= %%payload3%%
+account.9.codec.3.priority=3
+account.9.codec.3.rtpmap= %%codec3%%
+
+account.9.codec.4.enable=1
+account.9.codec.4.payload_type= %%payload4%%
+account.9.codec.4.priority=4
+account.9.codec.4.rtpmap= %%codec4%%
+
+account.9.codec.5.enable=0
+account.9.codec.5.payload_type=iLBC
+account.9.codec.5.priority=5
+account.9.codec.5.rtpmap=106
+
+account.9.codec.6.enable=0
+account.9.codec.6.payload_type=G726-16
+account.9.codec.6.priority=6
+account.9.codec.6.rtpmap=103
+
+account.9.codec.7.enable=0
+account.9.codec.7.payload_type=G726-24
+account.9.codec.7.priority=7
+account.9.codec.7.rtpmap=104
+
+account.9.codec.8.enable=0
+account.9.codec.8.payload_type=G726-32
+account.9.codec.8.priority=8
+account.9.codec.8.rtpmap=102
+
+account.9.codec.9.enable=0
+account.9.codec.9.payload_type=G726-40
+account.9.codec.9.priority=9
+account.9.codec.9.rtpmap=105
+
+account.9.codec.10.channel=2
+account.9.codec.10.enable=0
+account.9.codec.10.payload_type=opus
+account.9.codec.10.priority=10
+account.9.codec.10.rtpmap=107
+account.9.codec.10.samplerate=48000
+
+
+account.10.codec.1.enable=1
+account.10.codec.1.payload_type= %%payload1%%
+account.10.codec.1.priority=1
+account.10.codec.1.rtpmap= %%codec1%%
+
+account.10.codec.2.enable=1
+account.10.codec.2.payload_type= %%payload2%%
+account.10.codec.2.priority=2
+account.10.codec.2.rtpmap= %%codec2%%
+
+account.10.codec.3.enable=1
+account.10.codec.3.payload_type= %%payload3%%
+account.10.codec.3.priority=3
+account.10.codec.3.rtpmap= %%codec3%%
+
+account.10.codec.4.enable=1
+account.10.codec.4.payload_type= %%payload4%%
+account.10.codec.4.priority=4
+account.10.codec.4.rtpmap= %%codec4%%
+
+account.10.codec.5.enable=0
+account.10.codec.5.payload_type=iLBC
+account.10.codec.5.priority=5
+account.10.codec.5.rtpmap=106
+
+account.10.codec.6.enable=0
+account.10.codec.6.payload_type=G726-16
+account.10.codec.6.priority=6
+account.10.codec.6.rtpmap=103
+
+account.10.codec.7.enable=0
+account.10.codec.7.payload_type=G726-24
+account.10.codec.7.priority=7
+account.10.codec.7.rtpmap=104
+
+account.10.codec.8.enable=0
+account.10.codec.8.payload_type=G726-32
+account.10.codec.8.priority=8
+account.10.codec.8.rtpmap=102
+
+account.10.codec.9.enable=0
+account.10.codec.9.payload_type=G726-40
+account.10.codec.9.priority=9
+account.10.codec.9.rtpmap=105
+
+account.10.codec.10.channel=2
+account.10.codec.10.enable=0
+account.10.codec.10.payload_type=opus
+account.10.codec.10.priority=10
+account.10.codec.10.rtpmap=107
+account.10.codec.10.samplerate=48000
+
+#########################################################################
+##                     Handsets Configuration                          ##
+#########################################################################
+phone_setting.max_number_of_handset = 10
+
+account.1.bHandsetEnable = %%ext_01_enabled%%
+handset.1.name = %%ext_int_num_01%%
+account.1.nOutGoinglineId = 1
+account.1.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.1.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.1.dial_out_default_line = 1
+
+account.2.bHandsetEnable = %%ext_02_enabled%%
+handset.2.name = %%ext_int_num_02%%
+account.2.nOutGoinglineId = 2
+account.2.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.2.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.2.dial_out_default_line = 2
+
+account.3.bHandsetEnable = %%ext_03_enabled%%
+handset.3.name = %%ext_int_num_03%%
+account.3.nOutGoinglineId = 3
+account.3.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.3.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.3.dial_out_default_line = 3
+
+account.4.bHandsetEnable = %%ext_04_enabled%%
+handset.4.name = %%ext_int_num_04%%
+account.4.nOutGoinglineId = 4
+account.4.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.4.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.4.dial_out_default_line = 4
+
+account.5.bHandsetEnable = %%ext_05_enabled%%
+handset.5.name = %%ext_int_num_05%%
+account.5.nOutGoinglineId = 5
+account.5.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.5.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.5.dial_out_default_line = 5
+
+account.6.bHandsetEnable = %%ext_06_enabled%%
+handset.6.name = %%ext_int_num_06%%
+account.6.nOutGoinglineId = 6
+account.6.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.6.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.6.dial_out_default_line = 6
+
+account.7.bHandsetEnable = %%ext_07_enabled%%
+handset.7.name = %%ext_int_num_07%%
+account.7.nOutGoinglineId = 7
+account.7.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.7.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.7.dial_out_default_line = 7
+
+account.8.bHandsetEnable = %%ext_08_enabled%%
+handset.8.name = %%ext_int_num_08%%
+account.8.nOutGoinglineId = 8
+account.8.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.8.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.8.dial_out_default_line = 8
+
+account.9.bHandsetEnable = %%ext_09_enabled%%
+handset.9.name = %%ext_int_num_09%%
+account.9.nOutGoinglineId = 9
+account.9.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.9.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.9.dial_out_default_line = 9
+
+account.10.bHandsetEnable = %%ext_10_enabled%%
+handset.10.name = %%ext_int_num_10%%
+account.10.nOutGoinglineId = 10
+account.10.strIncomingLines = 1,2,3,4,5,6,7,8,9
+account.10.strOutgoingLines = 1,2,3,4,5,6,7,8,9
+handset.10.dial_out_default_line = 10
+
+
+#######################################################################################
+##                          DND                                                      ##                                       
+#######################################################################################
+
+#Enable or disable the DND feautre for account1; 0-Disabled (default), 1-Enabled;
+account.1.dnd.enable = 
+
+#Configure the DND on code and off code for account1.
+account.1.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.1.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.2.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.2.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.3.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.3.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.4.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.4.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.5.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.5.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.6.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.6.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.7.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.7.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.8.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.8.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.9.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.9.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+account.10.dnd.on_code = %%param::DIALCODEPROFILE%%2
+account.10.dnd.off_code = %%param::DIALCODEPROFILE%%0
+
+#######################################################################################
+##         	                   Language Settings                                     ##       
+#######################################################################################
+
+#Specify the web language, the valid values are: English, Chinese_S, Turkish, Portuguese, Spanish, Italian, French, Russian, Deutsch and Czech.
+lang.wui = %%langwebUI%%
+
+#######################################################################################
+##         	    Remote phonebook                                                     ##
+#######################################################################################
+{IF network=LOCALLAN}
+directory_setting.url = %%PROVLINKLOCAL%%/Directory_setting.xml
+{ELSE}
+directory_setting.url = %%PROVLINK%%/Directory_setting.xml
+{ENDIF}
+
+#Configure the access URL and dispaly name of the remote phonebook.
+#remote_phonebook.data.1.url =   
+#remote_phonebook.data.1.name =
+
+#Configure the update interval (in minutes) when using the server,It ranges from 60 to 86400
+#directory.update_time_interval = 
+
+{IF network=LOCALLAN}
+remote_phonebook.data.1.url = %%PROVLINKLOCAL%%/yealink_phonebook.xml
+{ELSE}
+remote_phonebook.data.1.url = %%PROVLINK%%/yealink_phonebook.xml
+{ENDIF}
+remote_phonebook.data.1.name = 3CX Phonebook 
+
+
+]]></deviceconfig>
+    </device>
+  </data>
+</doc>
