@@ -1,0 +1,1285 @@
+Testing: northwestelectric.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for northwestelectric.bvoip.net:4980: 03/05/2024 13:36:08
+Testing Endpoint: xapi/global/peers
+200 OK (770 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (153 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+400 BadRequest (160 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (157 ms) Items count: 7
+
+Testing Endpoint: xapi/users
+200 OK (317 ms) Items count: 77
+
+Testing Endpoint: xapi/ring-groups
+200 OK (163 ms) Items count: 19
+
+Testing Endpoint: xapi/queues
+200 OK (169 ms) Items count: 3
+
+Testing Endpoint: xapi/ivr
+200 OK (154 ms) Items count: 21
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (159 ms) Items count: 7
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (194 ms) Items count: 12
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (166 ms) Items count: 22
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (155 ms) Items count: 5
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (155 ms)  4 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1227 ms) Items count: 1065
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (155 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (154 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: aspcares.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for aspcares.bvoip.net:4980: 03/05/2024 13:36:13
+Testing Endpoint: xapi/global/peers
+200 OK (779 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (149 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (195 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (157 ms) Items count: 5
+
+Testing Endpoint: xapi/users
+200 OK (164 ms) Items count: 34
+
+Testing Endpoint: xapi/ring-groups
+200 OK (161 ms) Items count: 4
+
+Testing Endpoint: xapi/queues
+200 OK (155 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (155 ms) Items count: 8
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (156 ms) Items count: 7
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (192 ms) Items count: 19
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (168 ms) Items count: 32
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (154 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (155 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1659 ms) Items count: 1030
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (155 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (153 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: adamirealty.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for adamirealty.bvoip.net:4980: 03/05/2024 13:36:18
+Testing Endpoint: xapi/global/peers
+200 OK (731 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (154 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (233 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (166 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (172 ms) Items count: 10
+
+Testing Endpoint: xapi/ring-groups
+200 OK (163 ms) Items count: 0
+
+Testing Endpoint: xapi/queues
+200 OK (163 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (164 ms) Items count: 5
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (169 ms) Items count: 3
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (193 ms) Items count: 7
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (189 ms) Items count: 15
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (162 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (163 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1277 ms) Items count: 1006
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (163 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (160 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: bss.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for bss.bvoip.net:4980: 03/05/2024 13:36:23
+Testing Endpoint: xapi/global/peers
+200 OK (739 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (159 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (217 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (169 ms) Items count: 14
+
+Testing Endpoint: xapi/users
+200 OK (176 ms) Items count: 31
+
+Testing Endpoint: xapi/ring-groups
+200 OK (174 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (166 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (167 ms) Items count: 5
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (176 ms) Items count: 3
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (197 ms) Items count: 10
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (179 ms) Items count: 17
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (164 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (167 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1484 ms) Items count: 1029
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (166 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (165 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: denveracousticsanddrywall.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for denveracousticsanddrywall.bvoip.net:4980: 03/05/2024 13:36:28
+Testing Endpoint: xapi/global/peers
+200 OK (719 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (152 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (229 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (173 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (170 ms) Items count: 9
+
+Testing Endpoint: xapi/ring-groups
+200 OK (174 ms) Items count: 3
+
+Testing Endpoint: xapi/queues
+200 OK (164 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (162 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (165 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (202 ms) Items count: 6
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (177 ms) Items count: 14
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (160 ms) Items count: 2
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (160 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1486 ms) Items count: 1018
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (160 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (159 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: hickslp.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for hickslp.bvoip.net:4980: 03/05/2024 13:36:32
+Testing Endpoint: xapi/global/peers
+200 OK (722 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (146 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (216 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (157 ms) Items count: 4
+
+Testing Endpoint: xapi/users
+200 OK (309 ms) Items count: 41
+
+Testing Endpoint: xapi/ring-groups
+200 OK (169 ms) Items count: 6
+
+Testing Endpoint: xapi/queues
+200 OK (176 ms) Items count: 4
+
+Testing Endpoint: xapi/ivr
+200 OK (155 ms) Items count: 5
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (158 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (193 ms) Items count: 46
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (167 ms) Items count: 17
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (153 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (156 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1657 ms) Items count: 1023
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (154 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (152 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: btlawokc.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for btlawokc.bvoip.net:4980: 03/05/2024 13:36:37
+Testing Endpoint: xapi/global/peers
+200 OK (757 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (150 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (225 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (165 ms) Items count: 2
+
+Testing Endpoint: xapi/users
+200 OK (177 ms) Items count: 26
+
+Testing Endpoint: xapi/ring-groups
+200 OK (170 ms) Items count: 2
+
+Testing Endpoint: xapi/queues
+200 OK (165 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (166 ms) Items count: 6
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (160 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (210 ms) Items count: 27
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (177 ms) Items count: 17
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (162 ms) Items count: 2
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (162 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1544 ms) Items count: 1036
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (156 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (155 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: itglue.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for itglue.bvoip.net:4980: 03/05/2024 13:36:42
+Testing Endpoint: xapi/global/peers
+200 OK (736 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (158 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+400 BadRequest (172 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (168 ms) Items count: 2
+
+Testing Endpoint: xapi/users
+200 OK (351 ms) Items count: 96
+
+Testing Endpoint: xapi/ring-groups
+200 OK (167 ms) Items count: 0
+
+Testing Endpoint: xapi/queues
+200 OK (184 ms) Items count: 7
+
+Testing Endpoint: xapi/ivr
+200 OK (166 ms) Items count: 7
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (168 ms) Items count: 3
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (199 ms) Items count: 53
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (177 ms) Items count: 25
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (164 ms) Items count: 1
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (166 ms)  4 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1444 ms) Items count: 1010
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (165 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (162 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: lewisandpassons.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for lewisandpassons.bvoip.net:4980: 03/05/2024 13:36:47
+Testing Endpoint: xapi/global/peers
+200 OK (752 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (153 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+400 BadRequest (173 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (164 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (175 ms) Items count: 17
+
+Testing Endpoint: xapi/ring-groups
+200 OK (171 ms) Items count: 2
+
+Testing Endpoint: xapi/queues
+200 OK (162 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (163 ms) Items count: 5
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (166 ms) Items count: 3
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (193 ms) Items count: 10
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (173 ms) Items count: 15
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (159 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (160 ms)  4 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1715 ms) Items count: 1005
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (163 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (159 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: lyrictheatre.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for lyrictheatre.bvoip.net:4980: 03/05/2024 13:36:52
+Testing Endpoint: xapi/global/peers
+200 OK (761 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (153 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (232 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (170 ms) Items count: 4
+
+Testing Endpoint: xapi/users
+200 OK (339 ms) Items count: 35
+
+Testing Endpoint: xapi/ring-groups
+200 OK (175 ms) Items count: 7
+
+Testing Endpoint: xapi/queues
+200 OK (190 ms) Items count: 2
+
+Testing Endpoint: xapi/ivr
+200 OK (163 ms) Items count: 13
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (165 ms) Items count: 4
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (205 ms) Items count: 11
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (177 ms) Items count: 29
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (161 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (163 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1262 ms) Items count: 1045
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (160 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (158 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: oeservices.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for oeservices.bvoip.net:4980: 03/05/2024 13:36:57
+Testing Endpoint: xapi/global/peers
+200 OK (685 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (146 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (199 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (158 ms) Items count: 2
+
+Testing Endpoint: xapi/users
+200 OK (164 ms) Items count: 34
+
+Testing Endpoint: xapi/ring-groups
+200 OK (162 ms) Items count: 4
+
+Testing Endpoint: xapi/queues
+200 OK (155 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (154 ms) Items count: 6
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (155 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (193 ms) Items count: 3
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (165 ms) Items count: 15
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (152 ms) Items count: 1
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (154 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1344 ms) Items count: 1020
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (153 ms) Items count: 32
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (151 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: ramservices.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for ramservices.bvoip.net:4980: 03/05/2024 13:37:01
+Testing Endpoint: xapi/global/peers
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+-  | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/ring-groups
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/queues
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/ivr
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/sip-trunks
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/inbound-rules
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/outbound-rules
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/emergency-rules
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/global/ext-digit-length
+HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (ramservices.bvoip.net:4980)
+Testing: northshoreeyeassociates.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for northshoreeyeassociates.bvoip.net:4980: 03/05/2024 14:12:50
+Testing Endpoint: xapi/global/peers
+200 OK (1608 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (208 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+400 BadRequest (364 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (217 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (508 ms) Items count: 47
+
+Testing Endpoint: xapi/ring-groups
+200 OK (224 ms) Items count: 5
+
+Testing Endpoint: xapi/queues
+200 OK (258 ms) Items count: 5
+
+Testing Endpoint: xapi/ivr
+200 OK (224 ms) Items count: 11
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (220 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (562 ms) Items count: 4
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (229 ms) Items count: 11
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (199 ms) Items count: 1
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (195 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (2152 ms) Items count: 1046
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (198 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (194 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: denalitek.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for denalitek.bvoip.net:4980: 03/05/2024 14:12:58
+Testing Endpoint: xapi/global/peers
+200 OK (1178 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (205 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (292 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (205 ms) Items count: 2
+
+Testing Endpoint: xapi/users
+200 OK (288 ms) Items count: 17
+
+Testing Endpoint: xapi/ring-groups
+200 OK (204 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (194 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (199 ms) Items count: 7
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (194 ms) Items count: 3
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (290 ms) Items count: 17
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (204 ms) Items count: 12
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (190 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (190 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (2087 ms) Items count: 1039
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (190 ms) Items count: 32
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (222 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: sirkit.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for sirkit.bvoip.net:4980: 03/05/2024 14:13:05
+Testing Endpoint: xapi/global/peers
+200 OK (855 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (193 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (253 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (196 ms) Items count: 7
+
+Testing Endpoint: xapi/users
+200 OK (402 ms) Items count: 37
+
+Testing Endpoint: xapi/ring-groups
+200 OK (201 ms) Items count: 3
+
+Testing Endpoint: xapi/queues
+200 OK (213 ms) Items count: 2
+
+Testing Endpoint: xapi/ivr
+200 OK (197 ms) Items count: 8
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (199 ms) Items count: 3
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (228 ms) Items count: 20
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (207 ms) Items count: 14
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (222 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (193 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1938 ms) Items count: 1043
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (193 ms) Items count: 32
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (201 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: creaimmigration.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for creaimmigration.bvoip.net:4980: 03/05/2024 14:13:11
+Testing Endpoint: xapi/global/peers
+200 OK (1500 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (195 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+400 BadRequest (310 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (215 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (316 ms) Items count: 16
+
+Testing Endpoint: xapi/ring-groups
+200 OK (216 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (199 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (198 ms) Items count: 5
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (223 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (359 ms) Items count: 5
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (215 ms) Items count: 10
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (191 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (196 ms)  2 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (2057 ms) Items count: 1030
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (195 ms) Items count: 31
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (204 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: brooksrangesupply.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for brooksrangesupply.bvoip.net:4980: 03/05/2024 14:13:18
+Testing Endpoint: xapi/global/peers
+200 OK (2060 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (207 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+400 BadRequest (416 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (240 ms) Items count: 7
+
+Testing Endpoint: xapi/users
+200 OK (563 ms) Items count: 34
+
+Testing Endpoint: xapi/ring-groups
+200 OK (259 ms) Items count: 5
+
+Testing Endpoint: xapi/queues
+200 OK (330 ms) Items count: 2
+
+Testing Endpoint: xapi/ivr
+200 OK (201 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (242 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (431 ms) Items count: 28
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (218 ms) Items count: 11
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (200 ms) Items count: 1
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (213 ms)  4 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1867 ms) Items count: 1022
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (202 ms) Items count: 32
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (201 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: felixbvoiptest.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for felixbvoiptest.bvoip.net:4980: 03/05/2024 14:13:26
+Testing Endpoint: xapi/global/peers
+200 OK (1534 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (185 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (413 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (199 ms) Items count: 2
+
+Testing Endpoint: xapi/users
+200 OK (206 ms) Items count: 18
+
+Testing Endpoint: xapi/ring-groups
+200 OK (203 ms) Items count: 2
+
+Testing Endpoint: xapi/queues
+200 OK (242 ms) Items count: 1
+
+Testing Endpoint: xapi/ivr
+200 OK (195 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (208 ms) Items count: 4
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (355 ms) Items count: 3
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (207 ms) Items count: 9
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (191 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (199 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (2099 ms) Items count: 1020
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (193 ms) Items count: 34
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (190 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: boseckelawllp.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for boseckelawllp.bvoip.net:4980: 03/05/2024 14:13:33
+Testing Endpoint: xapi/global/peers
+200 OK (1292 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (217 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (359 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (196 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (266 ms) Items count: 30
+
+Testing Endpoint: xapi/ring-groups
+200 OK (190 ms) Items count: 0
+
+Testing Endpoint: xapi/queues
+200 OK (193 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (194 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (193 ms) Items count: 3
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (328 ms) Items count: 42
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (203 ms) Items count: 10
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (189 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (190 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1687 ms) Items count: 1013
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (191 ms) Items count: 33
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (191 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: prowsechowne.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for prowsechowne.bvoip.net:4980: 03/05/2024 14:13:39
+Testing Endpoint: xapi/global/peers
+200 OK (862 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (186 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (251 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (198 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (393 ms) Items count: 58
+
+Testing Endpoint: xapi/ring-groups
+200 OK (207 ms) Items count: 2
+
+Testing Endpoint: xapi/queues
+200 OK (216 ms) Items count: 2
+
+Testing Endpoint: xapi/ivr
+200 OK (195 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (197 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (274 ms) Items count: 30
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (206 ms) Items count: 11
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (195 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (195 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1935 ms) Items count: 1017
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (195 ms) Items count: 33
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (191 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: bishopandmckenzie.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for bishopandmckenzie.bvoip.net:4980: 03/05/2024 14:13:45
+Testing Endpoint: xapi/global/peers
+200 OK (833 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (185 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+400 BadRequest (198 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (194 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (575 ms) Items count: 104
+
+Testing Endpoint: xapi/ring-groups
+200 OK (191 ms) Items count: 0
+
+Testing Endpoint: xapi/queues
+200 OK (214 ms) Items count: 4
+
+Testing Endpoint: xapi/ivr
+200 OK (193 ms) Items count: 7
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (194 ms) Items count: 3
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (267 ms) Items count: 147
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (398 ms) Items count: 108
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (190 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (192 ms)  4 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1925 ms) Items count: 1010
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (195 ms) Items count: 33
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (190 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: thelawclinic.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for thelawclinic.bvoip.net:4980: 03/05/2024 14:13:51
+Testing Endpoint: xapi/global/peers
+200 OK (992 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (187 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (326 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (199 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (206 ms) Items count: 5
+
+Testing Endpoint: xapi/ring-groups
+200 OK (205 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (197 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (195 ms) Items count: 4
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (197 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (349 ms) Items count: 2
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (272 ms) Items count: 8
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (195 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (194 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1986 ms) Items count: 967
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (194 ms) Items count: 1
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (194 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session
+Testing: dussaultlaw.bvoip.net:4980
+Starting tests...
+Start Testing all endpoints for dussaultlaw.bvoip.net:4980: 03/05/2024 14:13:58
+Testing Endpoint: xapi/global/peers
+200 OK (1004 ms) - bvtcx_api.Test+Peers | Items count: 1
+
+Testing Endpoint: /xapi/users/100/parameters
+404 NotFound (186 ms) Error: No items to display (items list is null).
+
+Testing Endpoint: xapi/users/100
+200 OK (279 ms) Counting skipped: Single object endpoint. 
+
+Testing Endpoint: xapi/groups
+200 OK (197 ms) Items count: 1
+
+Testing Endpoint: xapi/users
+200 OK (203 ms) Items count: 3
+
+Testing Endpoint: xapi/ring-groups
+200 OK (208 ms) Items count: 1
+
+Testing Endpoint: xapi/queues
+200 OK (198 ms) Items count: 0
+
+Testing Endpoint: xapi/ivr
+200 OK (194 ms) Items count: 3
+
+Testing Endpoint: xapi/sip-trunks
+200 OK (222 ms) Items count: 2
+
+Testing Endpoint: xapi/inbound-rules
+200 OK (306 ms) Items count: 2
+
+Testing Endpoint: xapi/outbound-rules
+200 OK (206 ms) Items count: 8
+
+Testing Endpoint: xapi/emergency-rules
+200 OK (193 ms) Items count: 0
+
+Testing Endpoint: xapi/global/ext-digit-length
+200 OK (193 ms)  3 | Items count: 1
+
+Testing Endpoint: xapi/parameters
+200 OK (1773 ms) Items count: 964
+
+Testing Endpoint: xapi/parameters/search/X_BVOIP
+200 OK (193 ms) Items count: 0
+
+Testing Endpoint: xapi/parameters/DEFAULT_CONFIGURED_PUBLIC_IP
+200 OK (191 ms) Items count: 1
+
+All endpoint tests completed.
+
+---------------------
+
+End of Testing Session

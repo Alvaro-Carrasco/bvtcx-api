@@ -73,6 +73,130 @@
         }
       }
     },
+    "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\BvoipUtils\\BvoipUtils.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\BvoipUtils\\BvoipUtils.csproj",
+        "projectName": "BvoipUtils",
+        "projectPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\BvoipUtils\\BvoipUtils.csproj",
+        "packagesPath": "C:\\Users\\AlvaroCarrasco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\BvoipUtils\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AlvaroCarrasco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\LIB_Utils\\LIB_Utils.csproj": {
+                "projectPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\LIB_Utils\\LIB_Utils.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "SSH.NET": {
+              "target": "Package",
+              "version": "[2023.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.313\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\LIB_Utils\\LIB_Utils.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\LIB_Utils\\LIB_Utils.csproj",
+        "projectName": "LIB_Utils",
+        "projectPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\LIB_Utils\\LIB_Utils.csproj",
+        "packagesPath": "C:\\Users\\AlvaroCarrasco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\LIB_Utils\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AlvaroCarrasco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.313\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\bvtcx-api\\bvtcx-api.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -99,6 +223,9 @@
             "projectReferences": {
               "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\BvoipModels\\BvoipModels.csproj": {
                 "projectPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\BvoipModels\\BvoipModels.csproj"
+              },
+              "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\DB_Global\\DB_Global.csproj": {
+                "projectPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\DB_Global\\DB_Global.csproj"
               }
             }
           }
@@ -112,6 +239,133 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.313\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\DB_Global\\DB_Global.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\DB_Global\\DB_Global.csproj",
+        "projectName": "DB_Global",
+        "projectPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\DB_Global\\DB_Global.csproj",
+        "packagesPath": "C:\\Users\\AlvaroCarrasco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\DB_Global\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AlvaroCarrasco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\BvoipUtils\\BvoipUtils.csproj": {
+                "projectPath": "C:\\Users\\AlvaroCarrasco\\Documents\\OneDrive - Bardissi Enterprises, LLC\\Documents\\CODE\\bvtcx-api\\BVOIP_TOOLS\\BvoipUtils\\BvoipUtils.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
